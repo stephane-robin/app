@@ -2,6 +2,11 @@
 <html>
 <body>
 
+
+<!--
+	TEST POUR GIT 
+-->
+
 <?php 
 session_start();
 error_reporting(E_ALL);
