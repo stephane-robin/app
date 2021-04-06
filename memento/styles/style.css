@@ -1,6 +1,8 @@
-/* === BODY === */
+/* CSS FOR MEMENTO */
 
+/* === BODY === */
 body{
+  background-image: url("fond.jpg");
   counter-reset: compteur_titre;
 }
 
@@ -10,12 +12,14 @@ header{
   /* couleur de fond dégradée avec opacité */
   /*background-image:linear-gradient(90deg, #004080, #ff8000);
   /* force le background a occuper toute la largeur et pas uniquement
-     ou se trouve le texte */
-     background: linear-gradient(to left, #007a99, 10%, #660029, #e62e00);
+     ou se trouve le texte 
+     background: linear-gradient(to left, #007a99, 10%, #660029, #e62e00);*/
+  background-image: linear-gradient(to top left, black 60%, red);
+  opacity: 0.6;
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-bottom: 3px solid rgba(85, 85, 85, 0.3);
+  /*border-bottom: 3px solid rgba(85, 85, 85, 0.3);*/
 }
 
 /* conteneur du menu, identifiant hérite de nav */
@@ -131,7 +135,7 @@ aside nav a{
 h1{
   font-family: Arial, Cambria, Verdana;
   font-size: 2em;
-  color: white;
+  color: red;
   text-shadow: 2px 2px #555;
   margin: 1%;
   margin-left: 2%;
@@ -185,9 +189,9 @@ h5{
 
 #principal{
   /*background-image:linear-gradient(90deg, #0059b3, #ff9933);/* couleur
-  de font dégradée avec opacité */
+  de font dégradée avec opacité 
   background: linear-gradient(200deg, #2e2e1f 50%, #99003d 20%, #ff471a);
-
+*/
   width: 100%; /* force le background à occuper toute la largeur */
   display: flex;
   flex-direction: row;
@@ -225,7 +229,6 @@ h5{
 
 /* section dans laquelle se trouve tout le contenu */
 #contenu{
-
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   box-shadow: 1px 8px 12px #555;
@@ -270,12 +273,20 @@ footer p{
   font-size: 1.1em;
 }
 
-/* pied de page, classe hérite de footer */
+/* pied de page, classe hérite de footer 
 .piedPage{
   height: 60%;
   background-color: #2e2e1f;
   display: flex;
   flex-direction: row;
+}*/
+.piedPage{
+  height: 60%;
+  background-image: linear-gradient(to bottom right, black 80%, red);
+  opacity: 0.6;
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
 }
 
 .piedPageParagraphe{

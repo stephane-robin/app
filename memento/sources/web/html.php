@@ -2,18 +2,14 @@
 <!DOCTYPE HTML>
 <html>
 
-<head>
-  <title> Improve your skills </title>
-  <link rel="stylesheet" href="../../style/style.css">
-  <link rel="stylesheet" href="../../style/prism.css">
-    <link rel="icon"
-          type="image/png"
-          href="../../images/general/symbole.png">
-  <meta charset="utf-8">
-</head>
+<!-- HEAD -->
+<?php include "head.html"; ?>
+
 
 <!-- JavaScript de gestion des couleurs de code -->
-<script defer src="../../style/prism.js"></script>
+<script defer src="../../styles/prism.js"></script>
+
+<?php include "fonctionsJS.html"; ?>
 
 <!-- script de gestion de l'apparition du contenu d'une section
      utile comme exemple dans le paragraphe traitant ce sujet -->
@@ -29,28 +25,16 @@ function affichageConditionnel(bouton, id) {
     }
 }</script>
 
+<!-- BODY -->
 <body>
 
-<header>
-    <h1> ToKen </h1>
-    <nav id="bandeau">
-        <div class="contour_a">
-            <a class="element" href="html.html">HTML</a>
-        </div>
-        <div class="contour_a">
-            <a class="element" href="css.html">CSS</a>
-        </div>
-        <div class="contour_a">
-            <a class="element" href="javascript.html">JAVASCRIPT</a>
-        </div>
-        <div class="contour_a">
-            <a class="element" href="php.html">PHP</a>
-        </div>
-    </nav>
-</header>
+<!-- HEADER -->
+<?php include "header.html"; ?>
 
+<!-- PRINCIPAL -->
 <section id="principal">
 
+<!-- TABLE MATIERES -->
 <aside id="table_matieres">
     <nav>
         <a href="#structure">Structure d'une page HTML</a>
@@ -71,8 +55,10 @@ function affichageConditionnel(bouton, id) {
     </nav>
 </aside>
 
+<!-- GRAND CONTENU -->
 <section id="grandContenu">
 
+<!-- BANDEAU -->
   <h2>HTML</h2>
 
     <div id="bandeau_sousTitre">
@@ -83,6 +69,7 @@ function affichageConditionnel(bouton, id) {
     <p>L'essentiel du savoir-faire</p>
   </div>
 
+  <!-- CONTENU -->
   <section id="contenu">
 
     <div class="bloc">
@@ -1363,8 +1350,10 @@ INSERER UNE VIDEO
 
     <a href="#titreSite" style="margin-left:30%;">&#128314; Haut de page &#128314;</a>
 
-</section> <!-- fin contenu -->
-          </section>  <!-- fin grandContenu -->
+<!-- END CONTENU -->
+</section>
+<!-- END GRAND CONTENU -->
+</section> 
 
 <aside id="chapitres">
   <nav>
@@ -1376,50 +1365,12 @@ INSERER UNE VIDEO
   </nav>
 </aside>
 
-</section> <!-- fin principal -->
-
-<!-- footer -->
-
+<!-- END PRINCIPAL -->
+</section>
 
 
-<footer class="piedPage">
-    <div class="footerColumn">
-        <p class="piedPageTitre">Liens utiles</p>
-        <nav>
-            <a class="footerNav" href="https://www.w3schools.com/" target="_blank">W3school</a>
-            <a class="footerNav" href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">Color picker</a>
-        </nav>
-    </div>
-
-    <div class="footerColumn">
-        <p class="piedPageTitre">Liens utiles</p>
-        <nav>
-            <a class="footerNav" href="https://realpython.com/" target="_blank">Real python</a>
-            <a class="footerNav" href="https://docs.python.org/3/" target="_blank">Doc python</a>
-        </nav>
-    </div>
-
-    <div class="LargeFooterColumn">
-        <p class="piedPageTitre">Mentions légales</p>
-
-        <nav>
-            <a class="footerNav" href="" target="_blank">Politique de confidentialité</a>
-            <a class="footerNav" href="" target="_blank">Conditions d'utilisation</a>
-            <p class="piedPageParagraphe">&copy 2021 ToKen</p>
-
-        </nav>
-    </div>
-
-    <div class="largeFooterColumn">
-        <p class="piedPageTitre">Au sujet de l'auteur</p>
-        <p class="piedPageParagraphe"><strong>S. Robin :</strong><br/>
-            Professeur d'informatique et développeur passionné par les possibiltés incroyables des langages informatiques.</p>
-
-    </div>
-
-</footer>
-
-
+<!-- FOOTER -->
+<?php include "footer.html"; ?>
 
 </body>
 </html>
