@@ -1,9 +1,8 @@
-<!-- HTML -->
 <!DOCTYPE HTML>
 <html>
 
 <!-- HEAD -->
-<?php include "head.html"; ?>
+<?php include "../general/head.html"; ?>
 
 
 <!-- JavaScript de gestion des couleurs de code -->
@@ -67,6 +66,9 @@ function affichageConditionnel(bouton, id) {
 
   <div id="bandeau_contenu">
     <p>L'essentiel du savoir-faire</p>
+  </div>
+
+  <div id="bandeau_controle">
   </div>
 
   <!-- CONTENU -->
@@ -1350,11 +1352,11 @@ INSERER UNE VIDEO
 
     <a href="#titreSite" style="margin-left:30%;">&#128314; Haut de page &#128314;</a>
 
-<!-- END CONTENU -->
-</section>
-<!-- END GRAND CONTENU -->
-</section> 
+</section> <!-- END CONTENU -->
+</section> <!-- END GRAND CONTENU -->
+</section> <!-- END PRINCIPAL -->
 
+<!--
 <aside id="chapitres">
   <nav>
     <fieldset2>
@@ -1364,13 +1366,12 @@ INSERER UNE VIDEO
     </fieldset2>
   </nav>
 </aside>
+-->
 
-<!-- END PRINCIPAL -->
-</section>
 
 
 <!-- FOOTER -->
-<?php include "footer.html"; ?>
+<?php include("../../general/footer.html"); ?>
 
 </body>
 </html>

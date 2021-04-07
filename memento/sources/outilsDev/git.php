@@ -5,7 +5,7 @@
 <?php include "../../general/head.html"; ?>
 
 <!-- script de gestion des couleurs de code -->
-<script defer src="prism.js"></script>
+<script defer src="../../styles/prism.js"></script>
 
 <!-- BODY -->
 <body>
@@ -18,7 +18,7 @@
 
 <!-- TABLE MATIERES -->
 <aside>
-  <nav id="table_matiere">
+  <nav id="table_matieres">
     <a href="#structureLinux">Structure du système Linux</a>
     <a href="#inviteCommande">L'invite de commande</a>
     <a href="#commande">Lignes de commande Linux</a>
@@ -39,7 +39,22 @@
   </nav>
 </aside>
 
-  <h2 id="structureLinux">Structure du système Linux</h2>
+<!-- GRAND CONTENU -->
+<section id="grandContenu">
+
+<div id="bandeau_sousTitre">
+</div>
+
+<div id="bandeau_contenu">
+</div>
+
+<div id="bandeau_controle">
+</div>
+
+<!-- CONTENU -->
+<section id="contenu">
+
+  <h3 id="structureLinux">Structure du système Linux</h3>
 
   <p>La racine est symbolisée par / en Linux.</p>
 
@@ -86,7 +101,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
 
 
 
-  <h2 id="inviteComamnde">L'invite de commande</h2>
+  <h3 id="inviteComamnde">L'invite de commande</h3>
 
   <p>Par défaut, l'invite de commande s'ouvre dans le dossier /home/stephane. Une fois l'invite de commande ouverte, le signe $ symbolise l'utilisateur alors que le signe # symbolise le superutilisateur qui travaille donc
   en mode root. </p>
@@ -108,9 +123,9 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
 
   <!-- LIGNES DE COMMANDE -->
 
-  <h2 id="commande">Les principales lignes de commande</h2>
+  <h3 id="commande">Les principales lignes de commande</h3>
 
-  <h3>Se déplacer, connaître l'emplacement</h3>
+  <h4>Se déplacer, connaître l'emplacement</h4>
 
   <table>
     <tr> <th> Objectif</th> <th> Instruction</th> </tr>
@@ -124,7 +139,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
   </table>
 
 
-  <h3>Lister, afficher</h3>
+  <h4>Lister, afficher</h4>
 
   <table>
     <tr> <th> Objectif</th> <th> Instruction</th> </tr>
@@ -140,7 +155,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
     <tr> <td> afficher le contenu de <em>monFichier</em> (voir détails plus bas)</td> <td> <pre>cat monFichier</pre></td> </tr>
   </table>
 
-  <h3>Créer, copier, déplacer, supprimer</h3>
+  <h4>Créer, copier, déplacer, supprimer</h4>
 
   <p>Attention, il n'y a pas de possibilité de récupération d'un dossier ou fichier supprimé à l'aide de la commande rm. Il n'y a
   donc pas d'équivalent d'une corbeille lorsqu'on utilise les lignes de commande. Il n'y a pas non plus de demande de confirmation, le dossier ou fichier
@@ -168,7 +183,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
     <tr> <td> déplacer monFichier dans monDossier et le renommer nouveauNomFichier</td> <td><pre>mv monFichier monDossier/nouveauNomFichier</pre></td></tr>
   </table>
 
-  <h3>Commandes générales</h3>
+  <h4>Commandes générales</h4>
 
   <table>
     <tr> <th> Objectif</th> <th> Instruction</th> </tr>
@@ -189,7 +204,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
 
 
 
-<h2 id="affichageConsole">Affichage d'un fichier dans la console</h2>
+<h3 id="affichageConsole">Affichage d'un fichier dans la console</h3>
 
   <p>Pour afficher un fichier tout entier dans la console, on se place dans le dossier parent du fichier à lire puis on utilise l'instruction</p>
   <pre><code class="language-svg">cat nomFichier</code></pre>
@@ -216,7 +231,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
 
 
 
-  <h2>RTFM</h2>
+  <h3>RTFM</h3>
 
   <p> Pour afficher la documentation relative à la commande mkdir dans la console, on utilise </p>
   <pre><code class="language-svg">man mkdir</code></pre>
@@ -237,7 +252,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
 
   <!-- DROITS UTILISATEUR -->
 
-  <h2>Les droits d'utilisateur</h2>
+  <h3>Les droits d'utilisateur</h3>
 
   <p>La commande <em>sudo</em> permet de passer temporairement en mode root et d'acquérir les droits du super-utilisateur. Elle signifie
     Substitute User DO. Une fois en mode root, l'invite de commande se termine par le symbole # .</p>
@@ -245,7 +260,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
 
 
 
-  <h3>Changement de mot de passe</h3>
+  <h4>Changement de mot de passe</h4>
 
   <p>Pour changer le mot de passe du compte stephane :</p>
 
@@ -256,7 +271,7 @@ alors que le double point ".." représente le dossier parent. Le signe ~ symboli
   <pre><code class="language-svg">sudo passwd</code></pre>
 
 
-  <h3>Modification des droits d'accès</h3>
+  <h4>Modification des droits d'accès</h4>
 
   <p>Chaque dossier et chaque fichier possède une liste de droits symbolisés par une lettre :</p>
   <ul>
@@ -316,7 +331,7 @@ et les droits des autres utilisateurs (0 donc aucun droit).</p>
 
 
 
-  <h2>Installation d'un programme avec apt-get</h2>
+  <h3>Installation d'un programme avec apt-get</h3>
 
   <p>Il faut généralement mettre à jour le cache des paquets (i.e. télécharger la nouvelle liste des paquets proposés par le dépôt) avant de procéder à l'installation :</p>
   <pre><code class="language-svg">sudo apt-get update
@@ -346,7 +361,7 @@ sudo apt-get autoremove</code></pre>
 
   <!-- zipper un dossier zip -->
 
-  <h2 id="zip">Commandes pour zipper/dézipper un dossier .zip</h2>
+  <h3 id="zip">Commandes pour zipper/dézipper un dossier .zip</h3>
 
   <p>Pour zipper le dossier mon_dossier en l'appelant mon_archive.zip :</p>
   <pre><code class="language-svg">zip -r mon_archive.zip mon_dossier</code></pre>
@@ -358,7 +373,7 @@ sudo apt-get autoremove</code></pre>
 
 <!-- dézipper un dossier .gz-->
 
-  <h2 id="gz">Commande pour dézipper un dossier .gz</h2>
+  <h3 id="gz">Commande pour dézipper un dossier .gz</h3>
 
   <p>Il faut se placer dans le dossier contenant mondossier.gz et l'instruction
     suivante va le décompresser à ce même emplacement :</p>
@@ -367,7 +382,7 @@ sudo apt-get autoremove</code></pre>
 
   <!-- installation d'un logiciel avec sh -->
 
-  <h2 id="bash">Installation d'un logiciel à partir de .sh</h2>
+  <h3 id="bash">Installation d'un logiciel à partir de .sh</h3>
 
   <p>Un fichier au format .sh est un fichier d'installation qui s'ouvre avec une commande bash. Pour cela, dans le répertoire courant, il faut d'abord
     vérifier l'intégrité de l'installer en utilisant :</p>
@@ -380,7 +395,7 @@ sudo apt-get autoremove</code></pre>
 
   <!-- installation d'un logiciel avec.tar.gz -->
 
-  <h2 id="targz">Installation d'un logiciel à partir de .tar.gz</h2>
+  <h3 id="targz">Installation d'un logiciel à partir de .tar.gz</h3>
 
   <p>Un fichier .tar est une archive non compressée. En revanche, un fichier .gz est une compression de fichier.</p>
   <p>Il faut d'abord déplacer le fichier .tar.gz vers /usr/local. Pour cela :</p>
@@ -396,7 +411,7 @@ sudo apt-get autoremove</code></pre>
 
 <!-- installation d'un logiciel avec tar.bz2 -->
 
-  <h2 id="tarbz2">Installation d'un logiciel à partir de .tar.bz2</h2>
+  <h3 id="tarbz2">Installation d'un logiciel à partir de .tar.bz2</h3>
 
   <p>Il faut d'abord déplacer le fichier .tar.bz2 vers /usr/local. Pour cela :</p>
   <pre><code class="language-svg">sudo mv /home/stephane/Téléchargements/nom_fichier.tar.bz2 /usr/local</code></pre>
@@ -411,7 +426,7 @@ sudo apt-get autoremove</code></pre>
 
 <!-- installation d'un logiciel à partir de .deb -->
 
-  <h2 id="deb">Installation d'un logiciel à partir de .deb</h2>
+  <h3 id="deb">Installation d'un logiciel à partir de .deb</h3>
 
   <p>Un fichier .deb est un package permettant d'installer une application sous les systèmes Linux Debian.</p>
 
@@ -425,7 +440,7 @@ sudo apt-get autoremove</code></pre>
 
   <!-- mise à niveau système -->
 
-  <h2 id="upgrade">Comamndes de mise à niveau système</h2>
+  <h3 id="upgrade">Comamndes de mise à niveau système</h3>
 
   <pre><code class="language-svg">sudo apt-get update
 sudo apt-get upgrade
@@ -442,7 +457,7 @@ sudo apt-get update</code></pre>
 
   <!-- ANTIVIRUS -->
 
-  <h2 id="clamav">Antivirus</h2>
+  <h3 id="clamav">Antivirus</h3>
 
   <p>L'antivirus ClamAv est compatible avec Linux et fonctionne en ligne de commande.</p>
 
@@ -459,7 +474,7 @@ sudo apt-get update</code></pre>
 
   <!-- CREATION CLE BOOTABLE -->
 
-  <h2 id="bootable">Création d'une clé bootable</h2>
+  <h3 id="bootable">Création d'une clé bootable</h3>
 
   <p>Il faut d'abord télécharger l'archive .iso de la version souhaitée de Linux à l'aide d'un ordinateur tiers,
     créer une clé bootable à l'aide de l'application balenaEtcher, et placer cette archive dans la clé.
@@ -470,7 +485,7 @@ sudo apt-get update</code></pre>
 
 
 <!-- CREATION DEPOT GIT -->
-<h2 id="depotGit">Création d'un dépôt Git</h2>
+<h3 id="depotGit">Création d'un dépôt Git</h3>
 
 <p>On peut créer un dépôt Git vide ou clôner un dépôt distant.</p>
 
@@ -484,7 +499,7 @@ git clone https://github.com/monProjet</code></pre>
 
 <!-- CONFIGURATION -->
 
-<h2 id="configGit"> Configuration de Git</h2>
+<h3 id="configGit"> Configuration de Git</h3>
 
 <p>Pour connaître la version du logiciel <em>git</em> : </p>
   <pre><code class="language-svg">git --version</code></pre>
@@ -514,7 +529,7 @@ git config --global color.branch auto</code></pre>
 
 <!-- LA GESTION DES BRANCHES -->
 
-<h2 id="branche">La gestion des branches Git</h2>
+<h3 id="branche">La gestion des branches Git</h3>
 
 <p>La branche master correspond à celle dans laquelle aboutissent toutes les 
 modifications. Il ne faut pas réaliser les modifications sur cette branche master,
@@ -558,7 +573,7 @@ git merge nomBranche</code></pre>
 
 <!-- PRINCIPALES INSTRUCTIONS -->
 
-<h2 id="instructionGit">Push / Pull</h2>
+<h3 id="instructionGit">Push / Pull</h3>
 
 <p>La structure Git est composée de 3 zones locales :</p>
 <ul>
@@ -624,7 +639,7 @@ mais pas encore committés par exemple) en exécutant</p>
 
 <!-- L'HISTORIQUE -->
 
-<h2 id="historique">L'historique Git</h2>
+<h3 id="historique">L'historique Git</h3>
 
 <p>Pour consulter l'historique (les <em>logs</em>) :</p>
   <pre><code class="language-svg">git log</code></pre>
@@ -634,7 +649,7 @@ mais pas encore committés par exemple) en exécutant</p>
 
 <p>Pour quitter la liste des <em>logs</em>, il faut taper Q.</p>
 
-<p>On peut se positionner à un moment de l'historique en ne tenant compte que des commit enregistrés jusqu'à un commit défini. On utilise alors <strong>git checkout codeCommit</strong> oû <em>codeCommit</em> est le code sha présent dans le log et représentatif d'un unique commit. A partir de cette requête, <strong>git log</strong> n'affiche que les commit enregistrés jusqu'au commit <em>codeCommit</em>. Pour revenir à l'état du dernier commit, on utilise l'instruction <strong>git checkout master</strong>.
+<p>On peut se positionner à un moment de l'historique en ne tenant compte que des commit enregistrés jusqu'à un commit défini. On utilise alors <strong>git checkout codeCommit</strong> oû <em>codeCommit</em> est le code sha présent dans le log et représentatif d'un unique commit. A partir de cette requête, <strong>git log</strong> n'affiche que les commit enregistrés jusqu'au commit <em>codeCommit</em>. Pour revenir à l'état du dernier commit, on utilise l'instruction <strong>git checkout master</strong>.</p>
 
 <p>Pour consulter les modifications :</p>
   <pre><code class="language">git diff</code></pre>
@@ -689,7 +704,7 @@ mais pas encore committés par exemple) en exécutant</p>
 
 <!-- IGNORER DES FICHIERS -->
 
-<h2 id="gitignore">Ignorer des fichiers avec gitignore</h2>
+<h3 id="gitignore">Ignorer des fichiers avec gitignore</h3>
 
 <p>Il ne faut jamais versionner une variable de configuration, comme par exemple un mot de passe ou une clé secrète. Si le code a déjà été envoyé sur <em>GitHub</em>, il convient de changer de mot de passe ou générer une nouvelle clé secrète.</p>
 
@@ -711,12 +726,12 @@ mais pas encore committés par exemple) en exécutant</p>
   <pre><code class="language-svg">:q</code></pre>
 
 
+</section> <!-- END CONTENU -->
+</section> <!-- END GRAND CONTENU -->
+</section> <!-- END PRINCIPAL -->
 
-<!-- END PRINCIPAL -->
-</section>
-
-<footer>
-</footer>
+<!-- FOOTER -->
+<?php include "../../general/footer.html"; ?>
 
 </body>
 </html>

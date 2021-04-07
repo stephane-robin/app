@@ -1,48 +1,52 @@
 # Memento
 
-Fiches memo pour HTML, CSS, JavaScript, PHP, Python, Java, C, Linux, Git.
+Fiches memo pour HTML, CSS, JavaScript, PHP, Python, Java, C, Linux, Git, Docker.
 
 
-## Structure du site
+## Structure du site memento
 
 index.html
 README.md
 
-**source**
-  --> **web**
-       --> web.html (index)
-       --> html.html
-       --> css.html
-       --> javascript.html
-       --> php.html
-  --> **appli** 
-       --> appli.html (index)
-       --> python.html
-       --> java.html
-       --> c.html
-        
-**images**
-  --> **web**
-  --> **appli**
-  --> **general**
-  
-**style**
-  --> style.css
-  --> prism.css
-  --> prism.js
-  
-  
-## Structure des pages HTML
+**langages pour application (appli)**
+--> index (index_appli.php)
+--> python (python.php)
+--> java (java.php)
+--> c (c.php)
 
+**outils de développement (outilsDev)**
+--> index (index_appli.php)
+--> git (git.php)
+--> docker (docker.php)
+--> linux (linux.php)
+
+**langages web (web)**
+--> index (index_web.php)
+--> html (html.php)
+--> css (css.php)
+--> javascript (javascript.php)
+--> php (php.php)
+
+
+## Structure des pages du site
+
+
+header (bandeau de navigation)
 =================================================
-header
-  header_haut (id)  <h1>
-  bandeau (id)
+== principal                                   ==
+== tableMatieres        grandContenu           ==
+==                      bandeau                ==
+==                      grandContenu           ==
 =================================================
-
+footer (pied de page)
 
   
-  
+## TODO
+
+* créer un modèle de page index pour chaque section
+* trouver comment ne pas répéter l'image de fond
+* créer un modèle de page commun pour toutes les pages du memento
+
   
   
   
