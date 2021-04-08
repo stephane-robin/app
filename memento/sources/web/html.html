@@ -1,38 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-
-<!-- HEAD -->
-<?php include "../general/head.html"; ?>
-
-
-<!-- JavaScript de gestion des couleurs de code -->
-<script defer src="../../styles/prism.js"></script>
-
-<?php include "fonctionsJS.html"; ?>
-
-<!-- script de gestion de l'apparition du contenu d'une section
-     utile comme exemple dans le paragraphe traitant ce sujet -->
-<script type="text/javascript">
-function affichageConditionnel(bouton, id) {
-    var div = document.getElementById(id);
-    if(div.style.display=="none") { // si le div est masqué, on l'affiche et on change le contenu du bouton
-        div.style.display = "block";
-        bouton.innerHTML = "-";
-    } else { // s'il est visible, on le masque et on change le contenu du bouton
-        div.style.display = "none";
-        bouton.innerHTML = "+";
-    }
-}</script>
-
-<!-- BODY -->
-<body>
-
-<!-- HEADER -->
-<?php include "header.html"; ?>
-
-<!-- PRINCIPAL -->
-<section id="principal">
-
 <!-- TABLE MATIERES -->
 <aside id="table_matieres">
     <nav>
@@ -1354,7 +1319,7 @@ INSERER UNE VIDEO
 
 </section> <!-- END CONTENU -->
 </section> <!-- END GRAND CONTENU -->
-</section> <!-- END PRINCIPAL -->
+
 
 <!--
 <aside id="chapitres">
@@ -1367,11 +1332,3 @@ INSERER UNE VIDEO
   </nav>
 </aside>
 -->
-
-
-
-<!-- FOOTER -->
-<?php include("../../general/footer.html"); ?>
-
-</body>
-</html>

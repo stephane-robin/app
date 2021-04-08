@@ -43,9 +43,8 @@ footer (pied de page)
   
 ## TODO
 
-* créer un modèle de page index pour chaque section
 * trouver comment ne pas répéter l'image de fond
-* créer un modèle de page commun pour toutes les pages du memento
+* créer la page index.php
 
   
   
