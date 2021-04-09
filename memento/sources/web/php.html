@@ -1,35 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-  <title> Memento </title>
-  <link rel="stylesheet" href="../../style/style.css">
-  <link rel="stylesheet" href="../../style/prism.css">
-  <meta charset="utf-8">
-</head>
-
-<!-- script de gestion des couleurs de code -->
-<script defer src="../../style/prism.js"></script>
-
-<body>
-<header>
-
-  <div id="header_haut">
-    <img id="imageGauche_header" src="../../images/general/symbole.png" alt="symbole S. Robin" width=10%/>
-    <h1> PHP </h1>
-  </div>
-
-  <div id="bandeau">
-    <nav>
-      <div class="element"> <a href="html.html">HTML</a> </div>
-      <div class="element"> <a href="css.html">CSS</a> </div>
-      <div class="element"> <a href="javascript.html">JAVASCRIPT</a> </div>
-      <div class="element"> <a href="php.html">PHP</a> </div>
-    </nav>
-  </div>
-
-</header>
-
+<!-- TABLE MATIERES -->
 <aside>
   <nav id="table_matieres">
     <a href="#py_generalites">Structure du code</a>
@@ -55,15 +24,25 @@
   </nav>
 </aside>
 
-<aside>
-  <nav id="chapitres">
-    <a title="accueil du site" href="../index.html"><img class="logo" src="../../images/general/logoAccueil.png" alt="Accueil" /></a>
-    <a title="accueil de la partie Web" href="web.html"><img class="logo" src="../../images/general/logoWeb.png" alt="Web" /></a>
-    <a title="accueil de la partie Appli" href="../appli/appli.html"><img class="logo" src="../../images/general/logoAppli.png" alt="Appli" /></a>
-  </nav>
-</aside>
+<!-- GRAND CONTENU -->
+<section id="grandContenu">
 
-<section id="principal">
+<!-- BANDEAU -->
+  <h2>PHP</h2>
+
+    <div id="bandeau_sousTitre">
+      <p>S. Robin (mis à jour le 01 Mar. 2021)</p>
+    </div>
+
+  <div id="bandeau_contenu">
+    <p>L'essentiel du savoir-faire</p>
+  </div>
+
+  <div id="bandeau_controle">
+  </div>
+
+  <!-- CONTENU -->
+  <section id="contenu">
 
   <div class="bloc">
     <div class="gauche">
@@ -78,7 +57,7 @@
 
 <!-- CONFIGURATION DU SERVEUR -->
 
-  <h2>Configuration du serveur</h2>
+  <h3>Configuration du serveur</h3>
 
   <p>Afin d'utiliser PHP, il faut utiliser un serveur capable de transformer les fichiers .php en .html. Il faut également
   configurer l'accès à un SGDB tel que MySQL et PostgreSql. Il est possible d'installer ces outils séparément et de les
@@ -141,7 +120,7 @@ chmod 755 xampp-linux-*-installer.run
 
   <!-- VARIABLES -->
 
-  <h2>Les variables</h2>
+  <h3>Les variables</h3>
 
   <p>Les variables commencent toujours par la lettre $ en PHP, à l'instar de JavaScript.</p>
   <p>L'affichage d'une variable se fait de la façon suivante</p>
@@ -153,12 +132,12 @@ echo $maVariable;?&gt</code></pre>
   <pre><code class="language-html">echo "hello";
 echo " world";</code></pre>
 
-  <h3>Affichage d'une variable au sein d'un texte</h3>
+  <h4>Affichage d'une variable au sein d'un texte</h4>
 
   <pre><code class="language-html">&lt?php $age = 25;
 echo "tu as ".$age." ans.";  </code></pre>
 
-  <h3>Les principaux types</h3>
+  <h4>Les principaux types</h4>
 
   <p> Les principaux types des variables en PHP sont string, int, float, bool (true, false) et NULL. Ce dernier caractérise l'absence de
   type et s'utilise souvent pour tester si une variable est vide avec l'instruction if($maVariable == NULL).</p>
@@ -169,7 +148,7 @@ echo "tu as ".$age." ans.";  </code></pre>
 
   <!-- OPERATEURS -->
 
-  <h2>Opérateurs standard</h2>
+  <h3>Opérateurs standard</h3>
 
   <p>Les opérateurs standard sont les suivants : <br/>addition +, soustraction -, multiplication *, division /, modulo %,
   AND ou &&, OR ou ||</p>
@@ -181,9 +160,9 @@ echo "tu as ".$age." ans.";  </code></pre>
 
   <!-- CONDITIONS -->
 
-  <h2>Les instructions conditionnelles</h2>
+  <h3>Les instructions conditionnelles</h3>
 
-  <h3>L'instruction if</h3>
+  <h4>L'instruction if</h4>
 
   <pre><code class="language-html">if (condition){
   instructions;
@@ -195,7 +174,7 @@ else{
   instructions;
 }</code></pre>
 
-  <h3>L'instruction switch</h3>
+  <h4>L'instruction switch</h4>
 
   <pre><code class="language-html">switch($maVariable){
   case 0:
@@ -211,22 +190,22 @@ else{
   <p>On utilise dans l'exemple ci-dessus les instructions break car sinon l'interpréteur lit les instructions
   qui suivent et qui ne conviennent pas.</p>
 
-  <h3>Les ternaires</h3>
+  <h4>Les ternaires</h4>
 
   <p>Traduisons l'instruction suivante à l'aide de ternaires : si $age est supérieur à 18 alors $estMajeur prend
   la valeur true, sinon il prend la valeur false.</p>
 
   <pre><code class="language-html">$estMajeur = ($age>18) ? true : false;</code></pre>
 
-  <h2>Les boucles</h2>
+  <h3>Les boucles</h3>
 
-  <h3>La boucle while</h3>
+  <h4>La boucle while</h4>
 
   <pre><code class="language-html">&lt?php while (condition){
   instructions;
 }?&gt</code></pre>
 
-<h3>La boucle for</h3>
+<h4>La boucle for</h4>
 
   <pre><code class="language-html">&lt?php for ($i=0; $i<10; $i++){
   instructions;
@@ -234,17 +213,17 @@ else{
 
 <!-- TABLEAUX -->
 
-  <h2>Les tableaux</h2>
+  <h3>Les tableaux</h3>
 
-<h3>Création d'un tableau</h3>
+<h4>Création d'un tableau</h4>
 
   <pre><code class="language-html">&lt?php $tab = array("Hervé", "Benoit", "Simon"); ?&gt</code></pre>
 
-  <h3>Affectation et changement de valeur</h3>
+  <h4>Affectation et changement de valeur</h4>
 
   <pre><code class="language-html">&lt?php $tab[2] = "Etienne"; ?&gt</code></pre>
 
-  <h3>Particularité de PHP</h3>
+  <h4>Particularité de PHP</h4>
 
   <p>Il est possible de remplir un tableau sans préciser l'indice. Celui-ci se met à jour automatiquement en choisissant
   une valeur immédiatement supérieure au plus grand indice.</p>
@@ -252,12 +231,12 @@ else{
   <pre><code class="language-html">&lt?php $tab[] = "Noémie";
 $tab[] = "Charlize"; ?&gt</code></pre>
 
-  <h3>Affichage d'une valeur</h3>
+  <h4>Affichage d'une valeur</h4>
 
   <p>Pour afficher la valeur de $tab à l'indice 4 :</p>
   <pre><code class="language-html">&lt?php  echo $tab[4] ?&gt</code></pre>
 
-  <h3>Parcours d'un tableau</h3>
+  <h4>Parcours d'un tableau</h4>
 
   <pre><code class="language-html">&lt?php  for($i=0; $i<5; $i++){
   echo $tab[$i]. "&ltbr/&gt";
@@ -270,11 +249,11 @@ $tab[] = "Charlize"; ?&gt</code></pre>
 ?&gt</code></pre>
 
 
-  <h2>Les dictionnaires</h2>
+  <h3>Les dictionnaires</h3>
 
   <p>Les dictionnaires sont appelés tableaux associatifs en PHP.</p>
 
-  <h3>Création d'un dictionnaire</h3>
+  <h4>Création d'un dictionnaire</h4>
 
   <p>On utilise toujours le mot clé array</p>
 
@@ -283,15 +262,15 @@ $tab[] = "Charlize"; ?&gt</code></pre>
   "age" => 18;
 )?&gt</code></pre>
 
-  <h3>Affectation et changement de valeur</h3>
+  <h4>Affectation et changement de valeur</h4>
 
   <pre><code class="language-html">&lt?php $dico["nom"] = "Antoine"; ?&gt</code></pre>
 
-  <h3>Affichage d'une valeur</h3>
+  <h4>Affichage d'une valeur</h4>
 
   <pre><code class="language-html">&lt?php echo $dico["nom"]; ?&gt</code></pre>
 
-  <h3>Affichage d'un dictionnaire</h3>
+  <h4>Affichage d'un dictionnaire</h4>
 
   <p>On utilise la boucle foreach pour afficher les valeurs</p>
 
@@ -306,7 +285,7 @@ $tab[] = "Charlize"; ?&gt</code></pre>
 ?&gt</code></pre>
 
 
-  <h3>Rechercher dans un tableau</h3>
+  <h4>Rechercher dans un tableau</h4>
 
   <p>L'instruction suivante renvoie un booléen si maValeur existe dans le tableau $tab :</p>
   <pre><code class="language-html">&lt?php in_array("maValeur", $tab); ?&gt</code></pre>
@@ -319,7 +298,7 @@ $tab[] = "Charlize"; ?&gt</code></pre>
 
 
 
-  <h3>Rechercher dans un dictionnaire</h3>
+  <h4>Rechercher dans un dictionnaire</h4>
 
   <p>L'instruction suivante renvoie un booléen si maValeur existe dans le dictionnaire $dico :</p>
   <pre><code class="language-html">&lt?php in_array("maValeur", $tab); ?&gt</code></pre>
@@ -333,7 +312,7 @@ $tab[] = "Charlize"; ?&gt</code></pre>
   <p>Cette instruction est commune pour les dictionnaires et les tableaux. Attention, si maValeur ne s'y trouve pas, alors l'instruction renvoie false. Cela signifie que le type qui est renvoyé
   est variable, soit un string soit un bool.</p>
 
-  <h2>Les fonctions</h2>
+  <h3>Les fonctions</h3>
 
   <p>On définit la fonction maFonction de la façon suivante</p>
   <pre><code class="language-html">&lt?php function maFonction($param){
@@ -345,7 +324,7 @@ $tab[] = "Charlize"; ?&gt</code></pre>
   <pre><code class="language-html">&lt?php maFonction($param) ?&gt;</code></pre>
 
 
-  <h2>Traitement des chaînes de caractères</h2>
+  <h3>Traitement des chaînes de caractères</h3>
 
   <table>
     <tr><th>Fonction</th><th>Résultat obtenu</th></tr>
@@ -366,19 +345,19 @@ $tab[] = "Charlize"; ?&gt</code></pre>
   PSR-1 définit les règles basiques d'une page PHP, et PSR-2 définit le coding style. Le respect des différentes règles du
   PSR peut être appliqué en utilisant en ligne de commande l'outil PHPCS-Fixer</p>
 
-  <h2>Transtypage vers un entier</h2>
+  <h3>Transtypage vers un entier</h3>
 
   <p>On utilise le mot clé int</p>
 
   <pre><code class="language-html">$maVariable = (int) $maVariable;</code></pre>
 
-  <h3>Particularité de PHP</h3>
+  <h4>Particularité de PHP</h4>
 
   <p>Si la valeur de départ est transformable en entier sans modification, cette valeur est transtypée telle quelle. En revanche,
   si ce n'est pas le cas (parce que cette valeur représente un string par exemple) alors elle est transformée en 0. PHP ne
   lève donc pas d'exception dans ce cas.</p>
 
-  <h3>Les étapes du traitement d'une valeur</h3>
+  <h4>Les étapes du traitement d'une valeur</h4>
 
   <p>On vérifie que la variable est bien définie avec la fonction isset(), on cast la variable en int ou en float si on a besoin de
   procéder à des calculs, on définit les conditions sur la variable pour qu'elle satisfasse la proposition.</p>
@@ -386,13 +365,7 @@ $tab[] = "Charlize"; ?&gt</code></pre>
 
   <!-- FORMULAIRES -->
 
-  <h3>Utilisation des formulaires</h3>
+  <h4>Utilisation des formulaires</h4>
 
-</section>
-
-<footer>
-  Stephane Robin
-</footer>
-
-</body>
-</html>
+</section> <!-- END CONTENU -->
+</section> <!-- END GRAND CONTENU -->

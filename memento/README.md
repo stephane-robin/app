@@ -44,7 +44,7 @@ footer (pied de page)
 ## TODO
 
 * trouver comment ne pas répéter l'image de fond
-* créer la page index.php
+
 
   
   

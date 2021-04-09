@@ -1,38 +1,5 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title> Memento </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="prism.css">
-</head>
-
-<!-- script de gestion des couleurs de code -->
-<script defer src="prism.js"></script>
-
-<body>
-
-
-<div id="bandeau">
-    <h1> Memento </h1>
-    <h1> Java </h1>
-
-    <nav>
-        <div class="element"> <a href="html.html">HTML</a> </div>
-        <div class="element"> <a href="css.html">CSS</a> </div>
-        <div class="element"> <a href="javascript.html">JAVASCRIPT</a> </div>
-        <div class="element"> <a href="java.html">JAVA</a> </div>
-        <div class="element"> <a href="kotlin.html">KOTLIN</a> </div>
-        <div class="element"> <a href="android.html">ANDROID</a> </div>
-        <div class="element"> <a href="php.html">PHP</a> </div>
-        <div class="element"> <a href="python.html">PYTHON</a> </div>
-        <div class="element"> <a href="c.html">C</a> </div>
-        <div class="element"> <a href="git.html">LINUX</a> </div>
-    </nav>
-</div>
-
-<aside>
+<!-- TABLE MATIERES -->
+<aside id="table_matieres">
     <nav id="table_matiere">
         <a href="">Structure du code</a>
         <a href="">Hello world</a>
@@ -59,7 +26,25 @@
     </nav>
 </aside>
 
-<section id="principal">
+<!-- GRAND CONTENU -->
+<section id="grandContenu">
+
+<!-- BANDEAU -->
+  <h2>JAVA</h2>
+
+    <div id="bandeau_sousTitre">
+      <p>S. Robin (mis à jour le 01 Mar. 2021)</p>
+    </div>
+
+  <div id="bandeau_contenu">
+    <p>L'essentiel du savoir-faire</p>
+  </div>
+
+  <div id="bandeau_controle">
+  </div>
+
+  <!-- CONTENU -->
+  <section id="contenu">
 
 
 
@@ -67,7 +52,7 @@
 
     <!-- EXECUTER JAVA AU TERMINAL ================================== -->
 
-    <h2 id="javaterminal">Exécuter Java au terminal </h2>
+    <h3 id="javaterminal">Exécuter Java au terminal </h3>
 
 
 
@@ -79,11 +64,11 @@
 
     <!-- LES DATES -------------------------------------------------->
 
-    <h2 id="#dates">Les dates</h2>
+    <h3 id="#dates">Les dates</h3>
 
 
 
-        <h3>La classe GregorianCalendar</h3>
+        <h4>La classe GregorianCalendar</h4>
 
     <p>L'utilisation de la classe Date est obsolète. Il est préférable d'utiliser la classe GregorianCalendar qui hérite de la classe abstraite Calendar.</p>
     <p>On peut afficher le timestamp du moment sans formattage particulier en utilisant</p>
@@ -132,7 +117,7 @@ date.set(Calendar.MONTH, mois-1);
 SimpleDateFormat formattage = new SimpleDateFormat("yyyy-MM-dd-EEEE");
 System.out.println(formattage.format(date.getTime()));</code></pre>
 
-        <h3>Répétition d'une instruction à l'aide d'un thread</h3>
+        <h4>Répétition d'une instruction à l'aide d'un thread</h4>
 
         <p><em>La classe Timer :</em></p>
         <pre><code class="language-java">import java.util.*;</code></pre>
@@ -185,7 +170,7 @@ System.out.println(formattage.format(date.getTime()));</code></pre>
 
     <!------------- GESTION DES EXCEPTIONS ----------------------->
 
-    <h2>Gestion des exceptions</h2>
+    <h3>Gestion des exceptions</h3>
 
 
 
@@ -234,7 +219,7 @@ public class Principale {
 
     <!------------- LES TABLEAUX ----------------------------->
 
-    <h2>Les tableaux</h2>
+    <h3>Les tableaux</h3>
 
 
 
@@ -242,7 +227,7 @@ public class Principale {
 
         <pre><code class="language-java">import java.util.*;</code></pre>
 
-        <h3>Déclaration d'un tableau</h3>
+        <h4>Déclaration d'un tableau</h4>
 
         <p>Un tableau doit être déclaré en indiquant le type d'objet qu'il contient. Il ne peut pas contenir des objets de types différents. Toutefois, on peut facilement déroger à cette règle en créant des tableaux de type Object qui est très large.</p>
 
@@ -256,7 +241,7 @@ public class Principale {
 
         <pre><code class="language-java">int[] tab = new int[6];</code></pre>
 
-        <h3>Affichage d'un tableau</h3>
+        <h4>Affichage d'un tableau</h4>
 
         <pre><code class="language-java">for(int i=0; i&lt tab.length; i++){
     System.out.print(tab[i]+"\t");</code></pre>
@@ -272,7 +257,7 @@ public class Principale {
 
     <!------------- LES COLLECTIONS ----------------------------->
 
-    <h2>Les collections</h2>
+    <h3>Les collections</h3>
 
 
 
@@ -286,7 +271,7 @@ public class Principale {
 
     <p>Les dictionnaire contiennent des clés auxquelles sont associées une valeur unique.</p>
 
-    <h3>Les listes</h3>
+    <h4>Les listes</h4>
 
     <table>
         <tr><th>Objectif</th><th>Code</th></tr>
@@ -322,7 +307,7 @@ while(iterateur.hasNext()) {
     System.out.print(maListe.get(i)+"\t");
 }</code></pre>
 
-    <h3>Les dictionnaires</h3>
+    <h4>Les dictionnaires</h4>
 
         <table>
             <tr><th>Objectif</th><th>Code</th></tr>
@@ -349,7 +334,7 @@ Object clef = iterateur.next();
     System.out.println(clef+":"+dico.get(clef));
 }</code></pre>
 
-        <h3>Vector</h3>
+        <h4>Vector</h4>
 
         <p>La classe Vector, aujourd'hui désuète, permet de définir des listes dont la taille est fixe, i.e. les objets de classe Vector se manipulent comme des listes mais il faut définir leur taille au moment de la déclaration et ne pas dépasser cette taille. Notons que la classe Vector est compatible avec la synchronisation avec threads. </p>
 
@@ -359,11 +344,11 @@ Object clef = iterateur.next();
 
     <!-- ===== LA PROGRAMMATION RESEAU =================================== -->
 
-<h2 id="programmationreseau">La programmation réseau</h2>
+<h3 id="programmationreseau">La programmation réseau</h3>
 
 
 
-<h3>Rappels sur les réseaux</h3>
+<h4>Rappels sur les réseaux</h4>
 
 <p>La communication réseau est initialement définie par le modèle OSI en 7 couches. Toutefois, la plupart des logiciels reposent sur le modèle TCP/IP en 4 couches : réseau, Internet, transport, application. C'est dans cette dernière couche du modèle TCP/IP que se positionne Java.</p>
 <p>Notons que par défaut les principaux protocoles de transfert utilisent les ports suivants :</p>
@@ -373,7 +358,7 @@ Object clef = iterateur.next();
     <li>smtp : port 25</li>
 </ul>
 
-<h3>La classe InetAddress</h3>
+<h4>La classe InetAddress</h4>
 
         <pre><code class="language-java">import java.net.*;</code></pre>
 <p>Pour manipuler des adresses IP, on utilise la classe InetAddress. Par exemple pour obtenir l'adresse IP d'un site connu par son nom de domaine :</p>
@@ -410,7 +395,7 @@ Object clef = iterateur.next();
     e.printStackTrace();
 }</code></pre>
 
-<h3>La classe URL</h3>
+<h4>La classe URL</h4>
 
 <p>On peut également utiliser la classe URL pour récupérer les données d'un site Internet :</p>
 <pre><code class="language-java">import java.io.*;
@@ -446,7 +431,7 @@ try {
 
     <!-- ===== LES PROXYS ======================================= -->
 
-    <h2 id="proxys">Les proxys</h2>
+    <h3 id="proxys">Les proxys</h3>
 
 
 
@@ -507,7 +492,7 @@ try {
 
 <!-- ===== LES SOCKETS =================================== -->
 
-<h2 id="programmationclientserveur">Les sockets</h2>
+<h3 id="programmationclientserveur">Les sockets</h3>
 
 
 
@@ -524,7 +509,7 @@ import java.nio.*;
 import java.util.*;
 import java.net.*;</code></pre>
 
-    <h3>Le mode connecté</h3>
+    <h4>Le mode connecté</h4>
 
     <p>En mode connecté, deux sockets établissent une communication durable entre l'émetteur et le récepteur, ce qui permet d'éviter de transmettre l'adresse du récepteur à chaque envoi et gère l'acquittement des données. Dans ce cas, le serveur est vu comme un programme rendant des services aux clients. Le mode connecté utilise le protocole TCP. Exemple d'application, le protocole HTTP.</p>
 
@@ -546,7 +531,7 @@ import java.net.*;</code></pre>
 
         <fieldset><legend>IMPORTANT</legend><p>La socket côté serveur doit être lancée avant la socket côté client.</p></fieldset>
 
-        <h3>Exemple de transmission d'un entier par TCP :</h3>
+        <h4>Exemple de transmission d'un entier par TCP :</h4>
 
         <p>Dans cet exemple un serveur transmet un entier à un client.</p>
 
@@ -596,7 +581,7 @@ import java.net.*;</code></pre>
     }
 }</code></pre>
 
-        <h3>Exemple d'un échange de chaînes de caractères par TCP :</h3>
+        <h4>Exemple d'un échange de chaînes de caractères par TCP :</h4>
 
         <p>Dans cet exemple, un client transmet "hello" à un serveur qui lui répond "world".</p>
 
@@ -644,7 +629,7 @@ import java.net.*;</code></pre>
     }
 }</code></pre>
 
-        <h3>Exemple de transmission d'un objet par TCP :</h3>
+        <h4>Exemple de transmission d'un objet par TCP :</h4>
 
         <p>Dans cet exemple, un client transmet un objet sous forme de message au serveur.</p>
 
@@ -715,7 +700,7 @@ import java.net.*;</code></pre>
     }
 }</code></pre>
 
-        <h3>Exemple de serveur connecté dynamiquement à plusieurs clients par TCP :</h3>
+        <h4>Exemple de serveur connecté dynamiquement à plusieurs clients par TCP :</h4>
 
         <p>Dans cet exemple, 10 clients transmettent un objet de type Message au serveur.</p>
 
@@ -801,7 +786,7 @@ public class ServerThread extends Thread { // gestion des threads pour chaque co
     }
 }</code></pre>
 
-        <h3>Exemple de serveur connecté par un pool de threads à plusieurs clients par TCP :</h3>
+        <h4>Exemple de serveur connecté par un pool de threads à plusieurs clients par TCP :</h4>
 
         <p>Dans cet exemple, 10 clients transmettent un objt de type Message au serveur. Pour éviter la création d'une infinité de threads dynamiques, on peut utiliser un pool de threads qui arrêtent les sockets de communication lorsque le traitement est terminé pour se connecter aux sockets de communication restantes.</p>
 
@@ -890,14 +875,14 @@ public class ServerThread extends Thread { // gestion des threads pour chaque co
     }
 }</code></pre>
 
-        <h3>Le mode non connecté</h3>
+        <h4>Le mode non connecté</h4>
 
     <p>En mode non connecté, l'émetteur envoie les données au récepteur en précisant l'adresse du destinataire dans les paquets. La communication utilise dans ce cas le protocole UDP qui ne gère pas l'acquittement des données. Exemple d'application, le flux audio/vidéo car le manque d'acquittement des données optimise la bande passante.</p>
 <p>Notons que TCP est plus sécurisé que UDP et UDP est plus rapide que TCP.</p>
 
     <fieldset><legend>IMPORTANT</legend><p>En mode non connecté, le programme récepteur doit être lancé en premier.</p></fieldset>
 
-        <h3>Exemple de transmission d'un entier par UDP :</h3>
+        <h4>Exemple de transmission d'un entier par UDP :</h4>
 
         <img src="images/datagram.png">
 
@@ -950,7 +935,7 @@ public class ServerThread extends Thread { // gestion des threads pour chaque co
     }
 }</code></pre>
 
-        <h3>Exemple d'un échange de chaînes de caractères entre un serveur et un client par UDP :</h3>
+        <h4>Exemple d'un échange de chaînes de caractères entre un serveur et un client par UDP :</h4>
 
         <p>Dans cet exemple, le client envoie le message "hello" et le serveur répond "world".</p>
         <p>La socket côté serveur recevra les données sur le port 5555 du serveur et elle pourra également émettre. Dans ce cas elle utilisera le port défini par le client et l'adresse du client, qui seront précisés dans le paquet d'envoi.</p>
@@ -1021,7 +1006,7 @@ public class ServerThread extends Thread { // gestion des threads pour chaque co
 
     <!-- Le RMI ------------------------------>
 
-    <h2 id="mecanismermi">RMI Remote Method Invocation</h2>
+    <h3 id="mecanismermi">RMI Remote Method Invocation</h3>
 
 
 
@@ -1033,13 +1018,13 @@ import java.util.*;
 import java.io.*;
 import java.net.*;</code></pre>
 
-        <h3>Fonctionnement d'une communication par RMI</h3>
+        <h4>Fonctionnement d'une communication par RMI</h4>
 
         <p>Le serveur implémente un objet distant qui est publié dans un serveur de noms (<em>registry</em>), i.e. qu'il est associé à un nom à partir duquel les applications clientes pourront récupérer un talon de cet objet. Pour ce faire, Java crée automatiquement sur le serveur une représentation distante appelée <em>skeleton</em> et sur le client une représentation locale appelée <em>stub</em>, qui sont transparentes pour le programmeur car elles n'apparaissent pas dans les différentes classes. Le client utilise alors ce <em>stub</em> comme si l'objet distant était local.</p>
 
         <img src="images/rmi.png">
 
-        <h3>Exemple d'utilisation d'une méthode distante côté serveur :</h3>
+        <h4>Exemple d'utilisation d'une méthode distante côté serveur :</h4>
 
         <p>On présente ici un exemple où le client appelle une procédure sayHello présente côté serveur pour afficher <em>Hello bob</em> côté serveur.</p>
 
@@ -1118,7 +1103,7 @@ import java.net.*;</code></pre>
     permission java.security.AllPermission;
 }</code></pre>
 
-        <h3>Exemple d'utilisation d'une méthode distante côté client :</h3>
+        <h4>Exemple d'utilisation d'une méthode distante côté client :</h4>
 
         <p>On présente un exemple où le client appelle une procédure sayHello présente côté serveur pour afficher <em>Hello bob</em> côté client.</p>
 
@@ -1172,7 +1157,7 @@ import java.net.*;</code></pre>
     }
 }</code></pre>
 
-        <h3>Exemple d'une boite de messagerie par RMI :</h3>
+        <h4>Exemple d'une boite de messagerie par RMI :</h4>
 
         <p>Dans cet exemple, le client peut s'inscrire à un service de messagerie, envoyer un message composé d'un identifiant, du nom d'utilisateur, la date et le contenu, consulter le dernier message d'un client par son nom d'utilisateur. Pour cela, on écrase les messages d'un utilisateur au fur et à mesure de leur envoi. Le serveur annonce à tous les clients lorsqu'un utilisateur s'inscrit.</p>
 
@@ -1315,11 +1300,11 @@ import java.net.*;</code></pre>
 
         <fieldset><legend>ATTENTION</legend><p>Lors d'un appel distant les paramètres, les valeurs de retour et les exceptions sont transmis par copie et doivent donc être sérialisables. Or les types primitifs et les objets distants le sont par défaut. En revanche, les types créés ne sont pas sérialisables mais peuvent le devenir si les classes correspondantes implémentent l'interface Serializable.</p></fieldset>
 
-<h3>Activation d'objets distants</h3>
+<h4>Activation d'objets distants</h4>
 
         <p>L’activation permet d’éviter l’exposition permanente des objets distants de la classe UnicastRemoteObject. L’objectif est de créer automatiquement des objets RMI à la demande. Ce mécanisme nécessite une référence permanente.</p>
 
-        <h3>Exemple d'activation e transmission d'une chaîne de caractères par RMI :</h3>
+        <h4>Exemple d'activation e transmission d'une chaîne de caractères par RMI :</h4>
 
         <pre><code class="language-java">import java.rmi.*;
 import java rmi.activation.*;
@@ -1402,7 +1387,7 @@ import java.util.*;</code></pre>
 
     <!-- JMS --------------------------------------->
 
-    <h2 id="jms">JMS Java Message Service</h2>
+    <h3 id="jms">JMS Java Message Service</h3>
 
 
 
@@ -1420,7 +1405,7 @@ import java.util.*;</code></pre>
 import javax.naming.*;
 import javax.jms.*;</code></pre>
 
-        <h3>Fonctionnement de JMS</h3>
+        <h4>Fonctionnement de JMS</h4>
 
         <p>Les messages sont envoyés sur un objet intermédiaire MOM qui utilise une structure de file d'attente (queue) ou de sujet (topic), et le récepteur doit venir les chercher. Des bus gèrent les transports de messages vers les objets intermédiaires. De ce fait, il n'y a pas de connexion entre un émetteur et un récepteur. Les récepteurs actifs peuvent voir tous les messages délivrés par l'émetteur, mais celui-ci ne connaît pas  l'état des récepteurs actifs. Les récepteurs peuvent s'inscrire comme DurableSubscriber avec JMS2.0 et dans ce cas, les messages qu'ils n'ont pas consultés durant leur absence peuvent être lus au moment où ils se reconnectent.</p>
 
@@ -1435,13 +1420,13 @@ import javax.jms.*;</code></pre>
         <li>gestion des droits d'accès</li>
     </ul>
 
-        <h3>Queue et Topic</h3>
+        <h4>Queue et Topic</h4>
 
         <p>JMS repose sur deux modes de communication principaux, la communication point-à-point et la communication événementielle.</p>
         <p> Dans la communication point-à-point, l'objet intermédiaire utilise une file d'attente (queue). Plusieurs émetteurs peuvent envoyer sur la même file d'attente mais un seul récepteur peut voir le message. On parle de communication N à 1. C'est le cas par exemple lorsqu'on utilise une imprimante. Attention, cela ne veut pas dire que seul un unique récepteur peut consulter le message, mais plutôt qu'un seul récepteur peut le consulter. Ainsi, si deux programmes se mettent en attente sur une même queue, le premier programme reçoit le premier message émis, le second progamme reçoit le second message. La structure queue peut également être utilisée vers un destinataire unique pour éviter que tous les récepteurs ayant souscrit à un topic aient la possibilité de consulter un message. C'est le cas par exemple d'une réponse vers un unique utilisateur lorsqu'on se trouve en mode topic. Il faut dans ce cas que l'émetteur initial dispose d'une queue, qu'il annonce dans son message initial en vue d'une réponse.</p>
         <p> Dans la communication événementielle, l'objet intermédiaire utilise un sujet (topic). L'émetteur publie son message sur un topic. Les récepteurs s'inscrivent au topic pour recevoir les messages publiés sur ce topic. Plusieurs publishers peuvent envoyer des messages sur le même topic et plusieurs subscribers peuvent consulter les messages du topic. C'est le cas par exemple lors d'un fil de discussion dans un <em>chat</em>. Notons que si deux programmes se mettent en attente sur un même topic, les deux programmes reçoivent le message contrairement à une structure queue.</p>
 
-    <h3>Exemple d'une communication Topic avec JMS 1.1 :</h3>
+    <h4>Exemple d'une communication Topic avec JMS 1.1 :</h4>
 
         <p>Dans cet exemple l'émetteur publie une chaîne de caractères sur l'objet intermédiaire utilisant la structure topic. Un récepteur souscrit au topic pour lire la chaîne de caractères.</p>
 
@@ -1513,7 +1498,7 @@ import javax.jms.*;</code></pre>
 
         <p>La méthode receive() est bloquante. On peut rendre durable le récepteur en remplaçant sess.createSubscriber(topic) par sess.createDurableSubscriber(topic, nom_id). Il faudra ensuite terminer cette fonctionnalité avec sess.unsubscribe(nom_id)</p>
 
-    <h3>Exemple d'une communication Queue avec JMS 1.1 :</h3>
+    <h4>Exemple d'une communication Queue avec JMS 1.1 :</h4>
 
       <p>Dans cet exemple un émetteur envoie un objet de type Message à l'objet intermédiaire utilisant la structure queue. Un récepteur consulte la chaîne de caractères.</p>
 
@@ -1591,7 +1576,7 @@ import javax.jms.*;</code></pre>
     }
 }</code></pre>
 
-    <h3>Exemple d'un échange sur un Topic avec JMS 1.1 :</h3>
+    <h4>Exemple d'un échange sur un Topic avec JMS 1.1 :</h4>
 
         <p>Dans cet exemple, un serveur publie sur l'objet intermédiaire une chaîne de caractères et consulte une chaîne de caractères publiée en réponse par un client. L'échange se fait au sein d'une unique session.</p>
 
@@ -1660,7 +1645,7 @@ import javax.jms.*;</code></pre>
     }
 }</code></pre>
 
-        <h3>Exemple de communication topic avec réponse ciblée en JMS1.1 :</h3>
+        <h4>Exemple de communication topic avec réponse ciblée en JMS1.1 :</h4>
 
         <p>Dans cet exemple un serveur publie une chaîne de caractères sur un topic, et un client répond en envoyant une chaîne de caractères sur une queue, pour que seul le serveur puisse le consulter. Le serveur doit donc dans ce cas envoyer sur le topic un objet contenant la chaîne de caractères et la référence du queue à laquelle est connectée le serveur.</p>
 
@@ -1754,7 +1739,7 @@ pbr.setMessageListener(al);</code></pre>
 
     <!-- Les services Web -------------------------------------------------->
 
-    <h2 id="servicesweb">Le service Web REST</h2>
+    <h3 id="servicesweb">Le service Web REST</h3>
 
 
 
@@ -1775,7 +1760,7 @@ pbr.setMessageListener(al);</code></pre>
         <li>flexibilité, extensibilité</li>
     </ul>
 
-    <h3>SOAP Simple Object Access Protocol</h3>
+    <h4>SOAP Simple Object Access Protocol</h4>
 
     <p>SOAP est un protocole de RPC Remote Procedure Call orienté objet et basé sur l'échange de données structurées en XML. SOAP permet l'appel de méthodes distantes dans un environnement distribué.</p>
     <p>Un message SOAP est un document XML composé d'une <em>envelope</em> avec un <em>header</em> et le <em>body</em>, corps du message. Dans le cas de l'envoi d'une image, on peut utiliser un message SOAP avec attachement en utilisant un message MIME Multimedia Internet Mail Extension.</p>
@@ -1821,7 +1806,7 @@ Content-Length: length
 &lt/soap:Body&gt
 &lt/soap:Envelope&gt</code></pre>
 
-    <h3>Développement d'un service Web SOAP avec JAX-WS</h3>
+    <h4>Développement d'un service Web SOAP avec JAX-WS</h4>
 
     <p>JAX-WS est intégré dans Java pour développer des services Web.</p>
     <p>Le développement d'un service Web SOAP avec JAX-WS se fait en plusieurs étapes :</p>
@@ -1866,7 +1851,7 @@ public class HelleWorldPublisher {
     }
 }</code></pre>
 
-    <h3>REST REpresentational State Transfer</h3>
+    <h4>REST REpresentational State Transfer</h4>
 
     <p>REST utilise le protocole HTTP pour transférer les données qui sont identifiées par des URI Uniform Resource Identifier. Les requêtes du protocole HTTP sont composées d'une ligne de commande, d'une entête et d'un corps de message. Le format de stockage des données est principalement JSON JavaScript Object Notation, mais également XML.</p>
 
@@ -1916,7 +1901,7 @@ String toJsonString = gson.toJson(mid);
 
 MyInData fromJsonString = gson.froJson(jsonString, MyInData.class);</code></pre>
 
-<h3>Exemple de communication avec un service REST :</h3>
+<h4>Exemple de communication avec un service REST :</h4>
 
         <p>Dans l'exemple ci-dessous, un serveur gère un service de contacts. REST ne nécessite pas de programmation côté client mais fonctionne avec un navigateur, dans lequel il convient de fournir les adresses correctes pour satisfaire les différentes requêtes. Le code au niveau du Servlet JAX-RS est le suivant :</p>
 
@@ -2119,11 +2104,5 @@ public class JettyServer {
 
          </div>
 
-</section>
-
-<footer>
-    Stephane Robin
-</footer>
-
-</body>
-</html>
+</section> <!-- END CONTENU -->
+</section> <!-- END GRAND CONTENU -->

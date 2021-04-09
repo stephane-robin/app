@@ -1,38 +1,5 @@
-<!DOCTYPE HTML>
-<html>
 
-<head>
-  <title> ToKen </title>
-  <link rel="stylesheet" href="../../style/style.css">
-  <link rel="stylesheet" href="../../style/prism.css">
-  <link rel="icon"
-        type="image/png"
-        href="../../images/general/symbole.png">
-  <meta charset="utf-8">
-</head>
-
-<!-- JavaScript de gestion des couleurs de code -->
-<script defer src="../../style/prism.js"></script>
-
-<body>
-
-<header>
-  <div id="header_haut">
-    <h1 id="titreSite"> ToKen </h1>
-    <img id="imageGauche_header" src="../../images/general/symbole.png" alt="symbole S. Robin" width=10%/>
-    <h1 id="motto">improve your language, improve your skills</h1>
-  </div>
-
-  <nav id="bandeau">
-    <a class="element" href="html.html">HTML</a>
-    <a class="element" href="css.html">CSS</a>
-    <a class="element" href="javascript.html">JAVASCRIPT</a>
-    <a class="element" href="php.html">PHP</a>
-  </nav>
-</header>
-
-<section id="principal">
-
+<!-- TABLE MATIERES -->
 <aside id="table_matieres">
   <nav>
     <a href="#structure">Structure</a>
@@ -42,9 +9,27 @@
   </nav>
 </aside>
 
-<section id="contenu">
+<!-- GRAND CONTENU -->
+<section id="grandContenu">
 
-  <h1 id="titrePage">CSS</h1>
+<!-- BANDEAU -->
+  <h2>CSS</h2>
+
+    <div id="bandeau_sousTitre">
+      <p>S. Robin (mis à jour le 01 Mar. 2021)</p>
+    </div>
+
+  <div id="bandeau_contenu">
+    <p>L'essentiel du savoir-faire</p>
+  </div>
+
+  <div id="bandeau_controle">
+  </div>
+
+  <!-- CONTENU -->
+  <section id="contenu">
+
+  <h3 id="titrePage">CSS</h3>
 
 
 
@@ -62,7 +47,7 @@
 
   <!-- ===== STRUCTURE D'UNE PAGE CSS ===== -->
 
-<h2 id="structure"> Structure d'une page CSS </h2>
+<h3 id="structure"> Structure d'une page CSS </h3>
 
   <p> Il est possible de coder la mise en forme d'une page Web directement dans un fichier HTML sans recourir à un fichier CSS. Dans ce cas, on définit individuellement pour chaque balise la forme adéquate à l'aide de l'attribut <strong>style</strong>.</p>
   <pre><code class="language-html">&ltp style="color:red"&gt mon texte &lt/p&gt</code></pre><footer class="legendeCode">HTML</footer>
@@ -75,7 +60,7 @@
 
 <!-- ===== APPLIQUER UNE MISE EN FORME ===== -->
 
-<h2 id="forme"> Appliquer une mise en forme </h2>
+<h3 id="forme"> Appliquer une mise en forme </h3>
 
   <p> Pour appliquer un style particulier, il faut sélectionner le nom d'une balise sur laquelle le style va s'appliquer, puis les propriétés qu'on souhaite modifier ainsi que leurs valeurs. Chaque ligne de code se termine par <strong>;</strong> et il existe un <strong>:</strong> entre une propriété et sa valeur.
       Si une modification concerne plusieurs balises, on peut sélectionner les noms de balises séparés de <strong>,</strong>.</p>
@@ -118,7 +103,7 @@
 
 <!-- ===== LES DIFFERENTES PROPRIETES ===== -->
 
-<h2 id="propriete"> Les différentes propriétés </h2>
+<h3 id="propriete"> Les différentes propriétés </h3>
 
   <!-- Les dimensions d'un bloc -->
 
@@ -133,7 +118,7 @@
 
   <!-- La police -->
 
-  <h3> La police </h3>
+  <h4> La police </h4>
 
     <p> Pour qu'une police s'affiche correctement lors de l'ouverture de la page Web, il faut que le navigateur la connaisse. Il convient donc de choisir une police standard. Il est en fait conseillé de choisir plusieurs polices afin de s'assurer qu'une au moins de ces polices s'affiche. Le choix de police se fait naturellement selon l'ordre d'écriture de ces polices dans le fichier CSS.</p>
   <pre><code class="language-css">font-family: Verdana, "Trebuchet MS", Arial;</code></pre><footer class="legendeCode">CSS</footer>
@@ -141,14 +126,14 @@
 
   <!-- La taille de police -->
 
-  <h3> La taille de police</h3>
+  <h4> La taille de police</h4>
 
     <p> On peut choisir de définir une taille absolue en pixels px ou relative en em. Il est conseillé d'utiliser une taille relative qui s'adapte mieux aux différents formats d'écrans. 1em correpond à une taille standard de texte ou de titre en fonction de la section dans laquelle on se trouve.</p>
   <pre><code class="language-css">font-size: 1.2em;</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- La mise en forme standard -->
 
-  <h3> La mise en forme standard </h3>
+  <h4> La mise en forme standard </h4>
 
     <p> Pour mettre un texte en italique, en gras, souligner,... on utilise les propriétés suivantes :</p>
     <pre><code class="language-css">font-style: italic;
@@ -168,7 +153,7 @@ font-variant: normal;</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- L'alignement du texte dans un bloc -->
 
-  <h3> L'alignement du texte dans un bloc </h3>
+  <h4> L'alignement du texte dans un bloc </h4>
 
     <p> Pour aligner du texte, on utilise la propriété text-align.</p>
     <pre><code class="language-css">text-align: left;
@@ -182,7 +167,7 @@ text-align: justify;</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- La rotation du texte -->
 
-  <h3> La rotation du texte </h3>
+  <h4> La rotation du texte </h4>
 
     <p>Pour tourner un texte d'un angle de 60 degrés, on utilise l'attribut <strong>transform</strong>.</p>
 
@@ -192,21 +177,21 @@ text-align: justify;</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- La couleur de texte -->
 
-  <h3> La couleur de texte </h3>
+  <h4> La couleur de texte </h4>
 
     <p> La couleur peut s'exprimer en notation hexadécimale ou en notation RGB pour Red Green Blue. Nous utiliserons principalement la notation hexadécimale, mais aussi la notation RGB lorsque la couleur est associée à une certaine opacité. Certains sites proposent de fournir l'équivalence entre couleurs et notations RGB ou hexadécimale. Par ailleurs, certaines extensions des navigateurs permettent de récupérer la notation RGB d'une couleur présente sur un site Web. On change la couleur d'un texte en utilisant le mot clé <strong>color</strong> :</P>
   <pre><code class="language-css">color: rgb(153,102,102);</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- La couleur de fond -->
 
-  <h3> La couleur de fond </h3>
+  <h4> La couleur de fond </h4>
 
     <p> La couleur de fond se définit de la même manière que la couleur du texte, mais cette fois en utilisant le mot clé <strong>background-color</strong>:</p>
   <pre><code class="language-css">background-color: rgb(255,255,253);</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- L'image de fond -->
 
-  <h3> L'image de fond </h3>
+  <h4> L'image de fond </h4>
 
     <p> Il est également possible d'appliquer une image de fond à la place d'une couleur de fond. Pour cela, il faut utiliser la propriété <strong>background-image</strong>, qui dispose de plusieurs options.</p>
 
@@ -222,7 +207,7 @@ text-align: justify;</code></pre><footer class="legendeCode">CSS</footer>
 
     <!-- La transparence -->
 
-  <h3> La transparence </h3>
+  <h4> La transparence </h4>
 
     <p> Il est également possible de modifier la transparence d'une image ou d'une couleur à l'aide de la propriété <strong>opacity</strong> allant de 0 à 1. Par défaut, les éléments sont totalement opaques (c'est à dire non transparents) et <strong>opacity</strong> a pour valeur 1.</p>
   <pre><code class="language-css">opacity: 0.6; /* la transparence est de 40% */</code></pre><footer class="legendeCode">CSS</footer>
@@ -231,7 +216,7 @@ text-align: justify;</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- Les bordures -->
 
-  <h3> Les bordures </h3>
+  <h4> Les bordures </h4>
 
     <p> La propriété <strong>border</strong> permet de créer ou modifier une bordure et s'utilise avec des options indiquant la largeur, la couleur et le type. Par défaut, un élément ne comporte pas de bordure.</p>
     <pre><code class="language-css">border: 2px red solid; /* trait plein rouge largeur 2 pixels */
@@ -242,7 +227,7 @@ fondue, couleur */</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- Les marges -->
 
-  <h3> Les marges </h3>
+  <h4> Les marges </h4>
 
     <p> Les marges intérieures au bloc sont définies en pixels par l'attribut <strong>padding</strong> alors que les marges extérieures (qui délimitent un espace autour du bloc) sont définies en pixels par l'attribut <strong>margin</strong>.</p>
 
@@ -272,7 +257,7 @@ fondue, couleur */</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- Centrer un bloc -->
 
-  <h3> Centrer un bloc </h3>
+  <h4> Centrer un bloc </h4>
 
     <p> Pour centrer horizontalement un bloc, il faut utiliser l'instruction <strong>margin: auto;</strong> conjointement avec l'attribut obligatoire <strong>width</strong> pour définir une largeur de bloc avant de le centrer. Il n'est pas possible de centrer verticalement un bloc avec cette méthode. Il convient alors d'utiliser Flexbox pour centrer verticalement.</p>
     <pre><code class="language-css">p{
@@ -282,14 +267,14 @@ fondue, couleur */</code></pre><footer class="legendeCode">CSS</footer>
 
   <!-- Lorsque le texte dépasse la taille du bloc -->
 
-  <h3> Lorsque le texte dépasse la taille du bloc </h3>
+  <h4> Lorsque le texte dépasse la taille du bloc </h4>
 
     <p>Lorsqu'un bloc a des dimensions précises et que son contenu dépasse les bords, on utilise l'instruction <strong>overflow: auto</strong> pour gérer le dépassement automatiquement et créer une barre de défilement si besoin.</p>
     <p>De façon similaire, lorsqu'un mot très long dépasse les bords, on utilise l'instruction <strong>word-wrap: break-word</strong> pour couper le mot sans en perdre la signification. C'est notamment le cas d'adresses Internet très longues.</p>
 
   <!-- Les listes -->
 
-  <h3> Les listes </h3>
+  <h4> Les listes </h4>
 
     <p> On peut définir le type de liste comme un attribut des balises <strong>&ltul&gt</strong> et <strong>&ltol&gt</strong>.</p>
     <pre><code class="language-css">ul{
@@ -311,7 +296,7 @@ ol{
 
   <!-- Les flottants -->
 
-  <h3> Les flottants </h3>
+  <h4> Les flottants </h4>
 
     <p>Il est possible d'insérer un élément flottant devant un texte, qui pourra être un bloc ou un image par exemple. Il faut pour cela définir des marges et largeurs compatibles afin que le texte ne déborde pas.</p>
     <pre><code class="language-css">.blocTexte{
@@ -326,7 +311,7 @@ ol{
 
   <!-- Les positionnements absolus, fixes et relatifs -->
 
-  <h3> Les positionnements absolus, fixes et relatifs </h3>
+  <h4> Les positionnements absolus, fixes et relatifs </h4>
 
     <p>Le positionnement <strong>absolute</strong> permet de placer un élément sur une page. On utilise comme unité de mesure des pixels ou des pourcentages. Notons que l'origine du repère se trouve toujours en haut à gauche du bloc qui contient le bloc à placer. Initialement, l'origine du repère se trouve donc en haut à gauche de l'écran.</p>
     <pre><code class="language-css">.bloc{
@@ -354,7 +339,7 @@ ol{
 
   <!-- Modifier l'aspect d'un lien lorsque la souris le survole -->
 
-  <h3> Modifier l'aspect d'un lien lorsque la souris le survole </h3>
+  <h4> Modifier l'aspect d'un lien lorsque la souris le survole </h4>
 
     <p>Il est possible de modifier toutes les propriétés d'un lien lorsqu'on le survole en utilisant l'instruction <strong>a:hover</strong>.</p>
     <pre><code class="language-css">a:hover{
@@ -368,7 +353,7 @@ ol{
 
   <!-- Les tableaux -->
 
-  <h3> Les tableaux </h3>
+  <h4> Les tableaux </h4>
 
     <p> Pour définir les bordures d'un tableau, on utilise les instructions suivantes :</p>
     <pre><code class="language-css">table{
@@ -393,7 +378,7 @@ th, td{
 
 <!-- ===== NOTION D'HERITAGE ===== -->
 
-<h2 id="heritage"> Notion d'héritage </h2>
+<h3 id="heritage"> Notion d'héritage </h3>
 
   <p> La notion d'héritage est issue de la programmation orientée objet. En CSS, cela signifie que si on applique une propriété à une balise, toutes les balises qui se trouvent à l'intérieur appliqueront cette même propriété. On dit qu'elles héritent de cette propriété.
         Par exemple si on définit la couleur du texte à l'intérieur d'un paragraphe comme étant bleue, tous les mots mis en valeur par la balise <strong>em</strong> à l'intérieur d'un paragraphe seront bleus, sauf si on redéfinit spécifiquement la couleur de la balise <strong>em</strong>.</p>
@@ -445,44 +430,5 @@ th, td{
     </nav>
   </aside>
 
-</section> <!-- fin principal -->
-
-<footer class="piedPage">
-  <div class="footerColumn">
-    <p class="piedPageTitre">Liens utiles</p>
-    <nav>
-      <a class="footerNav" href="https://www.w3schools.com/" target="_blank">W3school</a>
-      <a class="footerNav" href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">Color picker</a>
-    </nav>
-  </div>
-
-  <div class="footerColumn">
-    <p class="piedPageTitre">Liens utiles</p>
-    <nav>
-      <a class="footerNav" href="https://realpython.com/" target="_blank">Real python</a>
-      <a class="footerNav" href="https://docs.python.org/3/" target="_blank">Doc python</a>
-    </nav>
-  </div>
-
-  <div class="LargeFooterColumn">
-    <p class="piedPageTitre">Mentions légales</p>
-
-    <nav>
-      <a class="footerNav" href="" target="_blank">Politique de confidentialité</a>
-      <a class="footerNav" href="" target="_blank">Conditions d'utilisation</a>
-      <p class="piedPageParagraphe">&copy 2021 ToKen</p>
-
-    </nav>
-  </div>
-
-  <div class="largeFooterColumn">
-    <p class="piedPageTitre">Au sujet de l'auteur</p>
-    <p class="piedPageParagraphe"><strong>S. Robin :</strong><br/>
-      Professeur d'informatique et développeur passionné par les possibiltés incroyables des langages informatiques.</p>
-
-  </div>
-
-</footer>
-
-</body>
-</html>
+</section> <!-- END CONTENU -->
+</section> <!-- END GRAND CONTENU -->

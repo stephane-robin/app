@@ -1,37 +1,5 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-  <title> Memento </title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="prism.css">
-  <meta charset="utf-8">
-</head>
-
-<!-- script de gestion des couleurs de code -->
-<script defer src="prism.js"></script>
-
-<body>
-
-<div id="bandeau">
-  <h1> Memento </h1>
-  <h1> Python </h1>
-
-  <nav>
-    <div class="element"> <a href="html.html">HTML</a> </div>
-    <div class="element"> <a href="css.html">CSS</a> </div>
-    <div class="element"> <a href="javascript.html">JAVASCRIPT</a> </div>
-    <div class="element"> <a href="java.html">JAVA</a> </div>
-    <div class="element"> <a href="kotlin.html">KOTLIN</a> </div>
-    <div class="element"> <a href="android.html">ANDROID</a> </div>
-    <div class="element"> <a href="php.html">PHP</a> </div>
-    <div class="element"> <a href="python.html">PYTHON</a> </div>
-    <div class="element"> <a href="c.html">C</a> </div>
-    <div class="element"> <a href="git.html">LINUX</a> </div>
-  </nav>
-</div>
-
-<aside>
+<!-- TABLE MATIERES -->
+<aside id="table_matieres">
   <nav id="table_matiere">
     <a href="#py_generalites">Structure du code</a>
       <a href="#py_communiquer">Communiquer avec l'utilisateur</a>
@@ -48,10 +16,7 @@
       <a href="#py_objet">Programmation objet</a>
       <a href="#py_package">Les packages</a>
     <a href="#py_interface">Interfaces graphiques</a>
-
     <a href="#py_environnement">Environnements de travail</a>
-
-
       <a href="#py.sub">subprocess et les lignes de commande</a>
     <a href="#py_django">Le framework Django</a>
         <a href="#py_pep">Respect du PEP8</a>
@@ -59,13 +24,31 @@
   </nav>
 </aside>
 
-<section id="principal">
+<!-- GRAND CONTENU -->
+<section id="grandContenu">
+
+<!-- BANDEAU -->
+  <h2>PYTHON</h2>
+
+    <div id="bandeau_sousTitre">
+      <p>S. Robin (mis à jour le 01 Mar. 2021)</p>
+    </div>
+
+  <div id="bandeau_contenu">
+    <p>L'essentiel du savoir-faire</p>
+  </div>
+
+  <div id="bandeau_controle">
+  </div>
+
+  <!-- CONTENU -->
+  <section id="contenu">
 
 
 
   <!-- STRUCTURE ======================================================== -->
 
-  <h2 id="py_generalites"> Structure du code Python </h2>
+  <h3 id="py_generalites"> Structure du code Python </h3>
 
   <p>Les fichiers Python ont pour extension <em>.py</em> et sont appelés des modules. Contrairement à Java, ceux-ci peuvent
   contenir plusieurs classe (et non pas une seule), ou constituer un script sans aucune classe.</p>
@@ -82,7 +65,7 @@
 
 
 
-  <h3>Exécution d'un module à partir du terminal</h3>
+  <h4>Exécution d'un module à partir du terminal</h4>
 
     <p>L'exécution d'un module Python en utilisant le bash s'effectue de la façon suivante à partir du dossier contenant le module :</p>
     <pre><code class="language-svg">python [nom_module.py]</code></pre>
@@ -108,7 +91,7 @@
 
 
 
-  <h3>Particularité du système Windows</h3>
+  <h4>Particularité du système Windows</h4>
 
   <p>Préciser l'encodage peut s'avérer nécessaire sous Windows. Par ailleurs, il faut mettre en pause le programme en fin d'exécution afin de pouvoir lire le résultat.</p>
   <pre><code class="language-svg"># -*-coding:Latin-1 -*
@@ -128,9 +111,9 @@ os.system("pause")</code></pre>
 
   <!-- ======== LES METHODES DE COMMUNICATION ========= -->
 
-  <h2 id="py_communiquer">Communiquer avec l'utilisateur</h2>
+  <h3 id="py_communiquer">Communiquer avec l'utilisateur</h3>
 
-  <h3>Hello world</h3>
+  <h4>Hello world</h4>
 
   <p>Commençons par le traditionnel "Hello world". Contrairement à beaucoup de langages, Python n'utilise pas de <strong>;</strong> à la fin de chaque instruction. Il le remplace par un retour à la ligne. Notons que les accolades symbolisant un bloc sont remplacées par une indentation.</p>
   <pre><code class="language-javascript">print("Hello World");</code></pre>
@@ -139,7 +122,7 @@ os.system("pause")</code></pre>
     pour aller à la ligne. Pour éviter un retour à la ligne, on utilise l'instruction print("hello", end = "")</p>
 
 
-  <h3>Afficher une valeur</h3>
+  <h4>Afficher une valeur</h4>
 
   <p>La fonction print() permet d'afficher une chaîne de caractères et accepte les paramètres suivants :</p>
     <ul>
@@ -163,7 +146,7 @@ f"Hello {name}"</code></pre>
   compréhension du code.</p>
 
 
-  <h3>Saisie d'une valeur par l'utilisateur</h3>
+  <h4>Saisie d'une valeur par l'utilisateur</h4>
 
   <pre><code class="language-python">nom = input("Quel est votre nom ?");
 print("Bonjour ",nom);</code></pre>
@@ -182,11 +165,11 @@ print("Dans deux ans vous aurez ", age+2)</code></pre>
 
 <!------LES PACKAGES------------->
 
-  <h2 id="py_package">Les Packages</h2>
+  <h3 id="py_package">Les Packages</h3>
 
 <!-- ===== IMPORTER UN PACKAGE ===== -->
 
-<h3 id="py_import_package">Installer et importer un package</h3>
+<h4 id="py_import_package">Installer et importer un package</h4>
 
   <p>Pour installer un package, si la version de Python par défaut est Python3, on utilise l'instruction pip en ligne de
     commande, si la version de Python par défaut est Python2, on utilise l'instruction pip3 en ligne de commande pour forcer
@@ -233,7 +216,7 @@ print("Dans deux ans vous aurez ", age+2)</code></pre>
 
     <!-- ===== LES MODULES ESSENTIELS  ===== -->
 
-    <h3>Les packages et modules essentiels</h3>
+    <h4>Les packages et modules essentiels</h4>
 
     <p>Python étant parcitulièrement utilisé dans le milieu scientifique et
       mathématique, le module math ainsi que le module numpy sont essentiels</p>
@@ -334,7 +317,7 @@ liste_divisee = liste_numpy/2</code></pre>
 
     <!-- ==== CREER UN PACKAGE ===== -->
 
-    <h3 id="py_creer_package">Créer un package</h3>
+    <h4 id="py_creer_package">Créer un package</h4>
 
     <p>Un package Python est organisé en fichiers ou classes, qui sont regroupées dans des modules. Les noms des packages et des modules seront écrits en minuscule et peuvent contenir des underscore. La structure à adopter est la suivante :</p>
     <pre>librairie // racine du package
@@ -382,7 +365,7 @@ setup(name = "librairie",
 
     <!-- ===== CREER UN PACKAGE ===== -->
 
-    <h2 id="py_package2">Créer un package avec Poetry</h2>
+    <h3 id="py_package2">Créer un package avec Poetry</h3>
 
     <p>Il est possible de créer manuellement les fichiers build, manifestes et dépendances en utilisant pip ou conda.
       Toutefois, la gestion des compatibilités des dépendances n'est pas toujours assurée et la publication sur PyPI peut
@@ -418,7 +401,7 @@ setup(name = "librairie",
 
     <!-- ===== LES VARIABLES ===== -->
 
-<h2 id="py_variable">Les types de variables</h2>
+<h3 id="py_variable">Les types de variables</h3>
 
   <p>Python est un langage à typage dynamique, i.e. qu'il identifie lui-même les types de variables et autorise les changements de type. La déclaration des variables n'est donc pas nécessaire. L'instruction <strong>int(chaine)</strong> permet de transformer un <em>String</em> en nombre <em>si cela est possible</em> alors que l'instruction <strong>str(nombre)</strong> permet de transformer un nombre en <em>String</em>.</p>
   <p>Par ailleurs, Python est un langage fortement typé, i.e. qu'il ne convertit pas automatiquement les types de variables, mais requiert une instruction spécifique. Ainsi, la concaténation d'un <em>String</em> avec un entier lève une exception et ne transforme pas l'entier en <em>String</em>.</p>
@@ -443,7 +426,7 @@ setup(name = "librairie",
 b = 5
 a, b = b, a</code></pre>
 
-  <h3> Les principales opérations </h3>
+  <h4> Les principales opérations </h4>
 
   <table>
     <tr><th>Opérations</th><th>Symboles</th></tr>
@@ -463,7 +446,7 @@ a, b = b, a</code></pre>
     <tr><td>NON logique</td><td>! ou  not</td></tr>
   </table>
 
-  <h3>Les opérateurs de comparaison</h3>
+  <h4>Les opérateurs de comparaison</h4>
 
   <table>
     <tr><th>Signification</th><th>Opérateurs</th></tr>
@@ -476,7 +459,7 @@ a, b = b, a</code></pre>
     <tr><td>supérieur ou égal</td><td>>=</td></tr>
   </table>
 
-  <h3>Les constantes</h3>
+  <h4>Les constantes</h4>
 
   <p>Les constantes n'existent pas en Python. On utilise généralement des variables globales qu'on ne modifie pas.</p>
 
@@ -485,9 +468,9 @@ a, b = b, a</code></pre>
 
   <!-- ===== BRANCHEMENT CONDITIONNEL ===== -->
 
-  <h2 id="py_condition">Branchement conditionnel</h2>
+  <h3 id="py_condition">Branchement conditionnel</h3>
 
-    <h3>La condition if</h3>
+    <h4>La condition if</h4>
 
     <pre><code class="language-python">if condition :
   instructions
@@ -511,9 +494,9 @@ else :
 
   <!-- ===== LES BOUCLES ===== -->
 
-  <h2 id="py_boucle"> Les boucles </h2>
+  <h3 id="py_boucle"> Les boucles </h3>
 
-  <h3>La boucle for</h3>
+  <h4>La boucle for</h4>
 
   <p>Pour une répétition allant de 0 à 4 :</p>
     <pre><code class="language-python">for i in range(0, 5):
@@ -527,13 +510,13 @@ else :
     <pre><code class="language-python">for elmt in chaine:
   print(elt) # ou une quelconque instruction sur elt</code></pre>
 
-    <h3>Particularité de Python</h3>
+    <h4>Particularité de Python</h4>
 
     <pre><code class="language-python">for lettre in chaine :
   if lettre in "aeiouy" :
   instructions</code></pre>
 
-  <h3>La boucle while</h3>
+  <h4>La boucle while</h4>
 
   <pre><code class="language-python">while condition :
   instructions</code></pre>
@@ -546,7 +529,7 @@ else :
 
     <!-- ===== MANIPULER DES CHAINES DE CARACTERES ===== -->
 
-    <h2 id="py_chaine">Manipuler des chaînes de caractères</h2>
+    <h3 id="py_chaine">Manipuler des chaînes de caractères</h3>
 
     <p>L'indice du 1er caractère d'une chaîne est 0. Pour échapper une apostrophe ou un guillemet, on utilise le signe <strong>\</strong>.<p>
 
@@ -580,7 +563,7 @@ else :
 
     <p>Python utilise indistinctement " ou ' pour encadre une chaîne de caractères, et ne distingue pas les caractères isolés comme Java.</p>
 
-  <h3>Parcourir une chaîne de caractères élément par élément</h3>
+  <h4>Parcourir une chaîne de caractères élément par élément</h4>
 
     <pre><code class="language-python">for(let i=0; i&lt chaine.length; i++){
   chaine[i];
@@ -591,7 +574,7 @@ else :
     <p>Python permet d'inclure des expressions dans une chaîne de caractères appelées <em>template literal</em>. Pour cela, il faut définir les emplacement avec <strong>{}</strong> et utiliser la méthode <strong>format()</strong>.</p>
     <pre><code class="language-python">{} est le fils de {}.format("Antoine", "Albert")</code></pre>
 
-    <h3>Caster une chaîne de caractères</h3>
+    <h4>Caster une chaîne de caractères</h4>
 
     <p>Il est possible de caster une chaîne de caractères lorsque ceux-ci s'apparentent à des nombres. Pour cela, on utilise
       les méthodes int() et float(). Cela s'avère utile lorsqu'on demande à un utilisateur de saisir un nombre. Ce dernier est
@@ -605,7 +588,7 @@ nombre = int(chaine)</code></pre>
 
 <!-- ===== LES TABLEAUX ===== -->
 
-<h2 id="py_tableau">Les tableaux</h2>
+<h3 id="py_tableau">Les tableaux</h3>
 
   <p>Les tableaux (appelés tuples en Python) contiennent des éléments dont le nombre de bouge pas. On peut toutefois changer ces éléments. Un tableau est considéré comme un type élémentaire en Python.</p>
 
@@ -615,7 +598,7 @@ nombre = int(chaine)</code></pre>
   <p>L'indice du 1er élément d'un tableau est 0. Attention, on ne modifie pas les éléments d'un tuple, qui sont par
   définition immuables.</p>
 
-  <h3>Propriétés d'un tableau</h3>
+  <h4>Propriétés d'un tableau</h4>
 
   <table>
     <tr><th>Propriétés</th><th>Codes</th></tr>
@@ -629,7 +612,7 @@ nombre = int(chaine)</code></pre>
 
 <!-- ===== LES LISTES ===== -->
 
-<h2 id="py_liste">Les listes</h2>
+<h3 id="py_liste">Les listes</h3>
 
   <p>Les listes contiennent des éléments dont le nombre peut varier, mais
     l'indice du 1er élément est 0. Les listes sont compatibles avec les
@@ -647,7 +630,7 @@ nombre = int(chaine)</code></pre>
   <p>Pour créer une liste vide</p>
   <pre><code class="language-python">maListe = list()</code></pre>
 
-  <h3>Propriétés d'une liste</h3>
+  <h4>Propriétés d'une liste</h4>
 
   <table>
     <tr><th>Propriétés</th><th>Codes</th></tr>
@@ -670,7 +653,7 @@ nombre = int(chaine)</code></pre>
 
   <p>Une liste vide a pour taille 0. </p>
 
-  <h3>Parcourir une liste</h3>
+  <h4>Parcourir une liste</h4>
 
   <p>Si on souhaite afficher une liste sans mise en forme particulière, l'utilisation de <strong>print</strong> est suffisante.</p>
   <pre><code class="language-python">print(maListe)</code></pre>
@@ -695,7 +678,7 @@ nombre = int(chaine)</code></pre>
 
   <!-- ====== UTILISATION AVANCEE DES LISTES ===== -->
 
-  <h3 id="py_liste_avance">Utilisation avancée des listes</h3>
+  <h4 id="py_liste_avance">Utilisation avancée des listes</h4>
 
   <h4>Affectation par valeurs, affectation par référence</h4>
 
@@ -798,7 +781,7 @@ print("\n".join(["%d pour %s" % (nbre, nom) for nbre, nom in annuaire]))</code><
 
 <!-- ===== LES DICTIONNAIRES ===== -->
 
-<h2 id="py_dictionnaire">Les dictionnaires</h2>
+<h3 id="py_dictionnaire">Les dictionnaires</h3>
 
   <p>Les dictionnaires sont constitués d'un ensemble de clés-valeurs, dans lequel il n'y a aucun ordre.
   Leur structure est similaire à celle d'un format JSON.</p>
@@ -821,7 +804,7 @@ print("\n".join(["%d pour %s" % (nbre, nom) for nbre, nom in annuaire]))</code><
   <p>Pour ajouter un élément à la fin d'un dictionnaire, il suffit de créer cet élément :</p>
   <pre><code class="language-python">dico["lieuNaissance"] = "Lausanne";</code></pre>
 
-  <h3>Parcourir un dictionnaire</h3>
+  <h4>Parcourir un dictionnaire</h4>
 
   <pre><code class="language-python">for cle in dico.keys():
   print(cle)
@@ -832,7 +815,7 @@ for valeur in dico.values():
 for cle, valeur in dico.items():
     print(f"Clé {cle} - Valeur {valeur}")</code></pre>
 
-  <h3>Propriétés d'un dictionnaire</h3>
+  <h4>Propriétés d'un dictionnaire</h4>
 
   <table>
     <tr><th>Propriétés</th><th>Codes</th></tr>
@@ -844,7 +827,7 @@ for cle, valeur in dico.items():
     <tr><td>suppression d'un élément défini par sa clé et renvoi de sa valeur</td><td><pre>dico.pop("key")</pre></td></tr>
   </table>
 
-  <h3>Définir les attributs d'un objet à partir d'un dictionnaire</h3>
+  <h4>Définir les attributs d'un objet à partir d'un dictionnaire</h4>
 
   <p>Dans le constructeur d'une classe, pour instancier des objets dont les attributs portent le même nom que les clés d'un dictionnaire :</p>
 
@@ -852,7 +835,7 @@ for cle, valeur in dico.items():
   for attr_name, attr_value in dico.items():
     setattr(self, attr_name, attr_value)</code></pre>
 
-<h3>Conversion d'un dictionnaire en chaìne</h3>
+<h4>Conversion d'un dictionnaire en chaìne</h4>
 
   <p>De la même façon qu'avec des listes, on peut transformer un
     dictionnaire en chaìne en spécifiant un séparateur de valeurs
@@ -864,7 +847,7 @@ chaine = '#'.join(dico)</code></pre>
 
   <p>On obtiendra alors comme résultat : name#age</p>
 
-  <h3>Utiliser la méthode setdefault pour afficher la valeur d'une clé</h3>
+  <h4>Utiliser la méthode setdefault pour afficher la valeur d'une clé</h4>
 
   <p>La méthode setdefault permet d'éviter de lever une exception dans le
     cas où la clé consultée n'existe pas dans le dictionnaire. Dans ce
@@ -887,7 +870,7 @@ print(dico.setdefault('couleur', 'blanche')</code></pre>
 
   <!-- ===== LES FONCTIONS ===== -->
 
-  <h2 id="py_fonction"> Les fonctions </h2>
+  <h3 id="py_fonction"> Les fonctions </h3>
 
   <p>La déclaration d'une fonction se réalise de la manière suivante :</p>
   <pre><code class="language-python">def nomFonction(parametre) :
@@ -917,7 +900,7 @@ print(dico.setdefault('couleur', 'blanche')</code></pre>
 
   <p>En Python, pour créer des fonctions attendant un nombre inconnu de paramètres, on utilise la syntaxe</p> <pre>def maFonction(*monTableau)</pre> <p>où <em>monTableau</em> est un tableau de parametres.</p>
 
-   <h3>Documenter une fonction</h3>
+   <h4>Documenter une fonction</h4>
 
     <p>En Python, l'ajout d'une <em>docstring</em> se fait sous le nom de la fonction, avec une indentation et 3 guillements. Elle peut s'étendre sur plusieurs lignes.</p>
     <pre><code class="language-python">def maFonction(parametre) :
@@ -928,7 +911,7 @@ print(dico.setdefault('couleur', 'blanche')</code></pre>
 
     <p>On appelle la documentation en utilisant l'instruction <strong>help(maFonction)</strong></p>
 
-    <h3>Fonction anonyme</h3>
+    <h4>Fonction anonyme</h4>
 
     <p>En Python, la fonction anonyme est appelée fonction <em>lambda</em>, mais le principe reste identique. On remplace dans ce cas le mot-clé <strong>def</strong> par <strong>lambda</strong> et on ne spécifie aucun nom pour la fonction créée.</p>
     <pre><code class="language-python">int maVariable = lambda x :
@@ -943,7 +926,7 @@ print(dico.setdefault('couleur', 'blanche')</code></pre>
 
   <p>On remarque qu'une fonction lambda utilise une construction particuliére et transforme la variable <em>maVariable</em> en fonction.</p>
 
-    <h3>Fonctions prédéfinies </h3>
+    <h4>Fonctions prédéfinies </h4>
 
     <table>
       <tr><th>Fonctions</th><th>Actions</th></tr>
@@ -951,7 +934,7 @@ print(dico.setdefault('couleur', 'blanche')</code></pre>
       <tr><td>Math.random</td><td>génère un nombre aléatoire entre 0 et 1</td></tr>
     </table>
 
-  <h3>Utilisation de la fonction callback en Python</h3>
+  <h4>Utilisation de la fonction callback en Python</h4>
 
   <p>Il s'agit d'une fonction qui sert de paramètre à une autre fonction.</p>
 
@@ -966,7 +949,7 @@ def autreFonction(maFonction, val):
 
   <!-- ===== LES DOCTRINGS ===== -->
 
-  <h2 id="py_doc">Les docstrings</h2>
+  <h3 id="py_doc">Les docstrings</h3>
 
   <p>Les conventions pour la doctring sont les suivantes :</p>
 <pre><code class="language-svg">def ma_fonction(nom):
@@ -988,7 +971,7 @@ def autreFonction(maFonction, val):
 
   <!-- ===== LES EXCEPTIONS ===== -->
 
-  <h2 id="py_exception">La gestion des exceptions</h2>
+  <h3 id="py_exception">La gestion des exceptions</h3>
 
   <p>Elles se construisent suivant les cas de différentes manières :</p>
   <pre><code class="language-python">try: # cas général
@@ -1019,7 +1002,7 @@ except ZeroDivisionError:
 
   <!-- ===== LES OBJETS EN PYTHON ===== -->
 
-  <h2 id="py_objet"> La programmation objet</h2>
+  <h3 id="py_objet"> La programmation objet</h3>
 
     <p>La création d'une classe en Python :</p>
     <pre><code class="language-python">class MaClasse:
@@ -1061,7 +1044,7 @@ def __maMethodePrivee</code></pre>
 
   <!-- Input/Ouput ------------------------------------------------------>
 
-  <h2 id="py_in_out">Input / Output</h2>
+  <h3 id="py_in_out">Input / Output</h3>
 
   <p>Pour intégrer un fichier physique dans un code, il faut créer un objet
     à l'aide de l'instruction open(). On peut employer with open() au lieu de
@@ -1189,7 +1172,7 @@ voici ma 2ème ligne</code></pre>
 
 
 
-  <h3>Décodage des bytes en string</h3>
+  <h4>Décodage des bytes en string</h4>
 
   <p>Pour décoder des bytes en string unicode utf8, on utilise :</p>
   <pre><code class="language-python">bb = b'\xc2\xa9 abc'
@@ -1202,7 +1185,7 @@ bb = chaine.encode('utf-8)</code></pre>
 
 
 
-<h3>Parcourir un répertoire</h3>
+<h4>Parcourir un répertoire</h4>
 
   <p>Afin d'afficher tous les éléments se trouvant dans un dossier de l'ordinateur grâce à Python :</p>
 
@@ -1216,7 +1199,7 @@ for item in listdir('/home/user/monDossier'):
 
 
 
-  <h3>Parser du JSON / Sérialiser en JSON</h3>
+  <h4>Parser du JSON / Sérialiser en JSON</h4>
 
   <p>Parser consiste à analyser une suite de données afin d'en
     récupérer la structure et de l'incorporer dans un objet structuré.
@@ -1358,13 +1341,13 @@ for item in listdir('/home/user/monDossier'):
 ENVIRONNEMENTS DE TRAVAIL
 ------------------------>
 
-  <h2 id="py_environnement">Les environnements de travail</h2>
+  <h3 id="py_environnement">Les environnements de travail</h3>
 
 
 
   <!-- ===== CHANGER LES VERSIONS DE PYTHON ============================== -->
 
-  <h3 id="py_version">Gérer les versions de Python avec pyenv</h3>
+  <h4 id="py_version">Gérer les versions de Python avec pyenv</h4>
 
   <p>Pour connaître la version active de Python :</p>
   <pre><code class="language-svg">python --version</code></pre>
@@ -1405,7 +1388,7 @@ pyenv which python</code></pre>
 
 
 
-  <h3>Particularité de l'utilisation de Anaconda</h3>
+  <h4>Particularité de l'utilisation de Anaconda</h4>
 
   <p>Pour télécharger l'environnement de travail Anaconda, il faut d'abord télécharger Anaconda pour Linux, vérifier le sha avec la commande :</p>
   <pre><code class="language-svg">sha256sum [nom_fichier_telecharge]</code></pre>
@@ -1428,7 +1411,7 @@ pyenv which python</code></pre>
 
   <!-- CREER DES ENVIRONNEMENTS DE TRAVAIL --------------------------->
 
-  <h2 id="py_env">Créer des environnements de développement avec venv</h2>
+  <h3 id="py_env">Créer des environnements de développement avec venv</h3>
 
   <p>Il est nécessaire de travailler dans des environnements virtuels pour isoler les dépendances de chaque projet Python.
     Pour cela, on utilise le module venv compris dans la librairie standard de Python3. Il est également possible d'utiliser
@@ -1484,7 +1467,7 @@ pyenv local 3.8.0</code></pre>
 
   <!-- ===== UTILISATION DE PYCHARM DANS UN ENVIRONNEMENT ===== -->
 
-  <h2 id="py_pycharm">Utilisation de PyCharm dans un environnement particulier</h2>
+  <h3 id="py_pycharm">Utilisation de PyCharm dans un environnement particulier</h3>
 
   <p>PyCharm crée automatiquement un dossier PyCharmProjects dans lequel il va ranger les différents projets. On peut
     alors choisir l'interpréteur parmi ceux proposés, et en fonction de ce qui a été installé (conda, virtualenv, une version
@@ -1512,12 +1495,12 @@ pyenv local 3.8.0</code></pre>
   INTERFACES GRAPHIQUES
   -------------------->
 
-  <h2 id="#py_interface">Les interfaces graphiques</h2>
+  <h3 id="#py_interface">Les interfaces graphiques</h3>
 
 
   <!------ ARGPARSE ------->
 
-  <h3 id="py_argparse">L'interface en ligne de commande avec argparse</h3>
+  <h4 id="py_argparse">L'interface en ligne de commande avec argparse</h4>
 
   <p>Le module argparse permet de créer une Command Line Interface. Par exemple :</p>
   <pre><code class="language-python">mp = argparse.ArgumentParser(prog='nom_programme', description="A description that shows up")
@@ -1534,7 +1517,7 @@ if args.collect:
 
   <!-----TKINTER------>
 
-  <h3 id="py_tkinter">L'interface graphique avec Tkinter</h3>
+  <h4 id="py_tkinter">L'interface graphique avec Tkinter</h4>
 
   <p>L'interface graphique Tkinter est fonctionnelle mais relativement sommaire. Il est possible d'intégrer du code java
   pour améliorer l'interface en utilisant le module Jython. Toutefois, le code suivant permet d'obtenir une fenetre pourvue des
@@ -1606,7 +1589,7 @@ class InterfaceAccueil(Frame):
 
   <!-- ===== PEP8 ===== -->
 
-  <h2 id="py-pep">Respect du PEP8</h2>
+  <h3 id="py-pep">Respect du PEP8</h3>
 
   <p>Python Enhancement Proposal 8 requiert le respect des règles suivantes:</p>
   <ul>
@@ -1641,7 +1624,7 @@ pylint fichier.py // lance l'analyse de fichier.py</pre>
   DJANGO
   ------>
 
-  <h2 id="py_django">Le framework Django</h2>
+  <h3 id="py_django">Le framework Django</h3>
 
   <p>Django est un framework opensource pour le développement Web Python. Il construit les applications suivant le
     design pattern MVT, inspiré de la structure classique MVC. Il contient déjà un gestionnaire de BDD sqlite, un serveur et un gestionnaire d'accès à la BDD
@@ -1795,7 +1778,7 @@ python manage.py runserver</code></pre>
   <!-------------------------------------
   EXECUTER DU BASH DANS DU CODE PYTHON
   --------------------------------------->
-  <h2>Exécuter du bash dans du code Python</h2>
+  <h3>Exécuter du bash dans du code Python</h3>
 
   <p>On peut exécuter un script Python qui interprète une ligne de commande à
     l'emplacement du dossier courant où se trouve le script, en utilisant le
@@ -1805,9 +1788,9 @@ python manage.py runserver</code></pre>
   <pre><code class="language-python">import subprocess
 subprocess.run('ls')</code></pre>
 
-    <h2>Les graphes en Python</h2>
+    <h3>Les graphes en Python</h3>
 
-  <h3>Courbe 2d</h3>
+  <h4>Courbe 2d</h4>
 
     <p>Une courbe en dimension 2 peut se réaliser en utilisant le code suivant :</p>
     <pre><code class="language-python">import numpy as np
@@ -1863,7 +1846,7 @@ plt.show()</code></pre>
         <tr><td>points et flèches</td><td>&lt:</td></tr>
     </table>
 
-  <h3>Les points</h3>
+  <h4>Les points</h4>
 
   <pre><code class="language-python">import matplotlib.pyplot as plt
 x = [4.51, 4.87, 5.89, 3.45, 4.89]
@@ -1875,7 +1858,7 @@ pt.show()</code></pre>
 
   <img src="./images/points.png" alt="points" width="400">
 
-    <h3>Les nuages de points</h3>
+    <h4>Les nuages de points</h4>
 
     <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
@@ -1910,7 +1893,7 @@ plt.show()</code></pre>
     <li></li>
   </ul>
 
-  <h3>Courbe 3d</h3>
+  <h4>Courbe 3d</h4>
 
   <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
@@ -1938,7 +1921,7 @@ plt.show()</code></pre>
 
   <img src="./images/courbe3d.png" alt="courbe 3d" width="400">
 
-  <h3>Surface 3d</h3>
+  <h4>Surface 3d</h4>
 
   <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
@@ -1965,7 +1948,7 @@ plt.show()</code></pre>
 
   <img src="./images/surface3d.png" alt="surface 3d" width="400">
 
-    <h3>Contour plot</h3>
+    <h4>Contour plot</h4>
 
 <pre><code class="language-python">import matplotlib.pyplot as plt
 import numpy as np
@@ -1985,11 +1968,5 @@ plt.show()</code></pre>
 
     <img src="./images/contour.png" alt="contour plot" width="400">
 
-</section>
-
-<footer>
-  Stephane Robin
-</footer>
-
-</body>
-</html>
+</section> <!-- END CONTENU -->
+</section> <!-- END GRAND CONTENU -->

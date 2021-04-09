@@ -2,7 +2,7 @@
 <html>
 
 <!-- HEAD -->
-<?php include("./sources/general/head.html"); ?>
+<?php include("./sources/general/head_index.html"); ?>
 
 <!-- BODY -->
 <body>
@@ -23,10 +23,6 @@
 <!-- BANDEAU -->
 
 <h2>Memento de programmation</h2>
-
-
-
-
 
 
 

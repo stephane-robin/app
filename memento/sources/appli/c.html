@@ -1,37 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <title> Memento </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="prism.css">
-    <meta charset="utf-8">
-</head>
-
-<!-- JavaScript de gestion des couleurs de code -->
-<script defer src="prism.js"></script>
-
-<body>
-
-
-<div id="bandeau">
-    <h1> Memento </h1>
-    <h1> C </h1>
-
-    <nav>
-        <div class="element"> <a href="html.html">HTML</a> </div>
-        <div class="element"> <a href="css.html">CSS</a> </div>
-        <div class="element"> <a href="javascript.html">JAVASCRIPT</a> </div>
-        <div class="element"> <a href="java.html">JAVA</a> </div>
-        <div class="element"> <a href="kotlin.html">KOTLIN</a> </div>
-        <div class="element"> <a href="android.html">ANDROID</a> </div>
-        <div class="element"> <a href="php.html">PHP</a> </div>
-        <div class="element"> <a href="python.html">PYTHON</a> </div>
-        <div class="element"> <a href="c.html">C</a> </div>
-        <div class="element"> <a href="git.html">LINUX</a> </div>
-    </nav>
-</div>
-
+<!-- TABLE MATIERES -->
 <aside>
     <nav id="table_matiere">
         <a href="#general">Généralités</a>
@@ -49,13 +16,31 @@
     </nav>
 </aside>
 
-<section id="principal">
+<!-- GRAND CONTENU -->
+<section id="grandContenu">
+
+<!-- BANDEAU -->
+  <h2>DEVELOPMENT TOOLS</h2>
+
+    <div id="bandeau_sousTitre">
+      <p>S. Robin (mis à jour le 01 Mar. 2021)</p>
+    </div>
+
+  <div id="bandeau_contenu">
+    <p>L'essentiel du savoir-faire</p>
+  </div>
+
+  <div id="bandeau_controle">
+  </div>
+
+  <!-- CONTENU -->
+  <section id="contenu">
     
 
 
   <!-- ===== GENERALITES ===== -->
 
-  <h2 id="general"> Généralités </h2>
+  <h3 id="general"> Généralités </h3>
 
     <p>Les fichiers C ont pour extension <em>.c</em></p>
     
@@ -72,7 +57,7 @@
 
     <p>L'installation de librairies se fait à l'aide de l'instruction <strong>#include &ltnomLibrairie&gt</strong>.</p>
 
-    <h3>Lancer une compilation avec Makefile</h3>
+    <h4>Lancer une compilation avec Makefile</h4>
     
     <p>Une fois le fichier Makefile créé, il faut ouvrir le Terminal et se rendre dans le dossier du projet</p>
     <pre><code class="language-svg">cd Documents/monProjet</code></pre>
@@ -87,7 +72,7 @@
 
   <!-- ===== HELLO WORLD ===== -->
 
-  <h2 id="hello">Hello world</h2>
+  <h3 id="hello">Hello world</h3>
 
   <p>Commençons par le traditionnel "Hello world".</p>
   <pre><code class="language-python">#include &ltstdio.h&gt
@@ -102,7 +87,7 @@ int main(int argc, char* argv[]){
     
 <!--- ===== LES VARIABLES ===== -->
     
-<h2 id="variable">Les variables</h2>
+<h3 id="variable">Les variables</h3>
     
 <p>C n'est pas un langage dynamique. Il est nécessaire que définir le type de variables avant leur utilisation. Les différents types de variables en C sont les suivants :</p> 
 <p>C est un langage faiblement typé, et ne dispose que de 4 types de variables.</p>
@@ -124,17 +109,17 @@ int main(int argc, char* argv[]){
 
 <p>Au moment de la déclaration d'une variable, C réserve un emplacement en mémoire, mais la valeur attribuée initialement à la variable correspond à la dernière valeur prise par cet emplacement de mémoire. Il est donc important de déclarer et d'initialiser en même temps pour éviter des erreurs, en attribuant par exemple la valeur 0 à la variable.</p>
 
-<h3>Particularités de C</h3>
+<h4>Particularités de C</h4>
 
 <p>En C il n'existe pas de type booleen. On fait donc prendre les valeurs 0 et 1 à une variable qui va jouer le rôle d'un booléen. Il n'existe pas non plus de type chaîne de caractères. En revanche, le type char qui est un type particulier de nombres compris entre -128 et 127, permet en fait de représenter des caractères. La correspondance entre les nombres et les caractères est assurée par la table ASCII.</p>
 
-<h3>Conversion implicite et cast d'un type</h3>
+<h4>Conversion implicite et cast d'un type</h4>
 
 <p>Dans une expression contenant des éléments de plusieurs types, le type du résultat respecte la règle suivante : le type le plus faible est converti implicitement dans le type le plus fort. Par exemple, un char avec un int produit un int, un int avec un float produit un float. Si on veut convertir de façon explicite une variable dans un autre type (cast), on utilise la forme suivante :</p>
 <pre><code class="language-python">int x;
 float y = (float)x;</code></pre>
 
-<h3>Affichage d'une variable</h3>
+<h4>Affichage d'une variable</h4>
     
 <pre><code class="language-python">printf("Antoine a %d ans et %d voitures", age, nbreVoitures);</code></pre>
 
@@ -150,19 +135,19 @@ float y = (float)x;</code></pre>
     <tr><td>float en notation scientifique</td><td>%e</td></tr>
 </table>
 
-<h3>Les constantes</h3>
+<h4>Les constantes</h4>
 
 <p>On déclare une constante en C avec l'instruction :</p>
     <pre><code class="language-python">const int MON_NOMBRE = 5;</code></pre>
 
-<h3>Taille des données</h3>
+<h4>Taille des données</h4>
 
 <p>En C, un octet est représenté par un char. L'instruction <strong>sizeof</strong> permet de connaître la taille en octets d'une donnée. La taille d'un char vaut donc 1.</p>
 
 
 <!-- ===== LES PRINCIPALES OPERATIONS ===== -->
 
-<h2 id="operation"> Les principales opérations </h2>
+<h3 id="operation"> Les principales opérations </h3>
 
   <table>
     <tr><th>Opérations</th><th>Symboles</th></tr>
@@ -182,7 +167,7 @@ float y = (float)x;</code></pre>
     <tr><td>NON logique</td><td>!</td></tr>
   </table>
 
-<h3>Particularité de C</h3>
+<h4>Particularité de C</h4>
 
 <p>En C, le signe division <strong>/</strong> n'a pas le même sens selon que les termes de calcul sont des entiers ou des décimaux.</p> 
 <table>
@@ -195,7 +180,7 @@ int b = 2;</pre></td><td><pre>float resultat = a/b</pre></td><td>2.0</td></tr>
 float b = 2.0;</pre></td><td><pre>float resultat = a/b</pre></td><td>2.5</td></tr>
 </table>
 
-<h3>Les opérateurs de comparaison</h3>
+<h4>Les opérateurs de comparaison</h4>
 
   <table>
     <tr><th>Signification</th><th>Opérateurs</th></tr>
@@ -212,7 +197,7 @@ float b = 2.0;</pre></td><td><pre>float resultat = a/b</pre></td><td>2.5</td></t
 
 <!-- ===== LES TABLEAUX ===== -->
 
-<h2 id="tableau">Les tableaux</h2>
+<h3 id="tableau">Les tableaux</h3>
 
 <p>Les tableaux en C sont des objets contenant des variables de même type, et disposant d'une taille fixée.</p>
 <p>Notons que les adresses des variables d'un tableau sont contigues.</p>
@@ -235,7 +220,7 @@ print("%d", tab);</code></pre>
     printf("%d \n", tableau[i];
 }</code></pre>
 
-<h3>Propriétés d'un tableau</h3>
+<h4>Propriétés d'un tableau</h4>
 
   <table>
     <tr><th>Propriétés</th><th>Codes</th></tr>
@@ -246,7 +231,7 @@ print("%d", tab);</code></pre>
     <tr><td>indice d'un élément</td><td><pre>tab.index(element)</pre></td></tr>
   </table>
 
-<h3>Une initialisation particulière à C</h3>
+<h4>Une initialisation particulière à C</h4>
 
     <pre><code class="language-python">int tableau[5] = {1};</code></pre>
 <p>Cette instruction va en fait affecter la valeur 1 au 1er élément du tableau, puis la valeur 0 aux quatre autres.</p>
@@ -255,9 +240,9 @@ print("%d", tab);</code></pre>
 
 <!-- ===== MANIPULER DES CHAINES DE CARACTERES ===== -->
 
-<h2 id="caractere">Manipuler des chaînes de caractères</h2>
+<h3 id="caractere">Manipuler des chaînes de caractères</h3>
 
-<h3>Les caractères</h3>
+<h4>Les caractères</h4>
 
 <p>En C un caractère est en fait un nombre stocké tel quel dans la mémoire et affiché sous forme de caractère grâce à la table ASCII, si on le spécifie en utilisant l'attribut <em>%c</em>.</p>
 
@@ -272,7 +257,7 @@ printf("%c", lettre);</code></pre>
 <p>affiche bien la lettre <em>a</em>.</p>
 <p>Notons que les caractères sont obligatoirement entourés de <strong>'</strong> alors que les chaînes de caractères sont entourées de <strong>"</strong>.</p>
 
-<h3>Les chaînes de caractères</h3>
+<h4>Les chaînes de caractères</h4>
 
 <p>En C, une chaîne de caractères est un tableau de caractères de type char dont le dernier élément est \0. Il s'agit en fait d'un caractère de contrôle non affichable qui permet d'indiquer la fin de la chaîne. Ainsi une chaîne composée de n éléments sera en fait un tableau de n+1 éléments. La taille d'une chaîne de caractères est immuable une fois initialisée. On peut toutefois n'utiliser que partiellement l'espace alloué en insérant le caractère de fin de chaîne \0 à un emplacement avant la fin du tableau.</p>
 <p>La bibliothèque <em>string.h</em> offre une multitude de fonctions dédiées aux chaînes.</p>
@@ -340,7 +325,7 @@ if (suiteChaine != NULL){
 
 <!-- ===== SAISIE PAR L'UTILISATEUR ===== -->
 
-<h2 id="saisie">Saisie par l'utilisateur</h2>
+<h3 id="saisie">Saisie par l'utilisateur</h3>
 
 <p>Dans le cas d'une valeur numérique, on saisit la variable age sous forme d'adresse :</p>
 <pre><code class="language-python">int age = 0;
@@ -353,7 +338,7 @@ printf("Vous avez %d ans, age);</code></pre>
 printf("quel est votre nom?");
 scanf("%s", nom);</code></pre>
 
-<h3>Particularité de C</h3>
+<h4>Particularité de C</h4>
 
 <p>Si le nombre saisi par l'utilisateur ne correspond pas au type, C ne lève pas une exception mais conserve la valeur initialisée de la variable. Si le type attendu est <strong>int</strong> mais que le type saisi est en fait <strong>float</strong>, C ne va toujours pas lever une exception mais tronquer le nombre saisi pour le transformer en entier.</p>
 
@@ -361,9 +346,9 @@ scanf("%s", nom);</code></pre>
 
 <!-- ===== BRANCHEMENT CONDITIONNEL ===== -->
 
-<h2 id="condition">Branchement conditionnel</h2>
+<h3 id="condition">Branchement conditionnel</h3>
 
-    <h3>La condition if</h3>
+    <h4>La condition if</h4>
 
     <pre><code class="language-python">if (condition){
   instructions;
@@ -384,7 +369,7 @@ else{
   instructions;
 }</code></pre>
 
-    <h3>L'instruction switch</h3>
+    <h4>L'instruction switch</h4>
 
     <pre><code class="language-python">switch(maVariable){
   case valeur1:
@@ -404,15 +389,15 @@ else{
 
 <!-- ===== LES BOUCLES ===== -->
 
-<h2 id="boucle"> Les boucles </h2>
+<h3 id="boucle"> Les boucles </h3>
 
-   <h3>La boucle while</h3>
+   <h4>La boucle while</h4>
 
     <pre><code class="language-python">while (condition){
   instructions;
 }</code></pre>
 
-    <h3>La boucle for</h3>
+    <h4>La boucle for</h4>
 
     <pre><code class="language-python">for (int i=0; i<5; i++){
   instructions;
@@ -421,7 +406,7 @@ else{
     <pre><code class="language-python">for elmt in chaine :
    instructions</code></pre>
 
-    <h3>Particularité de Python</h3>
+    <h4>Particularité de Python</h4>
 
     <pre><code class="language-python">for lettre in chaine :
   if lettre in "aeiouy" :
@@ -433,7 +418,7 @@ else{
 
 <!-- ===== LES FONCTIONS ===== -->
 
-<h2 id="fonction">Les fonctions</h2>
+<h3 id="fonction">Les fonctions</h3>
 
 <pre><code class="language-python">type maFonction(type parametre){
     instructions;
@@ -442,7 +427,7 @@ else{
 
 <p>Pour les fonctions qui ne renvoient pas de valeur (appelées procédures), on remplace le type par <strong>void</strong> et on renvoie <strong>return 0</strong>.</p>
 
-<h3>Particularité de C</h3>
+<h4>Particularité de C</h4>
 
 <p>Afin de pouvoir lire des fonctions se trouvant après la méthode main(), il faut d'abord déclarer ces fonctions en début de code derrière les préconditions en rajoutant le prototype des fonctions utilisées :</p>
 <pre><code class="language-python">#include &ltstdio.h&gt
@@ -461,7 +446,7 @@ type maFonction(type parametre);</code></pre>
 
 <!-- ===== LES POINTEURS ===== -->
 
-<h2 id="pointeur">Les pointeurs</h2>
+<h3 id="pointeur">Les pointeurs</h3>
 
 <p>Un pointeur est une variable particulière contenant l'adresse d'une autre variable. Pour créer un pointeur, on rajoute le symbole * au type de variable :</p>
     <pre><code class="language-python">int* maVariable;</code></pre>
@@ -518,7 +503,7 @@ void modification(int* pointeurParametre){
     *parametre = *parametre+2;
 }</code></pre>
 
-<h3>Utilisation des pointeurs dans les fonctions</h3>
+<h4>Utilisation des pointeurs dans les fonctions</h4>
 
 <p>Il est rarement judicieux de déclarer une variable globale. Pourtant C propose de modifier une variable sans la déclarer globale, mais en travaillant sur son adresse à l'aide du pointeur qui lui est associé. L'exemple suivant ne permet pas d'inverser la valeur des variables a et b :</p>
 <pre><code class="language-python">void permuter(int a, int b);
@@ -602,7 +587,7 @@ int[2] inverse(int a, int b){
 
 <!-- ===== LE PACKAGE MATH ===== -->
 
-<h2 id="math">Le package math.h</h2>
+<h3 id="math">Le package math.h</h3>
 
     <pre><code class="language-python">#include &ltmath.h&gt</code></pre>
 <p></p>
@@ -625,10 +610,5 @@ int[2] inverse(int a, int b){
     <tr><td>atan(x)</td><td>arc tangente de x en radians, renvoie un double</td></tr>
   </table>
 
-</section>
-
-<footer>
-</footer>
-
-</body>
-</html>
+</section> <!-- END CONTENU -->
+</section> <!-- END GRAND CONTENU -->
