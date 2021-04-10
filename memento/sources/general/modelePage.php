@@ -1,8 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 
+<!-- PHP FUNCTIONS -->
+<?php include("fonctionsPHP.php"); ?>
+
 <!-- HEAD -->
-<?php include("../general/head.html"); ?>
+<?php include("head.html"); ?>
 
 <!-- JavaScript de gestion des couleurs de code -->
 <script defer src="../../styles/prism.js"></script>
@@ -24,7 +27,7 @@ function affichageConditionnel(bouton, id) {
 }</script>
 
 <!-- BODY -->
-<body>
+<body onload='startTime()'>
 
 <!-- DEFINE PAGE NAME -->
 <?php 
@@ -40,8 +43,30 @@ if (isset($_GET['nomPage'])){
 <!-- PRINCIPAL -->
 <section id="principal">
 
+<!-- TABLE MATIERES -->
+<?php include("tableMatieres.php"); ?>
+
+<!-- GRAND CONTENU -->
+<section id="grandContenu">
+
+<!-- BANDEAU -->
+<!-- TITLE -->
+<h2><?php echo titre($nomPage); ?></h2>
+
+<!-- BANDEAU SOUS TITRE -->
+<div id="bandeau_sousTitre">
+  <p class="sp">S. Robin, (updated on April 10, 2021)</p>
+</div>
+
+<!-- BANDEAU CONTENU -->
+<div id="bandeau_contenu">
+  <p><?php echo groupe($nomGroupe); ?></p>
+</div>
+
+<!-- CONTENU content from a html file -->
 <?php include("../".$nomGroupe."/".$nomPage); ?>
 
+</section> <!-- END GRAND CONTENU -->
 </section> <!-- END PRINCIPAL -->
 
 <!--

@@ -2,7 +2,9 @@
 
 /* === BODY === */
 body{
+  background-color : black;
   background-image: url("fond.jpg");
+  background-repeat: no-repeat;
   counter-reset: compteur_titre;
 }
 
@@ -24,7 +26,7 @@ header{
 
 /* conteneur du menu, identifiant hérite de nav */
 header nav{
-  margin-left: 4%;
+  margin-left: 2%;
   display: flex;
   flex-direction: row;
 }
@@ -39,7 +41,7 @@ header nav a{
 }
 
 header nav .contour_a{
-  padding: 10%;
+  padding: 5%;
 }
 
 header nav .contour_a:hover{
@@ -97,9 +99,7 @@ a:hover{
 
 /* === ASIDE === */
 
-aside{
-  margin: 1%;
-}
+
 
 /* conteneur de la table des matières */
 aside nav{
@@ -118,7 +118,7 @@ aside nav a{
 
 #table_matieres{
   width: 20%;
-  margin: 1%;
+  margin-left: 1%;
 }
 
 #chapitres{
@@ -198,19 +198,21 @@ h5{
 }
 
 #grandContenu{
-  width:80%;
+  width:75%;
   margin-left: 2%;
   display: flex;
   flex-direction: column;
 }
 
 #bandeau_contenu{
-  width: 95%;
+  width: 30%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: black;
   opacity: 0.4;
+  margin-left: 2%;
   padding-left: 2%;
+  text-align: center;
 }
 
 #bandeau_contenu p{
@@ -219,7 +221,9 @@ h5{
 
 #bandeau_sousTitre{
   width: 95%;  
+  margin-left: 2%;
   padding-left: 2%;
+  padding-right: 2%;
 }
 
 #bandeau_sousTitre p{
@@ -233,9 +237,9 @@ h5{
   box-shadow: 1px 8px 12px #555;
   background-color: white;
   opacity: 0.6;
-  margin-top: 1%;
   margin-bottom: 1%;
   padding-left: 2%;
+  padding-right: 2%;
 }
 
 /* texte de pied de balise */

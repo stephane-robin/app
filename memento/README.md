@@ -1,6 +1,6 @@
 # Memento
 
-Fiches memo pour HTML, CSS, JavaScript, PHP, Python, Java, C, Linux, Git, Docker.
+Memo files for HTML, CSS, JavaScript, PHP, Python, Java, Kotlin, Android Studio, C, Linux, Git, Docker, Jetbeans.
 
 
 ## Structure du site memento
@@ -8,42 +8,67 @@ Fiches memo pour HTML, CSS, JavaScript, PHP, Python, Java, C, Linux, Git, Docker
 index.html
 README.md
 
-**langages pour application (appli)**
---> index (index_appli.php)
---> python (python.php)
---> java (java.php)
---> c (c.php)
+**[images]**
+	**[appli]**
+	**[outilsDev]**
+	**[web]**
+	**[general]**
 
-**outils de développement (outilsDev)**
---> index (index_appli.php)
---> git (git.php)
---> docker (docker.php)
---> linux (linux.php)
+**[styles]**
+	--> fond.jpg (body background)
+	--> prism.css (code coloring online)
+	--> prism (JS executed for code coloring on line)
 
-**langages web (web)**
---> index (index_web.php)
---> html (html.php)
---> css (css.php)
---> javascript (javascript.php)
---> php (php.php)
+**[sources]**
+	**[appli]**
+		--> appli.html (index for the group appli)
+		--> header.html (header for the group appli)
+		--> python.html (Python)
+		--> java.html (Java)
+		--> c.html (C)
+		--> android.html (Android Studio)
+		--> kotlin.html (Kotlin)
+	**[outilsDev]**
+		--> outilsDev.html (index for the group outilsDev)
+		--> header.html (header for the group outilsDev)
+		--> git.html (Git)
+		--> docker.html (Docker)
+		--> linux.html (Linux)
+		--> jetbeans.html (Jetbeans)
+	**[web]**
+		--> web.html (index for the group web)
+		--> html.html (HTML)
+		--> css.html (CSS)
+		--> javascript.html (JavaScript)
+		--> php.html (PHP)
+	**[general]**
+		--> fonctionsJS.htnl (JS functions for the whole site)
+		--> footer.htnl (footer for the whole site)
+		--> head_index.htnl (head for index.html)
+		--> head.htnl (head for the whole site but index.html)
+		--> header_index.htnl (header for index.htnl)
+		--> modelePage.php (model for any page of the site, which is calling java.html, python.html, ... as a content)
 
 
-## Structure des pages du site
+## Structure des pages du site memento
 
 
-header (bandeau de navigation)
-=================================================
-== principal                                   ==
-== tableMatieres        grandContenu           ==
-==                      bandeau                ==
-==                      grandContenu           ==
-=================================================
-footer (pied de page)
+header (navigation)
+|| principal ||||||||||||||||||||||||||||||||||||
+|| tableMatieres      == grandContenu =========||
+||                    == bandeau_sousTitre   ==||
+||					  == bandeau_contenu     ==||
+||					  == bandeau_controle    ==||
+||                    == contenu             ==||
+||                    =========================||
+|||||||||||||||||||||||||||||||||||||||||||||||||
+footer
 
   
 ## TODO
 
-* trouver comment ne pas répéter l'image de fond
+* calibrate headers
+* calibrate tableMatieres
 
 
   

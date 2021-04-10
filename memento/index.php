@@ -8,7 +8,7 @@
 <body>
 
 <!-- HEADER -->
-<?php include("./sources/general/header.html"); ?>
+<?php include("./sources/general/header_index.html"); ?>
 
 <!-- PRINCIPAL -->
 <section id="principal">
