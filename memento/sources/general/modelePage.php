@@ -55,7 +55,14 @@ if (isset($_GET['nomPage'])){
 
 <!-- BANDEAU SOUS TITRE -->
 <div id="bandeau_sousTitre">
-  <p class="sp">S. Robin, (updated on April 10, 2021)</p>
+  <div class="bloc_ligne">
+    <img src="../../images/general/linkedin.jpeg" alt="linkedin" width=30px style="margin:1%;"> 
+    <img src="../../images/general/twitter.png" alt="twitter" width=30px style="margin:1%;"> 
+    <img src="../../images/general/facebook.png" alt="facebook" width=30px style="margin:1%;">
+    <img src="../../images/general/youtube.png" alt="youtube" width=30px style="margin:1%;">
+    <img src="../../images/general/instagram.jpeg" alt="instagram" width=30px style="margin:1%;">
+    <img src="../../images/general/email.jpeg" alt="email" width=30px style="margin:1%;">
+  </div>
 </div>
 
 <!-- BANDEAU CONTENU -->

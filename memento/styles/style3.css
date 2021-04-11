@@ -344,12 +344,12 @@ figure{
 
 /* encadrement avec titre */
 fieldset{
-  width: 70%;
-  margin: auto;
+  width: 90%;
   border: 2px rgb(153,102,102) solid;
   border-radius: 10px;
   box-shadow: 1px 8px 12px #555;
   margin-bottom:30px;
+  margin-top: 5%;
 }
 
 fieldset2{
@@ -409,6 +409,15 @@ ol{
   margin-left:0px;
 }
 
+.bloc_colonne{
+  display: flex;
+  flex-direction: column;
+}
+  
+.bloc_ligne{
+  display: flex;
+  flex-direction: row;
+}
 
 
 /* ===== TABLEAUX ===== */

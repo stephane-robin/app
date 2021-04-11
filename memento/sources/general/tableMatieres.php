@@ -1,4 +1,5 @@
 <aside id="table_matieres">
+    <fieldset>
 <nav>
 
 <?php
@@ -152,4 +153,5 @@ switch ($nomPage){
 ?>
 
 </nav>
+</fieldset>
 </aside>

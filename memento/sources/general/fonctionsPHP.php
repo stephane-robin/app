@@ -11,7 +11,7 @@ function titre($nomPage){
 		case "php.html":
 			return "PHP";
 		case "web.html":
-			return "WEB DEVELOPMENTS";
+			return "WEB DEVELOPMENT";
 		case "docker.html":
 			return "DOCKER";
 		case "git.html":
