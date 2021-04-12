@@ -412,6 +412,15 @@ sudo apt-get update</code></pre>
 
   <p>L'installation est détaillée sur la page <a href="https://www.inmotionhosting.com/support/security/install-clamav-on-ubuntu/"> inmotion.hosting</a></p>
 
+  <p>L'installation en ligne de commande s'effectue de la façon suivante :</p>
+  <pre><code class="language-svg">sudo apt-get update
+sudo apt-get install clamav clamav-daemon -y
+sudo systemctl stop clamav-freshclam
+sudo freshclam
+sudo systemctl start clamav-freshclam</code></pre>
+
+<p>Il est donc nécessaire de stopper le processus de ClamAv avant de mettre à jour la base de données de ClamAv pour ensuite relancer le processus de ClamAv. Cet antivirus s'active en ligne de commande et ne possède pas d'interface graphique. L'icône de ClamAv n'apparaît donc pas dans la liste des applications installées.</p>
+
   <p>Pour lancer le scan, utiliser les instructions suivantes</p>
 <pre><code class="language-svg">clamscan -r /</code></pre>
 
@@ -423,14 +432,22 @@ sudo apt-get update</code></pre>
 
   <!-- CREATION CLE BOOTABLE -->
 
-  <h3 id="bootable">Création d'une clé bootable</h3>
+  <h3 id="bootable">Création d'une clé bootable et installation de Linux</h3>
 
-  <p>Il faut d'abord télécharger l'archive .iso de la version souhaitée de Linux à l'aide d'un ordinateur tiers,
-    créer une clé bootable à l'aide de l'application balenaEtcher, et placer cette archive dans la clé.
-  Il est important de ne connecter qu'une seule clé à l'ordinateur.</p>
+<p>La création d'une clé bootable ne nécessite pas nécessairement l'utilisation d'un ordinateur tiers. Toutefois, pour La création d'une clé bootable en ligne de commande il est nécessaire de disposer d'un poste tiers Linux. se fait en 3 étapes :</p>
+<ul>
+<li>télécharger l'image .iso de la version souhaitée de Linux à partir du <a href="https://releases.ubuntu.com/">site de Ubuntu releases</a> (pour la version Ubuntu) à l'aide d'un ordinateur tiers. Il est important de ne connecter qu'une seule clé à l'ordinateur tiers.</li>
+<li>partitionner une clé pour qu'elle devienne bootable à l'aide d'un ordinateur tiers, puis placer l'image .iso dans cette clé. Celle-ci devra posséder une capacité de stockage supérieure à 3 Go. Attention, il ne sera plus possible de l'utiliser comme clé de stockage par la suite.</li>
+<li>brancher la clé bootable sur l'ordinateur cible qu'on allume en ouvrant le menu boot (souvent F1 ou F2). Il faut ensuite configurer le démarrage sur clé USB, et finalement installer Linux en suivant les instructions.</li>
+</ul>
 
-  <p>Il faut maintenant brancher la clé bootable sur l'ordinateur cible qu'on allume en ouvrant le menu boot (souvent F1 ou F2).
-    Il faut ensuite configurer le démarrage sur clé USB, et on installe Linux en suivant les instructions.</p>
+  <p>Le détail de l'étape 2 (création d'une clé bootable en ligne de commande) se trouve ci-dessous :</p>
+  <ul>
+  	<li>introduire la clé dans l'ordinateur tiers puis identifier le nom de cette clé avec l'instruction <pre><code class="language-svg">lsblk</code></pre> . On doit obtenir un résultat du type sdb ... puis le détail sdb1 ...</li>
+  	<li>démonter les partitions de cette clé avec l'instruction <pre><code class="language-svg">sudo umount /dev/sdb1</code></pre> où sdb1 représente la référence de la clé.</li>
+  	<li>copier l'image .iso vers la clé USB avec l'instruction <pre><code class="language-svg">sudo dd if=Téléchargements/monImage.iso of=/dev/sdb bs=4M status=progress && sync</code></pre>, où dd permet de copier un disque, sdb est la nouvelle référence de la clé USB, 4M représente la taille, progress permet de voir en temps réel le progrès de la création de la clé et sync force les buffers à se vider sur la clé.</li>
+  	<li>il faut ensuite déconnecter puis connecter la clé sur l'ordinateur tiers</li>
+  </ul>
 
 </section> <!-- END CONTENU -->
 
