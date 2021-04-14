@@ -38,7 +38,7 @@ if (isset($_GET['nomPage'])){
 ?>
 
 <!-- HEADER -->
-<?php include("../".$nomGroupe."/header.html"); ?>
+<?php include("header.php"); ?>
 
 <!-- PRINCIPAL -->
 <section id="principal">
@@ -55,19 +55,12 @@ if (isset($_GET['nomPage'])){
 
 <!-- BANDEAU SOUS TITRE -->
 <div id="bandeau_sousTitre">
-  <div class="bloc_ligne">
-    <img src="../../images/general/linkedin.jpeg" alt="linkedin" width=30px style="margin:1%;"> 
-    <img src="../../images/general/twitter.png" alt="twitter" width=30px style="margin:1%;"> 
-    <img src="../../images/general/facebook.png" alt="facebook" width=30px style="margin:1%;">
-    <img src="../../images/general/youtube.png" alt="youtube" width=30px style="margin:1%;">
-    <img src="../../images/general/instagram.jpeg" alt="instagram" width=30px style="margin:1%;">
-    <img src="../../images/general/email.jpeg" alt="email" width=30px style="margin:1%;">
-  </div>
+  
 </div>
 
 <!-- BANDEAU CONTENU -->
 <div id="bandeau_contenu">
-  <p><?php echo groupe($nomGroupe); ?></p>
+  <p>L'essentiel à retenir</p>
 </div>
 
 <!-- CONTENU content from a html file -->

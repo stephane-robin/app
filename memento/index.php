@@ -2,13 +2,37 @@
 <html>
 
 <!-- HEAD -->
-<?php include("./sources/general/head_index.html"); ?>
+<head>
+  <title> ToKeTa-Memento </title>
+  <link rel="stylesheet" href="./styles/style_memento.css">
+  <link rel="stylesheet" href="./styles/prism.css">
+    <link rel="icon"
+          type="image/png"
+          href="./images/general/symbole.png">
+  <meta charset="utf-8">
+</head>
 
 <!-- BODY -->
-<body>
+<body style="background-image: url('./images/general/fond.jpg');">
 
 <!-- HEADER -->
-<?php include("./sources/general/header_index.html"); ?>
+<header>
+    <h1> ToKeTa - <em>Memento</em> </h1>
+    <nav id="bandeau">
+        <div class="contour_a">
+            <a class="element" href="index.php">ACCUEIL</a>
+        </div>
+        <div class="contour_a">
+            <a class="element" href="./sources/general/modelePage.php?nomGroupe=appli&nomPage=appli.html">SOFTWARE</a>
+        </div>
+        <div class="contour_a">
+            <a class="element" href="./sources/general/modelePage.php?nomGroupe=outilsDev&nomPage=outilsDev.html">OUTILS DEVELOPPEMENT</a>
+        </div>
+        <div class="contour_a">
+            <a class="element" href="./sources/general/modelePage.php?nomGroupe=web&nomPage=web.html">DEVELOPPEMENT WEB</a>
+        </div>
+    </nav>
+</header>
 
 <!-- PRINCIPAL -->
 <section id="principal">
@@ -33,7 +57,47 @@
 </section> <!-- END PRINCIPAL -->
 
 <!-- FOOTER -->
-<?php include("./sources/general/footer.html"); ?>
+<footer class="piedPage">
+
+    <div class="footerColumn">
+        <p class="piedPageTitre">Liens utiles</p>
+        <nav>
+            <a class="footerNav" href="https://www.w3schools.com/" target="_blank">W3school</a>
+            <a class="footerNav" href="https://www.php.net/docs.php" target="blank">Doc PHP</a>
+            <a class="footerNav" href="https://realpython.com/" target="_blank">Real python</a>
+            <a class="footerNav" href="https://docs.python.org/3/" target="_blank">Doc python</a>
+        </nav>
+    </div>
+
+    <div class="footerColumn">
+        <p class="piedPageTitre">  </p>
+        <nav>
+            <a class="footerNav" href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">Color picker</a>
+            <a class="footerNav" href="https://www.w3schools.com/charsets/ref_emoji.asp" target="_blank">Emoji unicode</a>
+        </nav>
+    </div>
+
+    <div class="LargeFooterColumn">
+        <p class="piedPageTitre">Mentions légales</p>
+
+        <nav>
+            <a class="footerNav" href="" target="_blank">Politique de confidentialité</a>
+            <a class="footerNav" href="" target="_blank">Conditions d'utilisation</a>
+             <a class="footerNav" href="enseignant.php">Teacher</a>
+            <a class="footerNav" href="administrateur.php">Administrator</a>
+            <p class="piedPageParagraphe">&copy 2021 ToKeTa</p>
+        </nav>
+    </div>
+    <div class="largeFooterColumn">
+        <p class="piedPageTitre">Au sujet de l'auteur</p>
+        <div class="bloc_ligne">
+            <img src="./images/general/sr_square.png" alt="stephane robin" width=30px height=30px>
+            <p class="piedPageParagraphe" style="margin-left:2%;">S. Robin :
+            Maths and computer science teacher, passionate about Web developement.</p>
+        </div>
+    </div>
+
+</footer>
 
 </body>
 </html>
