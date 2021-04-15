@@ -4,7 +4,7 @@
 <!-- HEAD -->
 <head>
   <title> ToKeTa-Memento </title>
-  <link rel="stylesheet" href="./styles/style_memento.css">
+  <link rel="stylesheet" href="./styles/style_index.css">
   <link rel="stylesheet" href="./styles/prism.css">
     <link rel="icon"
           type="image/png"
@@ -23,7 +23,7 @@
             <a class="element" href="index.php">ACCUEIL</a>
         </div>
         <div class="contour_a">
-            <a class="element" href="./sources/general/modelePage.php?nomGroupe=appli&nomPage=appli.html">SOFTWARE</a>
+            <a class="element" href="./sources/general/modelePage.php?nomGroupe=appli&nomPage=appli.html">LANGAGES SOFT</a>
         </div>
         <div class="contour_a">
             <a class="element" href="./sources/general/modelePage.php?nomGroupe=outilsDev&nomPage=outilsDev.html">OUTILS DEVELOPPEMENT</a>
@@ -33,6 +33,15 @@
         </div>
     </nav>
 </header>
+
+<div class="sousHeader">
+    <a class="elt_socialMedia" href="https://www.linkedin.com/" target="_blank"><img src="./images/general/linkedin.png" alt="linkedin" width=30px style="margin:1%;"></a> 
+    <a class="elt_socialMedia" href="https://twitter.com/" target="_blank"><img src="./images/general/twitter.png" alt="twitter" width=30px style="margin:1%;"></a>
+    <a class="elt_socialMedia" href="https://www.facebook.com/" target="_blank"><img src="./images/general/facebook.png" alt="facebook" width=30px style="margin:1%;"></a>
+    <a class="elt_socialMedia" href="https://www.youtube.com/" target="_blank"><img src="./images/general/youtube.png" alt="youtube" width=30px style="margin:1%;"></a>
+    <a class="elt_socialMedia" href="https://www.instagram.com/" target="_blank"><img src="./images/general/instagram.jpeg" alt="instagram" width=30px style="margin:1%;"></a>
+    <a class="elt_socialMedia" href="" target="_blank"><img src="./images/general/email.jpeg" alt="email" width=30px style="margin:1%;"></a>
+</div>
 
 <!-- PRINCIPAL -->
 <section id="principal">

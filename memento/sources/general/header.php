@@ -9,7 +9,7 @@
         switch ($nomGroupe){
             case "appli":
                 echo '<div class="contour_a">';
-                    echo '<a class="element" href="../general/modelePage.php?nomGroupe=appli&nomPage=appli.html">SOFTWARE</a>';
+                    echo '<a class="element" href="../general/modelePage.php?nomGroupe=appli&nomPage=appli.html">LANGAGES SOFT</a>';
                 echo '</div>';
                 echo '<div class="contour_a">';
                     echo '<a class="element" href="../general/modelePage.php?nomGroupe=appli&nomPage=java.html">JAVA</a>';
@@ -67,7 +67,7 @@
 </header>
 
 <div class="sousHeader">
-    <a class="elt_socialMedia" href="https://www.linkedin.com/" target="_blank"><img src="../../images/general/linkedin.jpeg" alt="linkedin" width=30px style="margin:1%;"></a> 
+    <a class="elt_socialMedia" href="https://www.linkedin.com/" target="_blank"><img src="../../images/general/linkedin.png" alt="linkedin" width=30px style="margin:1%;"></a> 
     <a class="elt_socialMedia" href="https://twitter.com/" target="_blank"><img src="../../images/general/twitter.png" alt="twitter" width=30px style="margin:1%;"></a>
     <a class="elt_socialMedia" href="https://www.facebook.com/" target="_blank"><img src="../../images/general/facebook.png" alt="facebook" width=30px style="margin:1%;"></a>
     <a class="elt_socialMedia" href="https://www.youtube.com/" target="_blank"><img src="../../images/general/youtube.png" alt="youtube" width=30px style="margin:1%;"></a>

@@ -25,7 +25,7 @@ function titre($nomPage){
 		case "android.html":
 			return "ANDROID";
 		case "appli.html":
-			return "SOFTWARE LANGUAGES";
+			return "LANGAGES SOFT";
 		case "c.html":
 			return "C";
 		case "java.html":

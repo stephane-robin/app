@@ -44,7 +44,13 @@ if (isset($_GET['nomPage'])){
 <section id="principal">
 
 <!-- TABLE MATIERES -->
-<?php include("tableMatieres.php"); ?>
+<aside id="table_matieres">
+<?php
+if ($nomPage != "appli.html" and $nomPage != "outilsDev.html" and $nomPage != "web.html"){
+  include("tableMatieres.php"); 
+}
+?>
+</aside>
 
 <!-- GRAND CONTENU -->
 <section id="grandContenu">
@@ -60,7 +66,7 @@ if (isset($_GET['nomPage'])){
 
 <!-- BANDEAU CONTENU -->
 <div id="bandeau_contenu">
-  <p>L'essentiel à retenir</p>
+  
 </div>
 
 <!-- CONTENU content from a html file -->

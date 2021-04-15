@@ -3,8 +3,8 @@
 /* === BODY === */
 body{
   background-color : #FAFAFA;
-  /*background-image: url("fond.jpg");
-  background-repeat: no-repeat;*/
+  background-image: url("../../fond.jpg");
+  background-repeat: no-repeat;
   counter-reset: compteur_titre;
   margin: 0%; /* to avoid borders around the content */
 }
@@ -85,7 +85,7 @@ a:hover{
 
 .sousHeader{
   width: 100%;
-  
+  padding-left: 40%;
   background-color: white;
   box-shadow: 0px 1px 12px #555;
   display: flex;
@@ -209,6 +209,8 @@ h5{
   width: 100%; /* force le background à occuper toute la largeur */
   display: flex;
   flex-direction: row;
+  margin: 0%;
+  padding: 0%;
 }
 
 #grandContenu{
@@ -306,7 +308,7 @@ footer p{
 .piedPage{
   height: 60%;
   background-image: linear-gradient(to bottom right, black 80%, red);
-  opacity: 0.6;
+  opacity: 0.7;
   margin-top: 1%;
   display: flex;
   flex-direction: row;
@@ -378,6 +380,8 @@ fieldset{
   background-color: black;
   opacity: 0.4;
   margin-top: 5%;
+  padding: 3%;
+  margin-left: -5%;
 }
 
 #fieldsetTableMatieres nav a{
