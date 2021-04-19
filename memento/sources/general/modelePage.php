@@ -88,7 +88,7 @@ if ($nomPage != "appli.html" and $nomPage != "outilsDev.html" and $nomPage != "w
 -->
 
 <!-- FOOTER -->
-<?php include("footer.html"); ?>
+<?php include("footer.php"); ?>
 
 </body>
 </html>

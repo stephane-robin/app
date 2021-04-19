@@ -1,11 +1,7 @@
-/* CSS FOR MEMENTO */
+/* CSS FOR CLASSROOM */
 
-/* === BODY === */
 body{
   background-color : #FAFAFA;
-  background-image: url("../../fond.jpg");
-  background-repeat: no-repeat;
-  counter-reset: compteur_titre;
   margin: 0%; /* to avoid borders around the content */
 }
 
@@ -13,16 +9,16 @@ body{
 
 header{
   /* couleur de fond dégradée avec opacité */
-  /*background-image:linear-gradient(90deg, #004080, #ff8000);
-  /* force le background a occuper toute la largeur et pas uniquement
-     ou se trouve le texte 
-     background: linear-gradient(to left, #007a99, 10%, #660029, #e62e00);*/
+  /*background-image:linear-gradient(to left, #007a99 50%, #660029, #e62e00);*/
+  /*background-image: url("fond.JPG");*/
   background-image: linear-gradient(to top left, black 60%, red);
-  opacity: 0.7;
+  opacity: 0.8;
+  
+  /* force le background a occuper toute la largeur et pas uniquement
+     ou se trouve le texte */
   width: 100%;
   display: flex;
   flex-direction: row;
-  
   /*border-bottom: 3px solid rgba(85, 85, 85, 0.3);*/
 }
 
@@ -38,7 +34,6 @@ header nav a{
   font-size: 0.9em;
   color: white;
   text-decoration: none; /* enleve le soulignement des liens du menu */
-
 }
 
 header nav .contour_a{
@@ -52,12 +47,11 @@ header nav .contour_a:hover{
 
 header nav .contour_a a:hover{
   color: white;
-
 }
 
 nav a{
-  font-family: Arial, Cambria, Verdana;
-  font-size: 1em;
+  font-family: Cambria, Verdana, Arial;
+  font-size:1.3em;
   text-decoration: none; /* enleve le soulignement des liens du menu */
   /*color: rgb(41, 61, 61);*/
 }
@@ -67,9 +61,6 @@ nav a:hover{
   font-weight: bold;
   color: rgb(153,102,102);
 }
-
-/* classe hérite de <a> */
-
 
 /* liens dans le texte */
 a{
@@ -82,6 +73,7 @@ a:hover{
   font-weight: bold;
   color: #ff8000;
 }
+
 
 .sousHeader{
   width: 100%;
@@ -96,9 +88,6 @@ a:hover{
 /* =================================
           PRINCIPAL
    ================================= "/
-
-
-
 /* logo de menu */
 
 .logo{
@@ -108,8 +97,6 @@ a:hover{
 }
 
 /* === ASIDE === */
-
-
 
 /* conteneur de la table des matières */
 aside nav{
@@ -121,10 +108,6 @@ aside nav{
   flex-direction: column; /* crée le menu verticalement */
 }
 
-/* liens de la table des matières */
-aside nav a{
-  color: #2e2e1f;
-}
 
 #table_matieres{
   width: 20%;
@@ -132,12 +115,8 @@ aside nav a{
   margin-left: 1%;
 }
 
-#chapitres{
-  width: 10%;
-  margin: 2%;
-  margin-left: 90%;
-  position: fixed; /* empêche le déroulement du menu avec la souris */
-}
+
+
 
 
 /* ===== TITRES ===== */
@@ -160,22 +139,14 @@ h2{
   margin-top: 7%;
   color: black;
   opacity: 0.6;
-  /*text-shadow: 2px 2px red;*/
 }
 
 h3{ /* titre de sections */
   font-size: 1.7em;
-  padding-top: 40px;
+  padding-top: 10px;
   font-family: Cambria, Verdana, Arial;
-
   color: rgb(51,153,255);
-  border-bottom: 1px solid rgb(51,153,255);
-}
-
-/* compteur de titre */
-h3::before{
-  counter-increment: compteur_titre;
-  content: counter(compteur_titre) ". ";
+  margin-left: 35%;
 }
 
 /* titres de sous-sections */
@@ -194,57 +165,94 @@ h5{
   color: rgb(51,153,255);
 }
 
+.bouton{
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 5px;
+  background-color: #ff9933;/*rgba(220, 0, 0, 1);*/
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
 
+.bouton:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.bouton:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
 
 
 
 
 /* === PRINCIPAL === */
 
+
+
 #principal{
-  /*background-image:linear-gradient(90deg, #0059b3, #ff9933);/* couleur
-  de font dégradée avec opacité 
-  background: linear-gradient(200deg, #2e2e1f 50%, #99003d 20%, #ff471a);
-*/
+  /*background-image:linear-gradient(#007a99, #2e2e1f);*//* couleur #00ace6
+  de font dégradée avec opacité */
+  
   width: 100%; /* force le background à occuper toute la largeur */
   display: flex;
   flex-direction: row;
-  margin: 0%;
-  padding: 0%;
 }
 
-#grandContenu{
-  width:75%;
-  margin-left: 2%;
+#table_matieres{
+  width: 20%;
+  margin: 1%;
   display: flex;
   flex-direction: column;
 }
 
+#grandContenu{
+	width:80%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column; 
+}
+
+#bandeau_sousTitre{
+  width: 95%;  
+  padding-left: 2%;
+}
+
+#bandeau_sousTitre p{
+  color: white;
+}
+
 #bandeau_contenu{
-  width: 30%;
+  width: 95%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: black;
   opacity: 0.4;
-  margin-left: 2%;
   padding-left: 2%;
-  text-align: center;
 }
 
 #bandeau_contenu p{
   color: white;
 }
 
-#bandeau_sousTitre{
-  width: 95%;  
-  margin-left: 2%;
-  margin-top: 10%;
+#bandeau_controle{
+  width: 95%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 1px 8px 12px #555;
+  background-color: white;
+  opacity: 0.6;
   padding-left: 2%;
-  padding-right: 2%;
-}
-
-#bandeau_sousTitre p{
-  color: white;
+  display: flex;
+  flex-direction: row;
 }
 
 /* section dans laquelle se trouve tout le contenu */
@@ -252,11 +260,28 @@ h5{
   width: 95%;
   border-radius: 10px;
   box-shadow: 1px 8px 12px #555;
-  background-color: #FAFAFA;
-  opacity: 0.9;
+  background-color: white;
+  opacity: 0.6;
+  margin-top: 1%;
   margin-bottom: 1%;
   padding-left: 2%;
-  padding-right: 2%;
+}
+
+#penalite{
+	width:60%;
+	border-radius: 10px;
+  box-shadow: 1px 8px 12px #555;
+	background-color:#ffcccc;
+	opacity:0.4;
+	margin-left:20%;
+  padding-left: 2%;
+}
+
+#chapitres{
+  width: 10%;
+  margin: 2%;
+  margin-left: 90%;
+  position: fixed; /* empêche le déroulement du menu avec la souris */
 }
 
 /* texte de pied de balise */
@@ -265,10 +290,6 @@ footer p{
     font-size: 0.9em;
     color: #828786;
     text-align: center;
-}
-
-.elt_socialMedia{
-  margin: 0.5%;
 }
 
 .footerColumn{
@@ -298,17 +319,11 @@ footer p{
   color: #828786;
 }
 
-/* pied de page, classe hérite de footer 
-.piedPage{
-  height: 60%;
-  background-color: #2e2e1f;
-  display: flex;
-  flex-direction: row;
-}*/
+/* pied de page, classe hérite de footer */
 .piedPage{
   height: 60%;
   background-image: linear-gradient(to bottom right, black 80%, red);
-  opacity: 0.7;
+  opacity: 0.6;
   margin-top: 1%;
   display: flex;
   flex-direction: row;
@@ -333,6 +348,12 @@ footer p{
 
 /* paragraphes */
 p{
+  font-family: Cambria, Verdana, Arial;
+  font-size: 1.2em;
+  text-align: justify;
+}
+
+label{
   font-family: Cambria, Verdana, Arial;
   font-size: 1.2em;
   text-align: justify;
@@ -366,27 +387,40 @@ figure{
 /* encadrement avec titre */
 fieldset{
   width: 90%;
+  
   border: 2px rgb(153,102,102) solid;
   border-radius: 10px;
   box-shadow: 1px 8px 12px #555;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.fieldset_inside{
+  /*width: 90%;
+  margin: 1%;
+  padding: 1%;*/
+  width:100%;
+  margin: auto;
+  border: 2px rgb(153,102,102) solid;
+  border-radius: 10px;
+  box-shadow: 1px 8px 12px #555;
+  background-color: white;
+  margin-top: 30px;
   margin-bottom:30px;
-  margin-top: 5%;
 }
 
-#fieldsetTableMatieres{
-  width: 90%;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background-color: black;
-  opacity: 0.4;
-  margin-top: 5%;
-  padding: 3%;
-  margin-left: -5%;
+  
+.bloc_colonne{
+  display: flex;
+  flex-direction: column;
 }
-
-#fieldsetTableMatieres nav a{
-  color: white;
+  
+.bloc_ligne{
+  display: flex;
+  flex-direction: row;
 }
+  
 
 fieldset2{
   width: 50px;
@@ -445,15 +479,6 @@ ol{
   margin-left:0px;
 }
 
-.bloc_colonne{
-  display: flex;
-  flex-direction: column;
-}
-  
-.bloc_ligne{
-  display: flex;
-  flex-direction: row;
-}
 
 
 /* ===== TABLEAUX ===== */
@@ -468,7 +493,9 @@ table{
 /* colonnes */
 td{
   font-family: Cambria, Verdana, Arial;
+  padding: 5px;
   padding-left: 30px;
+  padding-right: 30px;
   border: 1px solid rgb(153,102,102);
 }
 
@@ -480,140 +507,10 @@ td pre{
 /* colonnes dans la 1ère ligne */
 th{
   font-family: Cambria, Verdana, Arial;
+  padding: 5px;
   padding-left: 30px;
+  padding-right: 30px;
   border: 1px solid rgb(153,102,102);
 }
-
-/* ===== LES MISES EN FORMES POUR EXEMPLES ===== */
-/* Ces mises en forme ne sont pas utilisées pour l'ensemble de la page, mais
-uniquement pour l'affichage de certains exemples */
-
-.exempleBloc:nth-child(1){ /* exemples html "La mise en page avec Flexbox" */
-  background-color: #CF6084;
-}
-.exempleBloc:nth-child(2){
-  background-color: #70995E;
-}
-.exempleBloc:nth-child(3){
-  background-color: #33A9CC;
-}
-#exempleBloc10-1{
-  background-color: #CF6084;
-}
-#exempleBloc10-2{
-  background-color: #70995E;
-}
-#exempleBloc10-3{
-  background-color: #33A9CC;
-  align-self: flex-end;
-}
-#exempleBloc11-1{
-  background-color: #CF6084;
-  order: 2;
-}
-#exempleBloc11-2{
-  background-color: #70995E;
-  order: 1;
-}
-#exempleBloc11-3{
-  background-color: #33A9CC;
-  order: 3;
-}
-#exempleBloc12-1{
-  background-color: #CF6084;
-  flex: 1;
-}
-#exempleBloc12-2{
-  background-color: #70995E;
-}
-#exempleBloc12-3{
-  background-color: #33A9CC;
-}
-#exempleBloc13-1{
-  background-color: #CF6084;
-  flex: 2;
-}
-#exempleBloc13-2{
-  background-color: #70995E;
-  flex: 1;
-}
-#exempleBloc13-3{
-  background-color: #33A9CC;
-}
-#exempleConteneur1{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: row;
-}
-#exempleConteneur2{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-#exempleConteneur3{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-#exempleConteneur4{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-#exempleConteneur5{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-#exempleConteneur6{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: row-reverse;
-}
-#exempleConteneur7{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: column;
-}
-#exempleConteneur8{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100px;
-}
-#exempleConteneur9{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: column-reverse;
-}
-.exempleConteneur10{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  height: 100px;
-}
-.exempleConteneur12{
-  border: 1px black dotted;
-  display: flex;
-  flex-direction: row;
-}
-#blocIndependant{ /* exemple html "la notion de bloc" */
-  background-color: #33A9CC;
-}
-#span1{
-  background-color: #CF6084;
-}
-#span2{
-  background-color: #70995E;
-}
-
-
 
 

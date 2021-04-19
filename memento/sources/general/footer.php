@@ -24,17 +24,29 @@
         <nav>
             <a class="footerNav" href="" target="_blank">Politique de confidentialité</a>
             <a class="footerNav" href="" target="_blank">Conditions d'utilisation</a>
-             <a class="footerNav" href="enseignant.php">Teacher</a>
-            <a class="footerNav" href="administrateur.php">Administrator</a>
+            <a class="footerNav" href="" target="_blank">Nous contacter</a>
+            <a class="footerNav" href="administrateur.php">Administrateur</a>
             <p class="piedPageParagraphe">&copy 2021 ToKeTa</p>
         </nav>
     </div>
     <div class="largeFooterColumn">
         <p class="piedPageTitre">Au sujet de l'auteur</p>
         <div class="bloc_ligne">
-            <img src="../../images/general/sr_square.png" alt="stephane robin" width=30px height=30px>
+
+            <?php
+            // define path to the picture sr_square.png
+            if ($nomGroupe != "index"){
+                $chemin = "../../images/general/sr_square.png";
+            }
+            else {
+                $chemin = "./images/general/sr_square.png";
+            }
+            ?>
+            <img src='<?php echo $chemin; ?>' alt='stephane robin' width=30px height=30px>
+
             <p class="piedPageParagraphe" style="margin-left:2%;">S. Robin :
             Professeur d'informatique et de mathématiques passionné par le développement Web.</p>
+
         </div>
     </div>
 
