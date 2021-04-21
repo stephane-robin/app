@@ -9,10 +9,10 @@
         switch ($nomGroupe){
             case "index":
                 echo '<div class="contour_a">';
-                    echo '<a class="element" href="./sources/general/modelePage.php?nomGroupe=appli&nomPage=appli.html">LANGAGES SOFT</a>';
+                    echo '<a class="element" href="./sources/general/modelePage.php?nomGroupe=appli&nomPage=appli.html">DEVELOPPEMENT SOFT</a>';
                 echo '</div>';
                 echo '<div class="contour_a">';
-                    echo '<a class="element" href="./sources/general/modelePage.php?nomGroupe=outilsDev&nomPage=outilsDev.html">OUTILS DEVELOPPEMENT</a>';
+                    echo '<a class="element" href="./sources/general/modelePage.php?nomGroupe=outilsDev&nomPage=outilsDev.html">OUTILS DE DEVELOPPEMENT</a>';
                 echo '</div>';
                 echo '<div class="contour_a">';
                     echo '<a class="element" href="./sources/general/modelePage.php?nomGroupe=web&nomPage=web.html">DEVELOPPEMENT WEB</a>';

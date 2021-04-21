@@ -86,9 +86,23 @@ a:hover{
   color: #ff8000;*/
 }
 
+/* liens dans le texte */
+.choix{
+  color: black;
+  text-decoration: none;
+}
+
+/* comportement des liens dans le texte au survol */
+.choix:hover{
+  font-weight: bold;
+  color: #669999;
+  /*color: rgb(153,102,102);
+  color: #ff8000;*/
+}
+
 .sousHeader{
   width: 100%;
-  padding-left: 40%;
+  padding-left: 35%;
   background-color: #FAFAFA;
   opacity: 0.8;
   box-shadow: 0px 1px 12px #555;
@@ -160,7 +174,7 @@ h1{
 h2{
   font-family: Cambria, Verdana, Arial;
   font-size: 2em;
-  margin-left: 30%;
+  margin-left: 25%;
   margin-top: 7%;
   color: black;
   opacity: 0.6;
@@ -457,14 +471,35 @@ ol{
   flex-direction: row;
 }
 
-.bloc_choix{
+.bloc_choix_titre{
+  background-image: url("./images/general/test_choix.png");
   margin: 2%;
+  margin-bottom: 0%;
+  padding: 2%;
   padding-top: 7%;
   padding-bottom: 7%;
-  width: 35%;
-  border-radius: 5px;
-  background-color: #ff9999;
+  
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top: 2px rgb(153,102,102) solid;
+  border-right: 2px rgb(153,102,102) solid;
+  border-left: 2px rgb(153,102,102) solid;
   opacity: 0.6;
+}
+
+.bloc_choix_contenu{
+  margin: 2%;
+  margin-top: 0%;
+  padding: 2%;
+  
+  text-align: left;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 2px rgb(153,102,102) solid;
+  border-right: 2px rgb(153,102,102) solid;
+  border-left: 2px rgb(153,102,102) solid;
+  background-color: white;
+  opacity: 0.8;
 }
 
 /* ===== TABLEAUX ===== */
