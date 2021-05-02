@@ -31,6 +31,16 @@ $nomClasse = "index";
 <!-- BANDEAU -->
 <h2>Mon classeur de travail</h2>
 
+<?php
+$pdo = new PDO('mysql:dbname=classroom;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+$query = $pdo->query('SHOW VARIABLES like "version"');
+
+$row = $query->fetch();
+
+echo 'MySQL version:' . $row['Value'];
+?>
+
 <div class="bloc_ligne" style="margin-left:15%;">
 
     <!-- BLOC 00 -->
