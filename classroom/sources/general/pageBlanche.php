@@ -1,18 +1,19 @@
 <?php 
 session_start();
+$nomClasse = $_SESSION['nomClasse'];
 
 // DEVELOPMENT MODE
 include "developmentMode.php";
 ?>
 
 <!-- FONCTIONS PHP -->
-<?php include "fonctions.php"; ?>
+<?php include("fonctionsPHP.php"); ?>
 
 <!DOCTYPE HTML>
 <html>
 
 <!-- HEAD -->
-<?php include "head.html"; ?>
+<?php include("head.php"); ?>
   
 <!-- FONCTIONS JS -->
 <?php include "fonctionsJS.html"; ?>
@@ -48,7 +49,7 @@ function choisirEleve(){
 <body onload="startTime()">
 
 <!-- HEADER -->
-<?php include "header.html"; ?>
+<?php include("header.php"); ?>
 
 <!-- MODE DEVELOPMENT OR PRODUCTION -->
 <p><?php echo $_SESSION['commentaire']; ?></p>
@@ -60,31 +61,19 @@ function choisirEleve(){
 <?php include "tableMatieres.php"; ?>
 
 <!-- GRAND CONTENU -->
-<section id="grandContenu">
+<section id="grandContenu" style="margin-top:60%;">
 
-<h2>Class of <?php echo $_SESSION['nomClasse']; ?></h2>
-
-<!-- BANDEAU -->
-<?php include "bandeau.php"; ?>
-
-<section id="contenu">
-
-<img src="../../images/general/blanc.png"/>
 
 <!-- BACK BUTTON -->
 <form action="pageWorkshop.php" method="post">
 	<button class="bouton" style='margin-bottom: 5%; margin-top: 5%; margin-left:42%;' type="submit">&#128218; Back</button>
 </form>
 
-<!-- END CONTENU -->
-</section>
-<!-- END GRAND CONTENU -->
-</section> 
-<!-- END PRINCIPAL -->
-</section> 
+</section> <!-- end GRAND CONTENU -->
+</section> <!-- end PRINCIPAL -->
 
 <!-- FOOTER -->
-<?php include "footer.html"; ?>
+<?php include "footer.php"; ?>
 
 </body>
 </html>

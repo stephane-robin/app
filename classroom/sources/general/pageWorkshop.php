@@ -1,36 +1,35 @@
 <?php 
 session_start();
+$nomClasse = $_SESSION['nomClasse'];
 
 // DEVELOPMENT MODE
-include "developmentMode.php";
+include("developmentMode.php");
 
 // DEFINE NOMCLASSE 
-if (isset($_GET['nomClasse'])){
-    $_SESSION['nomClasse'] = $_GET['nomClasse'];
-}
-
-if ($_SESSION['nomClasse'] == '4F1') {
+if ($nomClasse == 'classe_4F1') {
     $_SESSION['niveau'] = 'quatrieme';
 }
-elseif ($_SESSION['nomClasse'] == '6B4'){
+elseif ($nomClasse == 'classe_6B4'){
     $_SESSION['niveau'] = 'sixieme';
 }
+
+// Define $_POST['objectif'] coming from the page starter.php as a session variable
+if (isset($_POST["objectif"])){
+    $_SESSION['objectif'] = $_POST['objectif'];
+}
+
 // TIMER SESSION
 $_SESSION['tempsEcoule_session'] = "";
 ?>
 
 <!-- FONCTIONS PHP -->
-<?php include "fonctions.php"; ?>
-
-<!-- HTML -->
-<!DOCTYPE HTML>
-<html>
+<?php include("fonctionsPHP.php"); ?>
 
 <!-- HEAD -->
-<?php include "head.html"; ?>
+<?php include("head.php"); ?>
   
 <!-- FONCTIONS JS -->
-<?php include "fonctionsJS.html";  ?>
+<?php include("fonctionsJS.html");  ?>
 
 
 <!--
@@ -60,11 +59,15 @@ function choisirEleve(){
 </script>
 -->
 
+<!-- HTML -->
+<!DOCTYPE HTML>
+<html>
+
 <!-- BODY -->
 <body onload='startTime()'>
 
 <!-- HEADER -->
-<?php include "header.html"; ?>
+<?php include("header.php"); ?>
 
 <!-- MODE DEVELOPMENT OR PRODUCTION -->
 <p><?php echo $_SESSION['commentaire']; ?></p>
@@ -73,95 +76,166 @@ function choisirEleve(){
 <section id="principal">
     
 <!-- TABLE MATIERES -->
-<?php include "tableMatieres.php"; ?>
+<!-- Print the number of students in the class which is given by the global variable $_SESSION['classe'] -->
+<aside id="table_matieres">
+
+<div id="fieldsetTableMatieres">
+    <?php echo "<h2 style='color:white;'>".$nomClasse."</h2>"; ?>
+    <p>Travail de groupe</p>
+    <p id="timer_session"></p>
+</div>
+
+
+</aside>
 
 <!-- GRAND CONTENU -->
 <section id='grandContenu'>
 
+
 <!-- CLASS NAME -->
-<h2>Class of <?php echo $_SESSION['nomClasse']; ?></h2>
+<h2>Travail de groupe</h2>
 
 <!-- BANDEAU -->
-<?php include "bandeau.php"; ?>
+<!-- BANDEAU SOUS TITRE -->
 
-<!-- CONTENU -->
-<section id="contenu">
+    <p>Objectif du jour : <?php echo "'".$_SESSION['objectif']."'"; ?></p>
 
-<!-- WORKSHOP -->
-<h3 style='margin-left:35%;'>Workshops</h3>
+
+<!-- BANDEAU CONTENU -->
+<div id="bandeau_contenu">
+    <p class="sp"><?php echo date('F j, Y')."   &#9201;    " ?><span id='txt'></span></p>    
+</div>
+
+<fieldset style="margin-top: 0%;">
+
+<h3>Session</h3>
+<!-- BANDEAU CONTROLE -->
+<div class="bloc_colonne"> 
+    <?php echo "<p>".calculTailleClasse($_SESSION['niveau'])." élèves</p>"; ?>
+    
+    <!-- GOAL -->
+    <form style="margin-left:3%; margin-top:1%; margin-bottom:1%;" action="pageWorkshop.php" method="post">
+        <input type="text" id="objectif" name="objectif" style="width:50%;">
+        <button class='bouton' style="margin-left:1%;" type='submit'> &#9201; Objectif</button>
+    </form>
+
+    <!-- ABSENT STUDENTS -->
+    <form style="margin-left:3%; margin-top:1%; margin-bottom:1%;" action="pageWorkshop.php" method="post">
+        <input type="text" id="absent" name="absent">
+        <button class="bouton" style='margin-left: 1%;' type="submit">&#128218; Absent</button>
+    </form>
+
+    <!-- Formules -->
+    <form style="margin-left:3%; margin-top:1%; margin-bottom:1%;" action="pageWorkshop.php" method="post">
+        <input type="text" id="formule" name="formule">
+        <button class="bouton" style='margin-left: 1%;' type="submit">&#128218; Formule</button>
+    </form>
+
+    <!-- SESSION -->
+    <form style="margin-left:3%; margin-top:1%; margin-bottom:1%;">
+        <button class='bouton' style="margin-top:1%;" type='button' onclick='var $mavar = start_session(45);'> &#9201; Début session</button><br/>
+        <button class='bouton' style="margin-top:2%;" type='button'> &#10062; Fin session</button>
+    </form>
+
+</div>
+</fieldset>
+
+
+
+<fieldset>
+<!-- TABLEAU DE BORD -->
+<h3>Tableau de bord</h3>
 
 <div class="bloc_ligne" style="margin:2%; width:90%;">
 
     <!-- STARTER BUTTON -->
     <form method='post' action='starter.php' style='margin-left:8%;'>
-        <button class='bouton' type='submit'>&#127922; Draw starter</button>
+        <button class='bouton' type='submit'>&#127922; Starter</button>
     </form>
 
+    <!-- White page -->
+    <form method='post' action='pageBlanche.php' style="margin-left:8%;">
+        <button class='bouton' type='submit'>&#9898; White board</button>
+    </form>
+
+    <!-- Timer button -->
+    <form method='post' action='' style='margin-left:5%;'>
+        <button class='bouton' type='submit'>&#9749; Timer</button>
+    </form>
+
+</div>
+
+
+<div class="bloc_ligne" style="margin:2%; width:90%;">
+
     <!-- CHALLENGE BUTTON -->
-    <form method='post' action='' style='margin-left:2%;'>
+    <form method='post' action='' style='margin-left:8%;'>
         <button class='bouton' type='submit'>&#127941; Challenge</button>
     </form>
 
     <!-- EXERCISE GENERATOR BUTTON -->
-    <form method='post' action='' style='margin-left:2%;'>
-        <button class='bouton' type='submit'>&#127744; Generator</button>
+    <form method='post' action='' style='margin-left:5%;'>
+        <button class='bouton' type='submit'>&#127744; Generateur</button>
     </form>
 
     <!-- PROJECT BUTTON -->
-    <form method='post' action='' style='margin-left:2%;'>
-        <button class='bouton' type='submit'>&#9749; Project</button>
+    <form method='post' action='' style='margin-left:5%;'>
+        <button class='bouton' type='submit'>&#9749; Projet</button>
     </form>
 
 </div>
+</fieldset>
 
+
+
+
+
+<fieldset>
 <!-- PICK A NAME -->
-<h3 style='margin-left:35%;'>Pick a name</h3>
+<h3>Tirage au sort</h3>
 
 <!-- TIRAGE ELEVE -->
 <form method='post' action='tirageEleve.php'>
-    <button class='bouton' style='margin-left:40%;' type='submit'>&#127922; Draw player</button>
+    <button class='bouton' style='margin-left:40%;' type='submit'>&#127922; Choisir joueur</button>
 </form>
+
+<p>Consulter résultats</p>
+
+<!-- Résultats -->
 
 <div class="bloc_colonne">
     <div style="width:50%;">
-<p>Team 1 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe1'); ?> </p>
-<p>Team 2 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe2'); ?> </p>
-<p>Team 3 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe3'); ?> </p>
-<p>Team 4 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe4'); ?> </p>
-<p>Team 5 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe5'); ?> </p>
-<p>Team 6 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe6'); ?> </p>
+<p>Equipe 1 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe1'); ?> </p>
+<p>Equipe 2 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe2'); ?> </p>
+<p>Equipe 3 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe3'); ?> </p>
+<p>Equipe 4 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe4'); ?> </p>
+<p>Equipe 5 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe5'); ?> </p>
+<p>Equipe 6 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe6'); ?> </p>
 </div>
 <div style="width:50%;">
-<p>Team 7 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe7'); ?> </p>
-<p>Team 8 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe8'); ?> </p>
-<p>Team 9 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe9'); ?> </p>
-<p>Team 10 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe10'); ?> </p>
-<p>Team 11 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe11'); ?> </p>
-<p>Team 12 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe12'); ?> </p>
+<p>Equipe 7 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe7'); ?> </p>
+<p>Equipe 8 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe8'); ?> </p>
+<p>Equipe 9 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe9'); ?> </p>
+<p>Equipe 10 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe10'); ?> </p>
+<p>Equipe 11 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe11'); ?> </p>
+<p>Equipe 12 : <?php echo lister_membres_groupe($_SESSION['niveau'], 'groupe12'); ?> </p>
 </div>
 </div>
 
-<!-- END CONTENU -->
-</section> 
+</fieldset>
+
+
 
 <!-- PENALTY -->
 <div id="penalite"> 
 
-<h3>Penalty</h3>
+<h3>Pénalité</h3>
 
-<!--
-<script type="text/javascript">
-    import * as data from 'bdd.json';
-    var mydata = JSON.parse(data);
-    alert(mydata.groupes[1]);
-</script>
--->
-
-<!-- PENALTY BUTTON -->
+<!-- Penalty button -->
 <form method='post' action='pageWorkshop.php'>
     <input type="text" id="nom_penalite" name="nom_penalite" style="margin-left:10%;">
-    <button class="bouton" type="submit" name="record_penalite" value="record_penalite" style="margin-left:3%;">&#128191; Record</button>
-    <button class="bouton" type="submit" name="withdraw_penalite" value="withdraw_penalite" style="margin-left:2%;">&#10060; Withdraw</button>
+    <button class="bouton" type="submit" name="record_penalite" value="record_penalite" style="margin-left:3%;">&#128191; Enregistrer</button>
+    <button class="bouton" type="submit" name="withdraw_penalite" value="withdraw_penalite" style="margin-left:2%;">&#10060; Retirer</button>
 </form>
 
 <?php 
@@ -173,6 +247,7 @@ if (isset($_POST["withdraw_penalite"])){
 }
 ?>
 
+<!-- Display members having penalties -->
 <p>&#128213; <?php afficherMembresPenalite2($_SESSION['niveau']) ?></p> 
 <p>&#128217; <?php afficherMembresPenalite1($_SESSION['niveau']) ?></p>
 
@@ -184,7 +259,7 @@ if (isset($_POST["withdraw_penalite"])){
 </section>
 
 <!-- FOOTER -->
-<?php include "footer.html"; ?>
+<?php include("footer.php"); ?>
 
 </body>
 </html>

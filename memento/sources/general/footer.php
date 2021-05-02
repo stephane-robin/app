@@ -45,7 +45,7 @@
             <img src='<?php echo $chemin; ?>' alt='stephane robin' width=30px height=30px>
 
             <p class="piedPageParagraphe" style="margin-left:2%;">S. Robin :
-            Professeur d'informatique et de mathématiques passionné par le développement Web.</p>
+            Enseignant et développement Web.</p>
 
         </div>
     </div>

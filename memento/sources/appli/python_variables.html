@@ -1,0 +1,92 @@
+
+  <!-- CONTENU -->
+  <section id="contenu">
+
+
+
+
+
+    <!-- QU EST CE QU UNE VARIABLE ================================== -->
+
+    <h3>Qu'est-ce qu'une variable ?</h3>
+
+<p>Une variable permet de stocker une donnée du code. Elle est constituée d'un nom, d'une valeur et d'un emplacement en mémoire. En Python, on ne s'occupera que du nom de la variable et de sa valeur. A noter que le nom d'une variable ne peut pas commencer par un chiffre. Voici un premier exemple :</p>
+
+<pre><code class="language-python">age = 18</code></pre>
+
+<p>On utilise le signe <strong>=</strong> pour affecter la valeur <strong>18</strong> à la variable appelée <strong>age</strong>. On peut ainsi changer la valeur de l'âge, qui est donc "variable".</p>
+
+<p>Pour afficher la valeur d'une variable, il suffit d'utiliser l'instruction <strong>print</strong> avec le nom de cette variable :</p>
+
+<pre><code class="language-python">print(age)</code></pre>
+
+<p>affichera <strong>18</strong>.</p>
+
+
+
+
+<!-- LES TYPES -->
+
+<h3>Les types de variables</h3>
+
+<p>Chaque variable appartient à une famille particulière relative à la valeur de cette variable :</p>
+<ul>
+    <li>les nombres entiers sont stockés dans des variables de type <strong>int</strong></li>
+    <li>les nombres réels sont stockés dans des variables de type <strong>float</strong></li>
+    <li>les textes (chaînes de caractères) sont stockés dans des variables de type <strong>str</strong></li>
+    <li>les valeurs <strong>True</strong> et <strong>False</strong> sont stockées dans des variables de type <strong>bool</strong></li>
+</ul>
+
+<p>A noter que la place qu'occupe une variable en mémoire dépend fortement du type de cette variable.</p>
+
+<p>On peut afficher le type d'une variable avec l'instruction <strong>type</strong> et le nom de la variable. Par exemple :
+
+    <pre><code class="language-python">print(type(age))</code></pre>
+
+    <p>affichera <strong>int</strong>.</p>
+
+
+    <!-- OPERATIONS -->
+
+<h3>Les opérateurs</h3>
+
+<p>Les opérateurs servent à modifier la valeur des variables. Pour les nombres entiers (<strong>int</strong>) et les nombres réels (<strong>float</strong>), on peut utiliser les opérations suivantes :</p>
+
+<ul>
+    <li><strong>+ pour l'addition</strong>
+    <pre><code class="language-python">x = 1
+x = x + 1</code></pre>
+    affectera la valeur 2 à la variable x.</li>
+<br/>
+    <li><strong>- pour la soustraction</strong>
+<pre><code class="language-python">a = 5
+b = 2
+x = a - b</code></pre>
+affectera la valeur 3 à la variable x.</li>
+<br/>
+    <li><strong>* pour la multiplication</strong>
+        <pre><code class="language-python">x = 5 * 7</code></pre>
+    affectera la valeur 35 à la variable x.</li>
+<br/>
+    <li><strong>/ pour la division</strong>
+<pre><code class="language-python">x = 7 / 5</code></pre>
+    affectera la valeur 1.4 à la variable x.</li>
+<br/>
+    <li><strong>** pour l'exposant</strong>
+<pre><code class="language-python">x = 7 ** 2</code></pre>
+    affectera la valeur 49 à la variable x.</li>
+<br/>
+    <li><strong>// pour le quotient d'une division</strong>
+        <pre><code class="language-python">x = 7 // 5</code></pre>
+    affectera la valeur 1 à la variable x.</li>
+<br/>
+    <li><strong>% pour le reste de division</strong>
+        <pre><code class="language-python">x = 7 % 5</code></pre>
+    affectera la valeur 2 à la variable x. Attention la division décimale de 7 par 5 donne 1.4, mais la division euclidienne de 7 par 5 s'écrit 7 vaut 5 fois 1 plus 2. Ce qui explique le résultat obtenu. Les opérations sont similaires mais la division euclidienne permet de mettre en valeur l'opérateur modulo % qui va parfois s'avérer très utile.</li>
+</ul>
+
+
+
+
+</section> <!-- END CONTENU -->
+

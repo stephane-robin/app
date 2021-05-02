@@ -18,7 +18,6 @@ header{
      ou se trouve le texte 
      background: linear-gradient(to left, #007a99, 10%, #660029, #e62e00);*/
   background-image: linear-gradient(to top left, black 40%, #99ffcc);
-  
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -51,7 +50,6 @@ header nav .contour_a:hover{
 
 header nav .contour_a a:hover{
   color: white;
-
 }
 
 nav a{
@@ -210,9 +208,6 @@ h5{
   font-family: Cambria, Verdana, Arial;
   color: #ff9999;
 }
-
-
-
 
 
 
