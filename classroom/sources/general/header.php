@@ -3,7 +3,7 @@
     <nav id="bandeau">
 
         <?php
-        if ($nomClasse == "index"){
+        if ($nomPage == "index"){
             echo '<div class="contour_a">';
                 echo '<a class="element" href="">ACCUEIL</a>';
             echo '</div>';
@@ -11,7 +11,7 @@
                 echo '<a class="element" href="./sources/general/modelePage.php?nomClasse=Sixieme&nomPage=sixieme_generalites_fonctions.html">SIXIEME</a>';
             echo '</div>';
             echo '<div class="contour_a">';
-                echo '<a class="element" href="./sources/general/modelePage.php?nomClasse=Quatrieme&nomPage=quatrieme_generalitesFonctions.html">QUATRIEME</a>';
+                echo '<a class="element" href="./sources/general/modelePage.php?nomClasse=Quatrieme&nomPage=fonction_competence1">QUATRIEME</a>';
             echo '</div>';
             echo '<div class="contour_a">';
                 echo '<a class="element" href="./sources/general/modelePage.php?nomClasse=Seconde">SECONDE</a>';
@@ -28,13 +28,16 @@
                 echo '<a class="element" href="pageWorkshop.php?nomClasse='.$nomClasse.'">TRAVAIL DE GROUPE</a>';
             echo '</div>';
             echo '<div class="contour_a">';
-                echo '<a class="element" href="modelePage.php?nomClasse='.$nomClasse.'&nomPage=quatrieme_generalitesFonctions.html">COURS</a>';
+                echo '<a class="element" href="modelePage.php?nomClasse='.$nomClasse.'&nomPage=fonction_competence1">COURS</a>';
             echo '</div>';
             echo '<div class="contour_a">';
                 echo '<a class="element" href="quizz.php?nomClasse='.$nomClasse.'">QUIZZ</a>';
             echo '</div>';
             echo '<div class="contour_a">';
                 echo '<a class="element" href="nummath.php?nomClasse='.$nomClasse.'">NUM.MATH</a>';
+            echo '</div>';
+            echo '<div class="contour_a">';
+            echo '<a class="element" href="starter.php?nomClasse='.$nomClasse.'&nomPage='.$nomPage.'">STARTER</a>';
             echo '</div>';
         }
         ?>
@@ -43,11 +46,11 @@
 
 <?php
 // define the beginning of the path to the social media icons
-if ($nomClasse != "index"){
-    $preChemin = "../../images/general/";
+if ($nomPage == "index"){
+    $preChemin = "./images/general/";  
 }
 else {
-    $preChemin = "./images/general/";
+    $preChemin = "../../images/general/";
 }
 ?>
 <div class="sousHeader">

@@ -1,5 +1,6 @@
 <?php
-$nomClasse = "index";
+
+$nomPage = "index";
 ?>
 
 <!DOCTYPE HTML>
@@ -18,28 +19,13 @@ $nomClasse = "index";
 <section id="principal">
 
 <!-- TABLE MATIERES -->
-<aside id="table_matieres">
-    <div id="fieldsetTableMatieres">
-    <p>Actualités : </p>
-    <p style="text-align: left;">Le site TokeTa est en construction. Rendez-vous bientôt pour commencer des projets intéressants... </p>
-</div>
-</aside>
+<?php include("./sources/general/tableMatieres.php"); ?>
 
 <!-- GRAND CONTENU -->
 <section id="grandContenu">
 
 <!-- BANDEAU -->
 <h2>Mon classeur de travail</h2>
-
-<?php
-$pdo = new PDO('mysql:dbname=classroom;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
-$query = $pdo->query('SHOW VARIABLES like "version"');
-
-$row = $query->fetch();
-
-echo 'MySQL version:' . $row['Value'];
-?>
 
 <div class="bloc_ligne" style="margin-left:15%;">
 
@@ -90,7 +76,7 @@ echo 'MySQL version:' . $row['Value'];
     </a>
 
     <!-- BLOC 2 -->
-    <a class="choix" href="./sources/general/modelePage.php?nomClasse=Quatrieme&nomPage=quatrieme_generalitesFonctions.html">
+    <a class="choix" href="./sources/general/modelePage.php?nomClasse=Quatrieme&nomPage=fonction_competence1">
 
     <div class="bloc_colonne" style="width:250px; margin-left:15%;">
         <div class="bloc_choix_titre" style="background-color: #ffccff;">

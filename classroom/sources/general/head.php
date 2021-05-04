@@ -1,5 +1,5 @@
 <?php
-if ($nomClasse == "index"){
+if ($nomPage == "index"){
 	echo "<head>";
   		echo "<title> ToKeTa-Classroom </title>";
   		echo "<link rel='stylesheet' href='./styles/style_classroom6.css'>";

@@ -1,29 +1,36 @@
 <aside id="table_matieres">
     <div id="fieldsetTableMatieres">
-    	<h2 style="color:white;"><?php echo $nomClasse; ?></h2>
-    	<nav>
-    	<?php
-    	switch ($nomClasse){
-    		case "Sixieme":
+    	<?php 
+    	if ($nomPage == "index"){
+    		echo "<h2 style='color:white;'>Actualité : </h2>";
+    		echo "<p style='text-align: left;'>Le site TokeTa est en construction. Rendez-vous bientôt pour commencer des projets intéressants... </p>";
+    	}
+    	else {
+    		echo "<h2 style='color:white;'>".$nomClasse."</h2>";
+    		echo "<nav>";
+    	
+    		switch ($nomClasse){
+    			case "Sixieme":
     			
-				break;
-			case "Quatrieme":
-				echo "<a href='modelePage.php?nomPage=quatrieme_generalitesFonctions.html'>FONCTIONS</a>";
-				echo "<a href='modelePage.php?nomPage=quatrieme_generalitesFonctions.html'>Fonctions - généralités</a>";
-				echo "<a href='modelePage.php?nomPage=quatrieme_imagesTableau.html'>Images et antécédents</a>";
-				echo "<a href='modelePage.php?nomPage=quatrieme_courbeFonction.html'>Courbe représentative</a>";
-				echo "<a href='modelePage.php?nomPage=quatrieme_imagesGraphe.html'>Lecture de courbe</a>";
-				echo "<a href='modelePage.php?nomPage=quatrieme_generaliteFonctionAffine.html'>Fonctions affines - généralités</a>";
-				echo "<a href='modelePage.php?nomPage=quatrieme_penteFonctionAffine.html'>Fonctions affines - caractéristiques</a>";
-				echo "<p></p>";
-				break;
-			case "Seconde":
-				break;
-			case "SNT":
-				break;
-    	}  	
+					break;
+				case "Quatrieme":
+					echo "<a href='modelePage.php?nomPage=fonction_competence1'>FONCTIONS</a>";
+					echo "<a href='modelePage.php?nomPage=fonction_competence1'>Fonctions - généralités</a>";
+					echo "<a href='modelePage.php?nomPage=fonction_competence2'>Images et antécédents</a>";
+					echo "<a href='modelePage.php?nomPage=fonction_competence3'>Courbe représentative</a>";
+					echo "<a href='modelePage.php?nomPage=fonction_competence4'>Lecture de courbe</a>";
+					echo "<a href='modelePage.php?nomPage=fonction_competence5'>Fonctions affines - généralités</a>";
+					echo "<a href='modelePage.php?nomPage=fonction_competence6'>Fonctions affines - caractéristiques</a>";
+					echo "<p></p>";
+					break;
+				case "Seconde":
+					break;
+				case "SNT":
+					break;
+    		}  
+    		echo "</nav>";
+    	}		
 		?>
-		</nav>
 	</div>
 </aside>
 

@@ -1,53 +1,52 @@
 <?php 
 session_start(); 
-
-// DEVELOPMENT MODE
-include "developmentMode.php";
+if (isset($_GET['nomClasse'])){
+  $_SESSION['nomClasse'] = $_GET['nomClasse'];
+}
+$nomClasse = $_SESSION['nomClasse'];
+$nomPage = $_GET['nomPage'];
 ?>
 
 <!-- FONCTIONS -->
-<?php include "fonctions.php"; ?>
+<?php include("fonctionsPHP.php"); ?>
 
 <!DOCTYPE HTML>
 <html>
 
 <!-- HEAD -->
-<?php include "head.html"; ?>
+<?php include("head.php"); ?>
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ["\\(","\\)"] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+
 
 <!-- FONCTIONS JS -->
 <?php include "fonctionsJS.html"; ?>
 
-<!-- BODY -->
-<body onload="startTime()">
-
 <!-- HEADER -->
-<?php include "header.html"; ?>
-
-<!-- MODE DEVELOPMENT OR PRODUCTION -->
-<p><?php echo $_SESSION['commentaire']; ?></p>
+<?php include("header.php"); ?>
 
 <!-- PRINCIPAL -->
 <section id="principal">
 
-<!-- TABLE MATIERES -->
-<?php include "tableMatieres.php"; ?>
-
 <!-- GRAND CONTENU -->
 <section id="grandContenu">
 
-<h2>Class of <?php echo $_SESSION['nomClasse']; ?></h2>
+<?php include("../".$nomClasse."/Starter/".$nomPage.".php"); ?>
 
-<!-- BANDEAU -->
-<?php include "bandeau.php"; ?>
-
-<!-- CONTENU -->
-<section id="contenu">
-
-<!-- STARTER -->
-<h3>Starter</h3>
-
-<!-- pick up an image for starter -->
-<img src="../../images/starters/<?php echo $_SESSION['niveau'].'/'.choisirStarter($_SESSION['niveau']);?>" alt='starter'/>
 
 <!-- BACK BUTTON -->
 <form action="pageWorkshop.php" method="post">
@@ -55,15 +54,11 @@ include "developmentMode.php";
 </form>
 
 
-<!-- END CONTENU -->
-</section> 
-<!-- END GRAND CONTENU -->
-</section> 
-<!-- END PRINCIPAL -->
-</section> 
+</section> <!-- end GRAND CONTENU -->
+</section>  <!-- end PRINCIPAL -->
 
 <!-- FOOTER -->
-<?php include "footer.html"; ?>
+<?php include("footer.php"); ?>
 
 </body>
 </html>

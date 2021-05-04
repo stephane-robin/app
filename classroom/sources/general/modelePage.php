@@ -44,7 +44,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <!-- GRAND CONTENU -->
 <section id="grandContenu">
 
-<?php include("../".$nomClasse."/".$nomPage); ?>
+<?php include("../".$nomClasse."/Cours/".$nomPage.".html"); ?>
 
 </section> <!-- END GRAND CONTENU -->
 </section> <!-- END PRINCIPAL -->

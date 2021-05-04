@@ -37,7 +37,7 @@
 
             <?php
             // define path to the picture sr_square.png
-            if ($nomClasse = "index"){
+            if ($nomPage == "index"){
                 $chemin = "./images/general/sr_square.png";   
             }
             else {
@@ -46,8 +46,7 @@
             ?>
             <img src='<?php echo $chemin; ?>' alt='stephane robin' width=30px height=30px>
 
-            <p class="piedPageParagraphe" style="margin-left:2%;">S. Robin :
-            Développeur Web et enseignant.</p>
+            <p class="piedPageParagraphe" style="margin-left:2%;">S. Robin </p>
 
         </div>
     </div>
