@@ -1,0 +1,405 @@
+  <!-- CONTENU -->
+  <section id="contenu">
+
+  <h3 id="titrePage">CSS</h3>
+
+
+
+
+
+  <div class="bloc">
+    <div class="gauche">
+      <a href="css.html"><img src="../../images/web/css.png" width="80" height="80"></a>
+    </div>
+
+    <div class="droite">
+      <p> CSS signifie Cascading Style Sheets. Ce langage gère l'apparence des pages Web en arrangeant le contenu (couleur, marges, taille du texte). Comme il travaille le contenu d'une page Web, CSS utilise le code HTML pour fonctionner. Sans aucun code CSS, la page Web ressemble à du texte regroupé par bloc et tapé "au kilomètre".</p>
+    </div>
+  </div>
+
+  <!-- ===== STRUCTURE D'UNE PAGE CSS ===== -->
+
+<h3 id="structure"> Structure d'une page CSS </h3>
+
+  <p> Il est possible de coder la mise en forme d'une page Web directement dans un fichier HTML sans recourir à un fichier CSS. Dans ce cas, on définit individuellement pour chaque balise la forme adéquate à l'aide de l'attribut <strong>style</strong>.</p>
+  <pre><code class="language-html">&ltp style="color:red"&gt mon texte &lt/p&gt</code></pre><footer class="legendeCode">HTML</footer>
+  <p> Cette définition locale est coûteuse en temps et n'est conseillée qu'à titre exceptionnel. On peut également définir la mise en forme dans l'en-tête <strong>head</strong> d'un fichier HTML. Toutefois, la méthode préconisée est de définir la mise en forme dans un fichier séparé comportant l'extension .css. Il faut alors rajouter l'instruction suivante afin de lier notre page HTML à notre page CSS.</p>
+  <pre><code class="language-html">&ltlink rel="stylesheet" href="style.css"&gt</code></pre><footer class="legendeCode">HTML</footer>
+  <p> On constate que l'attribut <strong>href</strong> pointe vers l'adresse de la page CSS qui devra se situer dans le répertoire courant.</p>
+  <p> Les commentaires en CSS sont entourés des symboles <strong>/*</strong> et <strong>*/</strong>. Ils peuvent être écrits sur une ou plusieurs lignes.</p>
+
+
+
+<!-- ===== APPLIQUER UNE MISE EN FORME ===== -->
+
+<h3 id="forme"> Appliquer une mise en forme </h3>
+
+  <p> Pour appliquer un style particulier, il faut sélectionner le nom d'une balise sur laquelle le style va s'appliquer, puis les propriétés qu'on souhaite modifier ainsi que leurs valeurs. Chaque ligne de code se termine par <strong>;</strong> et il existe un <strong>:</strong> entre une propriété et sa valeur.
+      Si une modification concerne plusieurs balises, on peut sélectionner les noms de balises séparés de <strong>,</strong>.</p>
+
+
+    <p> <em>Attention</em>, il faut indiquer le nom de la balise sans les symboles <strong>&lt</strong> et <strong>&gt</strong>.</p>
+      <pre><code class="language-css">h1, h2{
+  color: blue;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+  <p> Lorsqu'on veut appliquer une mise en forme différente pour une même balise en fonction des situations, on ajoute l'attribut <strong>class</strong> à cette balise dans le fichier HTML et on spécifie les propriétés de <strong>class</strong> dans le fichier CSS.</p>
+
+  <div class="bloc">
+
+    <div class="gauche">
+      <pre><code class="language-html">&ltp class="paragraphe1"&gt mon texte &lt/p&gt </code></pre>
+      <footer class="legendeCode">HTML</footer>
+    </div>
+
+    <div class="droite">
+      <pre><code class="language-css">.paragraphe1{
+  color: blue;
+}</code></pre><footer class="legendeCode">CSS</footer>
+    </div>
+
+  </div>
+
+
+    <p> &#128204; <em>Attention</em>, dans ce cas il est important de ne pas oublier le <strong>.</strong> devant le nom de la classe de la balise.</p>
+
+
+  <p> <em> Remarque </em>, on peut également utiliser l'attribut <strong>id</strong> qui se construit de la même manière que l'attribut <strong>class</strong>. En revanche, dans le fichier CSS, il ne faut plus faire précéder le nom de la classe par un <strong>.</strong> mais l'identité par un <strong>#</strong>. L'attribut <strong>id</strong> a pour particularité de ne s'utiliser qu'une fois dans la page HTML.</p>
+  <p> Pour sélectionner une balise se trouvant à l'intérieur d'une autre balise, on ne met pas de <strong>,</strong> entre la balise père et la balise fils :</p>
+  <pre><code class="language-css">h2 strong{
+  color: blue;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+
+<!-- ===== LES DIFFERENTES PROPRIETES ===== -->
+
+<h3 id="propriete"> Les différentes propriétés </h3>
+
+  <!-- Les dimensions d'un bloc -->
+
+  <h3> Les dimensions d'un bloc </h3>
+
+    <p> On utilise les attributs <strong>width</strong> et <strong>height</strong> en pixels ou en pourcentage. On choisira préférentiellement le pourcentage afin de s'adapter au mieux aux différents formats d'écrans. Par défaut, un bloc prend 100% de la largeur disponible.</p>
+
+    <pre><code class="language-css">p{
+  width:60%;
+  height:10px;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- La police -->
+
+  <h4> La police </h4>
+
+    <p> Pour qu'une police s'affiche correctement lors de l'ouverture de la page Web, il faut que le navigateur la connaisse. Il convient donc de choisir une police standard. Il est en fait conseillé de choisir plusieurs polices afin de s'assurer qu'une au moins de ces polices s'affiche. Le choix de police se fait naturellement selon l'ordre d'écriture de ces polices dans le fichier CSS.</p>
+  <pre><code class="language-css">font-family: Verdana, "Trebuchet MS", Arial;</code></pre><footer class="legendeCode">CSS</footer>
+    <p> A noter qu'on utilise des guillemets <strong>"</strong> dans le cas d'une police dont le nom contient plusieurs mots séparés par un espace.</p>
+
+  <!-- La taille de police -->
+
+  <h4> La taille de police</h4>
+
+    <p> On peut choisir de définir une taille absolue en pixels px ou relative en em. Il est conseillé d'utiliser une taille relative qui s'adapte mieux aux différents formats d'écrans. 1em correpond à une taille standard de texte ou de titre en fonction de la section dans laquelle on se trouve.</p>
+  <pre><code class="language-css">font-size: 1.2em;</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- La mise en forme standard -->
+
+  <h4> La mise en forme standard </h4>
+
+    <p> Pour mettre un texte en italique, en gras, souligner,... on utilise les propriétés suivantes :</p>
+    <pre><code class="language-css">font-style: italic;
+font-style: normal;
+
+font-weight: bold;
+font-weight: normal;
+
+text-decoration: blink;
+text-decoration: underline;
+text-decoration: line-through;
+text-decoration: overline;
+text-decoration: none;
+
+font-variant: small-caps; /* petites capitales */
+font-variant: normal;</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- L'alignement du texte dans un bloc -->
+
+  <h4> L'alignement du texte dans un bloc </h4>
+
+    <p> Pour aligner du texte, on utilise la propriété text-align.</p>
+    <pre><code class="language-css">text-align: left;
+text-align: right;
+text-align: center;
+text-align: justify;</code></pre><footer class="legendeCode">CSS</footer>
+
+
+      <p> L'alignement avec l'attribut <strong>text-align</strong> ne fonctionne qu'avec les blocs et non pas les balises <em>inline</em> telles que <strong>&ltspan&gt</strong>, <strong>&lta&gt</strong>, <strong>&ltem&gt</strong>, <strong>&ltstrong&gt</strong>,...</p>
+
+
+  <!-- La rotation du texte -->
+
+  <h4> La rotation du texte </h4>
+
+    <p>Pour tourner un texte d'un angle de 60 degrés, on utilise l'attribut <strong>transform</strong>.</p>
+
+    <pre><code class="language-css">#bloc{
+  transform: rotate(60deg);
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- La couleur de texte -->
+
+  <h4> La couleur de texte </h4>
+
+    <p> La couleur peut s'exprimer en notation hexadécimale ou en notation RGB pour Red Green Blue. Nous utiliserons principalement la notation hexadécimale, mais aussi la notation RGB lorsque la couleur est associée à une certaine opacité. Certains sites proposent de fournir l'équivalence entre couleurs et notations RGB ou hexadécimale. Par ailleurs, certaines extensions des navigateurs permettent de récupérer la notation RGB d'une couleur présente sur un site Web. On change la couleur d'un texte en utilisant le mot clé <strong>color</strong> :</P>
+  <pre><code class="language-css">color: rgb(153,102,102);</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- La couleur de fond -->
+
+  <h4> La couleur de fond </h4>
+
+    <p> La couleur de fond se définit de la même manière que la couleur du texte, mais cette fois en utilisant le mot clé <strong>background-color</strong>:</p>
+  <pre><code class="language-css">background-color: rgb(255,255,253);</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- L'image de fond -->
+
+  <h4> L'image de fond </h4>
+
+    <p> Il est également possible d'appliquer une image de fond à la place d'une couleur de fond. Pour cela, il faut utiliser la propriété <strong>background-image</strong>, qui dispose de plusieurs options.</p>
+
+    <table>
+      <tr> <th> Attribut </th><th> Effet obtenu </th> </tr>
+      <tr> <td> <pre>background-image: url("nomImage.png");</pre> </td><td> identité de l'image </td> </tr>
+      <tr> <td> <pre>background-attachment: fixed;</pre> </td><td> fixe le fond </td> </tr>
+      <tr> <td> <pre>background-attachment: scroll;</pre> </td><td> l'image de fond défile avec le texte </td> </tr>
+      <tr> <td> <pre>background-repeat: no-repeat;</pre> </td><td> le fond ne se répète pas, cela doit être combiné avec l'instruction <strong>background-position</strong> </td> </tr>
+      <tr> <td> <pre>background-position: 40px 60px;</pre> </td><td> indique où doit se trouver l'image de fond, comme l'origine des coordonnées se trouve en haut à gauche, l'image se trouve à 40 pixels de la gauche et à 60 pixels du haut </td> </tr>
+      <tr> <td> <pre>background-position: top-right;</pre> </td><td> dans ce cas l'image de fond se trouve en haut à droite </td> </tr>
+    </table>
+
+    <!-- La transparence -->
+
+  <h4> La transparence </h4>
+
+    <p> Il est également possible de modifier la transparence d'une image ou d'une couleur à l'aide de la propriété <strong>opacity</strong> allant de 0 à 1. Par défaut, les éléments sont totalement opaques (c'est à dire non transparents) et <strong>opacity</strong> a pour valeur 1.</p>
+  <pre><code class="language-css">opacity: 0.6; /* la transparence est de 40% */</code></pre><footer class="legendeCode">CSS</footer>
+    <p> On peut également jouer sur la transparence en donnant une 4ème valeur comprise entre 0 et 1 à la propriété background-color. <em>Attention</em>, dans ce cas l'instruction <strong>rgb</strong> est remplacée par <strong>rgba</strong>.</p>
+  <pre><code class="language-css">background-color: rgba(255,255,253,0.6);</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- Les bordures -->
+
+  <h4> Les bordures </h4>
+
+    <p> La propriété <strong>border</strong> permet de créer ou modifier une bordure et s'utilise avec des options indiquant la largeur, la couleur et le type. Par défaut, un élément ne comporte pas de bordure.</p>
+    <pre><code class="language-css">border: 2px red solid; /* trait plein rouge largeur 2 pixels */
+border: 2px red dotted; /* trait pointillé */
+border-radius: 10px; /* les bords sont arrondis de rayon 10 pixels */
+box-shadow: 6px 6px 0px black; /* ombre de boîte horizontale, verticale,
+fondue, couleur */</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- Les marges -->
+
+  <h4> Les marges </h4>
+
+    <p> Les marges intérieures au bloc sont définies en pixels par l'attribut <strong>padding</strong> alors que les marges extérieures (qui délimitent un espace autour du bloc) sont définies en pixels par l'attribut <strong>margin</strong>.</p>
+
+    <pre><code class="language-css">.monBloc{
+  margin: 5px;
+  padding: 10px;
+}
+
+.autreBloc{
+  margin-top: 7px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+  margin-left: 5px;
+
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+}
+
+.encoreUnBloc{
+  margin: 7px 0 6px 3px;
+  padding: 10px 15px 15px 10px;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+    <p>Dans le dernier cas ci-dessus, l'ordre de lecture est vraiment important. <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, <strong>left</strong>.</p>
+
+  <!-- Centrer un bloc -->
+
+  <h4> Centrer un bloc </h4>
+
+    <p> Pour centrer horizontalement un bloc, il faut utiliser l'instruction <strong>margin: auto;</strong> conjointement avec l'attribut obligatoire <strong>width</strong> pour définir une largeur de bloc avant de le centrer. Il n'est pas possible de centrer verticalement un bloc avec cette méthode. Il convient alors d'utiliser Flexbox pour centrer verticalement.</p>
+    <pre><code class="language-css">p{
+  width: 300px;
+  margin: auto;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- Lorsque le texte dépasse la taille du bloc -->
+
+  <h4> Lorsque le texte dépasse la taille du bloc </h4>
+
+    <p>Lorsqu'un bloc a des dimensions précises et que son contenu dépasse les bords, on utilise l'instruction <strong>overflow: auto</strong> pour gérer le dépassement automatiquement et créer une barre de défilement si besoin.</p>
+    <p>De façon similaire, lorsqu'un mot très long dépasse les bords, on utilise l'instruction <strong>word-wrap: break-word</strong> pour couper le mot sans en perdre la signification. C'est notamment le cas d'adresses Internet très longues.</p>
+
+  <!-- Les listes -->
+
+  <h4> Les listes </h4>
+
+    <p> On peut définir le type de liste comme un attribut des balises <strong>&ltul&gt</strong> et <strong>&ltol&gt</strong>.</p>
+    <pre><code class="language-css">ul{
+  list-style-type: disc;
+  list-style-type: circle;
+  list-style-type: square;
+  list-style-type: none;
+  list-style-image: url('nomImage.png'); /* pour une puce personnalisée dont
+  l'image devra être dans le dossier courant */
+}
+
+ol{
+  list-style-type: decimal;
+  list-style-type: lower-roman;
+  list-style-type: upper-roman;
+  list-style-type: lower-alpha;
+  list-style-type: upper-alpha;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+  <!-- Les flottants -->
+
+  <h4> Les flottants </h4>
+
+    <p>Il est possible d'insérer un élément flottant devant un texte, qui pourra être un bloc ou un image par exemple. Il faut pour cela définir des marges et largeurs compatibles afin que le texte ne déborde pas.</p>
+    <pre><code class="language-css">.blocTexte{
+  margin-left: 120px;
+}
+
+.blocFlottant{
+  float: left;
+  width: 100px;
+}</code></pre><footer class="legendeCode">CSS</footer>
+    <p>L'instruction <strong>clear: both</strong> oblige la suite du texte à se placer sous le bloc flottant.</p>
+
+  <!-- Les positionnements absolus, fixes et relatifs -->
+
+  <h4> Les positionnements absolus, fixes et relatifs </h4>
+
+    <p>Le positionnement <strong>absolute</strong> permet de placer un élément sur une page. On utilise comme unité de mesure des pixels ou des pourcentages. Notons que l'origine du repère se trouve toujours en haut à gauche du bloc qui contient le bloc à placer. Initialement, l'origine du repère se trouve donc en haut à gauche de l'écran.</p>
+    <pre><code class="language-css">.bloc{
+  position: absolute;
+  top: 10%;
+  right: 30%;
+}</code></pre><footer class="legendeCode">CSS</footer>
+    <p>En cas de chevauchement de blocs, l'attribut <strong>z-index</strong> permet de déterminer quel bloc doit apparaître au-dessus des autres. Le bloc ayant la valeur de <strong>z-index</strong> la plus élevée sera placé au-dessus des autres.</p>
+    <pre><code class="language-css">.bloc1{
+  position: absolute;
+  top: 10%;
+  right: 30%;
+  z-index: 1;
+}
+
+.bloc2{
+  position: absolute;
+  top: 10%;
+  right: 35%;
+  z-index: 2;
+}</code></pre><footer class="legendeCode">CSS</footer>
+    <p>Le positionnement <strong>fixed</strong> permet de placer un élément sur une page et de s'assurer qu'il reste toujours visible même si on se déplace sur la page.
+    C'est utile notamment si l'on souhaite qu'un bandeau reste en haut d'une page lorsqu'on se déplace avec la souris.</p>
+    <p>Le positionnement <strong>relative</strong> permet de décaler l'élément par rapport à la position d'origine. A éviter par souci de simplicité.</p>
+
+  <!-- Modifier l'aspect d'un lien lorsque la souris le survole -->
+
+  <h4> Modifier l'aspect d'un lien lorsque la souris le survole </h4>
+
+    <p>Il est possible de modifier toutes les propriétés d'un lien lorsqu'on le survole en utilisant l'instruction <strong>a:hover</strong>.</p>
+    <pre><code class="language-css">a:hover{
+  color: red;
+  font-weight: bold;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+    <p>&#128204; <em>Attention</em>, dans ce cas il ne faut surtout pas mettre d'espace entre <strong>a</strong> et <strong>hover</strong> sous peine de dysfonctionnement car <strong>hover</strong> n'est pas la valeur d'un attribut.</p>
+
+
+  <!-- Les tableaux -->
+
+  <h4> Les tableaux </h4>
+
+    <p> Pour définir les bordures d'un tableau, on utilise les instructions suivantes :</p>
+    <pre><code class="language-css">table{
+  border-collapse: collapse; /* pour que les bordures des cellules se collent */
+}
+
+th, td{
+    border: 1px solid black;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+      <p> Il n'est pas nécessaire de créer des bordures pour la balise <strong>&lttr&gt</strong> car elles ont déjà été faites avec les bordures <strong>&ltth&gt</strong> et <strong>&lttd&gt</strong>.</p>
+
+
+    <p> Pour changer la position du titre du tableau : </p>
+    <pre><code class="language-css">table{
+  caption-side: top;
+  caption-side: bottom;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+
+<!-- ===== NOTION D'HERITAGE ===== -->
+
+<h3 id="heritage"> Notion d'héritage </h3>
+
+  <p> La notion d'héritage est issue de la programmation orientée objet. En CSS, cela signifie que si on applique une propriété à une balise, toutes les balises qui se trouvent à l'intérieur appliqueront cette même propriété. On dit qu'elles héritent de cette propriété.
+        Par exemple si on définit la couleur du texte à l'intérieur d'un paragraphe comme étant bleue, tous les mots mis en valeur par la balise <strong>em</strong> à l'intérieur d'un paragraphe seront bleus, sauf si on redéfinit spécifiquement la couleur de la balise <strong>em</strong>.</p>
+  <p>Le code suivant est interprété de la façon suivante par le navigateur, où le mot "Attention" se trouvant à l'intérieur de balises <strong>&ltem&gt</strong> est colorié en bleu.</p>
+
+  <pre><code class="language-html">&ltp style="color:rgb(51,51,255)"&gt&ltem&gtAttention&lt/em&gt, je tape mon texte ici.&lt/p&gt</code></pre>
+  <footer class="legendeCode">HTML</footer>
+
+  <p>associé à</p>
+
+  <pre><code class="language-css">p{
+  font-family: Verdana, "Trebuchet MS", Arial;
+  text-align: justify;
+  color: rgb(51,51,255);
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+
+  <p>qui produit l'affichage suivant</p>
+  <p style="color:rgb(51,51,255)"><em>Attention</em>, je tape mon texte ici.</p>
+
+
+
+  <p> En revanche, le code suivant est interprété différemment, et la définition spécifique de la couleur de la balise <strong>&ltem&gt</strong>, outrepasse l'héritage issu de la balise <strong>&ltp&gt</strong>. </p>
+
+  <pre><code class="language-html">&ltp style="color:rgb(51,51,255)"&gt&ltem style="color:rgb(255,51,102)"&gtAttention&lt/em&gt, je tape mon texte ici.&lt/p&gt</code></pre>
+
+  <p>associé à</p>
+      <pre><code class="language-css">em{
+  color: rgb(255,51,102);
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+<p>qui produit l'affichage suivant</p>
+
+      <p style="color:rgb(51,51,255)"><em style="color:rgb(255,51,102)">Attention</em>, je tape mon texte ici.</p>
+
+  <a href="#titreSite" style="margin-left:30%;">&#128314; Haut de page &#128314;</a>
+
+
+</section> <!-- fin contenu -->
+
+  <aside id="chapitres">
+    <nav>
+      <fieldset2>
+      <a title="accueil du site" href="../index.html"><img class="logo" src="../../images/general/logoAccueil.png" alt="Accueil" /></a>
+      <a title="accueil de la partie Web" href="web.html"><img class="logo" src="../../images/general/logoWeb.png" alt="Web" /></a>
+      <a title="accueil de la partie Appli" href="../appli/appli.html"><img class="logo" src="../../images/general/logoAppli.png" alt="Appli" /></a>
+      </fieldset2>
+    </nav>
+  </aside>
+
+</section> <!-- END CONTENU -->
