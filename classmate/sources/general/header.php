@@ -20,6 +20,9 @@
                 echo '<a class="element" href="./sources/general/modelePage.php?nomClasse=SNT&nomPage=variables&chapitre=python">SNT</a>';
             echo '</div>';
         }
+        else if ($typePage == "enseignant" OR $typePage == "eleve") {
+
+        }
         else {
             echo '<div class="contour_a">';
                 echo '<a class="element" href="../../index.php">ACCUEIL</a>';
@@ -46,7 +49,6 @@
     <p class='sp' style='margin-left:2%;'><?php echo "Bienvenue en 4F1 | ".date('F j, Y')."   &#9201;    " ?><span id='txt'></span></p>
 
     <?php 
-    echo $nomClasse."|".$chapitre."|".$nomPage."|".$typePage."|".$typeUtilisateur;
     if ($typePage == "modelePage"){
         echo "<form style='margin-left:60%; margin-top:1%; margin-bottom:1%;' action='starter.php?nomClasse=".$nomClasse."&chapitre=".$chapitre."&nomPage=".$nomPage."' method='post'>";
             echo "<button class='bouton' style='margin-left:3%; margin-top:2%; margin-bottom:2%;' type='submit'>Starter</button>";

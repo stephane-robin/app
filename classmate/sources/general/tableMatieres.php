@@ -5,7 +5,7 @@
 </div>
 
 <?php
-if ($typePage != "pageWorkshop" and $typePage != "challenge" and $typePage != "index" and $typePage != "tirageEleve"){
+if ($typePage != "pageWorkshop" and $typePage != "challenge" and $typePage != "index" and $typePage != "tirageEleve"and $typePage !="enseignant" and $typePage != "eleve"){
 
     echo "<div id='fieldsetTableMatieres'>";   	
     	echo "<h2 style='color:white;'>".$nomClasse."</h2>";

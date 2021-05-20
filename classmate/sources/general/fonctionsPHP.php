@@ -12,10 +12,6 @@ function connexionBdd($classe){
     }
 }
 
-// =========================
-// AFFECTING A TABLE
-// =========================
-
 function renvoyer_membres_groupe($classe, $groupe){
     /**
      * returns a string containing the members of a group in a class
@@ -112,11 +108,6 @@ function renvoyer_membres_penalite2($classe){
     $reponse->closeCursor();
     return $resultat;
 }
-
-
-// ========================
-// AFFECTING 1 STUDENT ONLY
-// ========================
 
 function changer_participation_eleve($classe, $eleve, $valeur){
     /**
@@ -292,6 +283,36 @@ function enregistrer_resultats_starter($classe, $eleve, $pourcentage, $chapitre,
     $reponse = $bdd->prepare("UPDATE starterFonctions SET competence1=:competence WHERE nom='".$eleve."'");
     $reponse->execute(array('competence' => $pourcentage));
     $reponse->closeCursor();
+}
+
+function formater_nomClasse($nom){
+    $prefixe = substr($nom, 0, 1);
+    $suffixe = substr($nom, 1);
+
+    switch ($prefixe) {
+        case '6':
+            $niveau = 'Sixieme';
+            break;
+        case '5':
+            $niveau = 'Cinquieme';
+            break;
+        case '4':
+            $niveau = 'Quatrieme';
+            break;
+        case '3':
+            $niveau = 'Troisieme';
+            break;
+        case '2':
+            $niveau = 'Seconde';
+            break;
+    }
+    return $niveau.'_'.$suffixe;
+    
+}
+
+function transformer_nomClasseFormate_niveau($classe){
+    $position = strpos($classe, '_');
+    return substr($classe, 0, $position);
 }
 
 ?>

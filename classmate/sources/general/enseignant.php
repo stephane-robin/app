@@ -1,10 +1,6 @@
 <?php 
 session_start();
 $_SESSION['utilisateur'] = "enseignant";
-$_SESSION['niveau'] = NULL;
-$_SESSION['nomClasse'] = NULL;
-$_SESSION['chapitre'] = NULL;
-$nomPage = NULL;
 $typePage = "enseignant";
 ?>
 
@@ -43,8 +39,10 @@ include("fonctionsJS.html");
 
 	<label for="goal" style="margin-left:20%;">mot de passe :</label>
   	<input type="text" id="objectif" name="objectif" style="margin-left:3%;"><br/>
-	<button class="bouton" style='margin-bottom: 5%; margin-top: 5%; margin-left:20%;' type="submit" value="record_objectif">&#128218; Valider</button>
+	<button class="bouton" style='margin-bottom: 3%; margin-top: 5%; margin-left:20%;' type="submit" value="record_objectif">&#128218; Valider</button>
 </form>
+
+<p style='margin-left:20%;'><a href="">Je ne suis pas déjà inscrit...</a></p>
 
 </section> <!-- END GRAND CONTENU -->
 </section> <!-- END PRINCIPAL -->

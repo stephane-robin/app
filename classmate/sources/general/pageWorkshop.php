@@ -112,26 +112,35 @@ function choisirEleve(){
 
 <?php $eleveChoisi = choisir_eleve($nomClasse); ?>
 
-<div class="bloc_ligne">
+<div class='bloc_colonne'>
 
-    <!-- White page -->
-    <form method='post' action='pageBlanche.php' style="margin-left:3%;">
-        <button class='bouton' type='submit'>&#9898; Tableau blanc</button>
+    <!-- Choose a student -->
+    <form style='margin-left:3%; margin-top:1%; margin-bottom:3%;' method='post' action='tirageEleve.php'>
+        <input type="text" id="eleve_choisi" name="eleve_choisi">
+        <button class="bouton" type="submit" name="choisir_eleve" value="choisir_eleve" style="margin-left:1%;">&#128191; Choisir élève</button>
     </form>
 
-    <!-- Timer button -->
-    <form method='post' action='timer.php' target='_blank' style='margin-left:5%;'>
-        <button class='bouton' type='submit'>&#9749; Timer</button>
-    </form>
+    <div class="bloc_ligne">
 
-    <form method='post' action='tirageEleve.php' style='margin-left:5%;'>
-        <button class='bouton' type='submit' name='eleveChoisi' value='<?php echo $eleveChoisi; ?>'>&#127922; Choisir joueur</button>
-    </form>
+        <!-- White page -->
+        <form method='post' action='pageBlanche.php' style="margin-left:3%;">
+            <button class='bouton' type='submit'>&#9898; Tableau blanc</button>
+        </form>
 
-</div>
+        <!-- Timer button -->
+        <form method='post' action='timer.php' target='_blank' style='margin-left:5%;'>
+            <button class='bouton' type='submit'>&#9749; Timer</button>
+        </form>
 
-<!-- TIRAGE ELEVE -->
-    
+        <!-- Pick up a student randomly -->
+        <form method='post' action='tirageEleve.php' style='margin-left:5%; margin-bottom:1%;'>
+            <button class='bouton' type='submit' name='eleveChoisi' value='<?php echo $eleveChoisi; ?>'>&#127922; Tirer au sort</button>
+        </form>
+
+    </div>
+ 
+</div>   
+
 </fieldset>
 
 

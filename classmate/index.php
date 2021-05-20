@@ -1,9 +1,15 @@
 <?php
 session_start();
 $_SESSION['utilisateur'] = "libre";
+$typeUtilisateur = $_SESSION['utilisateur'];
 $_SESSION['niveau'] = NULL;
+$niveau = $_SESSION['niveau'];
 $_SESSION['nomClasse'] = NULL;
+$nomClasse = $_SESSION['nomClasse'];
 $_SESSION['chapitre'] = NULL;
+$chapitre = $_SESSION['chapitre'];
+$_SESSION['pseudo'] = NULL;
+$_SESSION['pw'] = NULL;
 $nomPage = NULL;
 $typePage = "index";
 ?>
