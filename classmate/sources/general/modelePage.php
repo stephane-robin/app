@@ -1,19 +1,15 @@
 <?php
 session_start();
-
-if (isset($_GET['nomClasse'])){
-  $_SESSION['nomClasse'] = $_GET['nomClasse'];
-}
-$nomClasse = $_SESSION['nomClasse'];
-
-if (isset($_GET['chapitre'])){
-  $_SESSION['chapitre'] = $_GET['chapitre'];
-}
-$chapitre = $_SESSION['chapitre'];
-
-$nomPage = $_GET['nomPage'];
-$typePage = "modelePage";
 $typeUtilisateur = $_SESSION['utilisateur'];
+$_SESSION['niveau'] = $_GET['niveau'];
+$niveau = $_SESSION['niveau'];
+$_SESSION['nomClasse'] = $_GET['nomClasse'];
+$nomClasse = $_SESSION['nomClasse'];
+$_SESSION['chapitre'] = $_GET['chapitre'];
+$chapitre = $_SESSION['chapitre'];
+$typePage = "modelePage";
+$nomPage = $_GET['nomPage'];
+
 
 // TIMER SESSION
 $_SESSION['tempsEcoule_session'] = ""; 
@@ -65,7 +61,7 @@ include("fonctionsJS.html");
 <!-- GRAND CONTENU -->
 <section id="grandContenu">
 
-<?php include("../".$nomClasse."/cours/".$chapitre."/".$nomPage.".html"); ?>
+<?php include("../".$niveau."/cours/".$chapitre."/".$nomPage.".html"); ?>
 
 </section> <!-- END GRAND CONTENU -->
 </section> <!-- END PRINCIPAL -->

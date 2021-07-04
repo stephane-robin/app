@@ -1,18 +1,23 @@
 <?php 
 session_start();
+$typeUtilisateur = $_SESSION['utilisateur'];
+$niveau = $_SESSION['niveau'];
 $nomClasse = $_SESSION['nomClasse'];
 $chapitre = NULL;
-$nomPage = NULL;
 $typePage = "pageWorkshop";
-$typeUtilisateur = $_SESSION['utilisateur'];
+$nomPage = NULL;
 
 // Define $_POST['objectif'] coming from the page starter.php as a session variable
 if (isset($_POST["objectif"])){
     $_SESSION['objectif'] = $_POST['objectif'];
+    $objectif = $_SESSION['objectif'];
 }
-
-
-
+else if (isset($_SESSION['objectif'])){
+    $objectif = $_SESSION['objectif'];
+}
+else{
+    $objectif = Null;
+}
 
 // TIMER SESSION
 $_SESSION['tempsEcoule_session'] = ""; 
@@ -80,7 +85,7 @@ function choisirEleve(){
 
 <h2 style='margin-left: 35%;'>Travail de groupe</h2>
 
-<p style="margin-left:5%;">Objectif du jour : <?php echo "'".$_SESSION['objectif']."'"; ?></p>
+<p style="margin-left:5%;">Objectif du jour : <?php echo $objectif; ?></p>
 
 
 <fieldset style="margin-top:0%; margin-left:1%; width:90%;">

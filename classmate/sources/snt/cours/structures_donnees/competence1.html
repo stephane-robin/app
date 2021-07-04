@@ -1,0 +1,59 @@
+<h2>Architecture trois tiers</h2>
+
+<p>&#128218; <strong>Compétence 1 : </strong> comprendre comment s'utilisent les bases de données</p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- les bases de données -->
+
+    <h3> Les bases de données </h3>
+
+    <p> Les bases de données permettent d'enregistrer des informations afin de les ré-utiliser lors d'une prochaine session sur le site. Elles fonctionnent avec un autre serveur appelé serveur de base de données.
+        Les bases de données sont en fait des logiciels dédiés au stockage de données, qui utilisent principalement le langage SQL.</p>
+    <p> Les principaux systèmes de gestion de base de données SQL sont les suivants :
+    <ul>
+        <li>MySQL</li>
+        <li>PostgreSQL</li>
+        <li>SQL Serveur</li>
+        <li>Oracle</li>
+        <li>SQLite</li>
+    </ul>
+    </p>
+
+    <fieldset><legend><img src="../../images/general/bonSavoir.png" width="80" height="80"> </legend>
+        <p> Il existe des bases de données non relationnelles qui n'utilisent pas le langage SQL. Par exemple MongoDB ou Cassandra. </p>
+    </fieldset>
+
+    <!-- Architecture 3 tiers -->
+
+    <h3> Une architecture 3 tiers pour générer une page Web </h3>
+
+    <p> L'interaction entre un client et un serveur est la suivante :
+    <ul>
+        <li>le client demande une page au serveur</li>
+        <li>le serveur effectue une requête auprès de la base de données pour obtenir certains résultats qui ont été conservés en mémoire</li>
+        <li>le serveur génère la page en fonction des conditions requises par l'application en transformant le code source (par exemple PHP) en HTML et envoie la page créée au client</li>
+        <li>le client lit la page à l'aide du navigateur et utilise éventuellement JavaScript si une interaction dynamique est nécessaire</li>
+    </ul>
+    </p>
+
+    <img src="../../images/web/architecture3tiers.png" alt="architecture 3 tiers" width="70%">
+
+
+
+
+    

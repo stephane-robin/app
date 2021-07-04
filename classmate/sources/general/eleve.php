@@ -33,7 +33,7 @@ include("fonctionsJS.html");
 
 <h2>Connexion</h2>
 
-<form action="modelePage.php?nomClasse=Quatrieme&nomPage=competence1&chapitre=fonctions" method="post">
+<form action="modelePage.php?nomClasse=seconde&nomPage=competence1&chapitre=fonctions" method="post">
 	<label for="goal" style="margin-left:20%; margin-bottom:5%;">login :</label>
   	<input type="text" id="absent" name="absent" style="margin-left:3%; margin-bottom:5%;"><br/>
 

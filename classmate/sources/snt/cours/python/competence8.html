@@ -1,0 +1,84 @@
+
+<h2>La boucle for</h2>
+
+<p>&#128218; <strong>Compétence 8 : </strong> savoir utiliser une boucle for</p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+<p>Python permet de répéter une instruction un certain nombre de fois. Lorsqu'on connaît le nombre de répétitions, on utilise la boucle <strong>for</strong>. Lorsqu'on ne connaît pas le nombre de répétitions et que celui-ci dépend de l'évolution de la situation (par exemple si le nombre de vies d'un joueur devient nul), alors dans ce cas on utilise la boucle <strong>while</strong>.</p>
+
+<p>Par exemple, pour répéter <em>bonjour</em> 5 fois, il suffit d'écrire</p>
+
+<pre><code class="language-python">for i in range(5):
+    print("bonjour")</code></pre>
+
+<p>Le script ci-dessus correspond en fait au code Scratch suivant que vous connaissez bien</p>
+
+<img src="../../images/snt/codeScratchFor.png" width="20%">
+
+<div class="exerciceApplication">
+<p><em>A vous de jouer :</em> écrire un code permettant d'afficher la table de multiplication de 16</p>
+</div>
+
+<h3>Structure d'une boucle for avec range</h3>
+
+<p>Il est possible de personnaliser les répétitions en modifiant le pas ou le nombre de départ. En revanche, on ne peut augmenter le pas que d'un nombre entier. Si on souhaite utiliser un pas décimal, il faut alors utiliser l'instruction arange du module numpy. Testez les codes ci-dessous pour en comprendre le fonctionnement</p>
+
+<pre><code class="language-python">from numpy import *
+
+# répétition pour i allant de 0 à 6
+for i in range(0, 7):
+    print("bonjour")
+
+# répétition allant de 2 à 8
+for i in range(2, 9):
+    print(i)
+
+# répétition allant de 0 à 10 en augmentant de 2 à chaque tour
+for i in range(0, 11, 2):
+    print(i)
+
+# répétition allant de 7 à 4 en descendant de -1 à chaque tour
+for i in range(7, 3, -1):
+    print(i)
+
+# répétition allant de 0 à 1 en augmentant de 0.1 à chaque tour
+for i in numpy.arange(0, 1.1, 0.1):
+    print(i)</code></pre>
+
+<h3>Parcourir une liste</h3>
+
+<p>La boucle for permet de parcourir une liste. On distingue deux structures différentes, l'une basée sur l'indice de chaque élément de la liste, l'autre basée directement sur chaque élément de la liste.</p>
+
+<p>Les deux exemples ci-dessous fournissent le même résultat en utilisant des méthodes différentes. Il faut absolument connaître les deux méthodes, car elles sont plus ou moins pratiques en fonction de chaque situation.</p>
+
+<pre><code class="language-python">maListe = ["lundi", "mardi", "mercredi", "jeudi", "vendredi"]
+
+# méthode 1 basée sur l'indice i
+for i in range(len(maListe)):
+    print(maListe[i])
+
+# méthode 2 basée directement sur l'élément lui-même
+for elt in maListe:
+    print(elt)</code></pre>
+
+<div class="exerciceType">
+    <p><em>Exercice type : </em>considérons la liste suivante <br/><strong>maListe = ["lundi", "mardi", "mercredi", "jeudi", "vendredi"]</strong><br/>
+1. Ajouter à chacun des éléments de la maListe la lettre s<br/>
+2. Afficher chaque élément de maListe en y rajoutant la lettre s</p>
+<p><em>Solution : </em><br/>
+<pre><code class="language-python"># question 1 : maListe est modifiée
+for i in range(len(maListe)):
+    maListe[i] = maListe[i] + "s"
+
+# qestion 2 : maListe est utilisée pour l'affichage mais n'est pas modifiée
+for elt in maListe:
+    print(elt + "s")</code></pre>
+</div>
+
+<div class="exerciceApplication">
+    <p><em>A vous de jouer : </em>soit la liste <strong>maListe = [2, 1, 5, 4, 3, 6, 7]</strong><br/>
+        En parcourant maListe avec une boucle for, afficher uniquement les éléments pairs de cette liste. On rappelle que l'instruction <strong>x % 2</strong> permet de tester si <strong>x</strong> est divisible par 2.</p>
+</div>
+

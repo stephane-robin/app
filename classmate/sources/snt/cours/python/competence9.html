@@ -1,0 +1,53 @@
+
+<h2>La boucle while</h2>
+
+<p>&#128218; <strong>Compétence 9 : </strong> savoir utiliser une boucle while</p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+<p>On utilise la boucle <strong>while</strong> lorsqu'on ne connaît pas le nombre de répétitions à effectuer et que celui-ci dépend de l'évolution de la situation (par exemple si le nombre de vies d'un joueur devient nul).</p>
+
+<p>Par exemple, on peut répéter <em>Continuez de jouer</em> tant que la variable <strong>nbreVies</strong> est positive</p>
+
+<pre><code class="language-python">nbreVies = 10
+while nbreVies > 0:
+    print("Continuez de jouer")
+    nbreVies = nbreVies - 1</code></pre>
+
+<p>Le script ci-dessus correspond en fait au code Scratch suivant que vous connaissez bien</p>
+
+<img src="../../images/snt/codeScratchWhile.png" width="30%">
+
+
+<h3>Structure d'une boucle while</h3>
+
+<p>Une boucle while se construit donc avec :
+<ul><li>une condition qui renvoie True ou False,</li> 
+<li>une indentation pour indiquer le bloc de code à répéter,</li> 
+<li>une variable dont la valeur change pour modifier la condition au tour suivant.</li>
+</ul></p> 
+<p>Dans l'exemple ci-dessus, la condition <strong>nbreVies > 0</strong> renvoie d'abord True puisque <strong>nbreVies</strong> vaut 10, puis cette condition est testée à chaque tour jusqu'à ce que <strong>nbreVies</strong> soit égal à 0. Lorsque la condition renvoie false, le programme n'effectue pas de tour supplémentaire et exécute la suite du code (après la boucle while donc après l'indentation). C'est la variable <strong>nbreVies</strong> qui varie pour modifier la condition à tester.</p>
+
+<p>Le risque avec une boucle while est que la condition d'arrêt ne soit jamais remplie, ce qui ne permet pas à la boucle de se terminer. On crée ainsi une boucle infinie qui bloque le programme. Par exemple </p>
+
+<pre><code class="language-python">compteur = 0
+while compteur >= 0:
+    print("le compteur est positif")</code></pre>
+
+<div class="exerciceType">
+    <p><em>Exercice type : </em>afficher <em>quel est votre nom ?</em> tant que l'utilisateur ne saisit pas un nom au clavier.</p>
+<p><em>Solution : </em><br/>
+<pre><code class="language-python">nom = ""
+while len(nom) == 0 
+    nom = input("Quel est votre nom ?")</code></pre>
+
+<p>Python ne connaît pas de méthode <strong>isEmpty()</strong> comme d'autres langages. Il faut donc tester la longueur de la chaîne de caractères <strong>nom</strong> à la place.</p>
+</div>
+
+
+
+<div class="exerciceApplication">
+    <p><em>A vous de jouer : </em>afficher <em>quel est votre âge ?</em> tant que l'utilisateur ne saisit pas un nombre entier au clavier.</p>
+</div>
+

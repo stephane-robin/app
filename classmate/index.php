@@ -8,10 +8,10 @@ $_SESSION['nomClasse'] = NULL;
 $nomClasse = $_SESSION['nomClasse'];
 $_SESSION['chapitre'] = NULL;
 $chapitre = $_SESSION['chapitre'];
+$typePage = "index";
+$nomPage = NULL;
 $_SESSION['pseudo'] = NULL;
 $_SESSION['pw'] = NULL;
-$nomPage = NULL;
-$typePage = "index";
 ?>
 
 <!DOCTYPE HTML>
@@ -47,7 +47,7 @@ include("./sources/general/fonctionsJS.html");
 <div class="bloc_ligne" style="margin-left:15%;">
 
     <!-- BLOC 00 -->
-    <a class="choix" href="./sources/general/enseignant.php?typeUtilisateur=enseignant">
+    <a class="choix" href="?typeUtilisateur=enseignant">
 
     <div class="bloc_colonne" style="width:250px;">
         <div class="bloc_choix_titre" style="background-color:#669999;">
@@ -61,7 +61,7 @@ include("./sources/general/fonctionsJS.html");
     </a>
 
     <!-- BLOC 0 -->
-    <a class="choix" href="./sources/general/modelePage.php?nomClasse=Quatrieme&chapitre=fonctions&nomPage=competence1&typeUtilisateur=eleve">
+    <a class="choix" href="?nomClasse=Quatrieme&chapitre=fonctions&nomPage=competence1&typeUtilisateur=eleve">
 
     <div class="bloc_colonne" style="width:250px; margin-left:15%;">
         <div class="bloc_choix_titre" style="background-color:#ffff99;">

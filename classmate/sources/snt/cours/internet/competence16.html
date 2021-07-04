@@ -1,0 +1,143 @@
+<h2>Création de sites Webs</h2>
+
+<p>&#128218; <strong>Compétence 1 : </strong> apprendre les bases de HTML et CSS</p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+<h3>Les langages du Web</h3>
+
+<p>Pour construire un site Web, on utilise plusieurs types de langages : des langages de description tels que HTML et CSS qui sont au coeur du fonctionnement du Web et définissent la structure de chaque page visitée, des langages de programmation tels que JavaScript, PHP, Java, Python,... et un langage de traitement des bases de données tel que SQL.</p>
+
+<p>Pour mieux comprendre ce que fait chaque langage, on peut simplifier les explications de la façon suivante :
+    <ul>
+        <li>HTML gère le contenu des pages</li>
+        <li>CSS gère le style des pages</li>
+        <li>Python, PHP, ... gère les autorisations d'accès, les affichages conditionnels, les différents traitements demandés, et l'accès aux bases de données</li>
+        <li>SQL gère le stockage des données et leur récupération</li>
+    </ul>
+</p>
+
+    <p>Chacun de ces langages va interagir avec un interlocuteur différent. Certains vont être interprétés par un client (le navigateur), d'autres par un serveur :
+    <ul>
+        <li>les langages interprétés par un client (on parle de <em>langages frontend</em>) tels que HTML, CSS et JavaScript qui décrivent comment le site Web doit s'afficher. Ils peuvent par exemple afficher un menu clignotant dans la page Web</li>
+        <li>les langages interprétés par un serveur (on parle de <em>langages backend</em>) tels que PHP, Java, Python, C# qui décrivent comment le site Web doit se comporter en appliquant des régles définies par une application. Ils peuvent par exemple n'afficher la page Web que si l'utilisateur s'est identifié. Ils réalisent l'interface avec le langage de requête de bases de données</li>
+        <li>les langages de communication avec une base de données tel que SQL</li>
+    </ul>
+    </p>
+
+    <p><em>Attention</em>, JavaScript est une particularité car il peut également interagir côté serveur.</p>
+    <p>Plutôt que de commencer avec une page blanche pour construire un site Web, on préfère utiliser des <em>frameworks</em>, qui sont des boîtes à outil pratiques, permettant de faciliter le travail. Les principaux <em>frameworks</em> pour le Web sont les suivants :
+    <ul>
+        <li>Symfony et Zend pour PHP</li>
+        <li>NodeJS et Angular pour JavaScript</li>
+        <li>Java EE pour Java</li>
+        <li>Django pour Python</li>
+        <li>ASP.NET pour C#</li>
+        <li>Ruby on Rails pour Ruby</li>
+    </ul>
+    </p>
+
+    <p>On peut également utiliser un CMS Content Management System, qui est un site prêt à être modifié. Le CMS le plus populaire est actuellement WordPress,</p>
+
+
+<h3>Création d'une page Web</h3>
+
+
+
+<p>Il faut commencer par créer la structure de la page Web. C'est le rôle du langage HTML qui sert à gérer et organiser le contenu des pages Web. C'est donc en HTML qu'on écrit le texte, les liens hypertexte, les images et vidéos. L'information apparaît de manière brute sans mise en forme autre que structurelle.</p>
+
+<p>HTML signifie HyperText Markup Language. Il s'agit d'un langage de description permettant d'écrire de l'hypertexte et construit à partir de balises pour représenter les pages Web.</p>
+
+<p>Commencez donc par ouvrir un document vierge à l'aide d'un Editeur de Texte comme <em>Sublim Text</em>, l'enregistrer au format <em>index.html</em>, puis recopiez la structure suivante :</p>
+
+<pre><code class="language-html">&lt!DOCTYPE HTML&gt
+&lthtml>
+&lthead>
+  &lttitle> Titre qui apparaît dans l'onglet &lt/title&gt
+  &ltmeta charset="utf-8"&gt
+&lt/head&gt
+
+&ltbody&gt
+  &ltheader&gt
+    &lt!-- en-tête --&gt
+  &lt/header&gt
+
+    &ltp&gt Ceci est le corps du document &lt/p&gt
+
+  &ltfooter&gt
+    &lt!-- pied de page --&gt
+  &lt/footer&gt
+&lt/body&gt
+&lt/html&gt</code></pre>
+
+<p>Ce code est composé de :
+    <ul>
+        <li>un DOCTYPE qui indique au navigateur qu'il s'agit d'une page Web écrite en HTML,</li>
+        <li>une partie &lthead&gt qui fournit des informations générales destinées au navigateur et n'apparaissant pas sur la page lue par l'utilisateur,</li>
+        <li>la partie principale 6ltbody&gt, structurée en sections et blocs, qui comprend elle-même un en-tête &ltheader&gt et un pied de page &ltfooter&gt.</li>
+    </ul>
+</p>
+
+<p>Afin d'exécuter ce code, il suffit simplement d'ouvrir le fichier <em>index.html</em> à l'aide du navigateur de votre choix <em>Chrome, Mozilla Firefox, Safari, ...</em>
+
+<p>On remarque que les commentaires sont entourés des symboles &lt!-- et --&gt.
+
+<p>On remarque également que le code est organisé à l'aide de balises qui permettent de donner des instructions à l'ordinateur, pour différencier langage et texte. Elles sont entourées de chevrons < et >. Ainsi, il est possible d'appliquer le même traitement à ce qui se trouve entre deux balises identiques.</p>
+
+<p>On peut définir le style de chacune de ces balises séparément. Essayez par exemple de rajouter la ligne suivante entre le header et le footer :</p>
+
+    <pre><code class="language-html">&ltp style="color:blue;"&gthello world &lt/p&gt</code></pre>
+
+<p>Bien que cela fonctionne, il serait trop fastidieux d'utiliser cette méthode pour chaque balise à modifier. On utilise plutôt une feuille de style CSS dans laquelle on mentionne les propriétés de chaque balise. Pour cela, ouvrez un second document vierge avec votre Editeur de Texte, enregistrez-le au format <em>style.css</em> puis recopiez le code suivant.</p>
+
+<pre><code class="language-css">p {
+    color: green;
+}</code></pre>
+
+<p>Il faut ensuite rajouter dans la partie &lthead&gt du fichier <em>index.html</em> un lien vers la feuille <em>style.css</em> que vous venez de créer, afin que le navigateur sache comment trouver la feuille de style et la relier à la page HTML :</p>
+
+<pre><code class="language-html">&ltlink rel="stylesheet" href="style.css"&gt</code></pre>
+
+<p>Observez maintenant ce qu'affiche votre navigateur.</p>
+
+<p>Vous pouvez dès à présent rajouter un titre à l'aide des balises &lth1&gt, &lth2&gt, ... , puis un lien hypertexte à l'aide de la balise</p> <pre><code class="language-html">&lta href="adresse_du_lien"&gttexte affiché pour le lien&lt/a&gt</code></pre>
+
+<p>Il est important de ne pas croiser les balises. En HTML les erreurs sont d'autant plus difficiles à détecter que le compilateur en autorise énormément avant de bloquer. Il part du principe que ce qu'il ne comprend pas, il ne l'affiche pas, mais n'interrompt pas pour autant l'exécution du code. Par exemple le code suivant est incohérent :</p>
+
+<pre><code class="language-html">&lth1&gt mon titre &ltp&gt ici se trouve un paragraphe &lt/h1&gt &lt/p&gt</code></pre>
+
+<p>Pour plus d'information sur l'utilisation des langages HTML et CSS, vous pouvez consulter le <a href="../../../memento/sources/general/modelePage.php?nomGroupe=web&nomPage=html.html" target="_blank">Memento ToKeTa</a></p> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

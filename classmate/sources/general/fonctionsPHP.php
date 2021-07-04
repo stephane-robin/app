@@ -285,25 +285,25 @@ function enregistrer_resultats_starter($classe, $eleve, $pourcentage, $chapitre,
     $reponse->closeCursor();
 }
 
-function formater_nomClasse($nom){
-    $prefixe = substr($nom, 0, 1);
-    $suffixe = substr($nom, 1);
+function formater_nomClasse($classe){
+    $prefixe = substr($classe, 0, 1);
+    $suffixe = substr($classe, 1);
 
     switch ($prefixe) {
         case '6':
-            $niveau = 'Sixieme';
+            $niveau = 'sixieme';
             break;
         case '5':
-            $niveau = 'Cinquieme';
+            $niveau = 'cinquieme';
             break;
         case '4':
-            $niveau = 'Quatrieme';
+            $niveau = 'quatrieme';
             break;
         case '3':
-            $niveau = 'Troisieme';
+            $niveau = 'troisieme';
             break;
         case '2':
-            $niveau = 'Seconde';
+            $niveau = 'seconde';
             break;
     }
     return $niveau.'_'.$suffixe;
@@ -313,6 +313,32 @@ function formater_nomClasse($nom){
 function transformer_nomClasseFormate_niveau($classe){
     $position = strpos($classe, '_');
     return substr($classe, 0, $position);
+}
+
+function transformer_nomClasseFormate_nomClasse($classe){
+    $position = strpos($classe, '_');
+    $prefixe = substr($classe, 0, $position);
+    $suffixe = substr($classe, $position + 1);
+    $niveau = Null;
+    
+    switch ($prefixe) {
+        case 'sixieme':
+            $niveau = '6';
+            break;
+        case 'cinquieme':
+            $niveau = '5';
+            break;
+        case 'quatrieme':
+            $niveau = '4';
+            break;
+        case 'troisieme':
+            $niveau = '3';
+            break;
+        case 'seconde':
+            $niveau = '2';
+            break;
+    }
+    return $niveau.$suffixe;
 }
 
 ?>

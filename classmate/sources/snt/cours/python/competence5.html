@@ -1,0 +1,59 @@
+
+<h2>Les strings</h2>
+
+<p>&#128218; <strong>Compétence 5 : </strong> savoir manipuler les strings</p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+<p>Un texte est composé de caractères. En informatique, on utilise le terme chaîne de caractères à la place de texte et on numérote chaque caractères en partant de l'indice 0. Python associe à une chaîne de caractères le type <strong>str</strong> pour <em>string</em>.</p>
+
+<div class=fieldsetDefinition>
+<h4>A RETENIR ...</h4> 
+<p>Dans la chaîne de caractères <strong>bonjour</strong>, la lettre <em>b</em> a pour indice 0 et non pas 1, c'est à dire qu'elle se trouve à la position 0.</p>
+</div>
+
+<h3>La concaténation</h3>
+
+<p>Dans le cas d'une chaîne de caractères, l'opérateur <strong>+</strong> ne sert pas à additionner, mais à concaténer, c'est à dire coller un texte à la suite d'un autre. Par exemple </p>
+
+<pre><code class="language-python">print("Les oranges sont " + "des fruits")</code></pre>
+
+<p>affichera <em>Les oranges sont des fruits</em> sans procéder à aucun calcul.
+
+<h3>Transformer des strings</h3>
+
+<table>
+    <tr><th>méthode</th><th>signification</th></tr>
+    <tr><td>len(maChaine)</td><td>renvoie le nombre de caractères de maChaine</td></tr>
+    <tr><td>maChaine.find("a")</td><td>renvoie la 1ère position de la lettre a dans maChaine, renvoie -1 si maChaine ne contient pas la lettre a</td></tr>
+    <tr><td>maChaine.upper()</td><td>renvoie une chaîne correspondant à maChaine en majuscules, attention la variable maChaine n'est pas modifiée</td></tr>
+    <tr><td>maChaine.capitalize()</td><td>renvoie une chaîne correspondant à maChaine avec la 1ère lettre en majuscule, attention la variable maChaine n'est pas modifiée</td></tr>
+    <tr><td>maChaine.count("a")</td><td>renvoie le nombre de fois que la lettre a apparaît dans maChaine</td></tr>
+    <tr><td>maChaine.replace("a", "b")</td><td>renvoie une chaîne correspondant à maChaine dans laquelle les a ont été remplacés par des b, attention la variable maChaine n'est pas modifiée</td></tr>
+    <tr><td>maChaine.isnumeric()</td><td>renvoie True si maChaine peut être transformée en nombre entier, False sinon</td></tr>
+</table>
+
+<div class="exerciceApplication">
+<p><em>A vous de jouer :</em> utilisez les méthodes ci-dessus pour afficher à partir de la variable <strong>maChaine = "la neige se transforme en névé l'été"</strong>
+<ul>
+<li>Lo neige se tronsforme en névé l'été</li>
+<li>LA NEIGE SE TRANSFORME EN NEVE L'ETE</li>
+<li>La neige se transforme en névé l'été</li>
+<li>le nombre de lettres e dans maChaine</li>
+<li>la 1ère position de la lettre s dans maChaine</li>
+<li>la longueur de maChaine</li>
+</ul>
+</p> 
+</div>
+
+<h3>Extraire un string</h3>
+
+<p>Il est possible d'extraire un string à partir d'un string. Exécutez le code suivant pour comprendre ce qui se produit </p>
+
+<pre><code class="language-python">maChaine = "la neige fond en été"
+print(maChaine)
+print(maChaine[2:6])
+print(maChaine[2:])
+print(maChaine[:4])
+print(maChaine[-1])
+print(maChaine[-5])</code></pre>

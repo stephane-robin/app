@@ -598,9 +598,19 @@ th{
 }
 
 .exerciceType{
-  border-left: 4px #26734d dashed;
+  border-left: 4px #26734d solid;
   color: #26734d;
+  padding-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.exerciceApplication{
+  border-left: 4px black dashed;
+  color: black;
   padding-left:1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 
