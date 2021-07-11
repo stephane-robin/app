@@ -54,7 +54,7 @@ include("./sources/general/fonctionsJS.html");
             <p style="text-align:center;">Espace Enseignant</p>
         </div>
         <div class="bloc_choix_contenu">
-            <p style="text-align:left;">L'essentiel à retenir au sujet ...</p>
+            <p style="text-align:left;">En construction ...</p>
         </div>
     </div>
 
@@ -68,7 +68,7 @@ include("./sources/general/fonctionsJS.html");
             <p style="text-align:center;">Espace Elève</p>
         </div>
         <div class="bloc_choix_contenu">
-            <p style="text-align:left;">L'essentiel à retenir au sujet ...</p>
+            <p style="text-align:left;">En construction ...</p>
         </div>
     </div>
 

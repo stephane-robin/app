@@ -1,0 +1,55 @@
+<h2>Architecture matérielle</h2>
+
+<p>&#128218; <strong>Compétence : </strong></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+<h3>Processeur et mémoire</h3>
+
+<p>Les ordinateurs, smartphones, tablettes et autres objets connectés contiennent tous un processeur aussi appelé CPU Central Processing Unit, et de la mémoire.</p>
+
+<p>La vitesse du processeur est donnée en GHz qui correspond au nombre de milliards de tâches élémentaires effectuées en 1 seconde. Les processeurs actuels sont multi-coeurs, c'est à dire qu'ils sont construits avec plusieurs unités autonomes de travail appelées coeurs, qui leur permettent d'effectuer des opérations simultanément.</p>
+
+<p>Dans un ordinateur, on retrouve la mémoire sous différentes formes :
+<ul>
+<li>la mémoire vive ou RAM s'efface lorsque l'appareil n'est plus alimenté. Elle est accessible rapidement et contient les données des programmes en cours.</li>
+<li>la mémoire de stockage ou ROM contient les données importantes qui doivent être conservées pour le fonctionnement du système d'exploitation et des applications. Attention, ceci n'a rien à voir avec les données issues des applications et stockées dans des serveurs.</li>
+<li>le cache regroupe les données auxquelles le processeur accède souvent. Elles sont donc accessibles rapidement.</li>
+<li>le registre est une mémoire intégrée au microprocesseur pour un gain de temps.</li>
+</ul>
+</p>
+
+<h3>Système d'exploitation</h3>
+
+<p>Les systèmes d'exploitation les plus répandus sont les suivants : Windows, Android, iOS, Mac OS, Linux et Unix.</p>
+
+<p>Le rôle d'un système d'exploitation est le suivant :
+	<ul>
+		<li>communication avec les périphériques (processeur, mémoire, carte graphique, carte réseau, clavier, écran, ...)</li>
+		<li>exécution des programmes</li>
+		<li>gestion des tâches</li>
+		<li>gestion d'accès aux ressources</li>
+	</ul>
+</p>
+
+<p>Tout système d'exploitation est construit autour de son noyau, qui communique directement avec les différents périphériques par l'intermédiaire d'un logiciel appelé pilote, ou qui utilise pour accéder aux ressources des intermédiaires appelés gestionnaires de ressources.</p>
+
+<h3>Les processus</h3>
+
+<div class="fieldsetDefinition">
+	<h4>A RETENIR ...</h4>
+	<p>Lorsqu'un programme s'exécute, il génère plusieurs processus. Un processus est donc un programme en cours d'exécution. Chaque processus possède ses données d'entrée, ses données renvoyées et ses propres instructions.</p>
+</div>
+
+<h4>L'ordonnanceur</h4>
+
+<p>Lorsque deux processus appellent la même ressource, celle-ci n'est pas partagée, c'est son temps d'utilisation qui est partagé par le noyau. La partie du noyau dont le rôle est d'optimiser l'allocation de cette ressource est appelée l'ordonnanceur, qui joue un rôle non négligeable dans l'amélioration des performances d'un ordinateur.</p>
+
+<p>Pour effectuer sa tâche, l'ordonnanceur peut recourir à plusieurs algorithmes : 
+	<ul>
+		<li>le tourniquet, la ressource est allouée à chaque processus à tour de rôle. Cette technique est simple et robuste</li>
+		<li>un système de priorité, la ressource est allouée suivant un ordre de priorité des tâches à accomplir. Cette technique optimise le travail à faire.</li>
+		<li>une système de file, la ressource est allouée au 1er processus qui la demande, puis ce processus sort de la file d'attente.</li>
+		<li>l'algorithme du plus court d'abord, la ressource est allouée d'abord au processus dont le temps d'exécution est le plus court. Cette technique peut être assez équitable.</li>
+	</ul>
+</p>

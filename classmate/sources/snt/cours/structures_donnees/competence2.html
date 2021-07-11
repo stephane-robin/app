@@ -1,0 +1,62 @@
+<h2>Architecture trois tiers</h2>
+
+<p>&#128218; <strong>Compétence : </strong> comprendre l'architecture des sites Web</p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- les bases de données -->
+
+    <h3> Les bases de données </h3>
+
+    <p> Les bases de données permettent d'enregistrer des informations afin de les ré-utiliser lors d'une prochaine session sur un site. Elles fonctionnent avec un autre serveur appelé serveur de base de données. L'accès à ce serveur s'effectue à l'aide d'un langage de programmation côté serveur tel que Python, Java, PHP, ...</p>
+
+    <p>En revanche, la gestion des données du serveur (choisir un emplacement de stockage, nommer les tables, savoir récupérer des éléments) s'effectue à l'aide d'un Système Gestionnaire de Bases de Données SGBD, qui est un logiciel communiquant principalement en langage SQL. Ainsi, un langage tel que Python peut intégrer du code SQL dans ses requêtes pour servir d'interface entre le programme principal et le gestionnaire de bases de données</p>
+
+    <p> Les principaux systèmes de gestion de base de données SQL sont les suivants :
+    <ul>
+        <li>MySQL</li>
+        <li>PostgreSQL</li>
+        <li>SQL Serveur</li>
+        <li>Oracle</li>
+        <li>SQLite</li>
+    </ul>
+    </p>
+
+    <p> Il existe des bases de données non relationnelles qui n'utilisent pas le langage SQL. Par exemple MongoDB ou Cassandra. </p>
+   
+
+    <!-- Architecture 3 tiers -->
+
+    <h3> Une architecture 3 tiers pour générer une page Web </h3>
+
+<p>Nous avons appris qu'Internet était construit suivant un modèle en couches, et que le fonctionnement du Web était basé sur une structure client-serveur. Nous venons de voir qu'il existe également un autre serveur pour les bases de données, ce qui donne en fait au Web une architecture 3 tiers.</p>
+
+    <p> L'interaction entre un client et un serveur est la suivante :
+    <ul>
+        <li>le client demande une page au serveur du site</li>
+        <li>le serveur du site effectue une requête auprès du serveur de base de données pour obtenir certains résultats qui ont été conservés en mémoire</li>
+        <li>le serveur du site génère finalement la page en fonction des conditions requises par l'application utilisée, en transformant le code source (par exemple PHP) en HTML, puis il envoie la page créée au client</li>
+        <li>le client lit la page à l'aide du navigateur et utilise éventuellement JavaScript si une interaction dynamique côté client est nécessaire</li>
+    </ul>
+    </p>
+
+    <img src="../../images/snt/architecture3tiers.png" alt="architecture 3 tiers" width="80%">
+
+
+
+
+    

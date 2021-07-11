@@ -1,0 +1,59 @@
+<h2>Programmation orientée objet</h2>
+
+<p>&#128218; <strong>Compétence : </strong>comprendre comment sont construits les objets</p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+<p>La programmation a débuté de façon linéaire, avec des lignes de code qui se suivaient en faisant référence à d'autres lignes de code. Puis des procédures ont été rajoutées permettant d'éviter la répétition de code. Et finalement, les programmeurs se sont rendus compte que le monde qui nous entoure était constitué d'éléments possédant un certain nombres de métriques, qu'on pouvait faire changer à l'aide de fonctions à définir.</p>
+
+<p>Par exemple, une voiture est caractérisée par son nombre de chevaux, sa vitesse instantanée, son poids, la quantité de carburants qu'elle contient, ... Si on accélère, on augmente la vitesse et on diminue la quantité de carburant dans le réservoir. Il existe donc des fonctions qui permettent de faire évoluer les paramètres caractéristiques de la voiture.</p>
+
+<p>Ces éléments possédant des caractéristiques sont appelés par les programmeurs des objets. Les différentes métriques de ces objets sont appelés attributs et les fonctions permettant de modifier les attributs sont des méthodes.</p>
+
+<p>En programmation orientée objet, tout est considéré comme un objet. Par exemple le personnage d'un jeu dispose d'un certain nombres de vies et de points de force. La fonction recuperer_or() permet de gagner de la force, alors que la fonction perdre_combat() diminue de le nombre de vies du personnage.</p>
+
+<h3>Instanciation d'un objet</h3>
+
+<p>Il existe une fabrique pour ces objets, qui rassemble des caractéristiques semblables à une famille pour créer un objet spécifique. Cette fabrique s'appelle classe en informatique. Par exemple, tous les objets Audi, Bmw, Mazda ont 4 roues, un moteur, une carrosserie. Ils sont construits à partir de la classe Voiture qui regroupe ces propriétés pour tous les modèles.</p> 
+
+<div class="fieldsetDefinition">
+	<h4>A RETENIR ... </h4>
+	<p>Lorsqu'on crée un objet à partir d'une classe, on dit qu'on instancie une classe. Chaque objet a pour type la classe qui l'a instancié. Chaque objet est créé en prenant comme modèle une classe.</p>
+</div>
+
+<h3>Création d'une classe</h3>
+
+<p>Une classe permet de décrire un ensemble d'objets ayant une structure commune composée des mêmes attributs sur lesquels on peut appliquer des méthodes.</p>
+
+<p>On peut représenter par exemple la classe Voiture de la façon suivante pour en visualiser la structure :</p>
+
+<img src="../../images/nsi/classe.png" alt="classe" width=20%>
+
+<p>Un attribut peut être déclaré comme étant public (les autres objets peuvent consulter cet attribut ou le modifier) ou privé (les autres objets ne peuvent pas accéder directement à cet attribut).</p>
+
+<p>De même, une méthode peut être déclarée comme étant publique (accessible sans condition) ou privée (accessible uniquement à l'intérieur de la classe).</p>
+
+<p>Un constructeur est une méthode invoquée lors de la création d'un objet. Un constructeur a comme valeur de retour l'objet créé.</p> 
+
+<h3>Principes de la programmation objet</h3>
+
+
+
+<h4>Encapsulation</h4>
+
+<p>L'encapsulation consiste à enfermer dans un objet ses attributs et ses méthodes. Elle cache les détails de l'implémentation à l'utilisateur de l'objet et ne fournit qu'une interface. Ainsi les données sont cachées et protégées de l'utilisateur.</p>
+
+<p>Le principe de l'encapsulation entraîne que les objets ne peuvent communiquer entre eux qu'à travers une interface et des appels de méthodes qui jouent le rôle de messages.</p>
+
+<h4>Héritage</h4>
+
+<p>L'héritage permet de définir une nouvelle classe à partir d'une classe existante, à laquelle on ajoute de nouveaux attributs et de nouvelles méthodes. L'héritage facilite donc la réutilisation de certaines classes.</p>
+
+<h4>Le polymorphisme</h4>
+
+
+
+
+
+

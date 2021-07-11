@@ -1,57 +1,87 @@
-<h2>Architecture trois tiers</h2>
+<h2>Les formats de données</h2>
 
-<p>&#128218; <strong>Compétence 1 : </strong> comprendre comment s'utilisent les bases de données</p>
+<p>&#128218; <strong>Compétence : </strong> comprendre ce qu'est une donnée structurée</p>
 
 <p style="margin-left:40%;">------------------------------</p>
 
 
+<h3>Utilité des bases de données</h3>
+
+<p>Tant qu'un programme est en cours d'exécution, il conserve en mémoire les valeurs des variables utilisées. En revanche, une fois qu'on stoppe ce programme ou qu'on se déconnecte d'un site Internet, les valeurs des variables sont perduées. Certaines ont pour vocation d'être temporaires, mais d'autres comme le montant du compte en banque, le niveau de jeu atteint, le mot de passe de connexion, ... doivent être conservées dans un serveur distant dont le rôle unique est de stocker des bases de données.</p>
+
+<div class=fieldsetDefinition>
+<h4>VOCABULAIRE ...</h4> 
+<p>Une <strong>donnée</strong> est une valeur associée à un objet, un individu, un événement permettant de le décrire.</p>
+<p>Le <strong>Big Data</strong> correspond à une quantité importante de données générées par l'utilisation de technologies numériques.</p>
+<p>Une <strong>base de données</strong> est un ensemble de données reliées entre elles et structurées avec des tables.</p>
+</div>
+
+<h3>Elements caractéristiques des bases de données</h3>
+
+<p>Les bases de données sont constituées de tables, elles-mêmes composées de lignes (ou enregistrements) et de colonnes (ou champs). Chaque table contient une clé primaire permettant d'identifier de manière unique chaque enregistrement. Par ailleurs, les différentes tables d'une base de données peuvent être reliées entre elles à l'aide de clés secondaires.</p>
+
+<p>Voici un exemple de table d'une base de données, qui ressemble assez à un tableur Excel :</p>
+<table>
+	<tr><th>ID</th><th>nom</th><th>habitants</th></tr>
+	<tr><td>12134</td><td>Zurich</td><td>402 762</td></tr>
+	<tr><td>4153</td><td>Geneve</td><td>198 979</td></tr>
+	<tr><td>312465</td><td>Bern</td><td>133 115</td></tr>
+	<tr><td>213</td><td>Luzern</td><td>81 592</td></tr>
+</table>
+
+<p>Ces données sont accessibles pour consultation et modification à l'aide d'un logiciel appelé SGDB Système de Gestion de Bases de Données.</p>
+
+<h3>Formats libres</h3>
+
+<p>Certaines données sont libres de droit, c'est à dire qu'il est possible de les télécharger et de les exploiter, mais pas de les modifier bien entendu. On parle alors de format ouvert pour les fichiers les contenant. Par exemple les fichiers aux extensions .xml, .csv, .txt, .odt ou .json sont des formats ouverts.</p>
+
+<p>Un fichier enregistré dans un format ouvert est indépendant du logiciel utilisé pour le créer, ce qui le rend plus facile à lire, à modifier ou à imprimer pour un autre utilisateur ne disposant pas nécessairement du même logiciel que son auteur. Un format ouvert répond à un standard approuvé par une organisation internationale dans un but d'interopérabilité entre différents systèmes.</p>
+
+<p>Le format .csv est très utilisé, notamment pour exporter des données d'un fichier libreOffice vers un fichier Excel. Il se caractérise par un délimiteur entre les champs comme une virgule ou un point-virgule, et chaque ligne représente un enregistrement.</p>
+
+<p>Le format .json dérivé du langage JavaScript est également très utilisé du fait de la montée en puissance de ce langage Web.</p>
+
+<div class="exerciceApplication">
+	<p><strong>A vous de jouer : </strong> entraînez-vous à importer un fichier du format .csv vers un tableur Excel ou libreOffice Calc.</p>
+</div>
+
+<h3>Lire un fichier avec un programme Python</h3>
+
+<p>Le programme suivant permet de lire un fichier au format .csv directement dans l'environnement de développement, et de l'enregistrer dans maListe.</p>
+
+<pre><code class="language-python">import csv
+maListe = []
+
+with open("monFichier.csv", 'r') as fichier:
+	donnees = csv.reader(fichier, delimiter = ',')
+	for ligne in donnees:
+		maListe.append(ligne)</code></pre>
 
 
+<h3>Les métadonnées</h3>
+
+<p>Les métadonnées sont un type particulier de données qui décrivent une ressource, comme une image ou un fichier. Par exemple les métadonnées d'une image se présentent sous la forme suivante :</p>
+
+<img src="../../images/snt/metadonnees.png" alt="metadonnees" width=40%>
+
+<p>Les métadonnées d'une page Web, quant à elles, sont contenues dans la balise &lthead&gt :</p>
+
+<pre><code class="language-html">&lthead&gt
+  &lttitle&gt Toketa-Classmate &lt/title&gt
+  &ltlink rel='stylesheet' href='<?php echo $preChemin."styles/style_classroom1.css"; ?>'&gt
+  &ltlink rel='stylesheet' href='<?php echo $preChemin."styles/prism.css"; ?>'&gt
+  &ltlink rel='icon'
+        type='image/png'
+        href='<?php echo $preChemin."images/general/symbole.png"; ?>'&gt
+  &ltmeta charset='utf-8'&gt
+&lt/head&gt</code></pre>
 
 
+<h3>Pollution engendrée par les bases de données</h3>
+
+<p>Le recours systématique aux technologies numériques, au Big Data et au Cloud change profondément notre façon de vivre et de travailler. Il n'est pas envisageable à l'heure actuelle de se passer des e-mails, des réseaux sociaux, des datacenters et de l'optimisation des ressources avec le Cloud Computing. Toutefois, cette technologie induit un coût énergétique pour notre planète, puisqu'il faut en permanence refroidir les datacenters et les fournir en énergie, recharger et changer les batteries de nos smartphones. Françoise Berthoud, chercheur au CNRS dénonce la pollution invisible d'Internet dans un article publié en 2021 <a href="https://lejournal.cnrs.fr/articles/numerique-le-grand-gachis-energetique" target="_blank">(lire l'article)</a> : "les ordinateurs, datacenters, réseaux,... engloutissent près de 10% de la consommation mondiale d'électricité - soit près de 4% de nos émissions de gaz à effet de serre".</p>
 
 
-
-
-
-
-
-
-
-    <!-- les bases de données -->
-
-    <h3> Les bases de données </h3>
-
-    <p> Les bases de données permettent d'enregistrer des informations afin de les ré-utiliser lors d'une prochaine session sur le site. Elles fonctionnent avec un autre serveur appelé serveur de base de données.
-        Les bases de données sont en fait des logiciels dédiés au stockage de données, qui utilisent principalement le langage SQL.</p>
-    <p> Les principaux systèmes de gestion de base de données SQL sont les suivants :
-    <ul>
-        <li>MySQL</li>
-        <li>PostgreSQL</li>
-        <li>SQL Serveur</li>
-        <li>Oracle</li>
-        <li>SQLite</li>
-    </ul>
-    </p>
-
-    <fieldset><legend><img src="../../images/general/bonSavoir.png" width="80" height="80"> </legend>
-        <p> Il existe des bases de données non relationnelles qui n'utilisent pas le langage SQL. Par exemple MongoDB ou Cassandra. </p>
-    </fieldset>
-
-    <!-- Architecture 3 tiers -->
-
-    <h3> Une architecture 3 tiers pour générer une page Web </h3>
-
-    <p> L'interaction entre un client et un serveur est la suivante :
-    <ul>
-        <li>le client demande une page au serveur</li>
-        <li>le serveur effectue une requête auprès de la base de données pour obtenir certains résultats qui ont été conservés en mémoire</li>
-        <li>le serveur génère la page en fonction des conditions requises par l'application en transformant le code source (par exemple PHP) en HTML et envoie la page créée au client</li>
-        <li>le client lit la page à l'aide du navigateur et utilise éventuellement JavaScript si une interaction dynamique est nécessaire</li>
-    </ul>
-    </p>
-
-    <img src="../../images/web/architecture3tiers.png" alt="architecture 3 tiers" width="70%">
 
 
 

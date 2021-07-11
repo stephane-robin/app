@@ -27,7 +27,6 @@ else {
             <p class="piedPageTitre">Liens utiles</p>
             <nav>
                 <a class="footerNav" href="../../../memento/index.php" target="_blank">ToKeTa Memento</a>
-                <a class="footerNav" href="" target="blank">ToKeTa Check</a>
                 <a class="footerNav" href="https://realpython.com/" target="_blank">Real Python</a>
                 <a class="footerNav" href="https://docs.python.org/3/" target="_blank">Doc python</a>
                 <a class="footerNav" href="https://www.w3schools.com/" target="_blank">W3school</a>
@@ -48,7 +47,6 @@ else {
                 <a class="footerNav" href="" target="_blank">Politique de confidentialité</a>
                 <a class="footerNav" href="" target="_blank">Conditions d'utilisation</a>
                 <a class="footerNav" href="" target="_blank">Nous contacter</a>
-                <a class="footerNav" href="administrateur.php">Administrateur</a>
                 <p class="piedPageParagraphe">&copy 2021 ToKeTa</p>
             </nav>
         </div>
