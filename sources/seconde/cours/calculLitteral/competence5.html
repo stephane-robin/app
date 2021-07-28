@@ -1,0 +1,137 @@
+<!-- BANDEAU -->
+<h2>TP - Factoriser avec Python</h2>
+
+<p>&#128218; <em>Compétence : </em>apprendre à factoriser et développer en utilisant des codes Python</p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+
+
+
+
+<p>Vous avez appris à factoriser et développer des expressions mathématiques. C'est parfois difficile mais cela vous permet de résoudre certains problèmes dont vous ne pouviez trouver la solution autrement. Le langage Python permet d'obtenir un résultat similaire à moindre effort si on sait l'utiliser correctement. Nous avons vu ensemble comment utiliser GeoGebra dans ce but, voyons maintenant comment utiliser Python.</p>
+
+<h3>Pour bien démarrer</h3>
+
+<p>Nous allons utiliser un interpréteur Python en ligne pour exécuter le code. Pour commencer, il faut donc se rendre sur le site <a href="https://www.onlinegdb.com/online_python_compiler" target="_blank">Python online gdb compiler</a>.</p>
+
+
+
+<!--
+Vous pourrez utiliser \emph{Pyzo} pour exécuter votre code Python. \emph{Pyzo} est un éditeur de programme léger permettant d'exécuter du code Python. 
+
+Ouvrir l'éditeur \emph{Pyzo} en cliquant d'abord sur l'icône \includegraphics[width=1cm]{./images/activite7/icone_recherche} puis en complétant la barre de recherche : 
+
+\uneimageici{./images/activite7/recherche_pyzo.png}{.5\textwidth}
+
+\emph{Pyzo} s'ouvre et vous propose deux zones distinctes de travail :
+\begin{itemize}
+\item à gauche l'éditeur dans lequel vous allez taper votre code,
+\item à droite la console dans laquelle vont apparaître les erreurs de code et les résultats fournis après avoir exécuté le code Python.
+\end{itemize}
+
+\uneimageici{./images/activite7/ecran_pyzo.png}{.8\textwidth}
+
+
+
+Commencez par créer un nouveau fichier. Pour cela, sélectionner \texttt{Nouveau} dans le menu \texttt{Fichier}
+
+\uneimageici{./images/activite7/nouveau_fichier.png}{.4\textwidth}
+
+Puis enregistrez votre fichier au format \texttt{Nom-activite7.py}
+-->
+
+
+
+<h3>Partie 1 - calcul manuel</h3>
+
+
+<p>Dans un premier temps, soyez courageux et effectuez les calculs suivants à la main, afin de comparer plus tard vos résultats et ceux de l'ordinateur.</p>
+
+
+<p>Factoriser  \(A = (x-1)(2x+7)+3(1-x)(5-x)\)</p>
+
+<p>Développer  \(B=5(2x-7)(3-x+x^2)\)</p>
+
+<p>Simplifier  \(C=\frac{144x^2+84}{8}\)</p>
+
+<p>Résoudre l'équation  \((9-x^2)(3x-1)=4(x-3)(2x+5)\)</p>
+
+
+<h3>Partie 2 - Python</h3>
+
+
+<p>Pour exécuter les codes ci-dessous, vous pouvez appuyer sur le bouton <em>Run</em> de l'interpréteur Python.</p>
+
+<p>Nous allons maintenant retrouver les résultats précédents en utilisant des codes simples du langage Python.</p>
+
+<p>En Python, le calcul littéral nécessite l'importation d'un module appelé <em>sympy</em>, puis l'affectation de symboles formels <em>x, y, z, ...</em> aux différentes variables <strong>x, y, z, ...</strong>.</p>
+
+<p>Pour cela, commencez votre code par</p>
+
+<pre><code class="language-python">from sympy import *
+x, y, z = symbols('x, y, z')</code></pre>
+
+<h4>Factorisation</h4>
+
+<p>Pour factoriser une expression mathématique E, <em>sympy</em> utilise l'instruction <strong>factor(E)</strong>.</p>
+
+<p>Par exemple, on sait que \((x-1)(x+2)+(x-1)(x+3)=(x-1)(2x+5)\). Essayez donc d'exécuter le code Python suivant pour retrouver ce résultat :</p>
+
+<pre><code class="language-python">print(factor((x - 1) * (x + 2) + (x - 1) * (x + 3)))</code></pre>
+
+<p>Vous remarquerez qu'en Python, les produits s'expriment avec <strong>*</strong></p>
+
+<p>Essayez maintenant d'obtenir à l'aide de Python le résultat que vous aviez trouvé manuellement pour factoriser A.</p>
+
+<h4>Développement</h4>
+
+<p>Pour développer une expression mathématique E, <em>sympy</em> utilise l'instruction <strong>expand(E)</strong>.</p>
+
+<p>Par exemple, on sait que \((x-1)(x-2)=x^2-3x+2\). Essayez donc d'exécuter le code Python suivant pour retrouver ce résultat :</p>
+
+<pre><code class="language-python">print(expand((x - 1) * (x - 2)))</code></pre>
+
+
+<p>Essayez maintenant d'obtenir à l'aide de Python le résultat que vous aviez trouvé manuellement pour développer B.</p>
+
+<h4>Simplification</h4>
+
+<p>Pour simplifier une expression mathématique E, <em>sympy</em> utilise l'instruction <strong>simplify(E)</strong>.</p>
+
+<p>Par exemple, on sait que pour \(x\ne0\), on peut écrire \(\frac{2x^2+6x}{2x}=x+3\). Essayez donc d'exécuter le code Python suivant pour retrouver ce résultat :</p>
+
+<pre><code class="language-python">print(simplify(2 * x**2 + 6 * x) / (2 * x))</code></pre>
+
+
+<p>Vous remarquez qu'en Python, les puissances peuvent s'exprimer avec <strong>**</strong></p> 
+
+<p>Essayez maintenant d'obtenir à l'aide de Python le résultat que vous aviez trouvé manuellement pour simplifier C.</p>
+
+<h4>Résolution d'équations</h4>
+
+<p>Pour résoudre une équation E, <em>sympy</em> utilise <strong>solve(E, x)</strong>.</p>
+
+<p>Par exemple, on sait que la solution de l'équation \(3x+2=0\) est \(-\frac{2}{3}\). Essayez donc d'exécuter le code Python suivant pour retrouver ce résultat :</p>
+
+<pre><code class="language-python">print(solve(3 * x + 2, x))</code></pre>
+
+
+
+<p>Essayez maintenant d'obtenir à l'aide de Python le résultat que vous saviez trouvé manuellement pour résoudre l'équation \((9-x^2)(3x-1)=4(x-3)(2x+5)\).</p>
+
+
+
+<p>Une fois les vérifications terminées, vous enregistrerez votre fichier au format PY (le fichier doit être nommé à partir de votre nom : <strong>Nom-factorisation.py</strong>, puis vous le rendrez sur <em>Teams</em> à l'endroit indiqué par votre enseignant.</p>
+
+
+
+
+
+
+
+
+
+
+
