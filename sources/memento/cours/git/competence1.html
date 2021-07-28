@@ -1,0 +1,159 @@
+
+<h2>Configuration, historique</h2>
+
+  <div class="bloc">
+        <div class="gauche">
+          <img src="../../images/memento/git.png" width="80" height="80" alt="git">       
+        </div>
+
+        <div class="droite">
+            <p> <em>Git</em> est un logiciel de versionnement de code qui fonctionne avec un système d'arborescence à partir d'une branche master. <em>Git</em> fait constamment le lien entre un repository local et un repository hébergé par <em>GitHub</em>. Un repository est un dossier qui est configuré pour travailler avec <em>git</em>.</p>
+            <p>Une des particularités de <em>Git</em>, c'est l'existence de sites web collaboratifs basés sur <em>Git</em> comme <em>GitHub</em>. Il s'agit d'une sorte de réseau social pour développeurs qui permet de suivre l'évolution de projets et de décider de participer à ces projets. <em>GitHub</em> fournit le serveur qui permet de créer et stocker des repositories en utilisant les fonctionnalités de <em>git</em>.</p>
+        </div>
+    </div>
+
+<!-- CREATION DEPOT GIT -->
+<h3 id="depotGit">Création d'un dépôt Git</h3>
+
+<p>On peut créer un dépôt Git vide ou clôner un dépôt distant.</p>
+
+<p>Pour créer un dépôt Git vide, il faut créer un répertoire, se placer dans ce répertoire puis exécuter</p>
+  <pre><code class="language-svg">git init</code></pre>
+
+<p>Pour clôner un dépôt distant, il faut importer un remote repository du dépôt distant :</p>
+  <pre><code class="language-svg">git remote add nomProjet https://github.com/monProjet
+git clone https://github.com/monProjet</code></pre>
+
+
+<!-- CONFIGURATION -->
+
+<h3 id="configGit"> Configuration de Git</h3>
+
+<p>Pour connaître la version du logiciel <em>git</em> : </p>
+  <pre><code class="language-svg">git --version</code></pre>
+
+<p>Pour configurer les données utilisateur de <em>git</em> :</p>
+<pre><code class="language-svg">git config --global user.name "monNom"
+git config --global user.email "monEmail"</code></pre>
+<p>Il n'est pas recommandé de configurer les données utilisateur, mais préférable
+de fournir les credentials à chaque utilisation pour des raisons de sécurité.</p>
+
+<p>Pour activer la couleur dans la console :</p>
+<pre><code class="language-svg">git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto</code></pre>
+
+
+
+
+
+  <p>Pour vérifier la configuration enregistrée :</p>
+  <pre><code class="language-svg">git config --list</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- L'HISTORIQUE -->
+
+<h3 id="historique">L'historique Git</h3>
+
+<p>Pour consulter l'historique (les <em>logs</em>) :</p>
+  <pre><code class="language-svg">git log</code></pre>
+
+<p>Pour obtenir l'historique et le détail des lignes retirées et rajoutées :</p>
+  <pre><code class="language-svg">git log -p</code></pre>
+
+<p>Pour quitter la liste des <em>logs</em>, il faut taper Q.</p>
+
+<p>On peut se positionner à un moment de l'historique en ne tenant compte que des commit enregistrés jusqu'à un commit défini. On utilise alors <strong>git checkout codeCommit</strong> oû <em>codeCommit</em> est le code sha présent dans le log et représentatif d'un unique commit. A partir de cette requête, <strong>git log</strong> n'affiche que les commit enregistrés jusqu'au commit <em>codeCommit</em>. Pour revenir à l'état du dernier commit, on utilise l'instruction <strong>git checkout master</strong>.</p>
+
+<p>Pour consulter les modifications :</p>
+  <pre><code class="language">git diff</code></pre>
+<p>Les ligness ajoutées sont précédées d'un + et affichées en vert, tandis que les lignes supprimées sont précédées d'un - et affichées en rouge.</p>
+
+<p>Pour consulter les modifications d'un seul fichier :</p>
+  <pre><code class="language-svg">git diff monFichier</code></pre>
+
+<p>A noter que <em>GitHub</em> propose un affichage des modifications d'un commit plus convivial que le Terminal. Il s'agit dans ce cas des commits envoyés au remote.</p>
+
+<p>Pour annuler les modifications d'un fichier avant un commit, et restaurer le fichier tel qu'il était au dernier commit :</p>
+  <pre><code class="language-svg">git checkout nomFichier</code></pre>
+
+<p>Pour annuler le dernier commit et revenir à l'avant dernier : </p>
+  <pre><code class="language-svg">git reset HEAD^</code></pre>
+
+<p>Pour annuler un numéro de commit précis : </p>
+  <pre><code class="language-svg">git reset nrmCommit </code></pre>
+<p>Dans ce cas seul le commit est retiré de <em>Git</em>, les fichiers restent modifiés.</p>
+
+<p>Pour annuler le dernier commit et les changements effectués dans les fichiers :</p>
+  <pre><code class="language-svg">git reset --hard HEAD^</code></pre>
+<p>Attention, dans ce cas tous les changements sont perdus sans préavis.</p>
+
+<p>Dans le cas où des commits ont été faits simultanément par plusieurs postes dans un même projet, les modifications sont incorporées automatiquement. Dans le cas où deux changement concernent la même zode de code, un conflit apparaît qui doit être résolu manuellement en travaillant sur la zone de code marquée <<<<<<<<<<<<< . Sur <em>GitHub</em>, la résolution de conflit ne pourra être faite que par la personne déclarée responsable de projet.</p>
+
+<p>Attention, un push est en revanche irréversible. Il est donc recommandé de faire régulièrement des commit, mais de faire un push qu'une fois par jour, sinon on perd la facilité avec laquelle il est possible d'annuler ou de modifier les commit.</p>
+
+<p>Il reste toutefois possible d'annuler un commit déjà pushé en créant un nouveau commit qui effectue l'inverse des modifications. On ne peut en effet pas réellement supprimer un commit.</p>
+  <pre><code class="language-svg">git revert nrmCommit</code></pre>
+
+<p>Pour donner un tag à un commit afin de le retrouver sous une référence particulière, comme une version par exemple :</p>
+<pre><code class="language-svg">git tag nomTag nmrCommit
+  git push --tags</code></pre>
+
+<p>Attention, cette instruction spécifique <strong>--tags</strong> est importante car autrement un tag n'est pas envoyé lors d'un push.</p>
+
+<p>Pour supprimer un tag :</p>
+  <pre><code class="language-svg">git tag -d nomTag</code></pre>
+
+<p>Pour retrouver qui a modifié une ligne précise de code dans un projet :</p>
+  <pre><code class="language-svg">git blame nomFichier</code></pre>
+<p>On obtient ainsi toutes les modifications faites sur un fichier ligne par ligne avec le début du <em>sha</em> du commit correspondant. Il faut alors utiliser l'instruction suivante pour consulter les détail du commit recherché :</p>
+  <pre><code class="language-svg">git show nrmCommit</code></pre>
+
+
+
+
+
+
+
+
+<!-- IGNORER DES FICHIERS -->
+
+<h3 id="gitignore">Ignorer des fichiers avec gitignore</h3>
+
+<p>Il ne faut jamais versionner une variable de configuration, comme par exemple un mot de passe ou une clé secrète. Si le code a déjà été envoyé sur <em>GitHub</em>, il convient de changer de mot de passe ou générer une nouvelle clé secrète.</p>
+
+  <p>Il est important d'ignorer certains fichiers dans <em>Git</em>, tels que :</p>
+  <ul>
+    <li>les fichiers de configuration (config.xml, database.yml)</li>
+    <li>les fichiers temporaires (tml, temp)</li>
+    <li>les fichiers créés par l'IDLE ou l'OS (.DS_Store)</li>
+  </ul>
+<p>Ainsi, les variables de configuration devront être déplacées dans un fichier de configuration et ignorées dans <em>Git</em>.</p>
+
+<p>Il faut créer un fichier <em>.gitignore</em> et placer dans ce fichier le nom de tous les fichiers qui devront être ignorés par le versionnement.</p>
+  <pre><code class="language-svg">touch .gitignore</code></pre>
+
+<p>Pour écrire dans ce fichier <em>.gitignore</em>, il faut ouvrir l'éditeur de terminal <em>vim</em> :</p>
+  <pre><code class="language-svg">vim .gitignore</code></pre>
+
+<p>Pour sortir de <em>vim</em> :</p>
+  <pre><code class="language-svg">:q</code></pre>
+
+
+
+
+

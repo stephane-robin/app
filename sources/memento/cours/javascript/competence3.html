@@ -1,0 +1,114 @@
+ 
+<h2>Boucles, conditions, fonctions</h2>
+
+
+  <!-- ===== BRANCHEMENT CONDITIONNEL ===== -->
+
+  <h3 id="condition">Les conditions</h3>
+
+    <h4>La condition if</h4>
+
+    <pre><code class="language-javascript">if(condition){
+  instructions;
+}else{
+  instructions;
+}</code></pre>
+
+    <h4>Particularité de JavaScript</h4>
+
+    <p>La fonction <strong>confirm()</strong> renvoie <em>true</em> lorsqu'on clique sur <em>Ok</em> dans une fenêtre pop-up et <em>false</em> lorsqu'on clique sur <em>Annuler</em>.</p>
+    <pre><code class="language-javascript">if(confirm("Voulez-vous continuer ?")){
+  alert("Vous avez choisi de continuer")
+}</code></pre>
+
+    <h4>L'instruction switch</h4>
+
+    <pre><code class="language-javascript">switch(maVariable){
+  case valeur1:
+    instruction;
+    break;
+  case valeur2:
+    instruction;
+    break;
+  case valeur3:
+    instruction;
+    break;
+  default:
+    instruction;
+}</code></pre>
+
+
+
+  <!-- ===== LES BOUCLES ===== -->
+
+  <h3 id="boucle"> Les boucles </h3>
+
+    <h4>La boucle while</h4>
+
+    <pre><code class="language-javascript">while(condition){
+  instructions;
+}</code></pre>
+
+    <h4>La boucle for</h4>
+
+    <pre><code class="language-javascript">for(let i=0; i&l t5; i++){
+  instructions;
+}</code></pre>
+
+
+  <!-- ===== LES FONCTIONS ===== -->
+
+  <h3 id="fonction"> Les fonctions </h3>
+
+  <p>La déclaration d'une fonction se réalise de la manière suivante :</p>
+  <pre><code class="language-javascript">function nomFonction(parametre){
+  instructions;
+  return valeur;
+}</code></pre>
+
+<fieldset><legend>BON A SAVOIR </legend>
+  <p><em>Attention</em>, en JavaScript le type de retour de la fonction et le type des arguments ne sont pas spécifiés lors de la déclaration. Il est donc impossible de surcharger une fonction en JavaScript.</p>
+</fieldset>
+
+  <p>L'appel de la fonction se fait de la façon suivante :</p>
+  <pre><code class="language-javascript">let valeur = nomFonction(12);</code></pre>
+
+  <p>Lorsqu'il n'y a pas de valeur de retour, on parle de procédure :</p>
+  <pre><code class="language-javascript">function nomProcedure(parametre){
+  instructions;
+}</code></pre>
+
+  <p>L'appel de la procédure se fait de la façon suivante :</p>
+  <pre><code class="language-javascript">nomProcedure(12);</code></pre>
+
+    <h4>Documenter une fonction</h4>
+
+    <h4>Fonction anonyme</h4>
+
+    <p>Le principe de fonction anonyme utilise toujours le mot-clé <strong>function</strong> mais ne spécifie aucun nom pour la fonction créée.</p>
+    <pre><code class="language-javascript">let maVariable = function(parametre){
+  let message = "Bonjour "+parametre;
+  return message;
+}
+
+alert(maVariable("Hervé"));</code></pre>
+
+  <p>qu'on peut également écrire :</p>
+
+  <pre><code class="language-javascript">let maVariable = (parametre) =>{
+  let message = "Bonjour "+parametre;
+  return message;
+}
+
+alert(maVariable("Hervé"));</code></pre>
+
+  <p>On remarque qu'une fonction anonyme utilise une construction particuliére et transforme la variable <em>maVariable</em> en fonction.</p>
+
+    <h4>Fonctions prédéfinies </h4>
+
+    <table>
+      <tr><th>Fonctions</th><th>Actions</th></tr>
+      <tr><td>Math.min(2, 4)</td><td>donne le minimum des paramètres passés en arguments</td></tr>
+      <tr><td>Math.random</td><td>génère un nombre aléatoire entre 0 et 1</td></tr>
+
+    </table>

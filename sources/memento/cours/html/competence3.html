@@ -1,0 +1,71 @@
+<h2>Liens et menus</h2>
+
+
+<!-- ===== LES LIENS ===== -->
+
+<h3 id="lien"> Les liens </h3>
+
+  <p>Les liens hypertextes ont grandement participé au succès du Web. Il existe plusieurs types de liens, qui possèdent une structure commune. Les principaux types de liens sont les suivants :</p>
+
+  <table>
+    <tr> <th> Objectif </th> <th> Balises </th> </tr>
+    <tr> <td> lien vers une page </td> <td> <pre>&lta href="http:adresseDeLaPage"&gt nom de la page &lt/a&gt</pre></td> </tr>
+    <tr> <td> lien vers une ancre </td> <td> <pre>&lth2 id="monAncre"&gt Titre &lt/h2&gt
+&lta href="#monAncre"&gt texte indiquant l'ancre &lt/a&gt</pre></td> </tr>
+    <tr> <td> lien d'envoi d'un email </td> <td> <pre>&lta href="mailto:monAdresseMail@domaine.com"&gt
+Message d'envoi d'e-mail &lt/a&gt</pre></td> </tr>
+    <tr> <td> lien pour télécharger un fichier </td> <td> <pre>&lta href="monFichier.zip"&gt
+Message de téléchargement &lt/a&gt </pre></td> </tr>
+    <tr> <td> afficher une infobulle au survol d'un lien </td> <td> <pre>&lta title="Description"&gt nom de la page &lt/a&gt </pre></td> </tr>
+    <tr> <td> ouvrir une nouvelle fenêtre dans un lien </td> <td> <pre>&lta href="http:adresseDeLaPage" target="_blank"&gt
+nom de la page &lt/a&gt</pre></td> </tr>
+  </table>
+
+  <!-- Lien vers une page -->
+
+  <h4> Lien vers une page </h4>
+
+    <p>Le nom de la page apparaît souligné dans le texte et, lorsqu'on clique dessus, on accède à la page dont l'adresse a été enregistrée dans l'attribut <strong>href</strong>.</p>
+
+    <p>Lorsque vous copiez l'adresse d'une page contenant le caractère <strong>&amp</strong>, il faut remplacer ce dernier par <strong>&ampamp</strong> pour assurer une bonne construction de la page.</p>
+
+
+    <p>  Il existe deux types d'adresse :
+      <ul>
+        <li>l'adresse absolue qui correspond à l'adresse du site enregistrée sur le Web. Elle est de la forme https://www.rogerfederer.com/</li>
+        <li>l'adresse relative qui correspond à une adresse par rapport au répertoire courant. Dans le cas d'un site internet cette adresse peut pointer vers un même dossier et être de la forme autrePage.html ou pointer vers un autre dossier du site et être de la forme dossierCible/autrePage.html. </li>
+      </ul>
+    </p>
+
+  <!-- Lien vers une ancre -->
+
+  <h4> Lien vers une ancre </h4>
+
+    <p>Une ancre est un point de repère qu'on peut positionner dans une page HTML afin que l'utilisateur accède plus rapide à cet emplacement. Le lien se développe en deux étapes. On commence par créer une ancre à l'emplacement souhaité, puis on crée ensuite un lien contenant le caractère <strong>#</strong> dans l'attribut <strong>href</strong>.</p>
+
+  <!-- Lien d'envoi d'un email -->
+
+  <h4> Lien d'envoi d'un e-mail </h4>
+
+    <p> Pour ouvrir automatiquement un gestionnaire d'e-mails en cliquant sur un lien, il faut définir l'adresse de destination du mail dans l'attribut <strong>href</strong>.</p>
+
+  <!-- Lien pour télécharger un fichier -->
+
+  <h4> Lien pour télécharger un fichier </h4>
+
+    <p> Pour télécharger automatiquement un fichier en cliquant sur un lien, il faut indiquer le nom du fichier à télécharger. Cela suppose que ce fichier se trouve dans le répertoire courant.</p>
+
+
+
+<!-- ====
+LES MENUS
+===== -->
+
+<h3 id="menu"> Les menus </h3>
+
+  <p> On crée un menu à l'aide de la balise <strong>&ltnav&gt</strong>.</p>
+  <pre><code class="language-html">&ltnav id="menu"&gt
+ &ltdiv class="element"&gt &lta href="index.html"&gt NOTRE ETABLISSEMENT &lt/a&gt &lt/div&gt
+ &ltdiv class="element"&gt &lta href="lieu.html"&gt NOUS TROUVER &lt/a&gt &lt/div&gt
+ &ltdiv class="element"&gt &lta href="contact.html"&gt CONTACT &lt/a&gt &lt/div&gt
+&lt/nav&gt</code></pre><footer class="legendeCode">HTML</footer>

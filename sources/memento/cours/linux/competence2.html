@@ -1,0 +1,111 @@
+
+
+<h2>Installation d'un programme et archives</h2>
+
+
+<h3>Installation d'un programme avec apt-get</h3>
+
+<p>Il faut généralement mettre à jour le cache des paquets (i.e. télécharger la nouvelle liste des paquets proposés par le dépôt) avant de procéder à l'installation :</p>
+<pre><code class="language-svg">sudo apt-get update
+sudo apt-get install monPaquet</code></pre>
+
+<p>Pour obtenir la description d'un paquet :</p>
+<pre><code class="language-svg">sudo apt-cache show nomPaquet</code></pre>
+
+<p>Pour désinstaller un paquet</p>
+<pre><code class="language-svg">sudo apt-get remove monPaquet</code></pre>
+
+<p>Pour désinstaller un paquet et ses dépendances devenues inutiles</p>
+<pre><code class="language-svg">sudo apt-get autoremove monPaquet</code></pre>
+
+<p>Pour mettre à jour tous les paquets, il faut d'abord récupérer la liste des nouveaux paquets afin de pouvoir comparer leurs versions
+  à celles présentes dans le système. Cette opération doit être faite régulièrement pour assurer la sécurité du système.</p>
+<pre><code class="language-svg">sudo apt-get update
+sudo apt-get upgrade</code></pre>
+
+<p>Pour nettoyer le système, il faut utiliser les instructions suivantes</p>
+<pre><code class="language-svg">sudo apt-get autoclean
+sudo apt-get clean
+sudo apt-get autoremove</code></pre>
+
+
+
+
+<!-- zipper un dossier zip -->
+
+<h3 id="zip">Commandes pour zipper/dézipper un dossier .zip</h3>
+
+<p>Pour zipper le dossier mon_dossier en l'appelant mon_archive.zip :</p>
+<pre><code class="language-svg">zip -r mon_archive.zip mon_dossier</code></pre>
+
+<p>Pour dézipper l'archive mon_archive.zip en l'appelant mon_dossier :</p>
+<pre><code class="language-svg">unzip mon_archive.zip -d mon_dossier</code></pre>
+
+
+
+<!-- dézipper un dossier .gz-->
+
+<h3 id="gz">Commande pour dézipper un dossier .gz</h3>
+
+<p>Il faut se placer dans le dossier contenant mondossier.gz et l'instruction
+  suivante va le décompresser à ce même emplacement :</p>
+<pre><code class="language-svg">gunzip mondossier.gz</code></pre>
+
+
+<!-- installation d'un logiciel avec sh -->
+
+<h3 id="bash">Installation d'un logiciel à partir de .sh</h3>
+
+<p>Un fichier au format .sh est un fichier d'installation qui s'ouvre avec une commande bash. Pour cela, dans le répertoire courant, il faut d'abord
+  vérifier l'intégrité de l'installer en utilisant :</p>
+
+<pre><code class="language-svg">sha256sum nomInstaller.sh</code></pre>
+
+<p>puis lancer l'installation à l'aide de :</p>
+
+<pre><code class="language-svg">bash nomInstaller.sh</code></pre>
+
+<!-- installation d'un logiciel avec.tar.gz -->
+
+<h3 id="targz">Installation d'un logiciel à partir de .tar.gz</h3>
+
+<p>Un fichier .tar est une archive non compressée. En revanche, un fichier .gz est une compression de fichier.</p>
+<p>Il faut d'abord déplacer le fichier .tar.gz vers /usr/local. Pour cela :</p>
+<pre><code class="language-svg">sudo mv /home/stephane/Téléchargements/nom_fichier.tar.gz /usr/local</code></pre>
+<p>Il faut ensuite se placer dans le répertoire /usr/local</p>
+<pre><code class="language-svg">cd /usr/local</code></pre>
+<p>Puis il faut décompresser le fichier .gz :</p>
+<pre><code class="language-svg">sudo tar xvzf nom_fichier.tar.gz</code></pre>
+
+<p>Finalement, il faut suivre les instructions d'installation dans le ficier README.txt ou le INSTALL</p>
+
+
+
+<!-- installation d'un logiciel avec tar.bz2 -->
+
+<h3 id="tarbz2">Installation d'un logiciel à partir de .tar.bz2</h3>
+
+<p>Il faut d'abord déplacer le fichier .tar.bz2 vers /usr/local. Pour cela :</p>
+<pre><code class="language-svg">sudo mv /home/stephane/Téléchargements/nom_fichier.tar.bz2 /usr/local</code></pre>
+<p>Il faut ensuite se placer dans le répertoire /usr/local</p>
+<pre><code class="language-svg">cd /usr/local</code></pre>
+<p>Puis il faut décompresser le fichier .bz2 :</p>
+<pre><code class="language-svg">sudo tar xfvj nom_fichier.tar.bz2</code></pre>
+
+<p>Finalement, il faut suivre les instructions d'installation dans le ficier README.txt ou le INSTALL</p>
+
+
+
+<!-- installation d'un logiciel à partir de .deb -->
+
+<h3 id="deb">Installation d'un logiciel à partir de .deb</h3>
+
+<p>Un fichier .deb est un package permettant d'installer une application sous les systèmes Linux Debian.</p>
+
+<p>Il faut d'abord déplacer le fichier .tar.bz2 vers /usr/local. Pour cela :</p>
+<pre><code class="language-svg">sudo mv /home/stephane/Téléchargements/nom_fichier.tar.bz2 /usr/local</code></pre>
+<p>Il faut ensuite se placer dans le répertoire /usr/local</p>
+<pre>cd /usr/local</pre>
+
+<p>Puis il faut exécuter le fichier .deb</p>
+<pre><code class="language-svg">sudo dpkg -i nom_fichier.deb</code></pre>

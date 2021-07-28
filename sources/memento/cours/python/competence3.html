@@ -1,0 +1,196 @@
+<h2>Boucles, conditions, fonctions</h2>
+
+
+  <!-- ===== BRANCHEMENT CONDITIONNEL ===== -->
+
+  <h3 id="py_condition">Branchement conditionnel</h3>
+
+    <h4>La condition if</h4>
+
+    <pre><code class="language-python">if condition :
+  instructions
+else :
+instructions</code></pre>
+
+    <h4>Particularités de Python</h4>
+
+    <p>L'instruction <strong>elif</strong> est la contraction de l'instruction <strong>else if</strong>.</p>
+
+    <pre><code class="language-python">if condition :
+  instructions
+elif condition :
+  instructions
+else :
+  instructions</code></pre>
+    
+    <p>L'instruction <strong>switch</strong> n'existe pas de façon native en Python.</p>
+
+
+
+  <!-- ===== LES BOUCLES ===== -->
+
+  <h3 id="py_boucle"> Les boucles </h3>
+
+  <h4>La boucle for</h4>
+
+  <p>Pour une répétition allant de 0 à 4 :</p>
+    <pre><code class="language-python">for i in range(0, 5):
+  instructions</code></pre>
+
+  <p>Pour parcourir tous les éléments d'une liste ou d'un tableau:</p>
+  <pre><code class="language-python">for elmt in liste:
+  print(elt) # ou une quelconque instruction sur elt</code></pre>
+
+  <p>Pour parcourir tous les éléments d'une chaîne de caractères:</p>
+    <pre><code class="language-python">for elmt in chaine:
+  print(elt) # ou une quelconque instruction sur elt</code></pre>
+
+    <h4>Particularité de Python</h4>
+
+    <pre><code class="language-python">for lettre in chaine :
+  if lettre in "aeiouy" :
+  instructions</code></pre>
+
+  <h4>La boucle while</h4>
+
+  <pre><code class="language-python">while condition :
+  instructions</code></pre>
+
+  <p>Le mot clé <strong>break</strong> permet d'interrompre une boucle et d'exécuter le code qui suit la boucle. Le mot clé <strong>continue</strong> permet de sauter le tour de boucle courant puis de continuer à exécuter la boucle.</p>
+
+
+
+
+
+
+  <!-- ===== LES FONCTIONS ===== -->
+
+  <h3 id="py_fonction"> Les fonctions </h3>
+
+  <p>La déclaration d'une fonction se réalise de la manière suivante :</p>
+  <pre><code class="language-python">def nomFonction(parametre) :
+  instructions
+  return valeur</code></pre>
+
+  <fieldset><legend>ATTENTION </legend>
+    <p>En Python le type de retour de la fonction et le type des arguments ne sont pas spécifiés lors de la déclaration. Il est donc impossible de surcharger une fonction en Python.</p>
+  </fieldset>
+
+  <p>L'appel de la fonction se fait de la façon suivante :</p>
+  <pre><code class="language-python">int valeur = nomFonction(12)</code></pre>
+
+  <p>Lorsqu'il n'y a pas de valeur de retour, on parle de procédure :</p>
+  <pre><code class="language-python">def nomProcedure(parametre) :
+    instructions</code></pre>
+
+  <p>L'appel de la procédure se fait de la façon suivante :</p>
+  <pre><code class="language-python">nomProcedure(12);</code></pre>
+
+  <p>Pour une fonction comme pour une procédure, on peut définir une valeur de paramètre par défaut si celle-ci n'est pas spécifiée, de la manière suivante :</p>
+  <pre><code class="language-python">def nomFonction(parametre1, parametre2=43) :
+  instructions
+    return valeur</code></pre>
+
+  <p>Bien que la valeur 43 soit attribuée par défaut au parametre2, celui-ci peut prendre n'importe quelle valeur qui lui soit attribuée.</p>
+
+  <p>En Python, pour créer des fonctions attendant un nombre inconnu de paramètres, on utilise la syntaxe</p> <pre>def maFonction(*monTableau)</pre> <p>où <em>monTableau</em> est un tableau de parametres.</p>
+
+   <h4>Documenter une fonction</h4>
+
+    <p>En Python, l'ajout d'une <em>docstring</em> se fait sous le nom de la fonction, avec une indentation et 3 guillements. Elle peut s'étendre sur plusieurs lignes.</p>
+    <pre><code class="language-python">def maFonction(parametre) :
+  """documentation
+  de maFonction"""
+  instructions
+  return</code></pre>
+
+    <p>On appelle la documentation en utilisant l'instruction <strong>help(maFonction)</strong></p>
+
+    <h4>Fonction anonyme</h4>
+
+    <p>En Python, la fonction anonyme est appelée fonction <em>lambda</em>, mais le principe reste identique. On remplace dans ce cas le mot-clé <strong>def</strong> par <strong>lambda</strong> et on ne spécifie aucun nom pour la fonction créée.</p>
+    <pre><code class="language-python">int maVariable = lambda x :
+  2*x
+
+   print(maVariable(3))</code></pre>
+
+    <pre><code class="language-python">str maVariable = lambda parametre :
+  "Bonjour ",parametre
+
+   print(maVariable("Hervé"))</code></pre>
+
+  <p>On remarque qu'une fonction lambda utilise une construction particuliére et transforme la variable <em>maVariable</em> en fonction.</p>
+
+    <h4>Fonctions prédéfinies </h4>
+
+    <table>
+      <tr><th>Fonctions</th><th>Actions</th></tr>
+      <tr><td>Math.min(2, 4)</td><td>donne le minimum des paramètres passés en arguments</td></tr>
+      <tr><td>Math.random</td><td>génère un nombre aléatoire entre 0 et 1</td></tr>
+    </table>
+
+  <h4>Utilisation de la fonction callback en Python</h4>
+
+  <p>Il s'agit d'une fonction qui sert de paramètre à une autre fonction.</p>
+
+  <pre><code class="language-python">def maFonction(x):
+  instruction
+
+def autreFonction(maFonction, val):
+  return maFonction(val)</code></pre>
+
+
+
+
+  <!-- ===== LES DOCTRINGS ===== -->
+
+  <h3 id="py_doc">Les docstrings</h3>
+
+  <p>Les conventions pour la doctring sont les suivantes :</p>
+<pre><code class="language-svg">def ma_fonction(nom):
+  """description generale
+
+  Parameters :
+  nom (str): description de nom
+
+  Returns :
+  nouveau_nom (str): description de nouveau_nom
+
+
+  description en details"""</code></pre>
+
+  <p>Pour appeler une doctring, il faut taper dans le shell :</p>
+<pre><code class="language-svg">help(ma_fonction)</code></pre>
+
+
+
+  <!-- ===== LES EXCEPTIONS ===== -->
+
+  <h3 id="py_exception">La gestion des exceptions</h3>
+
+  <p>Elles se construisent suivant les cas de différentes manières :</p>
+  <pre><code class="language-python">try: # cas général
+  instruction à tester
+except:
+  instruction en cas d'erreur
+finally:
+  instruction dans tous les cas
+
+try: # variable non définie
+  instruction à tester
+except NameError as e:
+  instruction en cas d'erreur
+
+try: # le type de la variable est incompatible avec l'instruction
+  instruction à tester
+except TypeError as e:
+  instruction en cas d'erreur
+
+try: # division par 0
+  instruction à tester
+except ZeroDivisionError:
+  instruction en cas d'erreur</code></pre>
+
+  <p>Pour aller plus loin, la documentation Python officielle <a href="https://docs.python.org/3.5/library/index.html"><em>The Python Standard Library</em></a>.</p>
+
+

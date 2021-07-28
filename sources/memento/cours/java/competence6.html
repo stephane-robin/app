@@ -1,0 +1,665 @@
+<h2>Les réseaux, proxys, sockets</h2>
+
+
+    <!-- ===== LA PROGRAMMATION RESEAU =================================== -->
+
+    <h3 id="programmationreseau">La programmation réseau</h3>
+
+
+
+    <h4>Rappels sur les réseaux</h4>
+    
+    <p>La communication réseau est initialement définie par le modèle OSI en 7 couches. Toutefois, la plupart des logiciels reposent sur le modèle TCP/IP en 4 couches : réseau, Internet, transport, application. C'est dans cette dernière couche du modèle TCP/IP que se positionne Java.</p>
+    <p>Notons que par défaut les principaux protocoles de transfert utilisent les ports suivants :</p>
+    <ul>
+        <li>http : port 80</li>
+        <li>ftp : port 20 ou 21</li>
+        <li>smtp : port 25</li>
+    </ul>
+    
+    <h4>La classe InetAddress</h4>
+    
+            <pre><code class="language-java">import java.net.*;</code></pre>
+    <p>Pour manipuler des adresses IP, on utilise la classe InetAddress. Par exemple pour obtenir l'adresse IP d'un site connu par son nom de domaine :</p>
+    <pre><code class="language-java">try{
+        InetAddress adresse = InetAddress.getByName("meteocentrale.ch");
+    }catch (UnknownHostException e) {
+        e.printStackTrace();
+    }</code></pre>
+    
+    <p>et pour connaître l'adresse IP de <em>localhost</em> :</p>
+    
+        <pre><code class="language-java">try{
+        InetAddress adresse = InetAddress.getByName("localhost");
+    }catch (UnknownHostException e) {
+        e.printStackTrace();
+    }</code></pre>
+    
+        <p>Les méthodes associées à la classe InetAddress nécessitent également la gestion de UnknownHostException :</p>
+    <table>
+        <tr><th>Objectif</th><th>Code</th></tr>
+        <tr><td>nom de l'hôte (client)</td><td><pre>adresse.getHostName()</pre></td></tr>
+        <tr><td>adresse IP</td><td><pre>adresse.getHostAddress()</pre></td></tr>
+        <tr><td>teste si l'adresse est de type boucle locale</td><td><pre>adresse.isLoopbackAddress()</pre></td></tr>
+    </table>
+    
+        <p>Certains sites Internet peuvent avoir plusieurs adresses IP :</p>
+    <pre><code class="language-java">try{
+        InetAddress[] adresses = InetAddress.getAllByName("amazon.fr");
+        System.out.println("Toutes les adresses IP : ");
+        for(InetAddress valeur : adresses) {
+            System.out.println(" - " + valeur.getHostAddress());
+        }
+    } catch(UnknownHostException e) {
+        e.printStackTrace();
+    }</code></pre>
+    
+    <h4>La classe URL</h4>
+    
+    <p>On peut également utiliser la classe URL pour récupérer les données d'un site Internet :</p>
+    <pre><code class="language-java">import java.io.*;
+    import java.net.*;
+    
+    try {
+        URL url = new URL("http://www.meteofrance.fr");
+    }catch(MalformedURLException e) {
+        e.printStackTrace();
+    }</code></pre>
+    
+        <p>Les méthodes associées à la classe URL nécessitent également la gestion de MalformedURLException.</p>
+    
+    <table>
+        <tr><th>Objectif</th><th>Code</th></tr>
+        <tr><td>nom du site</td><td>url.getAuthority()</td></tr>
+        <tr><td>port par défaut</td><td>url.getDefaultPort()</td></tr>
+        <tr><td>nom de l'hébergeur</td><td>url.getHost()</td></tr>
+        <tr><td>numéro de port spécifié</td><td>url.getPort()</td></tr>
+        <tr><td>protocole</td><td>url.getProtocol()</td></tr>
+    </table>
+    
+    <p>Lorsque url.getPort() renvoie -1, cela signifie que le port n'a pas été spécifié dans l'URL.</p>
+    
+    <p>Pour vérifier qu'une saisie utilisateur correspond à une url, on peut par exemple utiliser la condition :</p>
+    <pre>if(host.matches("[a-zA-Z\\.]+"))</pre>
+    
+        </div>
+    
+    
+    
+    
+    
+        <!-- ===== LES PROXYS ======================================= -->
+    
+        <h3 id="proxys">Les proxys</h3>
+    
+    
+    
+            <p>Un proxy constitue une autre façon de se connecter à un serveur. Le proxy est un intermédiaire faisant le lien entre le client et le serveur.</p>
+            <pre><code class="language-java">import java.io.IOException;
+    import java.net.InetSocketAddress;
+    import java.net.Proxy;
+    import java.net.Socket;
+    import java.net.SocketAddress;
+    
+    //On crée une adresse correspondant à notre proxy
+    SocketAddress proxyAddress = new InetSocketAddress("10.10.10.10", 8080);
+    
+    //On instancie la classe Proxy avec le type souhaité
+    Proxy proxy = new Proxy(Proxy.Type.SOCKS, proxyAddress);
+    
+    //On crée notre socket utilisant le proxy
+    Socket s = new Socket(proxy);
+    
+    //On crée l'adresse que l'on souhaite atteindre via le proxy
+    SocketAddress remote = new InetSocketAddress("www.adret-attitude.ch", 80);
+    try {
+        //On connecte le tout !
+        s.connect(remote);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }</code></pre>
+    
+            <p></p>
+    
+            <table>
+                <tr><th>Objectif</th><th>Code</th></tr>
+                <tr><td>port côté serveur</td><td>s.getPort()</td></tr>
+                <tr><td>port côté client</td><td>s.getLocalPort()</td></tr>
+                <tr><td>nom hôte distant</td><td>s.getInetAddress().getHostName()</td></tr>
+                <tr><td>adresse hôte distant</td><td>s.getInetAddress().getHostAddress()</td></tr>
+                <tr><td>adresse socket hôte distant</td><td>s.getRemoteSocketAddress()</td></tr>
+            </table>
+    
+            <pre><code class="language-java">try {
+        Socket s = new Socket("www.adret-attitude.ch", 80);
+        System.out.println("Port de communication côté serveur : " + s.getPort());
+        System.out.println("Port de communication côté client : " + s.getLocalPort());
+        System.out.println("Nom de l'hôte distant : " + s.getInetAddress().getHostName());
+        System.out.println("Adresse de l'hôte distant : " + s.getInetAddress().getHostAddress());
+        System.out.println("Adresse socket de l'hôte distant : " + s.getRemoteSocketAddress());
+    } catch (UnknownHostException e) {
+            e.printStackTrace();
+    } catch (IOException e) {
+            e.printStackTrace();
+    }</code></pre>
+    
+        </div>
+    
+    
+    
+    
+    
+    <!-- ===== LES SOCKETS =================================== -->
+    
+    <h3 id="programmationclientserveur">Les sockets</h3>
+    
+    
+    
+            <div class="pcle"><strong>API Application Programming Interface</strong> : ensemble normalisé de classes, de méthodes qui sert de façade par laquelle un logiciel offre des services à d'autres logiciels. C'est la partie du programme qu'on expose au monde extérieur pour manipuler celui-ci. Ces services sont offerts à travers une bibliothèque ou un service Web. L'API est au développeur ce que l'User Interface est à l'utilisateur.</div>
+    
+            <p>Les sockets sont des API qui gèrent les communications entre programmes au sein d'une structure client-serveur. La communication entre sockets nécessite l'adresse du serveur, le port compris entre 1024 et 65536, et l'utilisation d'un protocole (TCP ou UDP). Une caractéristique des sockets est la suivante :</p>
+            <ul>
+                <li>les sockets travaillent en full-duplex i.e. une même socket sert aussi bien à envoyer qu'à recevoir des données. Il n'y a donc pas de file d'attente. Toutefois certaines méthodes comme accept() sont des fonctions bloquentes qui ne libèrent pas le programme tant qu'un traitement n'a pas été fait.</li>
+    
+            </ul>
+    
+            <pre><code class="language-java">import java.io.*;
+    import java.nio.*;
+    import java.util.*;
+    import java.net.*;</code></pre>
+    
+        <h4>Le mode connecté</h4>
+    
+        <p>En mode connecté, deux sockets établissent une communication durable entre l'émetteur et le récepteur, ce qui permet d'éviter de transmettre l'adresse du récepteur à chaque envoi et gère l'acquittement des données. Dans ce cas, le serveur est vu comme un programme rendant des services aux clients. Le mode connecté utilise le protocole TCP. Exemple d'application, le protocole HTTP.</p>
+    
+            <p>Le serveur crée une socket de connexion sur un port défini, puis attend la demande de communication venant d'un client pour ouvrir une socket de communication. De son côté, le client crée une socket de communication à l'adresse du serveur et sur le port défini.</p>
+    
+            <img src="../../images/memento/socket.png" height="300" width="750" alt="socket">
+    
+        <p>Les méthodes de la classe Socket permettant d'obtenir des informations sur la connexion et nécessitent également la gestion de IOException :</p>
+    
+        <table>
+            <tr><th>Instruction</th><th>Résultat</th></tr>
+            <tr><td><pre><code class="language-javascript">socket_client.getInetAddress()</code></pre></td><td>fournit l'adresse IP distante</td></tr>
+            <tr><td><pre><code class="language-javascript">socket_client.getLocalAddress()</code></pre></td><td>fournit l'adresse IP locale</td></tr>
+            <tr><td><pre><code class="language-javascript">socket_client.getPort()</code></pre></td><td>fournit le nmr de port distant</td></tr>
+            <tr><td><pre><code class="language-javascript">socket_client.getLocalPort()</code></pre></td><td>fournit le nmr de port local</td></tr>
+        </table>
+    
+        <p>La machine virtuelle Java ferme les sockets non utilisés à la fin de l'exécution du programme. Toutefois, le nombre de sockets ouvertes par un programme est limité, ce qui conduit à des erreurs quand cette limite est atteinte. La méthode close() permet de fermer la connexion.</p>
+    
+            <fieldset><legend>IMPORTANT</legend><p>La socket côté serveur doit être lancée avant la socket côté client.</p></fieldset>
+    
+            <h4>Exemple de transmission d'un entier par TCP :</h4>
+    
+            <p>Dans cet exemple un serveur transmet un entier à un client.</p>
+    
+            <p>Il n'est pas nécessaire de transmettre la taille des String avec le message lorsqu'on utilise les méthodes writeUTF() et readUTF() qui détectent automatiquement la taille des String dans un flux. La quantité d'information transmise est donnée par message.length() si on note message la variable représentant le message reçu.</p>
+    
+            <img src="../../images/memento/socketChaine.png" alt="socket">
+    
+            <p><em>Côté serveur</em>  </p>
+    
+            <pre><code class="language-java">public class ServeurTCP {
+    
+        public static void main(String[] args) {
+            try {
+                // creation socket serveur de connexion sur le port 5555
+                ServerSocket srv = new ServerSocket(5555);
+                // creation socket serveur de communication a la demande d'un client
+                Socket com = srv.accept();
+    
+                // communication sortante vers le client
+                DataOutputStream dos = new DataOutputStream(com.getOutputStream());
+                dos.writeInt(1420);
+    
+                // fermeture communication
+                com.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Côté client</em> </p>
+    
+            <pre><code class="language-java">public class ClientTCP {
+    
+        public static void main(String[] args) {
+            try {
+                Socket clt = new Socket("nomServeur", 5555);
+    
+                // communication entrante en provenance du serveur
+                DataInputStream dis = new DataInputStream(clt.getInputStream());
+                System.out.println("Message received: " + dis.readInt());
+    
+                clt.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <h4>Exemple d'un échange de chaînes de caractères par TCP :</h4>
+    
+            <p>Dans cet exemple, un client transmet "hello" à un serveur qui lui répond "world".</p>
+    
+            <p><em>Côté client</em></p>
+    
+            <pre><code class="language-java">public class ClientTCP {
+        public static void main(String[] args) {
+            try {
+                // creation socket client de communication sur le port 5555
+                // Socket clt = new Socket("adresseServeur", 5555); ou
+                Socket clt = new Socket("nomServeur", 5555);
+    
+                DataOutputStream dos = new DataOutputStream(clt.getOutputStream());
+                dos.writeUTF("hello");
+    
+                DataInputStream dis = new DataInputStream(com.getInputStream());
+                System.out.println(dis.readUTF());
+    
+                clt.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Côté serveur</em></p>
+    
+            <pre><code class="language-java">public class ServeurTCP {
+    
+        public static void main(String[] args) {
+            try {
+                ServerSocket srv = new ServerSocket(5555);
+                Socket com = srv.accept();
+    
+                DataInputStream dis = new DataInputStream(com.getInputStream());
+                System.out.println(dis.readUTF());
+    
+                DataOutputStream dos = new DataOutputStream(clt.getOutputStream());
+                dos.writeUTF("world");
+    
+                com.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <h4>Exemple de transmission d'un objet par TCP :</h4>
+    
+            <p>Dans cet exemple, un client transmet un objet sous forme de message au serveur.</p>
+    
+            <p><em>Côté client</em></p>
+    
+            <pre><code class="language-java">public class ClientTCP {
+    
+        public static void main(String[] args) {
+            try {
+                Socket clt = new Socket("nomHote", 5555);
+                // communication sortante, les data sont placees dans un objet transmis sous forme de Message
+                DataOutputStream dos = new DataOutputStream(clt.getOutputStream());
+                ObjectOutputStream oos = new ObjectOutputStream(dos);
+    
+                Message mess = new Message("nicolas", new Date(), "hello world");
+                oos.writeObject(mess);
+    
+                clt.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Côté serveur</em> </p>
+    
+            <pre><code class="language-java">public class ServeurTCP {
+    
+        public static void main(String[] args) {
+    
+            try {
+                ServerSocket srv = new ServerSocket(5555);
+                Socket com = srv.accept();
+                // communication entrante, les data sont placees dans un objet
+                // transforme en Message, puis en String pour affichage
+                DataInputStream dis = new DataInputStream(com.getInputStream());
+                ObjectInputStream ois = new ObjectInputStream(dis);
+    
+                Message mess = (Message) ois.readObject();
+                System.out.println("Message reçu : " + mess.toString());
+    
+                com.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) { // doit apparaitre
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p>et la classe Message présente côté serveur et côté client, qui implémente l'interface Serializable nécessaire pour transmettre le message sous forme de data :</p>
+    
+            <pre><code class="language-java">public class Message implements Serializable{
+        // un objet de type Message doit etre serialisable pour pouvoir etre transmis
+        String name;
+        Date date;
+        String contenu;
+    
+        public Message(String name, Date date, String contenu){
+            this.name = name;
+            this.date = date;
+            this.contenu = contenu;
+        }
+    
+        @Override
+        public String toString(){
+            return "message = [ " + name + " , " + date+" , "+contenu +" ]";
+        }
+    }</code></pre>
+    
+            <h4>Exemple de serveur connecté dynamiquement à plusieurs clients par TCP :</h4>
+    
+            <p>Dans cet exemple, 10 clients transmettent un objet de type Message au serveur.</p>
+    
+            <p>Il faut créer autant de sockets de communications qu'il y a de clients. Mais le serveur ne traite qu'un seul client à la fois. Si ce traitement prend du temps, les autres clients peuvent être bloqués. Pour éviter ce problème, la gestion des connexions peut être pilotée par des threads. On peut utiliser une création dynamique de threads au fur et à mesure des besoins. Dans ce cas, il est problématique de créer une infinité de threads.</p>
+    
+            <p><em>Côté client</em></p>
+    
+            <pre><code class="language-java">public class ClientTCP {
+    
+        public static void main(String[] args) {
+            try {
+                Socket clt = new Socket("nomServeur", 5555);
+                DataOutputStream dos = new DataOutputStream(clt.getOutputStream());
+                ObjectOutputStream oos = new ObjectOutputStream();
+    
+                Message mess = new Message("tom", new Date(), "hello world");
+                oos.writeObject(mess);
+    
+                clt.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Côté serveur</em></p>
+    
+            <pre><code class="language-java">public class ServeurTCP {
+        public static void main(String[] args) {
+            try {
+                ServerSocket srv = new ServerSocket(5555);
+    
+                for(int i=0; i<10; i++){ // pour 10 clients
+                    Socket com = srv.accept();
+    
+                    ServerThread t = new ServerThread(com);
+                    t.start();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public class ServerThread extends Thread { // gestion des threads pour chaque communication
+        Socket com;
+    
+        public ServerThread(Socket com) {
+            this.com = com;
+        }
+    
+        public void run() {
+            try{
+                DataInputStream dis = new DataInputStream(com.getInputStream());
+                ObjectInputStream ois = new ObjectInputStream();
+                while(!fin){
+                    Message mess = (Message) ois.readObject();
+                    System.out.println(mess.toString());
+                }
+                com.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Présent des deux côtés :</em></p>
+    
+            <pre><code class="language-java">public class Message implements Serializable{
+        String nom;
+        Date date;
+        String contenu;
+    
+        public Message(String nom, Date date, String contenu){
+            this.nom = nom;
+            this.date = date;
+            this.contenu = contenu;
+        }
+    
+        @Override
+        public String toString(){
+            return "nom :"+nom+", date :"+date+", contenu :"+contenu;
+        }
+    }</code></pre>
+    
+            <h4>Exemple de serveur connecté par un pool de threads à plusieurs clients par TCP :</h4>
+    
+            <p>Dans cet exemple, 10 clients transmettent un objt de type Message au serveur. Pour éviter la création d'une infinité de threads dynamiques, on peut utiliser un pool de threads qui arrêtent les sockets de communication lorsque le traitement est terminé pour se connecter aux sockets de communication restantes.</p>
+    
+            <p><em>Côté client</em></p>
+    
+            <pre><code class="language-java">public class ClientTCP {
+    
+        public static void main(String[] args) {
+            try {
+                Socket clt = new Socket("nomServeur", 5555);
+                DataOutputStream dos = new DataOutputStream(clt.getOutputStream());
+                ObjectOutputStream oos = new ObjectOutputStream();
+    
+                Message mess = new Message("Nicolas", new Date(), "hello world");
+                oos.writeObject(mess);
+    
+                clt.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Côté serveur</em></p>
+    
+            <p>Le serveur commence par créer un ensemble de threads en attente de recevoir une demande de connexion. Lorsqu'un client demande une connexion, elle est prise en charge par un des threads.</p>
+    
+            <pre><code class="language-java">public class ServeurTCP {
+        public static void main(String[] args) {
+            try {
+                ServerSocket srv = new ServerSocket(5555);
+                ServerThread[] pool = new ServerThread[8]; // on choisit de travailler avec 8 threads
+    
+                for(ServerThread t : pool) {
+                    t = new ServerThread(srv);
+                    t.start();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public class ServerThread extends Thread { // gestion des threads pour chaque communication
+        ServerSocket srv;
+    
+        public ServerThread(ServerSocket srv) {
+            this.srv = srv;
+        }
+    
+        public void run() {
+            try{
+                for(int i=0; i<11; i++) { // on considère 10 clients
+                    Socket com = srv.accept();
+                    DataInputStream dis = new DataInputStream(com.getInputStream());
+                    ObjectInputStream ois = new ObjectInputStream();
+    
+                    while(!fin) {
+                        Message mess = (Message) ois.readObject();
+                        System.out.println(mess.toString());
+                    }
+                    com.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Présent des deux côtés :</em></p>
+    
+            <pre><code class="language-java">public class Message implements Serializable{
+        String nom;
+        Date date;
+        String contenu;
+    
+        public Message(String nom, Date date, String contenu){
+            this.nom = nom;
+            this.date = date;
+            this.contenu = contenu;
+        }
+    
+        @Override
+        public String toString(){
+            return "nom :"+nom+", date :"+date+", contenu :"+contenu;
+        }
+    }</code></pre>
+    
+            <h4>Le mode non connecté</h4>
+    
+        <p>En mode non connecté, l'émetteur envoie les données au récepteur en précisant l'adresse du destinataire dans les paquets. La communication utilise dans ce cas le protocole UDP qui ne gère pas l'acquittement des données. Exemple d'application, le flux audio/vidéo car le manque d'acquittement des données optimise la bande passante.</p>
+    <p>Notons que TCP est plus sécurisé que UDP et UDP est plus rapide que TCP.</p>
+    
+        <fieldset><legend>IMPORTANT</legend><p>En mode non connecté, le programme récepteur doit être lancé en premier.</p></fieldset>
+    
+            <h4>Exemple de transmission d'un entier par UDP :</h4>
+    
+            <img src="../../images/memento/datagram.png" alt="datagramme">
+    
+            <p>L'entier est transformé en tableau de bytes avant d'être envoyé. A la réception ce tableau de bytes est transformé en entier pour être exploité.</p>
+    
+            <p><em>Côté émetteur</em> </p>
+    
+            <pre><code class="language-java">public class EmetteurUDP {
+    
+        public static void main(String[] args) {
+            try {
+                // comme la socket de communication n'est utilisée que pour émettre,
+                // elle ne définit pas de port de réception
+                DatagramSocket emt = new DatagramSocket();
+    
+                // recuperation de l'adresse IP du recepteur
+                InetAddress adresseIP = InetAddress.getByName("nomRecepteur");
+                // transformation de l'entier en byte[]
+                byte[] buffer =  ByteBuffer.allocate(4).putInt(1402).array();
+                // envoi du paquet
+                DatagramPacket paquet = new DatagramPacket(buffer, buffer.length, adresseIP, 5555);
+                emt.send(paquet);
+    
+                emt.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Côté récepteur</em> </p>
+    
+            <pre><code class="language-java">public class RecepteurUDP {
+    
+        public static void main(String[] args) {
+            try {
+                // creation de la socket de communication sur le port 5555 du serveur
+                DatagramSocket rcp = new DatagramSocket(5555);
+    
+                // creation d'un buffer pour contenir le message a recevoir
+                byte[] buffer = new byte[256];
+                //reception du paquet
+                DatagramPacket paquet = new DatagramPacket(buffer, buffer.length);
+                rcp.receive(paquet);
+                // conversion du message reçu en byte[] vers un entier
+                System.out.println("Message reçu :  " + ByteBuffer.wrap(buffer).getInt());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <h4>Exemple d'un échange de chaînes de caractères entre un serveur et un client par UDP :</h4>
+    
+            <p>Dans cet exemple, le client envoie le message "hello" et le serveur répond "world".</p>
+            <p>La socket côté serveur recevra les données sur le port 5555 du serveur et elle pourra également émettre. Dans ce cas elle utilisera le port défini par le client et l'adresse du client, qui seront précisés dans le paquet d'envoi.</p>
+    
+            <p><em>Côté client </em></p>
+    
+            <pre><code class="language-java">public class ClientUDP {
+    
+        public static void main(String[] args) {
+            try {
+                // la socket recevra les données sur le port 4444
+                // elle enverra les données sur le port défini dans le paquet d'envoi
+                DatagramSocket clt = new DatagramSocket(4444);
+    
+                // envoi de paquet1
+                InetAddress adresseIP = InetAddress.getByName("nomServeur");
+                String mess = "hello";
+                DatagramPacket paquet1 = new DatagramPacket(mess.getBytes(), mess.getBytes().length, adresseIP, 5555);
+                clt.send(paquet1);
+    
+                // reception du paquet2
+                byte[] buffer = new byte[256];
+                DatagramPacket paquet2 = new DatagramPacket(buffer, buffer.length);
+                clt.receive(paquet2);
+                System.out.println("Message recu =  " + new String(buffer));
+    
+                clt.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+            <p><em>Côté serveur</em> </p>
+    
+            <pre><code class="language-java">public class ServeurUDP {
+    
+        public static void main(String[] args) {
+            try {
+                // la socket recevra les données sur le port 5555
+                // elle enverra les données sur le port défini dans le paquet d'envoi
+                DatagramSocket srv = new DatagramSocket(5555);
+    
+                // reception du paquet1
+                byte[] buffer = new byte[256];
+                DatagramPacket paquet1 = new DatagramPacket(buffer, buffer.length);
+                srv.receive(paquet1);
+                System.out.println("Message recu =  " + new String(buffer));
+    
+                // envoi de paquet2
+                InetAddress adresseIP = InetAddress.getByName("nomClient");
+                String mess = "world";
+                DatagramPacket paquet2 = new DatagramPacket(mess.getBytes(), mess.getBytes().length, adresseIP, 4444);
+                srv.send(paquet2);
+    
+                srv.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }</code></pre>
+    
+    
+    
+        </div>
+    
+
+

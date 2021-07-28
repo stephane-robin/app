@@ -1,0 +1,55 @@
+<h2>Responsive design, media queries</h2>
+
+
+    <!-- ===== LES SECTIONS CACHEES ====== -->
+
+    <h3 id="cachee">Les sections cachées</h3>
+
+    <p>Dans le code HTML, entre les sections <em>head</em> et <em>body</em>, il faut rajouter le script suivant</p>
+
+    <pre><code class="language-html">&lt!-- script de gestion de l'apparition du contenu d'une section --&gt
+&ltscript type="text/javascript"&gt
+    function affichageConditionnel(bouton, id) {
+        var div = document.getElementById(id);
+        // si le div est masqué, on l'affiche et on change le contenu du bouton
+        if(div.style.display=="none") {
+            div.style.display = "block";
+            bouton.innerHTML = "-";
+        // s'il est visible, on le masque et on change le contenu du bouton
+        } else {
+            div.style.display = "none";
+            bouton.innerHTML = "+";
+        }
+}&lt/script&gt</code></pre>
+
+    <p>Il faut ensuite rajouter dans le code HTML au début de la section à cacher le contenu suivant </p>
+
+    <pre><code class="language-html">&lth2 id="nomIdentite"&gtTitre de ma section&ltbutton type="submit" onclick="affichageConditionnel(this,'nomIdentite_cache');"&gt + &lt/button&gt&lt/h2&gt
+
+    &ltdiv id="nomIdentite_cache" style="display:none;"&gt
+        &ltp&gtle contenu de la section cachée se trouve ici.&lt/p&gt
+    &lt/div&gt
+    </code></pre>
+
+    <p>La section apparaît lorsque l'utilisateur clique sur le bouton <strong>+</strong></p>
+
+    <p>L'affichage produit est le suivant :</p>
+
+    <h4 id="nomIdentite">Titre de ma section<button type="submit" onclick="affichageConditionnel(this,'nomIdentite_cache');"> + </button></h4>
+
+    <div id="nomIdentite_cache" style="display:none;">
+        <p>Voici le contenu de la section cachée.</p>
+    </div>
+
+
+
+
+
+    <!-- ===== RESPONSIVE DESIGN ===== -->
+
+    <h3 id="responsive"> Responsive design </h3>
+
+
+    <!-- ===== LES MEDIA QUERIES ===== -->
+
+<h3 id="queries"> Les media queries </h3>

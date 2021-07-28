@@ -1,0 +1,50 @@
+
+
+  <h2>Mise en forme</h2>
+
+
+
+<!-- ===== APPLIQUER UNE MISE EN FORME ===== -->
+
+<h3 id="forme"> Appliquer une mise en forme </h3>
+
+  <p> Pour appliquer un style particulier, il faut sélectionner le nom d'une balise sur laquelle le style va s'appliquer, puis les propriétés qu'on souhaite modifier ainsi que leurs valeurs. Chaque ligne de code se termine par <strong>;</strong> et il existe un <strong>:</strong> entre une propriété et sa valeur.
+      Si une modification concerne plusieurs balises, on peut sélectionner les noms de balises séparés de <strong>,</strong>.</p>
+
+
+    <p> <em>Attention</em>, il faut indiquer le nom de la balise sans les symboles <strong>&lt</strong> et <strong>&gt</strong>.</p>
+      <pre><code class="language-css">h1, h2{
+  color: blue;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+  <p> Lorsqu'on veut appliquer une mise en forme différente pour une même balise en fonction des situations, on ajoute l'attribut <strong>class</strong> à cette balise dans le fichier HTML et on spécifie les propriétés de <strong>class</strong> dans le fichier CSS.</p>
+
+  <div class="bloc">
+
+    <div class="gauche">
+      <pre><code class="language-html">&ltp class="paragraphe1"&gt mon texte &lt/p&gt </code></pre>
+      <footer class="legendeCode">HTML</footer>
+    </div>
+
+    <div class="droite">
+      <pre><code class="language-css">.paragraphe1{
+  color: blue;
+}</code></pre><footer class="legendeCode">CSS</footer>
+    </div>
+
+  </div>
+
+
+    <p> &#128204; <em>Attention</em>, dans ce cas il est important de ne pas oublier le <strong>.</strong> devant le nom de la classe de la balise.</p>
+
+
+  <p> <em> Remarque </em>, on peut également utiliser l'attribut <strong>id</strong> qui se construit de la même manière que l'attribut <strong>class</strong>. En revanche, dans le fichier CSS, il ne faut plus faire précéder le nom de la classe par un <strong>.</strong> mais l'identité par un <strong>#</strong>. L'attribut <strong>id</strong> a pour particularité de ne s'utiliser qu'une fois dans la page HTML.</p>
+  <p> Pour sélectionner une balise se trouvant à l'intérieur d'une autre balise, on ne met pas de <strong>,</strong> entre la balise père et la balise fils :</p>
+  <pre><code class="language-css">h2 strong{
+  color: blue;
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+
+  

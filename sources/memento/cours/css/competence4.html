@@ -1,0 +1,51 @@
+
+
+  <h2>Héritage</h2>
+
+
+
+<!-- ===== NOTION D'HERITAGE ===== -->
+
+<h3 id="heritage"> Notion d'héritage </h3>
+
+  <p> La notion d'héritage est issue de la programmation orientée objet. En CSS, cela signifie que si on applique une propriété à une balise, toutes les balises qui se trouvent à l'intérieur appliqueront cette même propriété. On dit qu'elles héritent de cette propriété.
+        Par exemple si on définit la couleur du texte à l'intérieur d'un paragraphe comme étant bleue, tous les mots mis en valeur par la balise <strong>em</strong> à l'intérieur d'un paragraphe seront bleus, sauf si on redéfinit spécifiquement la couleur de la balise <strong>em</strong>.</p>
+  <p>Le code suivant est interprété de la façon suivante par le navigateur, où le mot "Attention" se trouvant à l'intérieur de balises <strong>&ltem&gt</strong> est colorié en bleu.</p>
+
+  <pre><code class="language-html">&ltp style="color:rgb(51,51,255)"&gt&ltem&gtAttention&lt/em&gt, je tape mon texte ici.&lt/p&gt</code></pre>
+  <footer class="legendeCode">HTML</footer>
+
+  <p>associé à</p>
+
+  <pre><code class="language-css">p{
+  font-family: Verdana, "Trebuchet MS", Arial;
+  text-align: justify;
+  color: rgb(51,51,255);
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+
+
+  <p>qui produit l'affichage suivant</p>
+  <p style="color:rgb(51,51,255)"><em>Attention</em>, je tape mon texte ici.</p>
+
+
+
+  <p> En revanche, le code suivant est interprété différemment, et la définition spécifique de la couleur de la balise <strong>&ltem&gt</strong>, outrepasse l'héritage issu de la balise <strong>&ltp&gt</strong>. </p>
+
+  <pre><code class="language-html">&ltp style="color:rgb(51,51,255)"&gt&ltem style="color:rgb(255,51,102)"&gtAttention&lt/em&gt, je tape mon texte ici.&lt/p&gt</code></pre>
+
+  <p>associé à</p>
+      <pre><code class="language-css">em{
+  color: rgb(255,51,102);
+}</code></pre><footer class="legendeCode">CSS</footer>
+
+<p>qui produit l'affichage suivant</p>
+
+      <p style="color:rgb(51,51,255)"><em style="color:rgb(255,51,102)">Attention</em>, je tape mon texte ici.</p>
+
+  <a href="#titreSite" style="margin-left:30%;">&#128314; Haut de page &#128314;</a>
+
+
+
+
+  

@@ -1,0 +1,41 @@
+
+<h2>Les branches</h2>
+
+
+<!-- LA GESTION DES BRANCHES -->
+
+<h3 id="branche">La gestion des branches Git</h3>
+
+<p>La branche master correspond à celle dans laquelle aboutissent toutes les 
+modifications. Il ne faut pas réaliser les modifications sur cette branche master,
+mais les réaliser sur une autre branche qu'on intègre ultérieurement à la branche master.</p>
+
+<p>Pour connaître les branches présentes dans un projet, il faut exécuter</p>
+<pre><code class="language-svg">git branch</code></pre>
+
+<p>L'étoile qui apparaît dans la réponse marque la branche sur laquelle on travaille actuellement.</p>
+
+<p>Pour créer la branche maBranche en local (elle ne sera pas dupliquée sur le dépôt distant)</p>
+<pre><code class="language-svg">git branch maBranche</code></pre>
+
+<p>Attention, une branche créée est toujours locale.</p>
+
+<p>Pour changer de branche et se retrouver dans maBranche</p>
+<pre><code class="language-svg">git checkout maBranche</code></pre>
+
+<p>Attention, <strong>checkout</strong> a un double usage avec <em>Git</em>.</p>
+
+<p>On peut également créer une branche et s'y rendre directement avec l'instruction :</p>
+  <pre><code class="language-svg">git checkout -b nomBranche</code></pre>
+
+<p>Pour fusionner les changements d'une branche avec la branche master, il faut d'abord se rendre sur la branche master :</p>
+<pre><code class="language-svg">git checkout master
+git merge nomBranche</code></pre>
+
+<p>Pour supprimer une branche : </p>
+  <pre><code class="language-svg">git branch -d nomBranche</code></pre>
+
+<p>Cette suppression n'est possible que si le travail réalisé sur la branche fille a été incorporé dans la branche master, sinon <em>Git</em> interdit la suppression.</p>
+
+<p>Pour supprimer une branche dont les modifications n'ont pas été incorporées à la branche master, parce que par exemple le travail réalisé n'est pas concluant :</p>
+  <pre><code class="language-svg">git branch -D nomBranche</code></pre>
