@@ -1,0 +1,93 @@
+
+<h2>Les conditions</h2>
+
+<p>&#128218; <em>Compétence : savoir utiliser une condition</em></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+<p>Les conditions permettent au programme de prendre des décisions en fonction des situations qu'il rencontre.</p>
+
+<h3>Découvrir les conditions</h3>
+
+<p>Dans l'exemple suivant, si le nom de la personne est <em>Alice</em>, le programme s'exécute normalement, sinon il n'accepte pas la navigation.</p>
+
+<pre><code class="language-python">nom = "Alice"
+if nom == "Alice":
+    print("Bonjour Alice")
+else:
+    print("Désolé, accès refusé.")</code></pre>
+
+<p>Vous avez déjà découvert les conditions avec Scratch. Le code Python ci-dessus correspond pour Scratch au script suivant :</p>
+
+<img src="../../images/snt/codeScratchCondition.png" alt="code Scratch" width=30%>
+
+<p>La difficulté en Python réside dans le signe <strong>==</strong>. Il est essentiel de comprendre que la condition <strong>nom == "Alice"</strong> s'exprime par une comparaison entre <strong>nom</strong> et <strong>"Alice"</strong>. On utilise pour cela l'opérateur de comparaison <strong>==</strong>. Il n'a rien à voir avec l'opérateur d'affectation <strong>=</strong> de la 1ère ligne de code, qui donne la valeur <strong>"Alice"</strong> à la variable <strong>nom</strong>.</p>
+
+<p>En fait, la condition <strong>nom == "Alice"</strong> se traduit par <em>True</em> ou <em>False</em>. Une condition crée une valeur booléenne. Voyons ensemble comment peut évoluer une comparaison. Essayez le code suivant :</p>
+
+<pre><code class="language-python">nom = "Alice"
+print(nom == "Alice")
+nom = "Bob"
+print(nom == "Alice")</code></pre>
+
+<h3>Imbriquer les conditions</h3>
+
+<p>Il est possible de créer une condition dans une condition.</p>
+
+
+
+<div class="exerciceType">
+    <p><em>Exercice type : </em>afficher 
+        <ul>
+            <li><em>la neige a bien gelé</em> si la variable <strong>Temperature</strong> est inférieure à -5,</li>
+            <li><em>la neige est molle</em> si la variable <strong>Temperature</strong> est supérieure à +10.</li>
+        </ul></strong></p>
+    <p><em>Solution :</em></p>
+        <pre><code class="language-python">if Temperature < -5:
+    print("la neige a bien gelé")
+else if Temperature > 10:
+    print("la neige est molle")</code></pre>
+
+    <p>Le code Python ci-dessus correspond au script Scratch suivant :</p>
+    <img src="../../images/snt/codeScratchConditionImbriquee.png" alt="code Scratch" width=30%>
+</div>
+
+<div class="exerciceApplication">
+<p><em>A vous de jouer : </em>écrire les instructions suivantes
+    <ul><li>définir deux variables <strong>a</strong> et <strong>b</strong> en leur donnant deux valeurs,</li> 
+        <li>afficher <em>a est plus petit que b</em> si <strong>a</strong> est plus petit que <strong>b</strong>,</li>
+        <li>afficher <em>a est plus grand que b</em> si <strong>a</strong> est plus grand que <strong>b</strong>,</li> 
+        <li>afficher <em>a est égal à b</em> si a est égal à b.</li>
+    </ul></p>
+</div>
+
+<p>&#128122; <em>Bataille navale :</em>  pour jouer à la bataille navale, nous devons vérifier pour chaque coordonnée donnée par l'utilisateur qu'elle ne touche aucun bateau. Notons <strong>xChoisi</strong> et <strong>yChoisi</strong> les coordonnées proposées par l'utilisateur. Il faut donc écrire un code qui affiche <em>touché</em> lorsque les coordonnées choisies correspondent aux coordonnées du bateau (<strong>xBateau</strong> et <strong>yBateau</strong>).  
+
+<h3>Les opérateurs utilisés avec des conditions</h3>
+
+<table>
+    <tr><th>opérateur</th><th>signification</th></tr>
+    <tr><td>a == b</td><td>True si a vaut b</td></tr>
+    <tr><td>a != b</td><td>True si a différent de b</td></tr>
+    <tr><td>a < b</td><td>True si a inférieur à b</td></tr>
+    <tr><td>a > b</td><td>True si a supérieur à b</td></tr>
+    <tr><td>a <= b</td><td>True si a inférieur ou égal à b</td></tr>
+    <tr><td>a >= b</td><td>True si a supérieur ou égal à b</td></tr>
+    <tr><td>a == b and c == d</td><td>True si a vaut b et c vaut d</td></tr>
+    <tr><td>a == b or c == d</td><td>True si a vaut b ou c vaut d</td></tr>
+</table>
+
+<h3>L'indentation</h3>
+
+<p>L'indentation est le fait de décaler le code vers la droite (en général d'une tabulation ou de 4 espaces). C'est essentiel en Python qui n'utilise par d'accolades et choisit de commencer un bloc de code par une indentation et de rester dans ce bloc tant que le code est indenté. Par exemple dans le code suivant :</p>
+
+<pre><code class="language-python">nom = "Alice"
+if nom == "Alice":
+    print("Bonjour Alice.")
+    print("Comment allez-vous aujourd'hui ?")
+print("Aujourd'hui c'est journée portes ouvertes.")</code></pre>
+
+<p><em>Bonjour Alice. Comment allez-vous aujourd'hui ?</em> ne s'affichera que si le <strong>nom</strong> vaut <strong>Alice</strong>. Les deux phrases font partie du même bloc d'instructions. En revanche, <em>Aujourd'hui c'est journée portes ouvertes.</em> s'affichera tout le temps, même si <strong>nom</strong> ne vaut pas <strong>Alice</strong>, car cette instruction est indépendante de la condition <strong>if nom == "Alice"</strong>.</p>
+
+
+

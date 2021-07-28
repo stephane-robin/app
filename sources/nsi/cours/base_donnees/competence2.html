@@ -1,0 +1,139 @@
+<h2>Le langage SQL</h2>
+
+<p>&#128218; <em>Compétence : savoir écrire une requête SQL de lecture de table</em></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+<p>Considérons la base de données <em>skis</em> constituée de la table <em>fournisseurs</em> contenant les éléments suivants :</p>
+
+<table>
+	<tr><th>ID</th><th>nom</th><th>fabriquant</th><th>reference</th><th>prix_HT</th></tr>
+	<tr><td>1</td><td>Piuma Sintesi</td><td>SkiTrab</td><td>12245</td><td>457</td></tr>
+	<tr><td>2</td><td>4x4</td><td>Rossignol</td><td>3425</td><td>568</td></tr>
+	<tr><td>3</td><td>SR08</td><td>Dynafit</td><td>98380</td><td>690</td></tr>
+	<tr><td>4</td><td>Hero</td><td>Rossignol</td><td>123989</td><td>593</td></tr>
+	<tr><td>5</td><td>9X</td><td>Rossignol</td><td>123</td><td>453</td></tr>
+	<tr><td>6</td><td>Pierra Menta</td><td>Dynastar</td><td>9054</td><td>987</td></tr>
+</table>
+
+<p>et de la table <em>competitions</em> contenant les éléments suivants</p>
+
+<table>
+	<tr><th>ID</th><th>idNom</th><th>evenement</th><th>date</th><th>classement</th></tr>
+	<tr><td>1</td><td>3</td><td>Patrouille</td><td>20.04.2020</td><td>3</td></tr>
+	<tr><td>2</td><td>6</td><td>Altitoy</td><td>04.03.2021</td><td>2</td></tr>
+	<tr><td>3</td><td>3</td><td>Adamello</td><td>21.03.2021</td><td>7</td></tr>
+	<tr><td>4</td><td>6</td><td>Patrouille</td><td>20.04.2020</td><td>5</td></tr>
+</table>
+
+<p>Dans la table <em>competition</em>, le champ <em>idNom</em> correspond à la clé primaire de la table <em>fournisseur</em>. Il permet de mettre en relation cette table avec la table <em>fournisseur</em>. On parle de base de données relationnelles.</p>
+
+<h3>Consulter une table</h3>
+
+<p>L'instruction SELECT permet de lire les données contenues dans une table.</p>
+
+<p>Par exemple, pour lire tous les noms de skis de la table <em>fournisseurs</em>, il suffit d'écrire :</p>
+
+<pre><code class="language-svg">SELECT nom
+FROM fournisseurs</code></pre>
+
+<p>Pour lire tous les enregistrements de la table <em>fournisseurs</em>, il faut écrire :</p>
+
+<pre><code class="language-svg">SELECT *
+FROM fournisseurs</code></pre>
+
+<p>Pour lire tous les fabriquants de la table <em>fournisseurs</em>, sans que les noms se répètent si ils apparaissent plusieurs fois dans la liste :</p>
+
+<pre><code class="language-svg">SELECT DISTINCT fabriquant
+FROM fournisseurs</code></pre>
+
+<p>C'est assez intuitif, mais on n'a pour l'instant introduit aucune condition. Imaginons qu'on souhaite obtenir maintenant toutes les références de skis de la marque Rossignol</p>
+
+<pre><code class="language-svg">SELECT reference
+FROM fournisseurs
+WHERE fabriquant='Rossignol'</code></pre>
+
+<p>Attention, contrairement aux autres langages de programmation, on utilise le signe "=" pour comparer deux entités et non le signe "==".</p>
+
+<p>Si on souhaite obtenir les références de skis des fabriquants commençant par D, il faut écrire</p>
+
+<pre><code class="language-svg">SELECT reference
+FROM fournisseurs
+WHERE fabriquant LIKE 'D%'</code></pre>
+
+<p>Il est possible d'ordonner par ordre alphabétique croissant (ASC) ou décroissant (DSC) suivant le champ <em>nom</em> le résultat obtenu, avec l'instruction suvante</p>
+
+<pre><code class="language-svg">SELECT reference
+FROM fournisseurs
+WHERE fabriquant='Rossignol'
+ORDER BY nom ASC</code></pre>
+
+<h4>Les jointures</h4>
+
+<p>Une jointure est un type de requête particulier qui regroupe des informations contenues dans plusieurs tables.</p>
+
+<p>Par exemple pour obtenir le nom des skis avec les événements auxquels ils ont participé, il faut écrire</p>
+
+<pre><code class="language-svg">SELECT nom, evenement FROM fournisseurs
+INNER JOIN competitions ON fournisseurs.ID=competitions.idNOM</code></pre>
+
+<h4>Opérations sur les résutats</h4>
+
+<p>Lorsqu'on lit les données d'une table, il est aussi faisable d'en faire ressortir les principales métriques. Ainsi, on peut compter le nombre de résultats obtenus, on peut rechercher le minimum, le maximum ou la moyenne d'un résultat dès lors que celui-ci est numérique.</p>
+
+<p>Ainsi, pour compter le nombre de noms de skis de la table <em>fournisseurs</em>, il faut écrire</p>
+
+<pre><code class="language-svg">SELECT COUNT(nom) AS nom
+FROM fournisseurs</code></pre>
+
+<p>Pour connaître le prix minimum des skis de la table <em>fournisseurs</em>, il faut écrire</p>
+
+<pre><code class="language-svg">SELECT MIN(prix_HT) AS minimum
+FROM fournisseurs</code></pre>
+
+<p>Pour connaître le prix maximum des skis de la table <em>fournisseurs</em>, il faut écrire</p>
+
+<pre><code class="language-svg">SELECT MAX(prix_HT) AS maximum
+FROM fournisseurs</code></pre>
+
+<p>Pour connaître le prix moyen des skis de la table <em>fournisseurs</em>, il faut écrire</p>
+
+<pre><code class="language-svg">SELECT AVG(prix_HT) AS moyenne
+FROM fournisseurs</code></pre>
+
+<p>Pour connaître la somme des prix des skis de la table <em>fournisseurs</em>, il faut écrire</p>
+
+<pre><code class="language-svg">SELECT SUM(prix_HT) AS somme
+FROM fournisseurs</code></pre>
+
+<h3>Modifier une table</h3>
+
+<p>L'instruction INSERT INTO permet de rajouter un enregistrement dans une table.</p>
+
+<p>Pour rajouter Baltoro, Dynafit, 3425, 589 dans la table <em>fournisseur</em>, il faut écrire</p>
+
+<pre><code class="language-svg">INSERT INTO fournisseur (nom, fabriquant, reference, prix_HT)
+VALUES ('Baltoro', 'Dynafit', '3425', 589)</code></pre>
+
+<p>La clé primaire sera dans ce cas automatiquement mise à jour.</p>
+
+<p>L'instruction UPDATE permet de modifier un enregistrement dans une table.</p>
+
+<p>Pour modifier le prix des skis Hero, il faut écrire</p>
+
+<pre><code class="language-svg">UPDATE fournisseur SET prix_HT=539
+WHERE nom='Hero'</code></pre>
+
+<p>L'instruction DELETE FROM permet de supprimer un enregistrement dans une table. Attention, il n'est pas possible de revenir en arrière.</p>
+
+<pre><code class="language-svg">DELETE FROM fournisseur
+WHERE nom='SR08'</code></pre>
+
+<div class="exerciceApplication">
+	<p><strong>ENTRAINEMENT : </strong></p>
+	<p><strong>Exercice 1 : </strong></p>
+	<p><strong>Exercice 2 : </strong></p>
+	<p><strong>Exercice 3 : </strong></p>
+	<p><strong>Exercice 4 : </strong></p>
+	<p><strong>Exercice 5 : </strong></p>
+</div>

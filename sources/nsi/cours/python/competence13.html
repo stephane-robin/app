@@ -1,0 +1,54 @@
+
+<h2>Portée des variables</h2>
+
+<p>&#128218; <em>Compétence : comprendre à quels endroits les variables sont reconnues dans le programme</em></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+<p>Une variable définie dans une fonction n'existe que dans cette fonction. Si on l'appelle à l'extérieur de la fonction, l'interpréteur renvoie une erreur car il ne la connaît pas.</p>
+
+<p>En revanche, une variable définie dans la partie principale du programme est globale au programme et peut donc s'utiliser de partout. Il existe toutefois une restriction. Si dans une fonction il existe une autre variable portant le même nom, alors l'interpréteur fera la différence entre ces deux variables qui ont été définies à deux emplacements différents.</p>
+
+<p>On parle de portée d'une variable pour exprimer son champ d'action relativement à l'emplacement où elle a été définie.</p>
+
+
+<p>Testez le code ci-dessous pour mieux comprendre. Il affiche <em>Virginia</em> et n'a pas tenu compte du changement. En effet, la variable <strong>nom</strong> qui est appelée à la fin est la variable globale <strong>nom</strong> définie au début. La variable <strong>nom</strong> définie à l'intérieur de la fonction est bien prise initialisée avec la valeur <em>Paul</em>, mais elle n'est jamais utilisée.</p>
+
+<pre><code class="language-python">nom = "Virginia"
+
+def changerNom():
+    nom = "Paul"
+
+changerNom()  
+print(nom)</code></pre>
+
+<p>Pour que la variable <strong>nom</strong> locale à la fonction corresponde à la variable globale <strong>nom</strong> du programme, il faut préciser dans la fonction que c'est bien la variable globale qui est utilisée. </p>
+
+ <pre><code class="language-python">nom = "Virginia"
+
+def changerNom():
+    global nom
+    nom = "Paul"
+
+changerNom()   
+print(nom)</code></pre>   
+
+<p>On peut également utiliser la variable locale <strong>nom</strong> puis enregistrer la valeur renvoyée dans le variable globale <strong>nom</strong>. Cela fournit le même résultat.</p>
+
+ <pre><code class="language-python">
+nom = "Virginia"
+
+def changerNom():
+    nom = "Paul"
+    return nom
+
+nom = changerNom()   
+print(nom)</code></pre>
+
+<p>Il est essentiel de tester plusieurs fois les 3 scripts ci-dessus pour bien comprendre la notion fondamentale de portée des variables. En effet, lorsqu'on définit une variable ou qu'on la modifie, on souhaite que le changement s'opère.</p>
+
+
+<div class="exerciceApplication">
+    <p><em>A vous de jouer : </em>définir une variable <strong>age</strong> qui prend la valeur 17, puis définir une fonction <strong>anniversaire()</strong> qui rajoute un an à <strong>age</strong> et renvoie <em>vous êtes majeur</em> si la personne a plus de 18 ans.</p>
+</div>
+

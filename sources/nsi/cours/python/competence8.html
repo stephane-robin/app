@@ -1,0 +1,61 @@
+
+<h2>Les listes</h2>
+
+<p>&#128218; <em>Compétence : savoir changer un élément dans une liste</em></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+<p>Nous avons vu qu'une chaîne de caractères est un ensemble de caractères qu'on repère par un indice. On peut considérer une liste comme étant un ensemble d'éléments (textes ou nombres) qu'on repère par un indice.</p>
+
+<p>Par exemple, ceci est une liste</p>
+
+    <pre><code class="language-python">maListe = ["lundi", "mardi", "mercredi", "jeudi", "vendredi"]</code></pre>
+
+
+<h3>Définir une liste</h3>
+
+<p>Pour définir une liste vide, on a le choix entre deux possibilités</p>
+
+<pre><code class="language-python">maListe = []
+maListe = list()</code></pre>
+
+<p>Pour définir une liste contenant déjà des éléments, il suffit de les écrire en les séparant à l'aide d'une virgule. Attention, il faut penser à mettre des " pour chaque élément lorsqu'il s'agit d'une chaîne de caractères.</p>
+
+<pre><code class="language-python">maListe = [3, 5, 2, 7, 8, 1]</code></pre>
+
+
+
+<div class=fieldsetDefinition>
+<h4>A RETENIR ...</h4> 
+<p>Dans une liste le 1er élément a pour indice 0 et non pas 1, c'est à dire qu'il se trouve à la position 0.</p>
+</div>
+
+<h3>Les opérations élémentaires</h3>
+
+<h4>Récupérer un élément</h4>
+
+<p>Pour récupérer l'élément d'indice i de maListe et le placer dans la variable <strong>jour</strong> :</p>
+
+<pre><code class="language-python">jour = maListe[i]</code></pre>
+
+<h4>Rajouter un élément en fin de liste</h4>
+
+<pre><code class="language-python">maListe.append("mon nouvel élément")</code></pre>
+
+<h4>Changer un élément dans une liste</h4>
+
+
+<p>Pour remplacer l'élément d'indice i de maListe par "élément modifié" :
+<pre><code class="language-python">maListe[i] = "élément modifié"</code></pre>
+
+<div class="exerciceType">
+    <p><em>Exercice type : </em>créer une liste contenant les noms "May", "Capucine", "Joaquim". Rajouter ensuite "Ethan", puis afficher l'élément d'indice 2 de cette liste.</p>
+<pre><code class="language-python">listeNoms = ["May", "Capucine", "Joaquim"]
+listeNoms.append("Ethan")
+print(listeNoms[2])</code></pre>
+</div>
+
+<div class="exerciceApplication">
+    <p><em>A vous de jouer : </em>créer une liste vide, puis rajouter à cette liste les villes "Zurich", "Geneve", "Bern". Changer "Bern" par "Neuchatel".</p>
+    </div>
+

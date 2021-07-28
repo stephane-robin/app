@@ -1,0 +1,76 @@
+<h2>Le routage</h2>
+
+<p>&#128218; <em>Compétence : savoir interpréter une table de routage</em></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+
+
+
+<h3>Le routage</h3>
+
+<p>Le routage a pour objectif d'acheminer un paquet à travers un réseau. L'algorithme de routage choisit donc pour chaque noeud du réseau le port de sortie que prendra le paquet. Les algorithmes de routage peuvent être :
+    <ul>
+    <li>statiques, ils utilisent des routes définies à l'avance</li>
+    <li>dynamiques, ils s'adaptent au maillage et au trafic du réseau</li>
+    </ul>
+</p>
+
+<p>Les algorithmes de routage font souvent appel au plus court chemin entre 2 routeurs du réseaux pour calculer le coût total d'un chemin. L'algorithme de Dijkstra (voir cours de SNT) est souvent utilisé pour calculer le plus court chemin entre deux sommets dans un graphe, de même que l'algorithme RIP utilisé avec le protocole IP sur Internet.</p>
+
+
+<h4>L'algorithme RIP</h4>
+
+<p>L'algorithme RIP Routing Information Protocol est le routage spécifique au protocole IP. Il s'agit d'une technique de routage pas à pas, c'est à dire que l'algorithme n'a pas une vue d'ensemble du chemin choisi, mais qu'il décide au niveau de chaque routeur le port de sortie que va emprunter le paquet à transmettre, et donc l'adresse du routeur suivant à atteindre. Cela suppose qu'une table de routage soit intégrée à chaque routeur afin de proposer le routeur suivant pour chaque destinataire.</p>
+
+<p>Une table de routage RIP est composée des éléments suivants :
+    <ul>
+        <li>adresse IP de destination du paquet</li>
+        <li>passerelle, c'est à dire l'adresse du routeur suivant le plus prêt à atteindre. Si son adresse est inconnue le paquet est transmis au routeur par défaut</li>
+        <li>interface, c'est à dire l'adresse du port de sortie du routeur en cours d'utilisation'</li>
+        <li>le vecteur distance ou métrique correspondant au nombre de routeurs restant à parcourir. Si ce vecteur distance est inconnu sa valeur par défaut est 1.</li>
+    </ul>
+</p>
+
+<p>L'algorithme RIP consiste donc à rechercher dans la table de routage de chaque routeur le meilleur routeur suivant pour acheminer le datagramme vers son destinataire.</p> 
+
+<h4>Le message RIP</h4>
+
+<p>Par ailleurs, un message RIP est transmis à intervalles réguliers par chaque routeur à ses routeurs voisins pour communiquer la liste des destinataires (hôtes ou réseaux) dont il connaît la route dans sa table.</p>
+
+<p>Ce message RIP ne contient donc pas l'adresse des hôtes présents sur la table de routage de l'émetteur, mais uniquement l'adresse des réseaux à laquelle se rajoute le vecteur distance.</p>
+
+<div class="exerciceApplication">
+    <p><strong>ENTRAINEMENT : </strong></p>
+    <p><strong>Exercice 1 : </strong></p>
+    <p><strong>Exercice 2 : </strong></p>
+    <p><strong>Exercice 3 : </strong></p>
+    <p><strong>Exercice 4 : </strong></p>
+    <p><strong>Exercice 5 : </strong></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

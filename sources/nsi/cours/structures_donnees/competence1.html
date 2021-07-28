@@ -1,0 +1,190 @@
+<h2>Structures de données séquentielles</h2>
+
+<p>&#128218; <em>Compétence : différencier le comportement d'une liste, d'une pile et d'une file</em></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+<p>Il existe des types de données primitives comme les str, int et float, mais également des types de données complexes en fonction des langages de programmation. Afin de pouvoir définir le comportement des données complexes et donc de les utiliser, il est nécessaire de les structurer.</p>
+
+<p>La modification des structures de données se construit autour de 4 routines élémentaires CRUD (Create Read, Update, Delete).</p>
+
+<h3>Les listes</h3>
+
+<p>Une liste est une structure de données composée d'une suite ordonnée d'éléments repérés par un index. Cet index démarre à 0 et la taille d'une liste peut varier.</p>
+
+<div class="exerciceApplication"><p><strong>A vous de jouer : </strong>En Python, on connait les fonctions insert(), append(), pop() et remove() pour insérer ou supprimer un élément d'une liste. Quelle différence existe-t-il entre ces 4 méthodes. Donner des exemples simples pour en expliquer la structure. Aide : la Doc Python</p>
+</div>
+
+<p>Afin de comprendre le fonctionnement d'une liste, nous allons maintenant la construire de façon abstraite en considérant qu'une liste est en fait un tableau temporaire L. Comme on raisonne de façon abstraite, nous ne pouvons pas utiliser une fonction d'un langage de programmation donnant la taille de L. Il faut donc qu'un élément de L en contienne la taille. Ainsi, L[0] contient la taille de L et tous les autres indices permettent d'enregistrer les éléments de la liste. Attention, dans ce système abstrait l'élément liste[0] se trouve en fait dans le tableau temporaire L[1]. C'est un peu déconcertant mais cela permet de connaître en permanence la taille de L sans recourir à une fonction prédéfinie.</p>
+
+<div class="exerciceType"><p><strong>Exercice type : </strong>construire étape par étape L à partir du pseudo-code suivant :
+<ul>
+<li>L = CREER_LISTE_VIDE()</li>
+<li>INSERER(L, 'n', 1)</li>
+<li>INSERER(L, 'i', 1)</li>
+<li>INSERER(L, 'o', 3)</li>
+<li>INSERER(L, 'f', 3)</li>
+</ul></p>
+<p>Solution :</p>
+<table>
+<tr><td>L</td><td>0</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>L</td><td>0</td><td>n</td><td></td><td></td><td></td></tr>
+<tr><td>L</td><td>0</td><td>i</td><td>n</td><td></td><td></td></tr>
+<tr><td>L</td><td>0</td><td>i</td><td>n</td><td>o</td><td></td></tr>
+<tr><td>L</td><td>0</td><td>i</td><td>n</td><td>f</td><td>o</td></tr>	
+<tr><td>index</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+</table>
+</div>
+
+
+<p>Les listes sont couramment utilisées en programmation pour enregistrer des éléments d'une manière ordonnée.</p>
+
+
+<div class="exerciceType"><p><strong>Exercice type : </strong>nous allons reconstruire la fonction insérer() à partir de la liste abstraite L ci-dessus, qui correspond à la fonction Python insert(). Des espaces mémoire vides seront volontairement alloués en fin de liste pour permettre le décalage des éléments. Nous ne gérons pas les exceptions de type error index out of range.</p>
+
+<pre><code class="language-python">def inserer(liste, element, i):
+    for k in range(liste[0] + 1, i, -1): # décalage des éléments à partir de i
+        liste[k] = liste[k - 1]
+    liste[i] = element # insertion de element à l'index i
+    liste[0] = liste[0] + 1 # mise à jour de la taille de liste
+
+L = [4, 'i', 'n', 'f', 'o', None, None, None, None, None, None]
+print(L)  
+inserer(L, 'a', 2)
+print(L)</code></pre>
+
+<p>On remarque que la boucle range part de la fin de la liste pour éviter que le décalage ne reproduise toujours la même valeur.</p> 
+
+<p>Le résultat obtenu à l'affichage correspond bien au travail qu'aurait effectué la fonction Python insert('a', 1) :</p>
+<pre><code class="language-python">[4, 'i', 'n', 'f', 'o', None, None, None, None, None, None]
+[5, 'i', 'a', 'n', 'f', 'o', None, None, None, None, None]</code></pre>
+</div>
+
+<div class="exerciceApplication"><p><strong>A vous de jouer : </strong>construire la fonction supprimer() à partir de la liste abstraite L ci-dessus, qui correspond à la fonction Python pop().</div>
+
+<h3>Les piles</h3>
+
+<p>Une pile est une structure de données donnant accès en priorité au dernier élément ajouté. On peut donc consulter tout ce que contient une pile, mais il vaut pour cela la vider par le haut, étape par étape (la dépiler).</p>
+
+<p>Afin de comprendre le comportement d'une pile, nous allons maintenant la construire de façon abstraite en considérant qu'une pile est en fait un tableau temporaire P. Le 1er élément de la pile P[0] contient l'index de la 1ère case vide où pourra être inséré le prochain élément. Tous les autres indices permettent d'enregistrer les éléments de la pile. Le sommet de la pile est le dernier élément non vide.</p>
+
+<div class="exerciceType"><p><strong>Exercice type : </strong>construire étape par étape P à partir du pseudo-code suivant :
+<ul>
+<li>P = CREER_PILE_VIDE()</li>
+<li>EMPILER(P, 'i')</li>
+<li>EMPILER(P, 'a')</li>
+<li>DEPILER(P)</li>
+<li>EMPILER(P, 'n')</li>
+<li>EMPILER(P, 'f')</li>
+<li>EMPILER(P, 'o')</li>
+</ul></p>
+<p>Solution :</p>
+<table>
+<tr><td>P</td><td>1</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>P</td><td>2</td><td>i</td><td></td><td></td><td></td></tr>
+<tr><td>P</td><td>3</td><td>i</td><td>a</td><td></td><td></td></tr>
+<tr><td>P</td><td>2</td><td>i</td><td></td><td></td><td></td></tr>
+<tr><td>P</td><td>3</td><td>i</td><td>n</td><td></td><td></td></tr>
+<tr><td>P</td><td>4</td><td>i</td><td>n</td><td>f</td><td></td></tr>
+<tr><td>P</td><td>5</td><td>i</td><td>n</td><td>f</td><td>o</td></tr>		
+<tr><td>index</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+</table>
+</div>
+
+<p>On rencontre un processus sous forme de pile pour mémoriser l'historique des pages Web visitées par exemple. En cliquant sur Affichage de la page précédente, on dépile l'adresse de la dernière page visitée.</p>
+
+<div class="exerciceType"><p><strong>Exercice type : </strong>nous allons reconstruire la fonction empiler() en Python pour reproduire la pile abstraite P ci-dessus. Des espaces mémoire vides seront volontairement alloués en fin de pile pour permettre d'empiler les éléments. Nous ne gérons pas les exceptions de type error index out of range.</p>
+
+<pre><code class="language-python">def empiler(pile, element):
+    i = pile[0]
+    pile[i] = element # insertion de element à l'index i
+    pile[0] = i + 1 # mise à jour de l'index du 1er espace vide
+
+P = [1, None, None, None, None, None, None, None, None, None, None]
+print(P)
+empiler(P, 'i')
+empiler(P, 'n')
+empiler(P, 'f')
+empiler(P, 'o')
+print(P)</code></pre>
+ 
+
+<p>Le résultat obtenu à l'affichage correspond bien à ce qui était recherché :</p>
+<pre><code class="language-python">[1, None, None, None, None, None, None, None, None, None, None]
+[5, 'i', 'n', 'f', 'o', None, None, None, None, None, None]</code></pre>
+</div>
+
+<div class="exerciceApplication"><p><strong>A vous de jouer : </strong>construire la fonction depiler() à partir de la pile abstraite P ci-dessus, qui retire de la pile l'élément au sommet, c'est à dire le dernier élément.</p></div>
+
+<h3>Les files</h3>
+
+<p>Une file est une structure de données donnant accès en priorité au 1er élément ajouté. On peut donc consulter tout ce que contient une file, mais il vaut pour cela la vider par le bas, étape par étape (la défiler).</p>
+
+<p>Afin de comprendre le comportement d'une file, nous allons maintenant la construire de façon abstraite en considérant qu'une file est en fait un tableau temporaire F. Le 1er élément de la file F[0] contient l'index de la tête de file, F[1] contient l'index de la queue de file, F[2] contient la taille de la file. Tous les autres indices permettent d'enregistrer les éléments de la file. La tête de file est L'emplacement du 1er élément, ce aui se trouve donc en bas (ou au début), la queue de file est le 1er emplacement libre pour un prochain élément, ce qui se teouve donc au sommet (au à la fin).</p>
+
+<p>Pour enfiler un élément, on le rajoute à la suite de la file, donc on augmente la taille de 1 et on augmente l'indice de queue de 1. Pour défiler un élément, on l'enlève du début de la file sans bouger les autres, donc on diminue la taille de 1, on augment l'indice de tête de 1.</p>
+
+<div class="exerciceType"><p><strong>Exercice type : </strong>construire étape par étape F à partir du pseudo-code suivant :
+<ul>
+<li>P = CREER_FILE_VIDE()</li>
+<li>ENFILER(F, 'i')</li>
+<li>ENFILER(F, 'a')</li>
+<li>DEFILER(F)</li>
+<li>DEFILER(F)</li>
+<li>ENFILER(F, 'i')</li>
+<li>ENFILER(F, 'n')</li>
+<li>ENFILER(F, 'f')</li>
+<li>ENFILER(F, 'o')</li>
+</ul></p>
+<p>Solution :</p>
+<table>
+<tr><td>F</td><td>3</td><td>3</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>F</td><td>3</td><td>4</td><td>1</td><td>i</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>F</td><td>3</td><td>5</td><td>2</td><td>i</td><td>a</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>F</td><td>4</td><td>5</td><td>1</td><td></td><td>a</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>F</td><td>5</td><td>5</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>F</td><td>5</td><td>6</td><td>1</td><td></td><td></td><td>i</td><td></td><td></td><td></td></tr>
+<tr><td>P</td><td>5</td><td>7</td><td>2</td><td></td><td></td><td>i</td><td>n</td><td></td><td></td></tr>	
+<tr><td>P</td><td>5</td><td>8</td><td>3</td><td></td><td></td><td>i</td><td>n</td><td>f</td><td></td></tr>
+<tr><td>P</td><td>5</td><td>9</td><td>4</td><td></td><td></td><td>i</td><td>n</td><td>f</td><td>o</td></tr>	
+<tr><td>index</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+</table>
+</div>
+
+<p>On rencontre un processus sous forme de file dans les files d'attente d'impression par exemple. Lorsqu'on souhaite imprimer plusieurs documents, celui qui a été lancé en premier sera imprimé en premier.</p>
+
+<div class="exerciceType"><p><strong>Exercice type : </strong>nous allons reconstruire la fonction enfiler() en Python pour reproduire la file abstraite F ci-dessus. Des espaces mémoire vides seront volontairement alloués en fin de pile pour permettre d'empiler les éléments. Nous ne gérons pas les exceptions de type error index out of range.</p>
+
+<pre><code class="language-python">def enfiler(file, element):
+    queue = file[1]
+    file[queue] = element # insertion de element à l'index queue
+    file[1] = queue + 1 # mise à jour de l'index de queue
+    file[2] = file[2] + 1 # mise à jour de la taille de file
+
+F = [3, 3, 0, None, None, None, None, None, None, None, None]
+print(P)
+enfiler(F, 'i')
+enfiler(F, 'n')
+enfiler(F, 'f')
+enfiler(F, 'o')
+print(F)</code></pre>
+ 
+
+<p>Le résultat obtenu à l'affichage correspond bien à ce qui était recherché :</p>
+<pre><code class="language-python">[3, 3, 0, None, None, None, None, None, None, None, None]
+[3, 7, 4, 'i', 'n', 'f', 'o', None, None, None, None]</code></pre>
+</div>
+
+<div class="exerciceApplication"><p><strong>A vous de jouer : </strong>construire la fonction defiler() à partir de la file abstraite F ci-dessus, qui retire de la pile l'élément au début, sans décaler les autres éléments.</p></div>
+
+<div class="exerciceApplication">
+    <p><strong>ENTRAINEMENT : </strong></p>
+    <p><strong>Exercice 1 : </strong></p>
+    <p><strong>Exercice 2 : </strong></p>
+    <p><strong>Exercice 3 : </strong></p>
+    <p><strong>Exercice 4 : </strong></p>
+    <p><strong>Exercice 5 : </strong></p>
+</div>
+
+    
