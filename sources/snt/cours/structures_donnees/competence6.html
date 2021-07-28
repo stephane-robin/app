@@ -1,0 +1,77 @@
+<h2>Algorithme de tri à bulles</h2>
+
+<p>&#128218; <em>Compétence : savoir reproduire l'algorithme de trie à bulle à l'aide d'un tableau</em></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+
+
+<p>Lorsque nous voyons une suite de nombres, nous sommes capables de les ordonner du plus petit au plus grand. Cela devient compliqué avec une centaine de nombres, mais nous y arrivons quand même car nous avons devant les yeux ces valeurs et il nous suffit de les échanger.</p>
+
+<p>Un ordinateur ne voit pas tous les nombres à ordonner, car ceux-ci se trouvent stockés dans des espaces mémoire dont il ne connaît que l'emplacement et non pas la valeur. En revanche, il est capable de récupérer deux valeurs à deux emplacements différents et de les comparer. Ainsi, pour ordonner une liste de nombres, un programme devra choisir deux nombres (suivant une règle à définir), les comparer et les échanger éventuellement.</p> 
+
+<div class="exerciceType">
+	<p><strong>Exercice type : </strong>utiliser l'algorithme de tri à bulles pour ordonner les chiffres suivants 7, 2, 9, 4, 6</p>
+	<p>Solution</p>
+	<table>
+		<tr><td>étape 1</td><td><strong>7</strong></td><td><strong>2</strong></td><td>9</td><td>4</td><td>6</td><td>compare 7 et 2</td></tr>
+		<tr><td>étape 2</td><td><strong>2</strong></td><td><strong>7</strong></td><td>9</td><td>4</td><td>6</td><td>échange 7 et 2</td></tr>
+		<tr><td>étape 3</td><td>2</td><td><strong>7</strong></td><td><strong>9</strong></td><td>4</td><td>6</td><td>compare 7 et 9</td></tr>
+		<tr><td>étape 4</td><td>2</td><td>7</td><td><strong>9</strong></td><td><strong>4</strong></td><td>6</td><td>compare 9 et 4</td></tr>
+		<tr><td>étape 5</td><td>2</td><td>7</td><td><strong>4</strong></td><td><strong>9</strong></td><td>6</td><td>échange 9 et 4</td></tr>
+		<tr><td>étape 6</td><td>2</td><td>7</td><td>4</td><td><strong>9</strong></td><td><strong>6</strong></td><td>compare 9 et 6</td></tr>
+		<tr><td>étape 7</td><td>2</td><td>7</td><td>4</td><td><strong>6</strong></td><td><strong>9</strong></td><td>échange 9 et 6</td></tr>
+		<tr><td>étape 8</td><td><strong>2</strong></td><td><strong>7</strong></td><td>4</td><td>6</td><td>9</td><td>compare 2 et 7</td></tr>
+		<tr><td>étape 9</td><td>2</td><td><strong>7</strong></td><td><strong>4</strong></td><td>6</td><td>9</td><td>compare 7 et 4</td></tr>
+		<tr><td>étape 10</td><td>2</td><td><strong>4</strong></td><td><strong>7</strong></td><td>6</td><td>9</td><td>échange 7 et 4</td></tr>
+		<tr><td>étape 11</td><td>2</td><td>4</td><td><strong>7</strong></td><td><strong>6</strong></td><td>9</td><td>compare 7 et 6</td></tr>
+		<tr><td>étape 12</td><td>2</td><td>4</td><td><strong>6</strong></td><td><strong>7</strong></td><td>9</td><td>échange 7 et 6</td></tr>
+		<tr><td>étape 13</td><td><strong>2</strong></td><td><strong>4</strong></td><td>6</td><td>7</td><td>9</td><td>compare 2 et 4</td></tr>
+		<tr><td>étape 14</td><td>2</td><td><strong>4</strong></td><td><strong>6</strong></td><td>7</td><td>9</td><td>compare 4 et 6</td></tr>
+	</table>
+	<p>Il faut comprendre que la plus grande valeur de la liste va être rejetée étape par étape au dernier rang, puis le programme va reprendre ses comparaisons dès le début de la liste sans comparer les 2 derniers éléments car il sait que le dernier élément est le plus grand de la liste. Ainsi de suite, et à chaque tour, le programme reprend à 0 mais s'arrête de comparer un indice plus tôt.</p>
+</div>
+
+
+<div class="exerciceApplication">
+	<p><strong>A toi de jouer : </strong>construit un programme Python utilisant le principe de l'algorithme du tri à bulles.</p>
+	<p>Solution :</p>
+	<pre><code class="language-python">maListe = [7, 2, 9, 4, 6]
+
+def tri_bulles(liste):
+    for taille_liste in range(len(liste), 2, -1):
+        for indice in range(taille_liste - 1):
+            if liste[indice] > liste[indice + 1]:
+                temp = liste[indice]
+                liste[indice] = liste[indice + 1]
+                liste[indice + 1] = temp
+            print(liste)
+    return liste
+
+tri_bulles(maListe)</code></pre>
+
+<p>Analysons ensemble ce programme, étape par étape, lorsqu'on exécute la fonction tri_bulles en prenant maListe pour paramètre :</p>
+	<table>
+		<tr><th>taille_liste</th><th>indice</th><th>commentaire</th></tr>
+		<tr><td>5</td><td>0</td><td>taille_liste varie de 5 à 3<br/>indice varie de 0 à 3</td></tr>
+		<tr><td>5</td><td>1</td><td></td></tr>
+		<tr><td>5</td><td>2</td><td></td></tr>
+		<tr><td>5</td><td>3</td><td></td></tr>
+		<tr><td>4</td><td>0</td><td>indice varie de 0 à 2</td></tr>
+		<tr><td>4</td><td>1</td><td></td></tr>
+		<tr><td>4</td><td>2</td><td></td></tr>
+		<tr><td>3</td><td>0</td><td>indice varie de 0 à 1</td></tr>
+		<tr><td>3</td><td>1</td><td></td></tr>
+	</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+    

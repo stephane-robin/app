@@ -1,0 +1,71 @@
+
+<h2>Saisie clavier</h2>
+
+<p>&#128218; <em>Compétence : savoir récupérer une information saisie par l'utilisateur</em></p>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+<p>Afin de communiquer avec l'utilisateur du programme, il est nécessaire de pouvoir récupérer ce qu'il tape au clavier. Pour cela, on utilise l'instruction <strong>input</strong>. La question posée à l'utilisateur, et qui appelle une réponse de sa part doit être posée entre parenthèses suivant l'instruction <strong>input</strong>. Il est inutile dans ce cas d'utiliser l'affichage de la question avec <strong>print</strong>. Ainsi, le code suivant affiche la question <em>Comment vous appelez-vous  ?</em> et attend une réponse. L'interpréteur Python est donc en pause jusqu'à ce que l'utilisateur saisisse au clavier sa réponse puis valide avec la touche Entrée.</p>
+
+    <pre><code class="language-python">input("Comment vous appelez-vous ?")</code></pre>
+
+<p>Attention, cette réponse est perdue si elle n'est pas affectée à une variable. Ainsi, le code ci-dessus doit être modifié de la façon suivante pour être utile :</p>
+
+<pre><code class="language-python">nom = input("Comment vous appelez-vous ?")</code></pre>
+
+<p>Maintenant seulement, la valeur saisie au clavier par l'utilisateur sera réutilisable en appelant la variable <strong>nom</strong></p> :
+
+<pre><code class="language-python">print(nom)</code></pre>
+
+<div class="exerciceApplication">
+<p><em>A vous de jouer :</em> demandez à l'utilisateur son âge puis affichez la valeur saisie en utilisant une variable <strong>age</strong>.</p>
+</div>
+
+<p>&#128122; <em>Bataille navale :</em> demandez à l'utilisateur les coordonnées de l'emplacement choisi pour envoyer ses torpilles. Enregistrez les résultats dans les variables <strong>xChoisi</strong> et <strong>yChoisi</strong>.</p>
+
+
+<h3>Le type par défaut saisi au clavier</h3>
+
+<p>Tout ce que saisit l'utilisateur au clavier est enregistré à l'aide de l'instruction <strong>input</strong> en tant que <strong>str</strong>, même un nombre. Essayez pour vous en convaincre le script suivant</p>
+
+<pre><code class="language-python">age = input("quel est ton âge ? ")
+print(type(age))</code></pre>
+
+<p>Afin de pouvoir garder en mémoire un nombre saisi par l'utilisateur, et donc de pouvoir lui faire subir des opérations, il faut obligatoirement le transformer en nombre. Pour cela, on utilise l'instruction suivante </p>
+
+<pre><code class="language-python">age = int(input("quel est ton âge ? "))
+print(type(age))</code></pre>
+
+<p>On peut également utiliser le type <strong>float</strong> au lieu du type <strong>int</strong> si l'on souhaite transformer une châine de caractères en nombre réel, plutôt qu'en nombre entier. Attention toutefois, on ne peut transformer une chaîne de caractères en nombres que si elle est effectivement composée de nombres. Ainsi, l'instruction <strong>int("bonjour")</strong> entraînera une erreur.
+
+<div class=fieldsetDefinition>
+<h4>A RETENIR ...</h4> 
+<p>"2" est une chaîne de caractères composée du symbole <em>deux</em> qu'on ne peut pas soustraire, ou additionner, ... En revanche 2 est un nombre auquel on peut faire subir des opérations. Pour s'en convaincre, essayez l'instruction suivante</p>
+
+<pre><code class="language-python">print("2"+"1")
+print(2+1)</code></pre>
+
+</div>
+
+<h3>L'affichage à l'écran</h3>
+
+<p>Nous savons maintenant enregistrer la saisie clavier de l'utilisateur, nous allons voir comment afficher une réponse.</p>
+
+<pre><code class="language-python">nom = "Parker"
+prenom = "Peter"
+print(prenom, nom) # affiche Peter Parker l'un en dessous de l'autre
+print(prenom, nom, end="") # affiche Peter Parker
+print(prenom + nom) # affiche PeterParker
+print(prenom + "\n" + nom) # affiche Peter Parker l'un en dessous de l'autre
+</code></pre>
+
+<div class="exerciceApplication">
+<p><em>A vous de jouer :</em> afficher votre nom puis votre prénom en utilisant chacune des différentes méthodes ci-dessus</p>
+</div>
+
+<p style="margin-left:40%;">------------------------------</p>
+
+<div class="exerciceApplication">
+    <p><strong>ENTRAINEMENT :</strong></p>
+    <p><strong>Exercice : </strong>Ecrivez le code d’un programme qui demande un nombre à l’utilisateur (indication pensez à input), puis vérifie que le nombre entré peut être transformé en entier (indication, pensez à isnumeric), et écrit dans ce cas sa table de multiplication (de 1 à 15). Si ce n’est pas le cas, il demande une nouveau fois en indiquant "vous devez entrer un nombre entier".</p>
+</div>
