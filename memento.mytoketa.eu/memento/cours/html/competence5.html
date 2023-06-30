@@ -1,0 +1,211 @@
+<h2>Les formulaires</h2>
+
+
+    <!-- ===== CREATION D'UN FORMULAIRE ===== -->
+
+    <h3 id="formulaire"> Créer un formulaire </h3>
+
+    <p> Un formulaire est une zone interactive dans laquelle les utilisateurs peuvent saisir des informations. Il s'agit donc d'un élément fondamental constituant une page HTML. </p>
+    <p>Dans le cas d'un champ acceptant une réponse sur une seule ligne :</p>
+
+    <pre><code class="language-html">&ltform method="post" action="pageDestination.py"&gt
+  &ltp&gt Veuillez remplir les informations suivantes : &lt/p&gt
+  &ltlabel for="identifiant"&gtidentifiant&lt/label&gt :
+  &ltinput type="text" name="identifiant" id="identifiant"/&gt
+&lt/form&gt</code></pre><footer class="legendeCode">HTML</footer>
+
+    <p>qui affiche le résultat suivant :</p>
+
+    <form method="post" action="">
+        <p> Veuillez remplir les informations suivantes : </p>
+        <label for="">identifiant</label> : <input type="text" name="identifiant" class="identifiant"/>
+    </form>
+
+
+    <p> Dans le cas d'un champ acceptant une réponse sur plusieurs lignes :</p>
+
+
+    <pre><code class="language-html">&ltform method="post" action="pageDestination.py"&gt
+  &ltp&gt Veuillez remplir le formulaire ci-dessous : &lt/p&gt
+  &ltlabel for="identifiant"&gtVos commentaires&lt/label&gt :
+  &lttextarea name="identifiant" id="identifiant"
+  rows="6" cols="30"&gt&lt/textarea&gt
+&lt/form&gt</code></pre><footer class="legendeCode">HTML</footer>
+
+    <p>qui affiche le résultat suivant</p>
+
+    <form method="post" action="">
+        <p> Veuillez remplir le formulaire ci-dessous : </p>
+        <label for="">Vos commentaires</label> :
+        <textarea name="identifiant" class="identifiant" rows="6" cols="30"></textarea>
+    </form>
+
+
+    <p> Les différents attributs d'un formulaire sont les suivants :</p>
+    <table>
+        <tr><th> Objectif </th> <th> Balises </th></tr>
+        <tr><td> champ texte </td> <td> <pre>type="text"</pre> </td></tr>
+        <tr><td> champ email </td> <td> <pre>type="email"</pre> </td></tr>
+        <tr><td> champ url </td> <td> <pre>type="url"</pre> </td></tr>
+        <tr><td> champ nombre entier </td> <td> <pre>type="number" min="0" max="10" step="1"</pre> </td></tr>
+        <tr><td> champ nombre sous forme de curseur </td> <td> <pre>type="range" min="0" max="10" step="1"</pre> </td></tr>
+        <tr><td> champ couleur </td> <td> <pre>type="color"</pre> </td></tr>
+        <tr><td> champ date </td> <td> <pre>type="date"</pre> </td></tr>
+        <tr><td> champ heure </td> <td> <pre>type="time"</pre> </td></tr>
+        <tr><td> champ mois </td> <td> <pre>type="month"</pre> </td></tr>
+        <tr><td> champ semaine </td> <td> <pre>type="week"</pre> </td></tr>
+        <tr><td> champ date-heure </td> <td> <pre>type="datetime"</pre> </td></tr>
+        <tr><td> champ numéro de téléphone </td> <td> <pre>type="tel"</pre> </td></tr>
+        <tr><td> champ pour mot de passe où les caractères tapés restent invisibles </td> <td> <pre>type="password"</pre> </td></tr>
+        <tr><td> modifier la taille du champ monoligne</td> <td> <pre>size="30"</pre> </td></tr>
+        <tr><td> contrôler la taille d'un champ multilignes</td> <td> <pre>rows="10" cols="60"</pre> </td></tr>
+        <tr><td> limiter le nombre de caractères à saisir </td><td> <pre>maxlength="12"</pre> </td></tr>
+        <tr><td> préremplir avec une valeur par défaut pour un champ sur une ligne</td><td> <pre>value="identifiant"</pre> </td></tr>
+        <tr><td> préremplir avec une valeur par défaut pour un champ sur plusieurs lignes</td><td> <pre>&lttextarea name="identifiant" id="identifiant"&gt
+       identifiant &lt/textarea&gt</pre> </td></tr>
+        <tr><td> donner une indication sur le contenu du champ </td> <td> <pre>placeholder="que des caractères"</pre> </td></tr>
+        <tr><td> champ case à cocher (plusieurs choix possibles)</td> <td> <pre>type="checkbox"</pre> </td></tr>
+        <tr><td> champ case à cocher avec case cochée par défaut </td> <td> <pre>type="checkbox" name="identifiant" checked</pre> </td></tr>
+        <tr><td> champ zone d'option (une seule case possible) </td> <td> <pre>type="radio"</pre> </td></tr>
+        <tr><td> rendre un champ obligatoire </td> <td> <pre> &ltinput type="text" name="nom" id="nom" required/&gt</pre> </td></tr>
+    </table>
+
+    <!-- Les zones d'option -->
+
+    <h4> Les zones d'option </h4>
+
+    <p> En particulier, dans le cas d'une zone d'option, l'attribut <strong>name</strong> doit être identique pour toute la zone d'option, seul l'attribut <strong>id</strong> varie pour chaque champ :</p>
+
+
+    <pre><code class="language-html">&ltform method="post" action="pageDestination.py"&gt
+  &ltp&gt Question &ltp/&gt
+  &ltinput type="radio" name="identite" id="nom"/&gt &ltlabel for="nom"&gt
+  nom &lt/label&gt &ltbr/&gt
+  &ltinput type="radio" name="identite" id="prenom"/&gt &ltlabel for="prenom"&gt
+  prenom &lt/label&gt
+
+  &ltp&gt Question &ltp/&gt
+  &ltinput type="radio" name="adherent" id="contrat"/&gt &ltlabel for="contrat"&gt
+  contrat &lt/label&gt &ltbr/&gt
+  &ltinput type="radio" name="adherent" id="type"/&gt &ltlabel for="type"&gt
+  type &lt/label&gt
+&lt/form&gt</code></pre><footer class="legendeCode"> HTML </footer>
+
+    <p>qui affiche le résultat suivant</p>
+    <form method="post" action="pageDestination.py">
+        <p> Question </p>
+        <input type="radio" name="identite" id="nom"/> <label for="nom"> nom </label><br/>
+        <input type="radio" name="identite" id="prenom"/> <label for="prenom"> prenom </label>
+
+        <p> Question </p>
+        <input type="radio" name="adherent" id="contrat"/> <label for="contrat"> contrat </label><br/>
+        <input type="radio" name="adherent" id="type"/> <label for="type"> type </label>
+    </form>
+
+    <!-- Les listes déroulantes -->
+
+    <h4> Les listes déroulantes </h4>
+
+    <p> Les listes déroulantes sont construites différemment :</p>
+
+
+    <pre><code class="language-html">&ltform method="post" action="pageDestination.py"&gt
+  &ltp&gt Question&lt/p&gt
+  &ltselect name="choix" id="choix">
+    &ltoption value="rouge"&gtrouge&lt/option&gt
+    &ltoption value="vert"&gtvert&lt/option&gt
+    &ltoption value="bleu"&gtbleu&lt/option&gt
+  &lt/select&gt
+&lt/form&gt</code></pre><footer class="legendeCode">HTML</footer>
+
+
+    <p>qui produit l'affichage suivant</p>
+    <form method="post" action="">
+        <p> Question </p>
+        <select name="choix">
+            <option value="rouge">rouge</option>
+            <option value="vert">vert</option>
+            <option value="bleu">bleu</option>
+        </select>
+    </form>
+
+    <p> Il est possible de grouper les options affichées en utilisant la balise <strong>&ltoptgroup&gt</strong>. Dans ce cas, les noms de groupes offrent une indication mais ne peuvent pas être sélectionnés : </p>
+
+
+    <pre><code class="language-html">&ltform method="post" action="pageDestination.py"&gt
+  &ltp&gt Question&lt/p&gt
+  &ltselect name="choix" id="choix">
+    &ltoptgroup label="couleurs"&gt
+      &ltoption value="rouge"&gtrouge&lt/option&gt
+      &ltoption value="vert"&gtvert&lt/option&gt
+      &ltoption value="bleu"&gtbleu&lt/option&gt
+    &lt/optgroup&gt
+  &lt/select&gt
+&lt/form&gt</code></pre><footer class="legendeCode">HTML</footer>
+
+    <p>qui produit l'affichage suivant</p>
+
+    <form method="post" action="">
+        <p> Question </p>
+        <select name="choix" id="">
+            <optgroup label="couleurs">
+                <option value="rouge">rouge</option>
+                <option value="vert">vert</option>
+                <option value="bleu">bleu</option>
+            </optgroup>
+        </select>
+    </form>
+
+    <!-- Regrouper les champs d'un formulaire -->
+
+    <h4> Regrouper les champs d'un formulaire </h4>
+
+    <p> Il est possible de grouper les questions affichées en utilisant les balises <strong>&ltfieldset&gt</strong> pour délimiter l'encadrement et <strong>&ltlegend&gt</strong> pour donner un titre au cadre.</p>
+
+
+    <pre><code class="language-html">&ltform method="post" action="pageDestination.py"&gt
+  &ltfieldset&gt
+    &ltlegend&gt sujet &lt/legend&gt
+      &ltp&gt Question&lt/p&gt
+      &ltselect name="choix" id="choix">
+        &ltoption value="rouge"&gtrouge&lt/option&gt
+        &ltoption value="vert"&gtvert&lt/option&gt
+        &ltoption value="bleu"&gtbleu&lt/option&gt
+      &lt/select&gt
+  &lt/fieldset&gt
+&lt/form&gt</code></pre><footer class="legendeCode">HTML</footer>
+    <p>qui produit l'affichage suivant</p>
+
+
+    <form method="post" action="">
+        <fieldset>
+            <legend> sujet </legend>
+            <p> Question </p>
+            <select name="choix" id="choix">
+                <option value="rouge">rouge</option>
+                <option value="vert">vert</option>
+                <option value="bleu">bleu</option>
+            </select>
+        </fieldset>
+    </form>
+
+    <!-- bouton validation -->
+
+    <h4> Le bouton de validation </h4>
+
+    <p> A la fin d'un formulaire, on doit utiliser un bouton de validation pour récupérer les réponses saisies par l'utilisateur afin de les exploiter et se rendre sur la page indiquée dans l'attribut <strong> action </strong>. On atteint ici les limites du langage HTML car ce traitement de l'information est réalisé par un autre langage, par exemple PHP, JavaScript, Java, Python, ...</p>
+
+
+    <pre><code class="language-html">&ltinput type="submit" value="Valider"/&gt</code></pre><footer class="legendeCode">HTML</footer>
+
+    <p>qui produit l'affichage suivant</p>
+
+    <input type="submit" value="Valider"/>
+
+    <p>Il existe également un bouton de remise à zéro :</p>
+
+    <pre><code class="language-html">&ltinput type="reset" value="Remise à zéro"/&gt</code></pre><footer class="legendeCode">HTML</footer>
+
+    <p>qui produit l'affichage suivant</p>
+
+    <input type="reset" value="Remise à zéro"/>
