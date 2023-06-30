@@ -8,9 +8,6 @@ $_SESSION['chapitre'] = NULL;
 $nomPage = NULL;
 $typePage = "quizz";
 
-
-
-
 $nomClasse = $_SESSION['nomClasse'];
 
 if (isset($_SESSION['chapitre'])){
@@ -19,11 +16,6 @@ if (isset($_SESSION['chapitre'])){
 else{
   $chapitre = NULL;
 }
-
-
-
-// TIMER SESSION
-$_SESSION['tempsEcoule_session'] = "";
 ?>
 
 <!DOCTYPE HTML>

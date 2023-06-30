@@ -47,12 +47,6 @@ include("fonctionsJS.html");
 <!-- PRINCIPAL -->
 <section id="principal">
 
-<!-- TABLE MATIERES -->
-<?php include("tableMatieres.php"); ?>
-
-<!-- GRAND CONTENU -->
-<section id="grandContenu">
-
 <h2>Connexion</h2>
 
 <?php
@@ -108,7 +102,6 @@ echo "</form>";
 <p style='margin-left:20%;'><a href="">Je m'inscris...</a></p>
 -->
 
-</section> <!-- END GRAND CONTENU -->
 </section> <!-- END PRINCIPAL -->
 
 <!-- FOOTER -->

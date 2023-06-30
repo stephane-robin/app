@@ -1,16 +1,13 @@
 <?php 
 session_start();
 
-$typeUtilisateur = $_SESSION['utilisateur'];
+// GLOBAL VARIABLES
 
-$niveau = $_SESSION['niveau'];
-
-$nomClasse = $_SESSION['nomClasse'];
-
-$chapitre = $_SESSION['chapitre'];
-
-$nomPage = "pageWorkshop";
-$typePage = "pageWorkshop";
+$utilisateur = $_SESSION['utilisateur'];
+$niveau = Null;
+$classe = $_GET['classe'];
+$chapitre = Null;
+$page = Null;
 
 if (empty($_SESSION['pseudo'])){
     $_SESSION['pseudo'] = NULL;
@@ -21,130 +18,122 @@ if (empty($_SESSION['pw'])){
     $_SESSION['pw'] = NULL;
 }
 $pw = $_SESSION['pw'];
-?>
 
 
-<!-- FONCTIONS PHP -->
-<?php include("fonctionsPHP.php"); ?>
+// FONCTIONS
+////////////
 
-<!DOCTYPE HTML>
-<html>
-
-<!-- HEAD -->
-<?php include("head.php"); ?>
-  
-<!-- FONCTIONS JS -->
-<?php include("fonctionsJS.html"); ?>
-
-<!--
-<script type="text/javascript">
-// return a random number between min included and max not included
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
-}
-/*
-function choisirEleve(){
-    document.getElementById("resultat_tirage").innerHTML = "hello";
-}*/
-
-function choisirEleve(){
-    var $choix_nbreHasard = getRndInteger(0,21);
-
-    //var mydata = JSON.parse("bdd4eme.json");
-        //console.log(mydata);
-        document.getElementById("resultat_tirage").innerHTML = "hello";
-        
-
-    //alert($obj["4eme"][1].nom);
-    //$nom_hasard = "nom";
-    //document.getElementById("resultat_tirage").innerHTML = $choix_nbreHasard;
-}
-
-</script>
--->
-
-<!-- BODY -->
-<!--<body onload="startTime()">-->
-
-<!-- HEADER -->
-<?php include("header.php"); ?>
-
-<!-- PRINCIPAL -->
-<section id="principal">
-    
-<!-- TABLE MATIERES -->
-<?php include("tableMatieres.php"); ?>
-
-<!-- GRAND CONTENU -->
-<section id="grandContenu">
-
-<!-- CLASS NAME -->
-<h2><?php echo $nomClasse; ?></h2>
+include("fonctionsPHP.php");
+include("fonctionsJS.html");
 
 
+// MAIN
+///////
+
+echo "<!DOCTYPE HTML>
+    <html>";
+include("head.html");
+echo "<body>";
+include("header.php");
+echo "<section id='principal'>";
 
 
-<?php 
-if (!empty($_POST['eleveChoisi'])){
+// CONTENU
+//////////
+
+echo "<section id='contenu'>
+
+<!-- NOM DE LA CLASSE -->
+<!---------------------->
+
+<h2>".afficherClasse($classe)."</h2>";
+
+/*if (!empty($_POST['eleveChoisi'])){
     $eleveChoisi = $_POST['eleveChoisi']; 
+    changer_participation_eleve($classe, $eleveChoisi, 1);
+}
+else {
+    $eleveChoisi = choisir_eleve($classe);
+}*/
+if (isset($_POST['choisirEleve'])){
+    $eleveChoisi = choisir_eleve($classe);
+}
 
-    if (renvoyer_penalite_eleve($nomClasse, $eleveChoisi) == 1) {
-        changer_penalite_eleve($nomClasse, $eleveChoisi, -1);
+else if (!empty($_POST['eleveChoisi'])){
+    $eleveChoisi = $_POST['eleveChoisi'];
+}
+
+if (!empty($eleveChoisi)){
+    if (renvoyer_penalite_eleve($classe, $eleveChoisi) == 1) {
+        changer_penalite_eleve($classe, $eleveChoisi, -1);
         echo "<p>&#128683; Désolé <strong>" . $eleveChoisi . "</strong>, pénalité ! Tu ne peux pas jouer... mais ta pénalité est effacée.</p>";
     }
-    else if (renvoyer_penalite_eleve($nomClasse, $eleveChoisi) == 2){
+    else if (renvoyer_penalite_eleve($classe, $eleveChoisi) == 2){
         echo "<p>&#128683; Désolé <strong>" . $eleveChoisi . "</strong>, pénalité ! Tu ne peux pas jouer...</p>";
     }
     else {
-        echo "<p>Le(la) gagnant(e) est ... <strong>" . $eleveChoisi . "</strong></p>";
+        echo "<p>Le(la) sélectionné(e) est ... <strong>" . $eleveChoisi . "</strong></p>";
+
     }
 }
-?>
 
-<!-- print the selected student -->
 
-<div class="bloc_ligne">
-<!-- RESULTS BUTTON -->
-<form method='post' action='tirageEleve.php' style='margin-top: 5%; margin-bottom: 5%;margin-left: 20%;'>
-    <input type='hidden' name='eleveChoisi' value='<?php echo $eleveChoisi ?>'></input>
+echo "<!-- AFFICHE L'ELEVE CHOISI -->
+      <!---------------------------->
+
+<div class='bloc_ligne'>
+
+<!-- BOUTONS RESULTAT -->
+<!---------------------->
+
+<form method='post' action='tirageEleve.php?classe=".$classe."' style='margin-top: 5%; margin-bottom: 5%;margin-left: 20%;'>
+    <input type='hidden' name='eleveChoisi' value='".$eleveChoisi."'>   
     <button class='bouton' type='submit' name='valider' value='valider'>&#128526; Correct</button>  
-    <button class='bouton' type='submit' name='erreur' value='erreur'>&#128561; Erreur</button>
     <button class='bouton' type='submit' name='bonus' value='bonus'>&#127894; Bonus</button>
+    <button class='bouton' type='submit' name='choisirEleve'>&#127922; Tirer au sort</button>
+
 </form>
-</div>
 
-<?php
 
-if (isset($_POST['valider'])){
-    changer_note_groupe($nomClasse, $eleveChoisi, 1);
-    echo "<p>&#128165;Félicitation...</p>";
-}
-elseif (isset($_POST['bonus'])){
-    changer_note_groupe($nomClasse, $eleveChoisi, 2);
-    echo "<p>&#128165;Félicitation... bonus + 2 points</p>";
-}
-elseif (isset($_POST["erreur"])){
-    echo "<p>&#128163; Dommage...</p>";
-}
-?>
 
+<!-- BOUTON RETOUR TABLEAU BORD -->
+<!-------------------------------->
+
+    <form method='post' action='pageWorkshop.php?classe=".$classe."' style='margin-top: 5%; margin-left:10%; margin-bottom:5%;'>
+        <button class='bouton' type='submit' name='retour'>&#127922; Tableau de bord</button>
+    </form>
+
+</div>";
+
+if (isset($eleveChoisi)){
+    if (isset($_POST['valider'])){
+        changer_note_groupe($classe, $eleveChoisi, 1);
+        echo "<p>&#128165;Félicitation...</p>";
+    }
+    else if (isset($_POST['bonus'])){
+        changer_note_groupe($classe, $eleveChoisi, 1);
+        echo "<p>&#128165;Félicitation... bonus + 1 point</p>";
+    }
+}
+
+echo "
 <table>
-    <tr><th>Equipe</th><th>Note / 20</th><th>Equipe</th><th>Note / 20</th></tr>
-    <tr><td>Equipe 1</td><td><?php echo renvoyer_note_groupe($nomClasse, 1); ?></td><td>Equipe 7</td><td><?php echo renvoyer_note_groupe($nomClasse, 7); ?></td></tr>
-    <tr><td>Equipe 2</td><td><?php echo renvoyer_note_groupe($nomClasse, 2); ?></td><td>Equipe 8</td><td><?php echo renvoyer_note_groupe($nomClasse, 8); ?></td></tr>
-    <tr><td>Equipe 3</td><td><?php echo renvoyer_note_groupe($nomClasse, 3); ?></td><td>Equipe 9</td><td><?php echo renvoyer_note_groupe($nomClasse, 9); ?></td></tr>
-    <tr><td>Equipe 4</td><td><?php echo renvoyer_note_groupe($nomClasse, 4); ?></td><td>Equipe 10</td><td><?php echo renvoyer_note_groupe($nomClasse, 10); ?></td></tr>
-    <tr><td>Equipe 5</td><td><?php echo renvoyer_note_groupe($nomClasse, 5); ?></td><td>Equipe 11</td><td><?php echo renvoyer_note_groupe($nomClasse, 11); ?></td></tr>
-    <tr><td>Equipe 6</td><td><?php echo renvoyer_note_groupe($nomClasse, 6); ?></td><td>Equipe 12</td><td><?php echo renvoyer_note_groupe($nomClasse, 12); ?></td></tr>
-</table>
+    <tr><th>Equipe</th><th>Elèves</th><th>Note provisoire / 20</th></tr>";
+    for($i=1; $i<13; $i++){
+        echo "<tr><td>Equipe ".$i."</td><td>".renvoyer_membres_groupe($classe, $i)."</td><td>".renvoyer_note_groupe($classe, $i)."</td></tr>";
+}    
+echo "</table>
+
+</section>";
 
 
+// FOOTER
+/////////
 
-</section> <!-- end GRAND CONTENU -->
-</section> <!-- end PRINCIPAL -->
+echo "</section>";
+include("footer.html");
+echo "</body>
+    </html>";
+?>
+<!--<input type='hidden' name='eleveChoisi' value='".$eleveChoisi."'></input>-->
 
-<!-- FOOTER -->
-<?php include("footer.php"); ?>
-
-</body>
-</html>
