@@ -1,0 +1,33 @@
+h1{
+    font-family: Cambria, Verdana, Arial;
+    font-size: 2em;
+    color: #29a3a3;
+    text-align: center;
+    margin-top: 10%;
+}
+
+nav{
+    background-color: #29a3a3;
+    display: flex;
+        flex-direction: row;
+}
+
+a{
+    font-family: Cambria, Verdana, Arial;
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    padding: 3%;
+}
+
+a:hover{
+    background-color: #999999;
+    transition: background-color .5s;
+}
+
+.contenu{
+    padding-left: 5%;
+}
+
+
+
