@@ -1,0 +1,40 @@
+
+
+  <h2>Structure du code</h2>
+
+
+
+
+
+  <div class="bloc">
+    <div class="gauche">
+      <img src="../../images/memento/css.png" width="80" height="80">
+    </div>
+
+    <div class="droite">
+      <p> CSS signifie Cascading Style Sheets. Ce langage gère l'apparence des pages Web en arrangeant le contenu (couleur, marges, taille du texte). Comme il travaille le contenu d'une page Web, CSS utilise le code HTML pour fonctionner. Sans aucun code CSS, la page Web ressemble à du texte regroupé par bloc et tapé "au kilomètre".</p>
+    </div>
+  </div>
+
+  <!-- ===== STRUCTURE D'UNE PAGE CSS ===== -->
+
+<h3 id="structure"> Structure d'une page CSS </h3>
+
+  <p> Il est possible de coder la mise en forme d'une page Web directement dans un fichier HTML sans recourir à un fichier CSS. Dans ce cas, on définit individuellement pour chaque balise la forme adéquate à l'aide de l'attribut <strong>style</strong>.</p>
+  <pre><code class="language-html">&ltp style="color:red"&gt mon texte &lt/p&gt</code></pre><footer class="legendeCode">HTML</footer>
+  <p> Cette définition locale est coûteuse en temps et n'est conseillée qu'à titre exceptionnel. On peut également définir la mise en forme dans l'en-tête <strong>head</strong> d'un fichier HTML. Toutefois, la méthode préconisée est de définir la mise en forme dans un fichier séparé comportant l'extension .css. Il faut alors rajouter l'instruction suivante afin de lier notre page HTML à notre page CSS.</p>
+  <pre><code class="language-html">&ltlink rel="stylesheet" href="style.css"&gt</code></pre><footer class="legendeCode">HTML</footer>
+  <p> On constate que l'attribut <strong>href</strong> pointe vers l'adresse de la page CSS qui devra se situer dans le répertoire courant.</p>
+  <p> Les commentaires en CSS sont entourés des symboles <strong>/*</strong> et <strong>*/</strong>. Ils peuvent être écrits sur une ou plusieurs lignes.</p>
+
+
+
+
+
+
+
+
+
+
+
+
