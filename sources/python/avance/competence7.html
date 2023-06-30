@@ -1,0 +1,169 @@
+<p>Pour exécuter un script Python dans un environnement HTML :</p>
+
+<pre><code class="language-html"><script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<div style="padding:10px;">
+<py-script>
+    print("hello")
+</py-script>
+</div></code></pre>
+
+
+  <!-- ==
+  DJANGO
+  ------>
+
+  <h3 id="py_django">Le framework Django</h3>
+
+  <p>Django est un framework opensource pour le développement Web Python. Il construit les applications suivant le
+    design pattern MVT, inspiré de la structure classique MVC. Il contient déjà un gestionnaire de BDD sqlite, un serveur et un gestionnaire d'accès à la BDD
+    en ligne de commande. Il n'est donc pas utile de recourir à l'utilisation de LAMP avec ce framework.</p>
+
+    <p>Le design pattern MVT Model View Template est une architecture qui sépare les responsabilités de chaque groupe
+        de code.</p>
+    <ul>
+        <li>Le Model interagit avec la base de données en utilisant un ORM Object Relational Mapping, qui transforme
+    les résultats d'une requête SQL en objets Python et inversement. Par exemple l'instruction SQL suivante
+    SELECT * FROM maTable se traduit de la façon suivante maTable.objects.all()</li>
+        <li>Le Template est un fichier HTML qui peut recevoir les objets Python et qui est lié à une View. Il
+        peut donc interpréter des variables et les afficher. </li>
+        <li>La View reçoit une requête HTTP et interprète cette requête en HTML pour le navigateur.</li>
+    </ul>
+
+  <p>Les différentes étapes pour installer Django dans un environnement de projet sont les suivantes :</p>
+
+  <pre><code class="language-svg">mkdir envDjango
+cd envDjango
+virtualenv env -p python3
+. env/bin/activate
+pip install django</code></pre>
+
+  <p>On peut ensuite vérifier que la librairie Django est bien disponible en écrivant</p>
+
+  <pre><code class="language-svg">python -m django --version</code></pre>
+
+  <p>La création de la structure du projet se fait maintenant de la façon suivante :</p>
+
+  <pre><code class="language-svg">django-admin startproject monProjet</code></pre>
+
+  <p>Le dossier <strong>monProjet</strong> contient les éléments suivants</p>
+
+  <pre><code class="language-svg">manage.py
+monProjet/
+  __init__.py
+  settings.py
+  urls.py
+  wsgi.py</code></pre>
+
+  <ul>
+    <li>le fichier manage.py est un outil d'exécution des commandes utiles au projet, comme par exemple la
+    création de tables dans la BDD</li>
+    <li>le fichier settings.py contient la configuration globale du projet, comme par exemple les identifiants de
+      connexion à la BDD, les chemins des différentes ressources, les différentes applications Django utilisées</li>
+    <li>le fichier urls.py est le contrôleur des requêtes du projet</li>
+    <li>le fichier wsgi.py permet la configuration du serveur</li>
+  </ul>
+
+  <p>On peut créer plusieurs applications au sein d'un même projet. Pour créer une application, on utilise</p>
+
+  <pre><code class="language-svg">django-admin.py startapp monAppli</code></pre>
+
+  <p>Le dossier <strong>monAppli</strong> contient les éléments suivants</p>
+
+  <pre><code class="language-svg">__init__.py
+models.py
+views.py
+tests.py</code></pre>
+
+  <ul>
+    <li>le fichier models.py accueille les modèles de l'application</li>
+    <li>le fichier views.py accueille les controleurs de l'application</li>
+    <li>le fichier tests.py accueille les tests unitaires et d'intégration de l'application</li>
+  </ul>
+
+  <p>Il faut préciser dans le fichier settings.yp la BDD que nous souhaitons utiliser.</p>
+  <pre><code class="language-python">DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'nomBdd',
+    }
+}</code></pre>
+
+  <p>Il faut préciser dans le fichier settings.py que nous allons utiliser monApplication :</p>
+  <pre><code class="language-python">INSTALLED_APPS={
+  # code de fonctionnement déjà présent
+  monAppli
+}</code></pre>
+
+    <p>Une URL est le premier point d'entrée d'une requête. Le fichier urls.py va donc se situer dans le dossier de configuration
+        du projet django_project/django_project. Une bonne pratique consiste à créer un fichier urls.py par application et
+        de l'importer dans les routes du projet.</p>
+
+    <p>On commence par créer un dossier templates</p>
+
+    <pre><code class="language-svg">mkdir monApp/templates</code></pre>
+
+    <p>On crée ensuite un fichier urls.py dans monAppli</p>
+
+    <pre><code class="language-svg">touch monAppli/urls.py</code></pre>
+
+    <p>Il faut maintenant lier le contenu dans monProjet/urls.py</p>
+
+    <pre><code class="language-svg">urlpatterns = [
+    url('monAppli/', include('monAppli.urls')),
+    url('admin/', admin.site.urls)
+]</code></pre>
+
+  <p>Il faut également créer les tables de la BDD, en se plaçant dans monProjet (afin que l'interpréteur trouve le
+  fichier manage.py</p>
+<pre><code class="language-svg">cd monProjet
+python manage.py syncdb</code></pre>
+
+  <p>Pour lancer le serveur, il faut également se placer dans monProjet et taper</p>
+  <pre><code class="language-svg">python manage.py runserver</code></pre>
+
+
+  <p>Il faut maintenant rajouter un gestionnaire de base de données. Choisissons par exemple Postgresql. Pour savoir si
+    il est déjà installé, il suffit de taper psql, ce qui ouvre une console de communication avec le serveur. On peut alors
+    revenir au terminal en tapant \q</p>
+
+  <p>Pour installer Postgresql, il faut donner à un utilisateur le rôle de gestionnaire de la base de données. Il faut donc
+  définir la variable d'environnement en ce sens. Nous choisissons le superuser comme gestionnaire.</p>
+
+  <pre><code class="language-svg">sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib libpq-dev
+sudo -u postgres createuser --superuser $USER
+sudo -u postgres createdb $USER</code></pre>
+
+  <p>Il faut créer un fichier conservant l'historique de travail dans le dossier home.</p>
+
+  <pre><code class="language-svg">touch .psql_history
+mv .psql_history ~/stephane</code></pre>
+
+  <p>On peut maintenant se connecter au serveur en tapant psql, ce qui ouvre une console de commmunication avec
+  Postgresql. Pour revenir au terminal, il faut taper \q afin de quitter la console.</p>
+
+
+
+<h4>Comment redémarrer le framework ?</h4>
+
+    <p>Pour redémarrer le framework, il faut activer l'environnement de travail (afin d'activer Django et les autres packages
+    nécessaires au projet, puis démarrer le server lié au projet.</p>
+
+    <pre><code class="lnaguage-svg">cd Documents/envDjango
+. env/bin/activate
+cd django_project
+python manage.py runserver</code></pre>
+
+    <p>Ensuite, il faut donner au navigateur (dans la barre de navigation) le chemin d'accès local vers les ressources du projet :</p>
+
+    <pre><code class="language-svg">127.0.0.1:8000/monAppli/</code></pre>
+
+
+
+
+
+<h3>Création d'un projet Django</h3>
+
+<h3>Structure du projet</h3>
+
+<h3>L'interaction MVT</h3>
