@@ -1,20 +1,210 @@
 <?php
-// connection to the bdd
+
+function oppose($valeur){
+    if($valeur != 0){
+        return -1 * $valeur;
+    }
+    return $valeur;
+}
+
+function avecSigne($valeur){
+    if($valeur > 0){
+        return str_replace(' ', '', "+".(string)$valeur);
+    }
+    else{
+        return (string)$valeur;
+    }
+}
+
+function afficherEquation($a, $b, $c, $d){
+    $astr = avecSigne($a)."x";
+    $bstr = avecSigne($b);
+    $cstr = avecSigne($c)."x";
+    $dstr = avecSigne($d);
+
+    if($a == '0'){
+        $astr = '';
+    }
+    if($a == '1'){
+        $astr = '+x';
+    }
+    if($a == '-1'){
+        $astr = '-x';
+    }
+
+    if($b == 0 and $a != 0){
+        $bstr = '';
+    }
+    if($b == 0 and $a == 0){
+        $bstr = '0';
+    }
+
+    if($c == '0'){
+        $cstr = '';
+    }
+    if($c == '1'){
+        $cstr = 'x';
+    }
+    if($c == '-1'){
+        $cstr = '-x';
+    }
+
+    if($d == '0' and $c != 0){
+        $str = '';
+    }
+    if($d== '0' and $c == 0){
+        $str = '0';
+    }
+
+    return "<p>\(".$astr.$bstr."=".$cstr.$dstr."\)</p>";
+}
+
+function afficherEquationModifieeX($a, $b, $c, $d, $valeur){
+    $astr = avecSigne($a)."x";
+    $bstr = avecSigne($b);
+    $cstr = avecSigne($c)."x";
+    $dstr = avecSigne($d);
+    $valstr = avecSigne($valeur)."x";
+
+    if($a == '0'){
+        $astr = '';
+    }
+    if($a == '1'){
+        $astr = '+x';
+    }
+    if($a == '-1'){
+        $astr = '-x';
+    }
+
+    if($b == 0 and $a != 0){
+        $bstr = '';
+    }
+    if($b == 0 and $a == 0){
+        $bstr = '0';
+    }
+
+    if($c == '0'){
+        $cstr = '';
+    }
+    if($c == '1'){
+        $cstr = 'x';
+    }
+    if($c == '-1'){
+        $cstr = '-x';
+    }
+
+    if($d == '0' and $c != 0){
+        $str = '';
+    }
+    if($d== '0' and $c == 0){
+        $str = '0';
+    }
+
+    return "<p>\(".$astr.$bstr.$valstr."=".$cstr.$dstr.$valstr."\)</p>";
+}
+
+function afficherEquationModifiee($a, $b, $c, $d, $valeur){
+    $astr = avecSigne($a)."x";
+    $bstr = avecSigne($b);
+    $cstr = avecSigne($c)."x";
+    $dstr = avecSigne($d);
+    $valstr = avecSigne($valeur);
+
+    if($a == '0'){
+        $astr = '';
+    }
+    if($a == '1'){
+        $astr = '+x';
+    }
+    if($a == '-1'){
+        $astr = '-x';
+    }
+
+    if($b == 0 and $a != 0){
+        $bstr = '';
+    }
+    if($b == 0 and $a == 0){
+        $bstr = '0';
+    }
+
+    if($c == '0'){
+        $cstr = '';
+    }
+    if($c == '1'){
+        $cstr = 'x';
+    }
+    if($c == '-1'){
+        $cstr = '-x';
+    }
+
+    if($d == '0' and $c != 0){
+        $str = '';
+    }
+    if($d== '0' and $c == 0){
+        $str = '0';
+    }
+
+    return "<p>\(".$astr.$bstr.$valstr."=".$cstr.$dstr.$valstr."\)</p>";
+}
+
+function afficherClasse($classe){
+    /**
+     * Prints the name of the class on the pages pageWorkshop.php and tirageEleve.php
+     * using $dico. Ce nom ne correspond pas au nom de la classe utilisé
+     * dans la bdd car ces derniers ne peuvent pas commencer par un chiffre
+     * @param array $classe dictionnaire contenant le nom des classes
+     * @return string nom de la classe
+     */
+    $dico = array(
+        'quatriemeF3' => '4.F3'
+    );
+
+    return $dico[$classe];
+}
+
+
 function connexionBdd($classe){
     /**
-     * connects to the bdd $classe, 'ATTR_ERRMODE' prints the SQL request error if necessary, 'catch' prints an error if the connection fails.
-     **/
+     * Connects to the bdd $classe, 'ATTR_ERRMODE' prints the SQL request error if 
+     * necessary, 'catch' prints an error if the connection fails.
+     * @param string $classe name of the class, corresponding to the name of the bdd
+     */
     try{
-        return new PDO("mysql:host=localhost;dbname=".$classe.";charset=utf8", "root", "root", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+        //return new PDO("mysql:host=localhost;dbname=".$classe.";charset=utf8", "root", "", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+        return new PDO("mysql:host=185.98.131.158;dbname=".$classe.";charset=utf8", "mytok1682843", "8hny8i2vtw", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+
     }
     catch(Exception $e){
         die("Erreur : ".$e->getMessage());
     }
 }
 
+function renvoyer_nbre_visiteurs(){
+    $bdd = connexionBdd('mytok1682843');
+    $requete = $bdd->query("SELECT compteur FROM visiteurs WHERE ID='1'");
+
+    while($obj = $requete->fetch()){
+        $nbre_visiteurs = $obj[0];
+    }
+    $requete->closeCursor();
+
+    return $nbre_visiteurs;
+}
+
+function modifier_nbre_visiteurs($nbre_visiteurs){
+    $bdd = connexionBdd('mytok1682843');
+
+    $requete = $bdd->prepare("UPDATE visiteurs SET compteur=:note WHERE ID='1'");
+    $requete->execute(array('note' => $nbre_visiteurs));
+    $requete->closeCursor();
+}
+
 function renvoyer_membres_groupe($classe, $groupe){
     /**
-     * returns a string containing the members of a group in a class
+     * Returns a string containing the members of a group in a class
+     * @param string $classe name of the class, corresponding to the name of the bdd
+     * @param string $groupe name of the group in a class
+     * @return string $resultat list of the members of the group in the class 
      **/
     $bdd = connexionBdd($classe);
     $reponse = $bdd->query("SELECT * FROM eleves WHERE groupe='".$groupe."'");
@@ -29,6 +219,7 @@ function renvoyer_membres_groupe($classe, $groupe){
     return $resultat;
 }
 
+
 function renvoyer_note_groupe($classe, $groupe){
     /**
      * returns the grade of $groupe in $class.
@@ -38,6 +229,7 @@ function renvoyer_note_groupe($classe, $groupe){
 
     while($obj = $reponse->fetch()){
             $reponse->closeCursor();
+
             return $obj['note'];   
     }  
 }
@@ -135,7 +327,7 @@ function changer_participation_eleve($classe, $eleve, $valeur){
 
 function changer_note_groupe($classe, $eleve, $valeur){
     /**
-     changes the note of a group in a class by $valeur points (increasing or reducing it depending on the sign), after the success of a student from the group.
+     * changes the note of a group in a class by $valeur points (increasing or reducing it depending on the sign), after the success of a student from the group.
      **/
     $bdd = connexionBdd($classe);
 
@@ -163,7 +355,7 @@ function changer_note_groupe($classe, $eleve, $valeur){
 
 function definir_participation_eleve($classe, $eleve, $valeur){
     /**
-    sets the participation of a student to $valeur, can be used to reset the participation or to set the value to -1 when the student belongs to a small group.
+     * sets the participation of a student to $valeur, can be used to reset the participation or to set the value to -1 when the student belongs to a small group.
      **/
     $bdd = connexionBdd($classe);
 
@@ -222,12 +414,44 @@ function changer_penalite_eleve($classe, $eleve, $valeur){
     $reponse->closeCursor();
 }
 
+function choisir_eleve_hasard($classe){
+    $eleveHasard = NULL;
+    $bdd = connexionBdd($classe);
+
+    $reponse = $bdd->query("SELECT SQL_NO_CACHE * FROM eleves ORDER BY RAND() LIMIT 1");
+
+    while($obj = $reponse->fetch()){
+        $reponse->closeCursor();
+        $eleveHasard = $obj['nom'];      
+    }
+    return $eleveHasard;
+}
+
+
 function choisir_eleve($classe){
+    $eleveHasard = choisir_eleve_hasard($classe);
+    $participation = renvoyer_participation_eleve($classe, $eleveHasard);
+
+    if ($participation < 2){
+        changer_participation_eleve($classe, $eleveHasard, 1);
+        return $eleveHasard;
+    }
+    else if($participation == 2){
+        changer_participation_eleve($classe, $eleveHasard, 1);
+        return choisir_eleve($classe);
+    }
+    else if($participation > 2){
+        definir_participation_eleve($classe, $eleveHasard, 0);
+        return choisir_eleve($classe);
+    }    
+}
+
+function choisir_eleve0($classe){
     /**
      * picks randomly the name of a student from the table eleves, increases by 1 the column 'participation' of this student in the table. 
-     -> If afterwards his participation is at 0, 1 ou 2, the function returns his name.
-     -> If his participation is at 3, the function calls for choisirEleveFaibleParticipation(). 
-     -> If his participation is at 4, his participation is set to 0 and the function calls for choisirEleveFaibleParticipation()
+     *-> If afterwards his participation is at 0, 1 ou 2, the function returns his name.
+     *-> If his participation is at 3, the function calls for choisirEleveFaibleParticipation(). 
+     *-> If his participation is at 4, his participation is set to 0 and the function calls for choisirEleveFaibleParticipation()
      **/
     $eleveHasard = NULL;
     $bdd = connexionBdd($classe);
@@ -258,7 +482,7 @@ function choisir_eleve($classe){
 
 function choisir_eleve_faibleParticipation($classe){
     /**
-    returns randomly the name of a student from the table eleves, whose participation is < 2, increases by 1 the column 'participation' of this student in the table.
+     * returns randomly the name of a student from the table eleves, whose participation is < 2, increases by 1 the column 'participation' of this student in the table.
     **/
     $eleveHasard = NULL;
     $bdd = connexionBdd($classe);
@@ -350,7 +574,7 @@ function valider_saisie($chaine){
 
 function afficher_atelier($utilisateur, $prefixe){
     if ($utilisateur == "enseignant"){
-        return "<a href='".$prefixe."pageWorkshop.php' target='_blank'>4F1</a> | <a href='".$prefixe."pageWorkshop.php' target='_blank'>4F3</a> | <a href='".$prefixe."pageWorkshop.php' target='_blank'>2B1</a> | <a href='".$prefixe."pageWorkshop.php' target='_blank'>SNT</a> | <a href=''>NSI</a>";
+        return "<a href='".$prefixe."pageWorkshop.php' target='_blank'>4F1</a> | <a href='".$prefixe."pageWorkshop.php' target='_blank'>4F3</a> | <a href='".$prefixe."pageWorkshop.php' target='_blank'>SNT</a>";
     }
     else{
         return "";
@@ -529,8 +753,6 @@ function choisirEleveI($classe){
     }
     
 }
-
-
 ?>
 
 

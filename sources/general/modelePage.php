@@ -1,19 +1,12 @@
 <?php
+// model page for all course related pages
 session_start();
 
-$typeUtilisateur = $_SESSION['utilisateur'];
+$utilisateur = $_SESSION['utilisateur'];
 
-$_SESSION['niveau'] = $_GET['niveau'];
-$niveau = $_SESSION['niveau'];
-
-$_SESSION['nomClasse'] = $_GET['nomClasse'];
-$nomClasse = $_SESSION['nomClasse'];
-
-$_SESSION['chapitre'] = $_GET['chapitre'];
-$chapitre = $_SESSION['chapitre'];
-
-$nomPage = $_GET['nomPage'];
-$typePage = "modelePage";
+$niveau = $_GET['niveau'];
+$chapitre = $_GET['chapitre'];
+$page = $_GET['page'];
 
 if (empty($_SESSION['pseudo'])){
     $_SESSION['pseudo'] = NULL;
@@ -25,77 +18,65 @@ if (empty($_SESSION['pw'])){
 }
 $pw = $_SESSION['pw'];
 
-// TIMER SESSION
-//$_SESSION['tempsEcoule_session'] = ""; 
-?>
-
-<!DOCTYPE HTML>
-<html>
-
-<!-- HEAD -->
-<?php include("head.php"); ?>
-
-<!-- JavaScript de gestion des couleurs de code -->
-<script defer src="../../styles/prism.js"></script>
-
-<!-- script de gestion de l'apparition du contenu d'une section
-     utile comme exemple dans le paragraphe traitant ce sujet -->
-<script type="text/javascript">
-function affichageConditionnel(bouton, id) {
-    var div = document.getElementById(id);
-    if(div.style.display=="none") { // si le div est masqué, on l'affiche et on change le contenu du bouton
-        div.style.display = "block";
-        bouton.innerHTML = "-";
-    } else { // s'il est visible, on le masque et on change le contenu du bouton
-        div.style.display = "none";
-        bouton.innerHTML = "+";
-    }
-}</script>
-
-<!-- mathjax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [ ["\\(","\\)"] ],
-      displayMath: [ ["\\[","\\]"] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { availableFonts: ["TeX"] }
-  });
-</script>
-<script type="text/javascript"
-src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
-
-<?php
-// FUNCTIONS 
 include("fonctionsPHP.php");
 include("fonctionsJS.html");
+include("head.php"); 
+include("header.php");
+include("titres.php");
+
+// contenu de la page
+echo "
+<section class='principal'>
+
+<h1 style='visibility:hidden;' id='hautPage'>Toketa</h1>
+
+<h2>".$titres[$niveau][$chapitre][$page][0]."<br/>
+<a href='https://www.youtube.com/channel/UCgCl1cAuhEa5RxCsV87cG4A/featured' target='_blank'>
+<img src='../../images/general/youtubetoketa.png' alt='youtube' width='15%' style='margin-top:1%;border-radius:5px;'></a></h2>";
+
+include("../".$niveau."/".$chapitre."/".$page.".html");
+
+// gestion des pages precedentes et suivantes
+$pagePrecedente = (string)((int)substr($page, 10) - 1);
+$pageSuivante = (string)((int)substr($page, 10) + 1);
+$textePrecedent = "&#9194; page précédente";
+$texteSuivant = "page suivante &#9193;";
+
+if ($page == "competence1"){
+    $logoPrecedent = "";
+    $textePrecedent = "........................................";
+    $pagePrecedente = (string)((int)substr($page, 10));
+}
+if ($page == "competence".sizeof($titres[$niveau][$chapitre])){
+    $logoSuivant = "";
+    $texteSuivant = "........................................";
+    $pageSuivante = (string)((int)substr($page, 10));
+}
+
+if (sizeof($titres[$niveau][$chapitre]) != 0){
+    
+    echo "
+    <div class='bloc_ligne' style='margin-top:5%;display:grid;grid-template-columns:33%33%33%;'>
+        <div class='bloc_colonne' style='margin-left:5%;'>
+            <a href='modelePage.php?niveau=".$niveau."&chapitre=".$chapitre."&page=competence".
+            $pagePrecedente."'>".$textePrecedent."</a>
+        </div>
+        <div class='bloc_colonne'>
+            <a href='#hautPage'>Haut de page</a>
+        </div>
+        <div class='bloc_colonne'>
+            <a href='modelePage.php?niveau=".$niveau."&chapitre=".$chapitre."&page=competence".
+            $pageSuivante."'>".$texteSuivant."</a>
+        </div>
+    </div>
+    ";
+}
+
+// fin de page
+echo "</section>";
+include("footer.php");
 ?>
-
-<!-- BODY -->
-<body onload='startTime()'>
-
-<!-- HEADER -->
-<?php include("header.php"); ?>
-
-<!-- PRINCIPAL -->
-<section id="principal">
-
-<!-- TABLE MATIERES -->
-<?php include("tableMatieres.php"); ?>
-
-<!-- GRAND CONTENU -->
-<section id="grandContenu">
-
-<?php include("../".$niveau."/cours/".$chapitre."/".$nomPage.".html"); ?>
-
-</section> <!-- END GRAND CONTENU -->
-</section> <!-- END PRINCIPAL -->
-
-<!-- FOOTER -->
-<?php include("footer.php"); ?>
 
 </body>
 </html>
+

@@ -1,3 +1,4 @@
+<!-- script for integrated js functions -->
 <script>
   function startTime() {
     var today = new Date();
@@ -66,4 +67,57 @@
     }, 1000);
     return $decompteTemps;
   }
+</script>
+
+<!-- script for hiding section -->
+<script>
+    function affichageConditionnel(bouton, id) {
+        var div = document.getElementById(id);
+        // si le div est masqué, on l'affiche et on change le contenu du bouton
+        if(div.style.display=="none") {
+            div.style.display = "block";
+            bouton.innerHTML = "Cacher la solution";
+        // s'il est visible, on le masque et on change le contenu du bouton
+        } else {
+            div.style.display = "none";
+            bouton.innerHTML = "Voir la solution";
+        }
+}
+</script>
+
+<!-- script for code coloring -->
+<script defer src="../../styles/prism.js"></script>
+
+<!-- script for latex mathjax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ["\\(","\\)"] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+
+<!-- script for slide show -->        
+<script>
+function showSlides() {
+  let slideIndex = 0;
+
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 3000); // Change image every 2 seconds
+}
 </script>
