@@ -1,0 +1,190 @@
+
+
+ <h2>Les variables</h2>
+    
+   
+<!--- ===== LES VARIABLES ===== -->
+    
+<h3 id="variable">Les variables</h3>
+    
+<p>C n'est pas un langage dynamique. Il est nécessaire que définir le type de variables avant leur utilisation. Les différents types de variables en C sont les suivants :</p> 
+<p>C est un langage faiblement typé, et ne dispose que de 4 types de variables.</p>
+
+  <table>
+    <tr><th>Types</th><th>Mots-clés</th></tr>
+    <tr><td>entier court</td><td>char</td></tr>
+    <tr><td>entier</td><td>int</td></tr>
+    <tr><td>entier long</td><td>long</td></tr>
+    <tr><td>nombre décimal</td><td>float</td></tr>
+    <tr><td>nombre décimal long</td><td>double</td></tr>
+    <tr><td>entier court positif</td><td>unsigned char</td></tr>
+    <tr><td>entier positif</td><td>unsigned int</td></tr>
+    <tr><td>entier long positif</td><td>unsigned long</td></tr>
+  </table>
+
+<p>Attention, bien que le type <strong>char</strong> soit utilisé pour représenter des caractères, il représente quand même initialement en C des nombres compris entre -128 et 127.</p>
+<p>Attention, les <strong>unsigned char</strong>, <strong>unsigned int</strong>, ... sont en fait des nombres positifs. La plage mémoire qu'ils occupent a donc été déplacée vers la droite. Ainsi, les nombres de type <strong>unsigned char</strong> sont compris entre 0 et 255. Tous ces différents types de nombres ont été créés pour économiser de la mémoire lors de leur déclaration.</p>
+
+<p>Au moment de la déclaration d'une variable, C réserve un emplacement en mémoire, mais la valeur attribuée initialement à la variable correspond à la dernière valeur prise par cet emplacement de mémoire. Il est donc important de déclarer et d'initialiser en même temps pour éviter des erreurs, en attribuant par exemple la valeur 0 à la variable.</p>
+
+<h4>Particularités de C</h4>
+
+<p>En C il n'existe pas de type booleen. On fait donc prendre les valeurs 0 et 1 à une variable qui va jouer le rôle d'un booléen. Il n'existe pas non plus de type chaîne de caractères. En revanche, le type char qui est un type particulier de nombres compris entre -128 et 127, permet en fait de représenter des caractères. La correspondance entre les nombres et les caractères est assurée par la table ASCII.</p>
+
+<h4>Conversion implicite et cast d'un type</h4>
+
+<p>Dans une expression contenant des éléments de plusieurs types, le type du résultat respecte la règle suivante : le type le plus faible est converti implicitement dans le type le plus fort. Par exemple, un char avec un int produit un int, un int avec un float produit un float. Si on veut convertir de façon explicite une variable dans un autre type (cast), on utilise la forme suivante :</p>
+<pre><code class="language-python">int x;
+float y = (float)x;</code></pre>
+
+<h4>Affichage d'une variable</h4>
+    
+<pre><code class="language-python">printf("Antoine a %d ans et %d voitures", age, nbreVoitures);</code></pre>
+
+
+<table>
+    <tr><th>Types</th><th>Mots-clés</th></tr>
+    <tr><td>int</td><td>%d</td></tr>
+    <tr><td>long</td><td>%ld</td></tr>
+    <tr><td>float</td><td>%f</td></tr>
+    <tr><td>pointeur</td><td>%p</td></tr>
+    <tr><td>char</td><td>%d pour afficher le nombre, %c pour afficher le caractère</td></tr>
+    <tr><td>chaîne de caractères</td><td>%s</td></tr>
+    <tr><td>float en notation scientifique</td><td>%e</td></tr>
+</table>
+
+<h4>Les constantes</h4>
+
+<p>On déclare une constante en C avec l'instruction :</p>
+    <pre><code class="language-python">const int MON_NOMBRE = 5;</code></pre>
+
+<h4>Taille des données</h4>
+
+<p>En C, un octet est représenté par un char. L'instruction <strong>sizeof</strong> permet de connaître la taille en octets d'une donnée. La taille d'un char vaut donc 1.</p>
+
+
+<!-- ===== LES TABLEAUX ===== -->
+
+<h3 id="tableau">Les tableaux</h3>
+
+<p>Les tableaux en C sont des objets contenant des variables de même type, et disposant d'une taille fixée.</p>
+<p>Notons que les adresses des variables d'un tableau sont contigues.</p>
+<p>Pour définir un tableau de 5 <em>int</em> :</p>
+    <pre><code class="language-python">int tableau[5];</code></pre>
+
+<p>Pour initialiser un tableau lorsqu'on connaît les valeurs à l'avance :</p>
+    <pre><code class="language-python">int tableau[5] = {0, 4, 3, 5, 2};</code></pre>
+
+<p>Il est également possible de laisser le compilateur déterminer la taille du tableau lorsqu'on lui donne les valeurs à l'avance :</p>
+    <pre><code class="language-python">int tableau[] = {0, 4, 3, 5, 2};</code></pre>
+
+<p>Comme dans tous les langages, le premier indice d'un tableau est 0.</p>
+<p>Par ailleurs, le code suivant renvoie l'adresse de la première case du tableau :</p>
+<pre><code class="language-python">int tab[5];
+print("%d", tab);</code></pre>
+
+<p>Pour parcourir un tableau :</p>
+<pre><code class="language-python">for(int i=0; i<5; i++){
+    printf("%d \n", tableau[i];
+}</code></pre>
+
+<h4>Propriétés d'un tableau</h4>
+
+  <table>
+    <tr><th>Propriétés</th><th>Codes</th></tr>
+    <tr><td>taille</td><td><pre>sizeof tab / sizeof tab[0]</pre></td></tr>
+    <tr><td>élément d'indice i</td><td><pre>tab[i]</pre></td></tr>
+    <tr><td>dernier élément d'une liste</td><td><pre>tab[-1]</pre></td></tr>
+    <tr><td>modifier l'élément d'indice i</td><td><pre>tab[i] = nouvelleValeur</pre></td></tr>
+    <tr><td>indice d'un élément</td><td><pre>tab.index(element)</pre></td></tr>
+  </table>
+
+<h4>Une initialisation particulière à C</h4>
+
+    <pre><code class="language-python">int tableau[5] = {1};</code></pre>
+<p>Cette instruction va en fait affecter la valeur 1 au 1er élément du tableau, puis la valeur 0 aux quatre autres.</p>
+
+
+
+<!-- ===== MANIPULER DES CHAINES DE CARACTERES ===== -->
+
+<h3 id="caractere">Manipuler des chaînes de caractères</h3>
+
+<h4>Les caractères</h4>
+
+<p>En C un caractère est en fait un nombre stocké tel quel dans la mémoire et affiché sous forme de caractère grâce à la table ASCII, si on le spécifie en utilisant l'attribut <em>%c</em>.</p>
+
+<pre><code class="language-python">char lettre = 'a';
+printf("%d", lettre);</code></pre>
+
+<p>affiche 97. En revanche, le code :</p>
+
+<pre><code class="language-python">char lettre = 'a';
+printf("%c", lettre);</code></pre>
+
+<p>affiche bien la lettre <em>a</em>.</p>
+<p>Notons que les caractères sont obligatoirement entourés de <strong>'</strong> alors que les chaînes de caractères sont entourées de <strong>"</strong>.</p>
+
+<h4>Les chaînes de caractères</h4>
+
+<p>En C, une chaîne de caractères est un tableau de caractères de type char dont le dernier élément est \0. Il s'agit en fait d'un caractère de contrôle non affichable qui permet d'indiquer la fin de la chaîne. Ainsi une chaîne composée de n éléments sera en fait un tableau de n+1 éléments. La taille d'une chaîne de caractères est immuable une fois initialisée. On peut toutefois n'utiliser que partiellement l'espace alloué en insérant le caractère de fin de chaîne \0 à un emplacement avant la fin du tableau.</p>
+<p>La bibliothèque <em>string.h</em> offre une multitude de fonctions dédiées aux chaînes.</p>
+    <pre><code class="language-python">#include &ltstring.h&gt</code></pre>
+
+<p>Pour définir une chaîne de caractères, il faut définir la taille de la chaîne de caractères. On pourra prendre une taille supérieure à la taille effective, car une fois définie, la taille ne pourra plus être modifiée. Dans ce cas, les emplacements non utilisés restent vides, mais occupent quand même de la place mémoire.</p>
+<pre><code class="language-python">char chaine[100];
+chaine[0] = 'b';
+chaine[1] = 'o';
+chaine[2] = 'n';
+chaine[3] = 'j';
+chaine[4] = 'o';
+chaine[5] = 'u';
+chaine[6] = 'r';
+chaine[7] = '\0';</code></pre>
+
+<p>On pourra également faire une déclaration dans une même accolade, et dans ce cas la taille du tableau est lue par le processeur et il est inutile de la spécifier :</p>
+    <pre><code class="language-python">char chaine[] = {'b', 'o', 'n', 'j', 'o', 'u', 'r', '\0'};</code></pre>
+
+<p>Dans la pratique, pour initialiser et afficher une chaîne de caractères, on utilisera plutôt :</p>
+<pre><code class="language-python">char chaine[] = "bonjour";
+printf("%s", chaine);</code></pre>
+
+<p>Il n'est pas non plus nécessaire de définir la taille du tableau représentant la chaine. Par ailleurs, en utilisant l'élément %s, il s'affiche bien des lettres et non des chiffres comme on aurait pu le craindre.</p>
+
+<p>Attention, cette méthode de déclaration-initialisation automatique d'une chaîne de caractères ne fonctionne qu'au moment de l'initialisation. Après il est impossible d'écrire <em>chaine = "bonjour"</em>. Il faudra ensuite utiliser une boucle pour définir la chaine.</p>
+
+<p>Lors de l'initialisation d'une chaine, le saut de ligne sans marqueur n'est pas interprété par le compilateur :</p>
+<pre><code class="language-python">strcpy(t1, "hello world"
+    " et aussi bonjour");</code></pre>
+<p>affichera : hello world et aussi bonjour</p>
+
+<p>Puisque, vu d'un pointeur, une chaine est représentée par l'adresse de son premier élément, on peut définir une chaine en utilisant un pointeur :</p>
+    <pre><code class="language-python">char *s = "bonjour";</code></pre>
+
+<p>Notons qu'une chaîne de caractères n'est en principe pas modifiable. Toutefois, il est quand même possible de créer d'autres chaînes de caractères à partir d'une chaîne initiale.</p>
+
+<table>
+    <tr><th>Propriétés</th><th>Codes</th></tr>
+    <tr><td>taille sans compter le \0</td><td><pre>strlen(chaine)</pre></td></tr>
+    <tr><td>remplacement de chaineDestinataire par chaienAcopier</td><td><pre>strcpy(chaineDestinataire, chaineAcopier)</pre></td></tr>
+    <tr><td>copie de chaineAcopier dans chaineDestinataire (qui est écrasée)</td><td><pre>strncpy(chaineDestinataire, chaineAcopier, 
+                nbreCaracteresAcopier)</pre></td></tr>
+    <tr><td>concaténer chaine1 dans chaine2</td><td><pre>strcat(chaine1, chaine2)</pre></td></tr>
+    <tr><td>comparer deux chaînes</td><td><pre>strcmp(chaine1, chaine2)</pre></td></tr>
+    <tr><td>renvoyer le reste de la chaine à partir du caractère a</td><td><pre>strchr(chaine, 'a')</pre></td></tr>
+    <tr><td>renvoyer le reste de la chaine à partir de souschaine trouvé dans la chaine</td><td><pre>strstr(chaine, souschaine)</pre></td></tr>
+    <tr><td>écrire une sous chaine dans une chaîne</td><td><pre>sprintf(chaine, sousChaine)</pre></td></tr>
+</table>
+
+<p>Attention, de façon contre-intuitive, la comparaison de deux chaines renvoie 0 si les chaînes sont identiques et un nombre positif ou négatif sinon.</p>
+
+<p>Attention, comparer deux chaines avec un == ne compare pas les valeurs mais les adresses.</p>
+
+<p>Attention à l'utilisation particulière des instructions ci-dessus qui utilisent systématiquement un pointeur.</p>
+<pre><code class="language-python">char chaine[] = "bien le bonjour";
+char *suiteChaine = NULL;
+    
+suiteChaine = strstr(chaine, "on");
+if (suiteChaine != NULL){
+    printf("%s", suiteChaine);
+}</code></pre>
