@@ -1,0 +1,110 @@
+<h2>Structure du code</h2>
+
+  <div class="bloc">
+    <div class="gauche">
+      <img src="../../images/memento/php.png" width="90" height="80">
+    </div>
+
+    <div class="droite">
+      <p>PHP signifie Hypertexte Preprocessor. Il s'agit d'un langage de programmation libre, interprété, orienté objet, principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP.
+        Il est considéré comme une des bases de la création de sites Web dynamiques.</p>
+    </div>
+  </div>
+
+<!-- CONFIGURATION DU SERVEUR -->
+
+  <h3>Configuration du serveur</h3>
+
+  <p>Afin d'utiliser PHP, il faut utiliser un serveur capable de transformer les fichiers .php en .html. Il faut également
+  configurer l'accès à un SGDB tel que MySQL et PostgreSql. Il est possible d'installer ces outils séparément et de les
+   configurer manuellement. Nous préférons installer un package qui se charge de la configuration. Pour cela, il convient
+    d'installer Xampp qui regroupe le pack PHP, Perl, Apache, SQL, MariaDB.</p>
+
+  <p>Une fois le téléchargement de Xampp effectué, il faut se rendre dans le dossier de Téléchargement et exécuter l'installer
+  en mode root. Il faut donc préciser sudo su afin d'obtenir le prompt suivant : root@stephane:</p>
+
+  <pre><code class="language-svg">cd Téléchargements
+sudo su
+chmod 755 xampp-linux-*-installer.run
+./xampp-linux-*-installer.run</code></pre>
+
+  <p>où il faut remplacer * par la version de Xampp valide au moment du téléchargement.</p>
+
+  <p>Rappel : pour entrer en mode root, il faut exécuter sudu su [identifiant], et pour en sortir il faut exécuter exit</p>
+
+  <p>Pour lancer le serveur, il faut s'assurer d'être en mode root. Il faut ensuite préciser l'emplacement de lampp, qui
+    se situe par défaut à /opt/lampp/lampp puis exécuter l'instruction</p>
+
+  <pre><code class="language-svg">sudo su
+/opt/lampp/lampp start</code></pre>
+
+  <p>Il est maintenant possible de tester Xampp en tapant dans la barre du navigateur</p>
+
+  <pre><code class="language-svg">http://localhost</code></pre>
+
+  <p>Remarques importantes:</p>
+  <ul>
+    <li>les fichiers .php doivent être placés dans le répertoire /opt/lampp/htdocs, ou dans un sous-dossier de htdocs. Ce dossier est protégé par défaut. Il
+    faut donc modifier les droits d'accès pour pouvoir créer et modifier des dossiers et fichiers à l'intérieur. Ainsi, il
+    faut exécuter cd /opt/lampp puis sudo chmod 777 -R /opt/lampp/htdocs. 777 représente la permission pour le superutilisateur,
+    le groupe et les autres utilisateurs avec read qui repésente 4, write qui représente 2 et execute qui représente 1 (leur
+    somme étant égale à 7).</li>
+    <li>lorsqu'on crée un dossier monProjet dans /opt/lampp/htdocs, il est possible pour le navigateur d'y accéder en tapant
+    dans la barre http://localhost/monProjet</li>
+    <li>le code source récupéré par le navigateur ne permet pas d'afficher le code PHP. Celui-ci est transformé en HTML, qui
+    est lu par le navigateur, et c'est ce code source dont dispose l'utilisateur. Ainsi, seul le serveur lit le code PHP.</li>
+  </ul>
+
+  <p>Pour arrêter le serveur, il faut exécuter</p>
+  <pre><code class="language-svg">/opt/lampp/lampp stop</code></pre>
+
+  <h2>Structure du code PHP</h2>
+
+  <p>Les fichiers PHP sont munis d'une extension .php</p>
+
+  <p>Les instructions PHP s'insèrent dans le code HTML en utilisant les balises suivantes</p>
+  <pre><code class="language-html">&lt?php echo "Hello world"; ?&gt </code></pre>
+
+  <p>Les commentaires s'écrivent avec // pour une seule ligne et /* ... */ pour plusieurs lignes.</p>
+  <p>Notons que pour que les guillemets apparaissent dans le texte, il faut les faire précéder d'un antislash \.</p>
+
+  <h3>Particularité dans l'exécution d'un code PHP</h3>
+
+  <p>PHP refuse de s'exécuter une instruction durant plus de 30 secondes, à l'issue desquelles il s'arrête donc de travailler.
+  Ainsi, PHP n'est pas conçu pour les calculs numériques longs. Il a été conçu pour l'affichage dynamique de pages
+    Web. On préfèrera pour les calculs numériques C++ ou Python pour ses librairies scientifiques.</p>
+
+
+
+
+  <!-- OPERATEURS -->
+
+  <h3>Opérateurs standard</h3>
+
+  <p>Les opérateurs standard sont les suivants : <br/>addition +, soustraction -, multiplication *, division /, modulo %,
+  AND ou &&, OR ou ||</p>
+  <p>L'incrémentation s'effectue de façon standard avec compteur++</p>
+  <p>Les opérateurs de comparaison sont les suivants : <br/>
+  égal ==, supérieur à >, inférieur à <, supérieur ou égal >=, inférieur ou égal <=, différent !=</p>
+  <p>La concaténation de string est réalisée à l'aide d'un point .</p>
+
+
+  
+  <h4>Particularité de PHP</h4>
+
+  <p>Si la valeur de départ est transformable en entier sans modification, cette valeur est transtypée telle quelle. En revanche,
+  si ce n'est pas le cas (parce que cette valeur représente un string par exemple) alors elle est transformée en 0. PHP ne
+  lève donc pas d'exception dans ce cas.</p>
+
+  <h4>Les étapes du traitement d'une valeur</h4>
+
+  <p>On vérifie que la variable est bien définie avec la fonction isset(), on cast la variable en int ou en float si on a besoin de
+  procéder à des calculs, on définit les conditions sur la variable pour qu'elle satisfasse la proposition.</p>
+
+
+  <!-- FORMULAIRES -->
+
+  <h4>Utilisation des formulaires</h4>
+
+
+
