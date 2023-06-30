@@ -1,0 +1,45 @@
+<h2>Programmation objet</h2>
+
+
+  <!-- ===== LES OBJETS EN PYTHON ===== -->
+
+  <h3 id="py_objet"> La programmation objet</h3>
+
+    <p>La création d'une classe en Python :</p>
+    <pre><code class="language-python">class MaClasse:
+  MON_ATTRIBUT  # attribut de classe
+
+  __init__(self, nom, prenom):
+    self.nom = nom
+    self.prenom = prenom
+
+  def uneMethode(parametre):
+    instructions
+
+}</code></pre>
+
+  <p>On remarque que la signature d'une méthode ne comprend pas le type renvoyé par la méthode. Notons également que le
+  constructeur d'une classe en Python est __init__(self). Le mot-clé self doit obligatoirement apparaître parmi les paramètres
+  du constructeur contrairement à d'autres langages. En revanche, il n'est pas nécessaire de définir les attributs, comme nom
+    et prenom dans l'exemple ci-dessus, avant la définition des méthodes. Seuls les attributs de classe s'écrivent en majuscule
+    avec éventuellement des underscores. Ils n'utilisent pas de mot-clé spécifique. En Python les attributs de classe sont en fait
+  vus comme des constantes propres à une classe.</p>
+
+  <p>Les méthodes de classes prennent toujours en paramètre le mot-clé self.</p>
+
+  <p>L'instanciation d'un objet se fait sans recours au mot-clé traditionnel new des autres langages :</p>
+  <pre><code class="language-python">monObjet = MaClasse("Charles", "Hervé")</code></pre>
+
+  <p>On peut accéder aux attributs de classe à partir d'un objet mais également directement à partir de la classe de la façon suivante :</p>
+  <pre><code class="language-python">MaClasse.MON_ATTRIBUT</code></pre>
+
+  <p>Par défaut toutes les méthodes sont publiques. Pour les rendre protégées il faut ajouter un underscore devant la méthode
+  et pour les rendre privées il faut rajouter deux underscores</p>
+
+  <pre><code class="language-python">def _maMethodeProtegee:
+def __maMethodePrivee</code></pre>
+
+
+
+
+

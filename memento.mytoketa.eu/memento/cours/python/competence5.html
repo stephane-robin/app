@@ -1,0 +1,177 @@
+  <h3>Décodage des bytes en string</h3>
+
+  <p>Pour décoder des bytes en string unicode utf8, on utilise :</p>
+  <pre><code class="language-python">bb = b'\xc2\xa9 abc'
+u = bb.decode('utf-8)</code></pre>
+
+  <p>Pour encoder un string utf8 en bytes, on utilise :</p>
+  <pre><code class="language-python">chaine = 'hello'
+bb = chaine.encode('utf-8)</code></pre>
+
+
+
+
+<h3>Parcourir un répertoire</h3>
+
+  <p>Afin d'afficher tous les éléments se trouvant dans un dossier de l'ordinateur grâce à Python :</p>
+
+  <pre><code class="language-python">from os import listdir
+for item in listdir('/home/user/monDossier'):
+  print(item)</code></pre>
+
+
+
+  <h3>Parser du JSON / Sérialiser en JSON</h3>
+
+  <p>Parser consiste à analyser une suite de données afin d'en
+    récupérer la structure et de l'incorporer dans un objet structuré.
+    Transformer un fichier JSON en dictionnaire (objet structuré Python) est un
+    exemple de parsing. Pour cela on utilise les étapes suivantes : ouvrir un fichier JSON,
+  récupérer le contenu sous forme de string JSON, transformer ce contenu en dictionnaire
+  Python.</p>
+
+  <p>Sérialiser consiste à transformer un objet en une structure lisible et
+    capable d'être stockée comme une série de bytes. Par exemple, convertir un
+    dictionnaire en un fichier au format JSON. Pour cela on utilise les étapes
+  suivantes : transformer un dictionnaire Python en string, </p>
+
+  <p>Le Marshalling consiste à transformer une structure de données en un
+    format différent.</p>
+
+  <p>Voici un tableau de conversion des objets Python en équivalents JSON :</p>
+  <table>
+    <tr><th>Python</th><th>JSON</th></tr>
+    <tr><td>dict</td><td>Object</td></tr>
+    <tr><td>list, tuple</td><td>Array</td></tr>
+    <tr><td>str</td><td>String</td></tr>
+    <tr><td>int, float</td><td>Number</td></tr>
+    <tr><td>True, False</td><td>true, false</td></tr>
+    <tr><td>None</td><td>Null</td></tr>
+  </table>
+
+  <p>JSON ne se trouve pas nativement dans l'environnement de travail. Il est donc nécessaire de l'importer.</p>
+  <pre><code class="language-python">import json</code></pre>
+
+  <p>JSON JavaScript Object Notation est un format de stockage de données
+    (littéralement du texte écrit en notation objet). Le format JSON est
+    particulièrement utilisé dans le cadre d'échanges de données, et peut être
+    interpété par de nombreux langages, facilitant ainsi l'interopérabilité.</p>
+
+  <p>Les données seront stockées suivant le format clé-valeur d'un
+    dictionnaire. Mais attention, un dictionnaire accepte indifféremment les
+    ' ou les " alors que le format JSON n'accepte que les ". On
+    peut par exemple avoir la structure suivante :</p>
+  <pre><code class="language-svg">{
+    "collège_St_André":
+        [
+            {
+                "nom": "Fremon",
+                "prenom": "Antoine",
+                "pseudo": "toto",
+                "moyennes":
+                    {
+                        "6ème": 14,
+                        "5ème": 14,
+                        "4ème": 13,
+                        "3ème": 11.5
+                    }
+            },
+            {
+                "nom": "Sabert",
+                "prenom": "CLementine",
+                "pseudo": "clea"
+                "moyennes":
+                    {
+                        "6ème": 12,
+                        "5ème": 13,
+                        "4ème": 12,
+                        "3ème": 11
+                    }
+            }
+        ],
+        #
+        "collège_bernard":
+        [
+            {
+                "nom": "Carmeni",
+                "prenom": "Louis",
+                "pseudo": "lolo",
+                "moyennes":
+                    {
+                        "6ème": 19,
+                        "5ème": 16,
+                        "4ème": 16,
+                        "3ème": 14
+                    }
+            },
+            {
+                "nom": "Florimar",
+                "prenom": "Capucine",
+                "pseudo": "cap"
+                "moyennes":
+                    {
+                        "6ème": 18,
+                        "5ème": 18,
+                        "4ème": 17,
+                        "3ème": 18
+                    }
+            }
+        ]
+}</code></pre>
+
+  <p>Pour utiliser ce fichier JSON, il faut d'abord l'ouvrir sous forme de
+    string puis le parser sous forme de dictionnaire afin d'en récupérer la
+    structure :</p>
+  <pre><code class="language-python">with open('page.json', 'r') as f:
+    # transforming page.json into a JSON string
+    chaine = f.read()
+    # parsing the JSON string into a dictionary
+    dico = json.loads(chaine)
+    print(dico['ma_cle'])</code></pre>
+
+  <p>Pour écrire sur un fichier JSON (sérialiser un dictionnaire pour le
+    transformer en format JSON), on ne peut pas se contenter de rajouter des éléments
+    à la fin, car ces éléments doivent s'intégrer à une structure de données. Il
+  faut reprendre ce qui reste inchangé, intégrer les nouvelles données et transformer
+  tout l'ensemble. Cela est coûteux en espace mémoire et temps de travail.</p>
+
+  <pre><code class="language-python">with open('page.json', 'r+') as f:
+    # transforming page.json into JSON string
+    js = f.read()
+    # transforming JSON string into dictionary using the initial JSON structure
+    dico = json.loads(js)
+    # adding a key/value
+    dico.update({"lundi": "Monday"}) # or dico["lundi"] = "Monday"
+    # setting the pointer on 1st position
+    f.seek(0,0)
+    # transforming dictionary into JSON string and writing on page.json
+    f.write(json.dumps(dico, indent=4)) # JSON string</code></pre>
+
+  <p>Il est possible de sérialiser suivant un format plus facilement lisible
+  :</p>
+  <pre><code class="language-python">json.dumps(dico, indent=4, separators=(",", ":"))</code></pre>
+
+  <p>En résumé, json.loads(json_str) transforme un string JSON en dictionnaire Python, et
+  json.dumps(object) transforme un dictionnaire Python en string JSON.</p>
+
+<p>Le module pickle permet la sérialisation/parsing d'objets Python
+  complexes, mais il est spécifique à Python et ne peut donc pas servir pour
+  communiquer avec des applications écrites dans un autre langage.</p>
+
+
+
+  <!-------------------------------------
+  EXECUTER DU BASH DANS DU CODE PYTHON
+  --------------------------------------->
+  <h3>Exécuter du bash dans du code Python</h3>
+
+  <p>On peut exécuter un script Python qui interprète une ligne de commande à
+    l'emplacement du dossier courant où se trouve le script, en utilisant le
+    module subprocess. Par exemple pour afficher tous les dossiers et fichiers
+    se trouvant dans le répertoire courant :</p>
+
+  <pre><code class="language-python">import subprocess
+subprocess.run('ls')</code></pre>
+
+
+

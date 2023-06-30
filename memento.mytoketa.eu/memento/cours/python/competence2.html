@@ -1,0 +1,369 @@
+<h2>Les types de variables</h2>
+
+
+  <p>Python est un langage à typage dynamique, i.e. qu'il identifie lui-même les types de variables et autorise les changements de type. La déclaration des variables n'est donc pas nécessaire. L'instruction <strong>int(chaine)</strong> permet de transformer un <em>String</em> en nombre <em>si cela est possible</em> alors que l'instruction <strong>str(nombre)</strong> permet de transformer un nombre en <em>String</em>.</p>
+  <p>Par ailleurs, Python est un langage fortement typé, i.e. qu'il ne convertit pas automatiquement les types de variables, mais requiert une instruction spécifique. Ainsi, la concaténation d'un <em>String</em> avec un entier lève une exception et ne transforme pas l'entier en <em>String</em>.</p>
+  <p>Pour tester le type d'une variable, on utilise l'instruction <strong>type(maVariable)</strong>. Cette instruction lève une exception si maVariable n'existe pas. En revanche, elle renvoie le type si maVariable a été déclarée mais reste vide.</p>
+
+  <table>
+    <tr><th>Types</th><th>Mots-clés</th></tr>
+    <tr><td>entier</td><td>int</td></tr>
+    <tr><td>nombre décimal</td><td>float</td></tr>
+    <tr><td>nombre complexe</td><td>complex</td></tr>
+    <tr><td>chaîne de caractères</td><td>str</td></tr>
+    <tr><td>booléen</td><td>bool</td></tr>
+  </table>
+
+  <p>Les booléens prennent les valeurs <strong>True</strong> et <strong>False</strong>.</p>
+  <p>Il n'existe pas de type StringBuffer comme en Java pour représenter les chaînes de caractères modifiables.</p>
+
+  <h3>Les constantes</h3>
+
+  <p>Les constantes n'existent pas en Python. On utilise généralement des variables globales qu'on ne modifie pas.</p>
+
+  <h3>Permutation de valeurs</h3>
+
+  <p>Python permet de permuter simplement les valeurs de deux variables sans passer par une troisième.</p>
+  <pre><code class="language-python">a = 2
+b = 5
+a, b = b, a</code></pre>
+
+
+
+    <!-- ===== MANIPULER DES CHAINES DE CARACTERES ===== -->
+
+    <h3 id="py_chaine">Les chaînes de caractères</h3>
+
+    <p>L'indice du 1er caractère d'une chaîne est 0. Pour échapper une apostrophe ou un guillemet, on utilise le signe <strong>\</strong>.<p>
+
+    <table>
+      <tr><th>Propriétés</th><th>Codes</th></tr>
+      <tr><td>taille</td><td><pre>len(chaine)</pre></td></tr>
+      <tr><td>élément d'indice i</td><td><pre>chaine[i]</pre></td></tr>
+      <tr><td>dernier élément</td><td><pre>chaine[-1]</pre></td></tr>
+      <tr><td>convertir en minuscules</td><td><pre>chaine.lower()</pre></td></tr>
+      <tr><td>convertir en majuscules</td><td><pre>chaine.upper()</pre></td></tr>
+      <tr><td>mettre en majuscule le 1er caractère d'une chaîne</td><td><pre>chaine.capitalize()</pre></td></tr>
+      <tr><td>nombre de "d" dans la chaîne</td><td><pre>chaine.count("d")</pre></td></tr>
+      <tr><td>remplacement de "d" par "a"</td><td><pre>chaine.replace("d", "a")</pre></td></tr>
+      <tr><td>enlever les espaces au début et à la fin d'une chaine</td><td><pre>chaine.strip()</pre></td></tr>
+      <tr><td>extrait une sous-chaîne, comprenant la lettre d'indice 3 jusqu'à la lettre d'indice 5 incluse</td><td><pre>chaine[3:6]</pre></td></tr>
+      <tr><td>extrait une sous-chaîne, comprenant la lettre d'indice 3 jusqu'à la lettre d'indice 5 incluse</td><td><pre>chaine[3:6]</pre></td></tr>
+      <tr><td>comparaison</td><td>===</td></tr>
+      <tr><td>concaténation</td><td>+</td></tr>
+      <tr><td>retour à la ligne</td><td>\n</td></tr>
+      <tr><td>tabulation</td><td>\t</td></tr>
+      <tr><td>transformer une chaîne en liste élément par élément</td><td><pre>liste = chaine.split()</pre></td></tr>
+      <tr><td>transformer une chaîne avec le séparateur - en liste</td><td><pre>liste = chaine.split("-");</pre></td></tr>
+      <tr><td>transformer une liste en chaîne contenant le séparateur - </td><td><pre>chaine = "-".join(maListe)</pre></td></tr>
+      <tr><td>recherche de "non" dans une chaine. Renvoie -1  si le caractère recherché ne se trouve pas dans la chaîne</td><td><pre>chaine.indexOf("non")</pre></td></tr>
+      <tr><td>retour à la ligne</td><td>\n</td></tr>
+      <tr><td>test si le contenu de la chaîne est numérique. Renvoie un booléen</td><td><pre>chaine.isnumeric()</pre></td></tr>
+    </table>
+
+    <p>L'utilisation d'un indice qui n'existe pas dans la chaîne lève une exception de type <em>IndexError</em>.</p>
+    <p>Il n'est pas possible de modifier un caractère d'une chaîne de la façon suivante <em>chaine[4] = "Antoine"</em>. Il s'agit en fait d'une protection des chaînes qui pourront être modifiées par instruction explicite du développeur.</p>
+
+    <p>Python utilise indistinctement " ou ' pour encadre une chaîne de caractères, et ne distingue pas les caractères isolés comme Java.</p>
+
+  <h4>Parcourir une chaîne de caractères élément par élément</h4>
+
+    <pre><code class="language-python">for(let i=0; i&lt chaine.length; i++){
+  chaine[i];
+}</code></pre>
+
+    <h4>Template literal</h4>
+
+    <p>Python permet d'inclure des expressions dans une chaîne de caractères appelées <em>template literal</em>. Pour cela, il faut définir les emplacement avec <strong>{}</strong> et utiliser la méthode <strong>format()</strong>.</p>
+    <pre><code class="language-python">{} est le fils de {}.format("Antoine", "Albert")</code></pre>
+
+    <h4>Caster une chaîne de caractères</h4>
+
+    <p>Il est possible de caster une chaîne de caractères lorsque ceux-ci s'apparentent à des nombres. Pour cela, on utilise
+      les méthodes int() et float(). Cela s'avère utile lorsqu'on demande à un utilisateur de saisir un nombre. Ce dernier est
+      nativement enregistré au format d'une chaîne de caractères qu'il faut caster pour pouvoir appliquer des opérations numériques.</p>
+
+    <pre><code class="language-python">chaine = "12"
+nombre = int(chaine)</code></pre>
+
+
+
+<!-- ===== LES LISTES ===== -->
+
+<h3 id="py_liste">Les listes</h3>
+
+  <p>Les listes contiennent des éléments dont le nombre peut varier, mais
+    l'indice du 1er élément est 0. Les listes sont compatibles avec les
+    dictionnaires en ce sens qu'une liste peut contenir des dictionnaires et
+  vice versa.</p>
+
+  <p>On peut créer une liste de la manière suivante :</p>
+  <pre><code class="language-python">liste = [element1, element2, element3]</code></pre>
+
+  <p>En Python on peut stocker des éléments de différents types dans une liste.</p>
+  <pre><code class="language-python">maListe = ["Antoine", 12, false]</code></pre>
+
+  <p>En Python, l'appel à un indice ne figurant pas dans la liste conduit à une exception de la forme <em>IndexError: list index out of range</em>.</p>
+
+  <p>Pour créer une liste vide</p>
+  <pre><code class="language-python">maListe = list()</code></pre>
+
+  <h4>Propriétés d'une liste</h4>
+
+  <table>
+    <tr><th>Propriétés</th><th>Codes</th></tr>
+    <tr><td>taille</td><td><pre>len(maListe)</pre></td></tr>
+    <tr><td>élément d'indice i</td><td><pre>maListe[i]</pre></td></tr>
+    <tr><td>dernier élément d'une liste</td><td><pre>maListe[-1]</pre></td></tr>
+    <tr><td>modifier l'élément d'indice i</td><td><pre>maListe[i] = nouvelleValeur</pre></td></tr>
+    <tr><td>indice d'un élément</td><td><pre>maListe.index(element)</pre></td></tr>
+    <tr><td>ajout d'un élément à la fin d'une liste</td><td><pre>maListe.append(element)</pre></td></tr>
+    <tr><td>ajout d'un élément au début d'une liste'</td><td><pre>maListe.unshift(element)</pre></td></tr>
+    <tr><td>ajout d'un élément à l'indice i</td><td><pre>maListe.insert(i, element)</pre></td></tr>
+    <tr><td>concaténation de maListe1 et maListe2 enregistrée dans maListe1</td><td><pre>maListe1.extend(maListe2)</pre></td></tr>
+    <tr><td>suppression du dernier élément et renvoi de sa valeur</td><td><pre>maListe.pop()</pre></td></tr>
+    <tr><td>suppression de l'élément d'indice i</td><td><pre>del maListe[i]</pre></td></tr>
+    <tr><td>suppression d'un élément défini par sa valeur, seul le 1er element de cette valeur est supprimé</td><td><pre>maListe.remove(element)</pre></td></tr>
+    <tr><td>tri d'une liste d'entiers de façon ascendante (cette fonctionnalité modifie la liste d'origine)</td><td><pre>maListe.sort()</pre></td></tr>
+    <tr><td>tri d'une liste d'entiers de façon descendante (cette fonctionnalité modifie la liste d'origine)</td><td><pre>maListe.sort(reverse=True)</pre></td></tr>
+    <tr><td>inversion des éléments d'une liste</td><td><pre>maListe.reverse()</pre></td></tr>
+  </table>
+
+  <p>Une liste vide a pour taille 0. </p>
+
+  <h4>Parcourir une liste</h4>
+
+  <p>Si on souhaite afficher une liste sans mise en forme particulière, l'utilisation de <strong>print</strong> est suffisante.</p>
+  <pre><code class="language-python">print(maListe)</code></pre>
+
+  <p>On peut également afficher les éléments de maListe les uns à la suite des autres.</p>
+
+  <pre><code class="language-python">for i in range(len(maListe)):
+    print(maListe[i])</code></pre>
+
+  <p>Python offre la possibilité de parcourir une liste sans référence aux indices, mais en utilisant un itérateur des éléments qui composent la liste. Ceci correspond à l'instruction <strong>forEach</strong> d'autres langages.</p>
+  <pre><code class="language-python">for elmt in maListe:
+    print(elmt)</code></pre>
+
+  <p>Python offre deux autres possibilités pour afficher les éléments d'une liste :</p>
+
+  <pre><code class="language-python">for value in enumerate(maListe):
+    print(value)</code></pre>
+  <pre><code class="language-python">for i, value in enumerate(maListe):
+    print("indice {}, valeur {}".format(i,value))</code></pre>
+
+
+
+  <!-- ====== UTILISATION AVANCEE DES LISTES ===== -->
+
+  <h4 id="py_liste_avance">Utilisation avancée des listes</h4>
+
+  <h4>Affectation par valeurs, affectation par référence</h4>
+
+  <p>Il existe principalement deux manières de copier des listes en Python avec des fonctionnalités différentes. L'affectation
+  par référence pointe vers l'adresse d'une liste, et donc tout changement opéré sur la copie affecte l'original. En revanche,
+  l'affectation par valeurs copie les éléments d'une liste un à un, et donc tout changement opéré sur la copie n'a aucun effet
+  sur l'original. L'affectation par référence consomme moins d'espace mémoire.</p>
+
+  <pre><code class="language-python">maListe = ["a", "b", "c"]
+copie_liste = maListe
+
+copie_liste[1] = "hello"
+print(maListe)</code></pre>
+
+  <p>Le code ci-dessus qui copie la liste par référence affiche ['a', 'hello', 'c'], alors que le code ci-dessous qui
+  copie la liste par valeurs affiche</p>
+
+  <pre><code class="language-python">maListe = ["a", "b", "c"]
+copie_liste = list(maListe)
+
+copie_liste[1] = "hello"
+print(maListe)</code></pre>
+
+  <p>Ce dernier code est équivalent à :</p>
+
+  <pre><code class="language-python">maListe = ["a", "b", "c"]
+copie_liste = list()
+for i in range(3):
+    copie_liste[i] = maListe[i]
+
+copie_liste[1] = "hello"
+print(maListe)</code></pre>
+
+  <h4>Les fonctions callback avec map</h4>
+
+  <pre><code class="language-python">def carre(x):
+    return x ** 2
+
+maListe = [1, 2, 3, 4, 5]
+print map(carre, maListe) # Affiche [1, 4, 9, 16, 25]</code></pre>
+
+  <h4>Les fonction callback avec filter</h4>
+
+  <pre><code class="language-python">def pair(x):
+    return not bool(x % 2)
+
+maListe = [1, 2, 3, 4, 5]
+print filter(pair, maListe) # Affiche [2, 4]</code></pre>
+
+  <h4>Les compréhensions de liste</h4>
+
+  <p>Les compréhensions de liste permettent de modifier les éléments d'une liste selon une structure très particulière.
+    Elles produisent des résultats semblables à ceux produits par le package Numpy mais dans le cas plus général que celui
+    des nombres. Par exemple pour mettre les éléments au carré, on procède ainsi :</p>
+  <pre><code class="language-python">nouvelleListe = [elt**2 for elt in maListe]</code></pre>
+
+  <p>Les compréhensions de liste permettent également de filtrer les éléments d'une liste suivant une condition particulière. Par exemple pour rechercher les éléments pairs, on procède ainsi :</p>
+  <pre><code class="language-python">nouvelleListe = [elt for elt in maListe if elt%2==0]</code></pre>
+
+<p>Les compréhensions de liste sont préférables aux fonctions map et filter.</p>
+
+  <h4>Conversion d'une liste en chaîne</h4>
+
+  <p>La conversion d'une liste en chaîne et inversement est nécessaire pour effectuer certains traitements sur lse chaînes
+    de caractères. En effet, les chaînes sont censées être de taille fixe et il n'existe pas de type Stringbuffer comme em Java par exemple.</p>
+
+  <p>Pour convertir maListe en maChaine avec le séparateur "," :</p>
+
+  <pre><code class="language-python">maListe = ["h", "e", "l", "l", "o"]
+maChaine = "-".join(maListe)
+print(maChaine # affiche h-e-l-l-o</code></pre>
+
+  <p>Pour convertir maListe en maChaine sans séparateur :</p>
+
+  <pre><code class="language-python">maListe = ["h", "e", "l", "l", "o"]
+maChaine = "".join(maListe)
+print(maChaine # affiche hello</code></pre>
+
+  <p>Pour convertir maChaine en maListe :</p>
+
+  <pre><code class="language-python">maListe = maChaine.split(", ")</code></pre>
+
+  <p>L'utilisation de join avec des listes de compréhension permet l'affichage de plusieurs lignes dans une même chaìne.</p>
+
+  <pre><code class="language-python">annuaire = [
+  (1, "antoine"),
+  (5, "celine"),
+  (6, "herve")
+]
+
+print("\n".join(["%d pour %s" % (nbre, nom) for nbre, nom in annuaire]))</code></pre>
+
+  <p>ce qui affiche : </p>
+  <pre><code class="language-svg">1 pour antoine
+5 pour celine
+6 pour herve</code></pre>
+
+
+
+
+<!-- ===== LES DICTIONNAIRES ===== -->
+
+<h3 id="py_dictionnaire">Les dictionnaires</h3>
+
+  <p>Les dictionnaires sont constitués d'un ensemble de clés-valeurs, dans lequel il n'y a aucun ordre.
+  Leur structure est similaire à celle d'un format JSON.</p>
+  <pre><code class="language-python">dico ={
+  "nom" : "Antoine",
+  "prenom" : "Hervé"
+}</code></pre>
+
+  <p>Pour créer un dictionnaire vide :</p>
+  <pre><code class="language-python">dico = dict()</code></pre>
+
+  <p>ou également :</p>
+  <pre><code class="language-python">dico = {}</code></pre>
+
+  <p>Pour accéder à un élément du dictionnaire, il ne faut plus appeler son
+    indice qui n'existe pas mais appeler la clé de la façon suivante :</p>
+
+  <pre><code class="language-python">dico["nom"]</code></pre>
+
+  <p>Pour ajouter un élément à la fin d'un dictionnaire, il suffit de créer cet élément :</p>
+  <pre><code class="language-python">dico["lieuNaissance"] = "Lausanne";</code></pre>
+
+  <h4>Parcourir un dictionnaire</h4>
+
+  <pre><code class="language-python">for cle in dico.keys():
+  print(cle)
+
+for valeur in dico.values():
+  print(valeur)
+
+for cle, valeur in dico.items():
+    print(f"Clé {cle} - Valeur {valeur}")</code></pre>
+
+  <h4>Propriétés d'un dictionnaire</h4>
+
+  <table>
+    <tr><th>Propriétés</th><th>Codes</th></tr>
+    <tr><td>taille</td><td><pre>len(dico)</pre></td></tr>
+    <tr><td>affichage de tous les éléments sans format spécifique</td><td><pre>dico.items()</pre></td></tr>
+    <tr><td>modifier l'élément de clé key</td><td><pre>dico["key"] = "value"</pre></td></tr>
+    <tr><td>ajout d'un élément</td><td><pre>dico["key"] = "value"</pre></td></tr>
+    <tr><td>suppression d'un élément défini par sa clé sans renvoi de sa valeur</td><td><pre>del dico["key"]</pre></td></tr>
+    <tr><td>suppression d'un élément défini par sa clé et renvoi de sa valeur</td><td><pre>dico.pop("key")</pre></td></tr>
+  </table>
+
+  <h4>Définir les attributs d'un objet à partir d'un dictionnaire</h4>
+
+  <p>Dans le constructeur d'une classe, pour instancier des objets dont les attributs portent le même nom que les clés d'un dictionnaire :</p>
+
+  <pre><code class="language-python">def __init__(self, dico):
+  for attr_name, attr_value in dico.items():
+    setattr(self, attr_name, attr_value)</code></pre>
+
+<h4>Conversion d'un dictionnaire en chaìne</h4>
+
+  <p>De la même façon qu'avec des listes, on peut transformer un
+    dictionnaire en chaìne en spécifiant un séparateur de valeurs
+    (attention, seules les clés seront utilisées) :</p>
+
+  <pre><code class="language-python">dico = {'name' : 'daniel', 'age'
+    : '30'}
+chaine = '#'.join(dico)</code></pre>
+
+  <p>On obtiendra alors comme résultat : name#age</p>
+
+  <h4>Utiliser la méthode setdefault pour afficher la valeur d'une clé</h4>
+
+  <p>La méthode setdefault permet d'éviter de lever une exception dans le
+    cas où la clé consultée n'existe pas dans le dictionnaire. Dans ce
+    cas la clé est créée et l'élément en 2ème position est la valeur
+    attribuée à cette clé. Cette méthode est donc à privilégier
+    systématiquement lors de l'appel d'une valeur. Dans l'exemple ci-dessous
+    le code affiche Ford lorsqu'on demande la marque et affiche blanche
+    lorsqu'on demande la couleur qui n'existait pas auparavant. Notons que le
+    dictionnaire a bien été complété d'un élément.</p>
+
+  <pre><code class="language-python">dico = {
+  'marque': 'Ford',
+  'modele': 'Fiesta'
+}
+
+print(dico.setdefault('marque', 'Citroen')
+print(dico.setdefault('couleur', 'blanche')</code></pre>
+
+
+<!-- ===== LES TABLEAUX ===== -->
+
+<h3 id="py_tableau">Les tableaux</h3>
+
+  <p>Les tableaux (appelés tuples en Python) contiennent des éléments dont le nombre de bouge pas. On peut toutefois changer ces éléments. Un tableau est considéré comme un type élémentaire en Python.</p>
+
+  <p>On peut créer un tableau de la manière suivante :</p>
+  <pre><code class="language-python">tab = (element1, element2)</code></pre>
+
+  <p>L'indice du 1er élément d'un tableau est 0. Attention, on ne modifie pas les éléments d'un tuple, qui sont par
+  définition immuables.</p>
+
+  <h4>Propriétés d'un tableau</h4>
+
+  <table>
+    <tr><th>Propriétés</th><th>Codes</th></tr>
+    <tr><td>taille</td><td><pre>len(tab)</pre></td></tr>
+    <tr><td>élément d'indice i</td><td><pre>tab[i]</pre></td></tr>
+    <tr><td>dernier élément d'une liste</td><td><pre>tab[-1]</pre></td></tr>
+    <tr><td>indice d'un élément</td><td><pre>tab.index(element)</pre></td></tr>
+  </table>
+
