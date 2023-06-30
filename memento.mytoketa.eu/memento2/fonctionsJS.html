@@ -1,0 +1,13 @@
+<script>
+  function affichageConditionnel(bouton, id) {
+    var div = document.getElementById(id);
+    if(div.style.display=="none") { // si le div est masqué, on l'affiche et on change le contenu du bouton
+        div.style.display = "block";
+        bouton.innerHTML = "-";
+    } else { // s'il est visible, on le masque et on change le contenu du bouton
+        div.style.display = "none";
+        bouton.innerHTML = "+";
+    }
+
+  
+</script>
