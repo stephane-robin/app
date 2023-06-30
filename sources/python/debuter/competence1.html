@@ -1,0 +1,95 @@
+<h3>Un langage interprété</h3>
+
+<p>Python est un langage de programmation <em>interprété</em> dont la philosophie repose sur la simplicité du code et l'implémentation de bonnes pratiques. Rien n'est fait pour empêcher le programmeur de mener une action, même si celle-ci semble inappropriée.
+Dans un langage interprété, le code source est traduit pas à pas par un logiciel appelé interpréteur, qui récupère des données d'entrée pour fournir des données de sortie. Le code source n'est pas transformé en code binaire comme pour un langage compilé.</p>
+<p>Le principal avantage est que le code source d'un langage interprété peut fonctionner sur tout ordinateur. Le principal inconvénient est qu'un langage interprété est plus lent qu'un langage compilé,
+    qui peut réutiliser certaines parties de code préalablement compilées.</p>
+
+<p>Grâce à ses bibliothèques performantes et régulièrement mises à jour, Python est particulièrement utilisé dans les environnements scientifiques, pour la manipulation de données et pour l'intelligence artificielle.</p>
+<!-- TO ATTENTION TAILLE IMAGE A MODIFIER -->
+<img src="../../images/general/python.jpg" width="100px" style="margin-left:50%;border-radius:10%;">
+
+
+
+<h3>Environnement de développement</h3>
+
+<p>On peut exécuter un programme Python en utilisant le Terminal d'un ordinateur (sous Linux et MacOS), mais il est plus pratique d'utiliser un éditeur de texte tel que <em>Sublim Text</em> ou <em>NotePad++</em> qui colorient automatiquement le code en fonction du langage choisi et proposent une auto-complétion des instructions. 
+    Il est encore plus efficace d'utiliser un Environnement de Développement Intégré IDE tel que <em>PyCharm</em> ou <em>JetBeans</em> qui proposent en plus une recherche passive des erreurs de frappe, un debugger (aide pour corriger les bugs)
+    et le paramétrage des outils de versioning (pour conserver l'historique du code).</p>
+
+<p>Le debugger est un outil particulièrement intéressant, qui propose non seulement des commentaires relatifs aux erreurs de code, 
+    des solutions possibles, mais également la possibilité d'exécuter le code de point d'arrêt en point d'arrêt pour connaître l'état des 
+    variables du programme à chacune des lignes de son exécution, ces lignes ayant été préalablement définies par le développeur.</p>
+
+
+<p>Un outil de versioning tel que <em>Git</em> est également très utile puisqu'il permet de conserver un historique des différentes versions de code, de revenir en arrière 
+    en choisissant une version plutôt qu'une autre si le code actuel n'est pas satisfaisant. Par ailleurs, il permet de travailler sur des copies de code 
+    plutôt que sur des originaux et de regrouper le travail de toute une équipe en évitant les conflits de code.</p>
+
+<p>Python est souvent installé nativement sur votre ordinateur, mais sa version permet uniquement de faire fonctionner certaines applications de votre machine.
+    Elle est indépendante de l'éditeur de texte ou de l'Environnement de Développement Intégré que vous utilisez pour exécuter du Python. De ce fait,
+ l'utilisation du langage Python pour exécuter du code nécessite en général que l'utilisateur paramètre sur son ordinateur le chemin d'accès à l'interpréteur Python.</p>
+
+<p>Lorsqu'on débute en Python, ce paramétrage peut s'avérer laborieux et décourageant. C'est pour cette raison que nous conseillons, pour débuter en Python, de vous consacrer uniquement à la rédaction du code 
+    au lieu de passer du temps à installer et à configuration un Environnement de Développement fonctionnel.
+    Nous vous proposons ainsi d'utiliser un interpréteur Python en ligne.</p>
+<p>Il suffit maintenant de vous rendre sur l'un des trois sites ci-dessous en cliquant sur les liens correspondant. L'interface graphique qui se présente devant vos yeux est composée d'une partie consacrée à l'écriture du code et
+    d'une console dans laquelle apparaissent les résultats lors de l'exécution du code. </p>
+<ul>
+    <li style="margin-bottom:5%;">avec <a href="https://www.onlinegdb.com/online_python_compiler" target="_blank">OnlineGDB compiler</a>, l'interface graphique ressemble à ceci :</li>
+    <img src="../../images/python/gdbcompiler.png"  alt="python online gdb compiler" width="60%" style="margin-bottom:10%;">
+
+    <li style="margin-bottom:5%;">avec <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank">Programiz compiler</a>, l'interface graphique ressemble à ceci : </li>
+    <img src="../../images/python/programizcompiler.png"  alt="python online programiz" width="90%" style="margin-bottom:10%;">
+
+    <li style="margin-bottom:5%;">avec <a href="https://console.basthon.fr/" target="_blank">Basthon console</a>, l'interface graphique ressemble à ceci : </li>
+    <img src="../../images/python/basthoncompiler.png"  alt="python online Basthon" width="100%">
+
+</ul>
+
+<p>Les interpréteurs en ligne sont très pratiques, mais ont principalement deux inconvénients. Ils peuvent être lents suivant 
+    le traffic occasionné sur le site au moment de l'utilisation, et ils n'acceptent pas d'affichage en sortie avec une fenêtre indépendante
+     du navigateur utilisé. Il devient dans ce cas compliqué de faire des dessins ou de créer des fenêtres pour une application.</p>
+
+<p>Nous vous conseillons donc de démarrer avec un interpréteur Python en ligne, puis de rapidement passer à un éditeur de texte ou un environnement de développement. Pour 
+    cela, vous aurez besoin d'installer une version récente de Python sur votre ordinateur, puis vous devrez installer et configurer un outil tel que <em>PyCharm</em>, <em>Sublim Text</em>, <em>Netbeans</em>, <em>Visual Studio Code</em> ou
+    <em>Atom</em>. En revanche, si vous utilisez déjà un IDE, c'est parfait, ne changez rien.</p>
+
+
+
+
+<h3>Exécuter son premier programme</h3>
+
+<p>L'exécution d'un programme se réalise
+    avec la touche <em>Run</em> ou <em>Exécuter</em> sur les interpréteurs en ligne que vous venez de découvrir.</p>
+
+<p>Il est esentiel de vérifier le bon fonctionnement d'un code simple avant de commencer le prochain chapitre.</p>
+
+<div class="exerciceApplication">
+    <p><strong>A vous de jouer : </strong>par exemple, pour afficher "Hello world", exécutez le code suivant dans votre interpréteur en ligne :</p>
+    <pre><code class="language-python">print("Hello world")</code></pre>
+    <p>Petit rappel : la touche <em>Run</em> ou <em>Exécuter</em></p>
+</div>
+
+<p>Si tout fonctionne normalement, vous devez voir s'afficher à l'écran <pre><code class="language-python">Hello world</code></pre></p>
+
+<p>Lorsque vous exécutez votre programme directement sur votre machine au lieu d'utiliser un interpréteur en ligne, 
+    il peut être utile de rajouter à la première ligne de votre code un shebang qui indique à l'ordinateur où se 
+    trouve dans votre machine la version du langage Python que vous souhaitez utiliser, comme dans l'exemple ci-dessous
+     où Python se trouve dans le répertoire bin :</p>
+
+<pre><code class="language-python">#!/usr/bin/python3</code></pre>
+
+<p>Pour enregistrer votre code, il faut penser à lui donner l'extention .PY, comme par exemple monFichier.py</p>
+
+
+
+<!-- QUIZ -->
+<div style="height:150px;padding:2%;padding-bottom:5%;">
+    <div class="ball">
+        <p style="color:white;margin-left:15%;margin-top:15%;font-weight:bold;font-size:1.9em;">Quiz</p>
+    </div>
+</div>
+
+<a href="quizJS.php?niveau=python&chapitre=debuter&page=quiz1" style="margin-left:45%;margin-top:5%;">Accéder au Quiz</a>
+

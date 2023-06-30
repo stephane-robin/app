@@ -1,0 +1,178 @@
+<form style="margin-left:3%; margin-top:1%; margin-bottom:1%;" action="" method="post">
+
+    <!-- QUESTION 1 -->
+    <h4>Question 1 :</h4>
+    <p>une condition sert à :</p>
+    
+    <input style="margin-top:2%;" type="radio" id="q1r1" name="q1" value=False>
+    <label style="margin-left:1%;">uniquement changer le type d'une variable</label><br/>
+    
+    <input type="radio" id="q1r2" name="q1" value=False>
+    <label style="margin-left:1%;">faire ressortir les erreurs d'un code</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q1r3" name="q1" value=True>
+    <label style="margin-left:1%;" for="q1r3">demander au programme de prendre une décision</label><br/>
+    
+    
+    <!-- QUESTION 2 -->
+    <h4>Question 2 :</h4>
+    <p>quel est l'affichage lors de l'exécution du code suivant :</p>
+    <pre><code class="language-python">nom = "Laurine"
+    if nom == "Alice":
+        print("bonjour")
+    else:
+        print("au revoir")</code></pre>
+    
+    <input style="margin-top:2%;" type="radio" id="q2r1" name="q2" value=False>
+    <label style="margin-left:1%;">bonjour</label><br/>
+    
+    <input type="radio" id="q2r2" name="q2" value=True>
+    <label style="margin-left:1%;">au revoir</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q2r3" name="q2" value=False>
+    <label style="margin-left:1%;">SyntaxError</label><br/>
+    
+    
+    <!-- QUESTION 3 -->
+    <h4>Question 3 :</h4>
+    <p>quel est l'affichage lors de l'exécution du code :</p>
+    <pre><code class="language-python">print(12 &lt 5)</code></pre>
+    
+    <input style="margin-top:2%;" type="radio" id="q3r1" name="q3" value=True>
+    <label style="margin-left:1%;">False</label><br/>
+    
+    <input type="radio" id="q3r2" name="q3" value=False>
+    <label style="margin-left:1%;">True</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q3r3" name="q3" value=False>
+    <label style="margin-left:1%;">7</label><br/>
+    
+    
+    <!-- QUESTION 4 -->
+    <h4>Question 4 :</h4>
+    <p>quel est l'affichage lors de l'exécution du code :</p>
+    <pre><code class="language-python">nom = "May"
+print(nom == "Benjamine")</code></pre>
+    
+    <input style="margin-top:2%;" type="radio" id="q4r1" name="q4" value=False>
+    <label style="margin-left:1%;">True</label><br/>
+    
+    <input type="radio" id="q4r2" name="q4" value=True>
+    <label style="margin-left:1%;">False</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q4r3" name="q4" value=False>
+    <label style="margin-left:1%;">Benjamine</label><br/>
+    
+    
+    <!-- QUESTION 5 -->
+    <h4>Question 5 :</h4>
+    <p>quel est l'affichage lors de l'exécution du code :</p>
+    <pre><code class="language-python">prenom = "Morgane"
+print(prenom != "Kelsey")</code></pre>
+    <p>sert à inverser les valeurs des variables <strong>x</strong> et <strong>y</strong> :</p>
+    
+    <input style="margin-top:2%;" type="radio" id="q5r1" name="q5" value=False>
+    <label style="margin-left:1%;">NameError : prenom is not defined</label><br/>
+    
+    <input type="radio" id="q5r2" name="q5" value=True>
+    <label style="margin-left:1%;">True</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q5r3" name="q5" value=False>
+    <label style="margin-left:1%;">False</label><br/>
+    
+    
+    <!-- QUESTION 6 -->
+    <h4>Question 6 :</h4>
+    <p>quelle est la valeur de x à l'exécution du code suivant :</p>
+    <pre><code class="language-python">a = 4
+    b = 7
+        
+    if a > 0 and a - b > 0:
+        x = 10
+    else:
+        x = 20</code></pre>
+    
+    <input style="margin-top:2%;" type="radio" id="q6r1" name="q6" value=False>
+    <label style="margin-left:1%;">10</label><br/>
+    
+    <input type="radio" id="q6r2" name="q6" value=True>
+    <label style="margin-left:1%;">20</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q6r3" name="q6" value=False>
+    <label style="margin-left:1%;">0</label><br/>
+    
+    
+    <!-- QUESTION 7 -->
+    <h4>Question 7 :</h4>
+    <p>quel est l'affichage lors de l'exécution du code :</p>
+    <pre><code class="language-python">a = 11
+    b = 8
+            
+    if a &lt 0 or a - b > 0:
+        print("ok")
+    else:
+        print("ko")</code></pre>
+    
+    <input style="margin-top:2%;" type="radio" id="q7r1" name="q7" value=True>
+    <label style="margin-left:1%;">ok</label><br/>
+    
+    <input type="radio" id="q7r2" name="q7" value=False>
+    <label style="margin-left:1%;">ko</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q7r3" name="q7" value=False>
+    <label style="margin-left:1%;">None</label><br/>
+    
+    
+    <!-- QUESTION 8 -->
+    <h4>Question 8 :</h4>
+    <p>le code suivant va-t-il afficher "bonjour" :</p>
+    <pre><code class="language-python">nom = "Gabriel"
+if nom == "Alice":
+    print("accès autorisé")
+print("bonjour")</code></pre>
+
+    <input style="margin-top:2%;" type="radio" id="q8r1" name="q8" value=False>
+    <label style="margin-left:1%;">non</label><br/>
+    
+    <input type="radio" id="q8r2" name="q8" value=True>
+    <label style="margin-left:1%;">oui</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q8r3" name="q8" value=False>
+    <label style="margin-left:1%;">le code affiche SyntaxError</label><br/>
+    
+    
+    <!-- QUESTION 9 -->
+    <h4>Question 9 :</h4>
+    <p>le code suivant va-t-il afficher "accès autorisé" :</p>
+    <pre><code class="language-python">nom = "Gabriel"
+if nom == "Alice":
+    print("accès autorisé")
+print("bonjour")</code></pre>
+    
+    <input style="margin-top:2%;" type="radio" id="q9r1" name="q9" value=False>
+    <label style="margin-left:1%;">oui</label><br/>
+    
+    <input type="radio" id="q9r2" name="q9" value=True>
+    <label style="margin-left:1%;">non</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q9r3" name="q9" value=False>
+    <label style="margin-left:1%;">le code affiche SyntaxError</label><br/>
+    
+    
+    <!-- QUESTION 10 -->
+    <h4>Question 10 :</h4>
+    <p>l'instruction <code class="language-python">elif</code> est identique à <code class="language-python">else if</code> :</p>
+    
+    <input style="margin-top:2%;" type="radio" id="q10r1" name="q10" value=True>
+    <label style="margin-left:1%;">vrai</label><br/>
+    
+    <input type="radio" id="q10r2" name="q10" value=False>
+    <label style="margin-left:1%;">faux</label><br/>
+    
+    <input style="margin-bottom:4%;" type="radio" id="q10r3" name="q10" value=False>
+    <label style="margin-left:1%;">uniquement dans le cas des boucles imbriquées</label><br/>
+    
+    <button class='bouton' name="validerQuizz" style="margin-left:1%; margin-top:4%;" type='submit'>Valider</button>
+    
+    </form>
+    

@@ -1,0 +1,301 @@
+<p class="blink_me">Pour exécuter les codes de la page, voici le lien vers la console : <a href="trinket.php" target="_blank">Console</a></p>
+
+<p>Il est important de pouvoir communiquer avec l'ordinateur, pour lire des résultats ou donner des informations au programme.
+    Par exemple lorsque vous jouez à votre jeu préféré sur votre smartphone, vous effectuez cliquez sur votre écran pour indiquer 
+    au programme vos choix, vous saisissez également votre identifiant au clavier, puis vous observez à l'écran les progrès de 
+    votre personnage.</p>
+
+<h3>Demander une saisie clavier</h3>
+
+<p>Afin que le programme puisse tenir compte des données de l'utilisateur, il est nécessaire de pouvoir récupérer ce que celui-ci tape au clavier. Une question posée à l'utilisateur et qui appelle une réponse de sa part, doit être insérée dans une instruction <strong>input</strong>. Il est inutile dans ce cas d'utiliser l'affichage de la question avec <strong>print</strong>. Ainsi, le code suivant affiche la question <em>Comment vous appelez-vous  ?</em> et attend une réponse : </p>
+
+    <pre><code class="language-python">input("Comment vous appelez-vous ?")</code></pre>
+
+<p>L'interpréteur Python est maintenant en pause jusqu'à ce que l'utilisateur saisisse au clavier sa réponse puis valide avec la touche <em>Entrée</em>.</p>
+
+<p>Attention, cette réponse est perdue si elle n'est pas affectée à une variable. Ainsi, le code ci-dessus doit être modifié de la façon suivante pour être utile :</p>
+
+<pre><code class="language-python">nom = input("Comment vous appelez-vous ?")</code></pre>
+
+<p>Maintenant seulement, la valeur saisie au clavier par l'utilisateur sera réutilisable lorsqu'on appelle la variable <strong>nom</strong>, commme par exemple avec le code ci-dessous :</p>
+
+<pre><code class="language-python">print(nom)</code></pre>
+
+<div class="exerciceApplication">
+<p><strong>A vous de jouer :</strong> demandez à l'utilisateur son âge puis affichez la valeur saisie en utilisant une variable <strong>age</strong>.</p>
+    <div>
+        <p><button class='bouton' type="submit" onclick="affichageConditionnel(this,'solution1');"> Voir la solution </button></p>
+    </div>
+
+    <div id="solution1" style="display:none;">
+        <pre><code class="language-python">age = input("quel est votre âge ?")
+print(age)</code></pre>
+</div>
+</div>
+
+
+
+<!-- LE TYPE PAR DEFAUT SAISI AU CLAVIER -->
+<h3>Le type par défaut saisi au clavier</h3>
+
+<p>Tout ce que saisit l'utilisateur au clavier est enregistré à l'aide de l'instruction <strong>input</strong> en tant que chaîne de caractères (texte), même un nombre. Essayez pour vous en convaincre le script suivant :</p>
+
+<pre><code class="language-python">age = input("quel est ton âge ? ")
+print(type(age))</code></pre>
+
+<p>Dans le script ci-dessus la variable <strong>age</strong> est de type <em>class 'str'</em>, c'est à dire chaîne de caractères. L'ordinateur considère
+que le nombre saisi est en fait du texte.</p>
+
+<p>Mais alors comment faire des calculs avec du texte ? &#128531;</p>
+
+<p>Afin de pouvoir faire subir des opérations à une variable, il faut que celle-ci soit un nombre,
+    donc principalement de type <strong>int</strong> (entier) ou de type <strong>float</strong> (réel).
+    Or, lorsqu'un utilisateur saisit un nombre au clavier, celui-ci est conservé en tant que <strong>str</strong> (chaîne de caractères).
+    Il faut donc auparavant le transformer en nombre pour pouvoir l'utiliser. On parle de caster
+    une variable pour dire qu'on lui change de type. Pour cela, il suffit d'utiliser devant l'instruction <strong>input</strong>,
+l'instruction <strong>int()</strong> ou <strong>float()</strong>, comme dans le code suivant :</p>
+
+<pre><code class="language-python">age = int(input("quel est ton âge ? "))
+print(type(age))</code></pre>
+
+<p>Attention toutefois, on ne peut transformer une chaîne de caractères en nombres que si celle-ci est composée exclusivement de nombres. 
+    Ainsi, l'instruction <strong>int("bonjour")</strong> entraînera une erreur et ne sera pas transformé en entier. De même, 
+    l'instruction <strong>int("12Hervé")</strong> entraînera une erreur et ne sera pas transformé en entier.</p>
+
+<div class=fieldsetDefinition>
+<h4>A RETENIR ...</h4> 
+<p>"2" est une chaîne de caractères composée du symbole <em>deux</em> qu'on ne peut pas soustraire, ou additionner, ... En revanche 2 est un 
+    nombre auquel on peut faire subir des opérations. Pour s'en convaincre, essayez l'instruction suivante.</p>
+
+<pre><code class="language-python">print("2"+"1") # affiche 21
+print(2+1) # affiche 3</code></pre>
+</div>
+
+<div class="exerciceApplication">
+    <p><strong>A vous de jouer : </strong>imaginons que le programme souhaite connaître l'âge de l'utilisateur puis que plus tard, il souhaite lui rajouter un an (lors de son anniversaire).
+        Ecrire le programme qui effectue ces instructions.</p>
+
+    <div>
+        <p><button class='bouton' type="submit" onclick="affichageConditionnel(this,'solution3');"> Voir la solution </button></p>
+    </div>
+
+    <div id="solution3" style="display:none;">
+
+        <p>L'instruction suivante ne renverrai aucune erreur
+            mais conduirait à un résultat absurde :</p>
+
+        <pre><code class="language-python">age = input("quel est votre âge ?")
+age = age + 1
+print(age)</code></pre>
+
+        <p>qui affiche si l'utilisateur saisit la valeur 18 en réponse</p>
+
+        <pre><code class="language-python">>>> 181</code></pre>
+
+        <p>Dans ce cas, la valeur 18 saisie possède par défaut le type str et lorsqu'on lui rajoute 1,
+            ce dernier se place à la suite de 18 et n'effectue aucun calcul. On parle de concaténation.</p>
+
+        <p>Pour corriger ce problème et effectuer une addition, il faut utiliser le code suivant :</p>
+
+        <pre><code class="language-python">age = int(input("quel est votre âge ?"))
+age = age + 1
+print(age)</code></pre>
+
+        <p>qui fournit le résultat escompté, à savoir :</p>
+
+        <pre><code class="language-python">>>> 19</code></pre>
+    </div>
+</div>
+
+<p>Il existe en Python un moyen de vérifier qu'une valeur saisie peut être transformée en entier, à l'aide de
+l'instruction <strong>isnumeric()</strong>.</p>
+
+<div class="exerciceApplication">
+    <p><strong>A vous de jouer : </strong>essayez le code ci-dessous pour bien comprendre ce que teste l'instruction <strong>isnumeric()</strong>.</p>
+
+<pre><code class="language-python">print("22".isnumeric()) # affiche True
+print("bonjour".isnumeric()) # affiche False, bonjour est une chaîne de caractères
+print("2.45".isnumeric()) # affiche False, 2.45 est un nombre réel
+print("-3".isnumeric()) # affiche False, -3 est un nombre entier négatif</code></pre>
+
+</div>
+
+
+<h3>Découvrir les chaînes de caractères</h3>
+
+<p>Un texte est composé de caractères. En informatique, on utilise le terme chaîne de caractères à
+    la place de texte et on numérote chaque caractère en partant de l'indice 0.</p>
+
+    <p>Python associe à une
+    chaîne de caractères le type <strong>str</strong> pour <em>string</em>.</p>
+
+<p>Il est facile de repérer la position de chaque caractère d'une chaîne grâce à son indice, comme on peut le
+voir dans l'exemple suivant :</p>
+
+<pre><code class="language-python">maChaine = "bonjour"
+
+print(maChaine[2])  # affiche n</code></pre>
+
+<div class=fieldsetDefinition>
+<h4>A RETENIR ...</h4> 
+<p>Dans la chaîne de caractères <em>bonjour</em>, la lettre <em>b</em> a pour indice 0 et non pas 1, c'est à dire qu'elle se trouve à la position 0.</p>
+</div>
+
+
+
+
+
+<!-- CONCATENATION -->
+<h3>La concaténation</h3>
+
+<p>Dans le cas d'une chaîne de caractères, l'opérateur <strong>+</strong> ne sert pas à additionner, mais à coller un texte à la suite d'un autre. 
+    On parle de concaténation pour cette opération. Par exemple </p>
+
+<pre><code class="language-python">print("Les oranges sont " + "des fruits")</code></pre>
+
+<p>affichera <em>Les oranges sont des fruits</em> sans procéder à aucun calcul.
+
+
+    <div class="exerciceApplication">
+<p><strong>A vous de jouer : </strong></p>
+<p>Pour bien comprendre la différence entre l'addition et la concaténation, exécutez le code suivant :</p>
+<pre><code class="language-python">a = 12
+b = 15
+print(a + b) # addition de nombres, affiche 27
+
+a = "12"
+b = "15"
+print(a + b) # concaténation de caractères, affiche "1215"</code></pre>
+</div>
+
+
+
+
+
+<!-- TRANSFORMER DES CHAINES -->
+<h3>Des méthodes pour transformer les chaînes</h3>
+
+<table>
+    <tr><th>méthode</th><th>signification</th></tr>
+    <tr><td><pre><code class="language-python">len(maChaine)</code></pre></td><td>renvoie le nombre de caractères de <strong>maChaine</strong></td></tr>
+    <tr><td><pre><code class="language-python">maChaine.find("a")</code></pre></td><td>renvoie la 1ère position de la lettre <em>a</em> dans <strong>maChaine</strong>, renvoie -1 si <strong>maChaine</strong> ne contient pas la lettre <em>a</em></td></tr>
+    <tr><td><pre><code class="language-python">maChaine.upper()</code></pre></td><td>renvoie une chaîne correspondant à <strong>maChaine</strong> en majuscules, <em>attention</em> la variable <strong>maChaine</strong> n'est pas modifiée</td></tr>
+    <tr><td><pre><code class="language-python">maChaine.capitalize()</code></pre></td><td>renvoie une chaîne correspondant à <strong>maChaine</strong> en minuscules avec la 1ère lettre en majuscule, <em>attention</em> la variable <strong>maChaine</strong> n'est pas modifiée</td></tr>
+    <tr><td><pre><code class="language-python">maChaine.count("a")</code></pre></td><td>renvoie le nombre de fois que la lettre <em>a</em> apparaît dans <strong>maChaine</strong></td></tr>
+    <tr><td><pre><code class="language-python">maChaine.replace("a", "b")</code></pre></td><td>renvoie une chaîne correspondant à <strong>maChaine</strong> dans laquelle les <em>a</em> ont été remplacés par des <em>b</em>, <em>attention</em> la variable <strong>maChaine</strong> n'est pas modifiée</td></tr>
+    <tr><td><pre><code class="language-python">maChaine.isnumeric()</code></pre></td><td>renvoie <strong>True</strong> si <strong>maChaine</strong> peut être transformée en nombre entier, <strong>False</strong> sinon</td></tr>
+</table>
+
+<div class="exerciceApplication">
+    <p><strong>A vous de jouer :</strong> utilisez les méthodes ci-dessus pour afficher à partir de la variable <strong>maChaine = "la neige se transforme en névé l'été"</strong>
+    <ul>
+        <li>lo neige se tronsforme en névé l'été</li>
+        <li>LA NEIGE SE TRANSFORME EN NEVE L'ETE</li>
+        <li>La neige se transforme en névé l'été</li>
+        <li>le nombre de lettres e dans maChaine</li>
+        <li>la 1ère position de la lettre s dans maChaine</li>
+        <li>la longueur de maChaine</li>
+    </ul>
+    </p>
+    <div>
+        <p><button class='bouton' type="submit" onclick="affichageConditionnel(this,'solution5');"> Voir la solution </button></p>
+    </div>
+
+    <div id="solution5" style="display:none;">
+        <p>Solution :</p>
+        <pre><code class="language-python">print(maChaine.replace('a', 'o'))
+print(maChaine.upper())
+print(maChaine.capitalize())
+print(maChaine.count('e'))
+print(maChaine.find('s'))
+print(len(maChaine))</code></pre>
+    </div>
+</div>
+
+<p>Les méthodes ci-dessus ne modifient pas les chaînes de caractères, mais construisent une nouvelle 
+    chaîne à partir de la chaîne de départ. Ainsi, </p>
+    <pre><code class='language-python'>chaine = 'hello world'
+nouvelleChaine = chaine.capitalize()
+    
+print(chaine) # renvoie 'hello world'
+print(nouvelleChaine)  # renvoie 'Hello world'</code></pre>
+
+<p>Il est toutefois facile de modifier une chaîne de caractères en s'assurant de stocker le résultat 
+    obtenu dans la variable de départ, comme dans l'exemple ci-dessous :</p>
+
+    <pre><code class='language-python'>chaine = 'hello world'
+chaine = chaine.capitalize()
+        
+print(chaine) # renvoie 'Hello world'</code></pre>
+
+
+
+
+<!-- EXTRAIRE UNE CHAINE -->
+<h3>Extraire une chaîne</h3>
+
+<p>Il est parfois utile d'extraire une chaîne de caractères à partir d'une chaîne de caractères. L'instruction
+    <strong>maChaine[3:6]</strong> extrait les caractères de <strong>maChaine</strong> dont les
+    indices sont compris entre 3 et 5 inclus. <em>Attention</em>, de la même façon que pour la boucle
+    <strong>for</strong>, ou pour les listes (que nous verrons plus tard), l'indice du dernier
+    terme n'est pas pris en compte.</p>
+
+<div class="exerciceApplication">
+    <p><strong>A vous de jouer : </strong> exécutez le code suivant pour bien comprendre ce qui
+        est extrait de <strong>maChaine</strong></p>
+
+    <pre><code class="language-python">maChaine = "la neige fond en été"
+print(maChaine)
+print(maChaine[3:6])  # affiche de l'indice 3 à l'indice 5, "nei"
+print(maChaine[3:])  # affiche de l'indice 3 à la fin, "neige fond en été"
+print(maChaine[:4])  # affiche du début à l'indice 3, "la n"
+print(maChaine[-1])  # affiche "é"
+print(maChaine[-5])  # affiche "n"</code></pre>
+</div>
+
+<p>On est maintenant capable d'extraire une partie d'une chaîne, de la concaténer avec une autre partie
+    de cette chaîne. On devrait donc pouvoir inverser les lettres d'un mot à l'aide d'un programme.</p>
+
+
+
+
+
+
+
+
+
+
+
+<h3>Entraînement</h3>
+
+<div class="exerciceApplication">
+    <p><strong>Exercice 1 : </strong>écrire un programme qui demande à l'utilisateur une 
+    température en degrés Celsius et la convertit en Fahrenheit sachant que F = 1.8 * C + 32</p>
+</div>
+
+<div class="exerciceApplication">
+    <p><strong>Exercice 2 : </strong>écrire un programme qui demande à l'utilisateur de saisir 5 notes au clavier et 
+    qui calcule puis affiche la moyenne obtenue.</p>
+</div>
+
+<h3>Défi</h3>
+
+<div class="exerciceApplication">
+    <p><strong>A vous de jouer :</strong> écrivez un script qui demande un nombre à l’utilisateur (indication pensez à <strong>input</strong>), puis
+        affiche <strong>True</strong> si le terme saisi par l'utilisateur peut être transformé en entier,
+        <strong>False</strong> si le terme saisi ne peut pas être transformé en entier (indication, pensez à <strong>isnumeric()</strong>).
+        Finalement, le code affiche "[nombre] fois 4 est égal à " (où [nombre] représente la valeur du nombre saisi), suivi du résultat de
+        cette multiplication. Par exemple si la valeur saisie est 3, le code affichera "True" puis "3 fois 4 est égal à 12".</p>
+    <div>
+        <p><button class='bouton' type="submit" onclick="affichageConditionnel(this,'solution10');"> Voir la solution </button></p>
+    </div>
+
+    <div id="solution10" style="display:none;">
+        <pre><code class="language-python">nombre = input("veuillez saisir un nombre : ")
+print(nombre.isnumeric())
+
+# on transforme la valeur saisie en entier afin d'effectuer le calcul
+nombre = int(nombre)
+print(nombre, "fois 4 est égal à", nombre * 4)</code></pre>
+    </div>
+</div>
